@@ -4,5 +4,11 @@
 <dict>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Tryb wieloosobowy wymaga dostępu do sieci lokalnej, aby gracze mogli się połączyć bez internetu.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_rutedu._tcp</string>
+	</array>
 </dict>
 </plist>

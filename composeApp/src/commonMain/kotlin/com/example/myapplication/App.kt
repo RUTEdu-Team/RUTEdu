@@ -30,12 +30,19 @@ import com.example.myapplication.components.NavTab
 import com.example.myapplication.data.SubjectRepository
 import com.example.myapplication.locale.AppLocaleProvider
 import com.example.myapplication.locale.customAppLocale
+import com.example.myapplication.multiplayer.model.MultiplayerMode
 import com.example.myapplication.screens.ConfigListScreen
 import com.example.myapplication.screens.GameMode
 import com.example.myapplication.screens.GameScreen
 import com.example.myapplication.screens.MainScreen
+import com.example.myapplication.screens.MultiplayerMenuScreen
 import com.example.myapplication.screens.PlayerSelectionScreen
 import com.example.myapplication.screens.PvPBattleScreen
+import com.example.myapplication.screens.PvPLobbyClientScreen
+import com.example.myapplication.screens.PvPLobbyHostScreen
+import com.example.myapplication.screens.PvPNetworkBattleScreen
+import com.example.myapplication.screens.PvPNetworkResultScreen
+import com.example.myapplication.screens.PvPSetupScreen
 import com.example.myapplication.screens.SelectionScreen
 import com.example.myapplication.screens.Settings
 import com.example.myapplication.screens.SubjectConfigScreen
@@ -64,6 +71,16 @@ sealed class Screen(val route: String) {
 
     // Config list screen (settings)
     object ConfigList : Screen("config-list")
+
+    // Multiplayer
+    object MultiplayerMenu : Screen("multiplayer-menu")
+    object PvPSetup : Screen("pvp-setup/{mode}") {
+        fun createRoute(mode: String) = "pvp-setup/$mode"
+    }
+    object PvPLobbyHost : Screen("pvp-lobby-host")
+    object PvPLobbyClient : Screen("pvp-lobby-client")
+    object PvPNetworkBattle : Screen("pvp-network-battle")
+    object PvPNetworkResult : Screen("pvp-network-result")
 
     // Subject configurator
     object SubjectConfig : Screen("subject-config/{subjectId}") {
@@ -319,6 +336,51 @@ fun App(driver: SqlDriver) {
 
                     composable(Screen.Selection.route) {
                         SelectionScreen(navController = navController)
+                    }
+
+                    composable(Screen.MultiplayerMenu.route) {
+                        MultiplayerMenuScreen(
+                            navController = navController,
+                            bottomPadding = effectiveBottomPadding
+                        )
+                    }
+
+                    composable(Screen.PvPSetup.route) { backStackEntry ->
+                        val modeStr = backStackEntry.arguments?.getString("mode") ?: MultiplayerMode.ONE_VS_ONE.name
+                        val mode = runCatching { MultiplayerMode.valueOf(modeStr) }.getOrElse { MultiplayerMode.ONE_VS_ONE }
+                        PvPSetupScreen(
+                            mode = mode,
+                            navController = navController,
+                            bottomPadding = effectiveBottomPadding
+                        )
+                    }
+
+                    composable(Screen.PvPLobbyHost.route) {
+                        PvPLobbyHostScreen(
+                            navController = navController,
+                            bottomPadding = effectiveBottomPadding
+                        )
+                    }
+
+                    composable(Screen.PvPLobbyClient.route) {
+                        PvPLobbyClientScreen(
+                            navController = navController,
+                            bottomPadding = effectiveBottomPadding
+                        )
+                    }
+
+                    composable(Screen.PvPNetworkBattle.route) {
+                        PvPNetworkBattleScreen(
+                            navController = navController,
+                            bottomPadding = effectiveBottomPadding
+                        )
+                    }
+
+                    composable(Screen.PvPNetworkResult.route) {
+                        PvPNetworkResultScreen(
+                            navController = navController,
+                            bottomPadding = effectiveBottomPadding
+                        )
                     }
                 }
             }

@@ -46,6 +46,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.navigation.compose)
             implementation(libs.kotlinx.serialization)
+            implementation(libs.ktor.network)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
