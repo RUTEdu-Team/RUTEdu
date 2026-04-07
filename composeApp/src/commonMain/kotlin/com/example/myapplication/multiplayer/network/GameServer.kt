@@ -1,10 +1,8 @@
 package com.example.myapplication.multiplayer.network
 
-import com.example.myapplication.multiplayer.model.DiscoveredHost
 import com.example.myapplication.multiplayer.model.GameMessage
 import com.example.myapplication.multiplayer.model.gameJson
 import io.ktor.network.selector.SelectorManager
-import io.ktor.network.sockets.Datagram
 import io.ktor.network.sockets.InetSocketAddress
 import io.ktor.network.sockets.ServerSocket
 import io.ktor.network.sockets.Socket
@@ -14,20 +12,14 @@ import io.ktor.network.sockets.openWriteChannel
 import io.ktor.utils.io.ByteWriteChannel
 import io.ktor.utils.io.readUTF8Line
 import io.ktor.utils.io.writeStringUtf8
-import kotlinx.io.Buffer
-import kotlinx.io.write
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 internal const val GAME_PORT = 8888
 internal const val DISCOVERY_PORT = 8889
@@ -37,7 +29,7 @@ class GameServer {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     private val selectorManager = SelectorManager(Dispatchers.Default)
     private var serverSocket: ServerSocket? = null
-    private var broadcastJob: Job? = null
+    private val discovery = PvPDiscovery()
 
     private data class ClientConn(
         val nickname: String,
@@ -60,43 +52,12 @@ class GameServer {
     ) {
         serverSocket = aSocket(selectorManager).tcp().bind(InetSocketAddress("0.0.0.0", GAME_PORT))
         onReady()
-        startBroadcasting(deviceName, mode, maxPlayers)
+        discovery.advertise(deviceName, GAME_PORT, mode, 1, maxPlayers)
         acceptClients()
     }
 
-    private fun startBroadcasting(deviceName: String, mode: String, maxPlayers: Int) {
-        broadcastJob = scope.launch {
-            try {
-                val udpSocket = aSocket(selectorManager).udp().bind(InetSocketAddress("0.0.0.0", 0)) {
-                    broadcast = true
-                }
-                while (isActive) {
-                    try {
-                        val currentCount = clientsMutex.withLock { clients.size } + 1
-                        val info = Json.encodeToString(
-                            DiscoveredHost(
-                                name = deviceName,
-                                address = "",
-                                port = GAME_PORT,
-                                mode = mode,
-                                currentPlayers = currentCount,
-                                maxPlayers = maxPlayers
-                            )
-                        )
-                        val buffer = Buffer()
-                        buffer.write(info.encodeToByteArray())
-                        udpSocket.send(
-                            Datagram(
-                                packet = buffer,
-                                address = InetSocketAddress("255.255.255.255", DISCOVERY_PORT)
-                            )
-                        )
-                    } catch (_: Exception) {}
-                    delay(2000)
-                }
-                udpSocket.close()
-            } catch (_: Exception) {}
-        }
+    fun updateAdvertisedPlayerCount(count: Int) {
+        discovery.updatePlayerCount(count)
     }
 
     private fun acceptClients() {
@@ -152,7 +113,7 @@ class GameServer {
         clientsMutex.withLock { clients.map { it.nickname } }
 
     fun stop() {
-        broadcastJob?.cancel()
+        discovery.close()
         scope.launch {
             clientsMutex.withLock {
                 clients.forEach { it.socket.dispose() }

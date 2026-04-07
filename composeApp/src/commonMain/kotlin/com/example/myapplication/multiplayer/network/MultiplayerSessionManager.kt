@@ -71,6 +71,9 @@ object MultiplayerSessionManager {
                 scoresMutex.withLock { scores[clientName] = 0 }
                 refreshPlayers(srv, nickname)
                 updateState { copy(errorMessage = null) }
+                // Update mDNS/UDP advertisement with current player count
+                val count = scoresMutex.withLock { scores.size }
+                srv.updateAdvertisedPlayerCount(count)
             }
         }
         srv.onClientLeft = { clientName ->
@@ -211,6 +214,48 @@ object MultiplayerSessionManager {
                 }
             }
             PlayerRole.NONE -> {}
+        }
+    }
+
+    fun initAsClientDirect(nickname: String, hostIp: String) {
+        cleanup()
+        scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+
+        val cli = GameClient()
+        client = cli
+
+        cli.onMessageReceived = { message -> handleClientMessage(message) }
+        cli.onDisconnected = {
+            if (state.phase != GamePhase.GAME_OVER && state.phase != GamePhase.IDLE) {
+                updateState { copy(phase = GamePhase.IDLE, errorMessage = "Host rozłączył się") }
+            }
+        }
+
+        updateState {
+            copy(
+                phase = GamePhase.LOBBY_CLIENT,
+                role = PlayerRole.CLIENT,
+                myNickname = nickname,
+                discoveredHosts = emptyList(),
+                players = listOf(nickname),
+                errorMessage = null
+            )
+        }
+
+        scope.launch {
+            try {
+                val host = DiscoveredHost(
+                    name = "Host",
+                    address = hostIp,
+                    port = GAME_PORT,
+                    mode = "1v1",
+                    currentPlayers = 1,
+                    maxPlayers = 2
+                )
+                cli.connect(host, nickname)
+            } catch (e: Exception) {
+                updateState { copy(phase = GamePhase.IDLE, errorMessage = "Nie można połączyć: ${e.message}") }
+            }
         }
     }
 

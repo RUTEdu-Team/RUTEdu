@@ -43,6 +43,7 @@ import com.example.myapplication.screens.PvPLobbyHostScreen
 import com.example.myapplication.screens.PvPNetworkBattleScreen
 import com.example.myapplication.screens.PvPNetworkResultScreen
 import com.example.myapplication.screens.PvPSetupScreen
+import com.example.myapplication.screens.WifiDirectSetupScreen
 import com.example.myapplication.screens.SelectionScreen
 import com.example.myapplication.screens.Settings
 import com.example.myapplication.screens.SubjectConfigScreen
@@ -81,6 +82,11 @@ sealed class Screen(val route: String) {
     object PvPLobbyClient : Screen("pvp-lobby-client")
     object PvPNetworkBattle : Screen("pvp-network-battle")
     object PvPNetworkResult : Screen("pvp-network-result")
+
+    object WifiDirectSetup : Screen("wifi-direct-setup/{isHost}/{nickname}") {
+        fun createRoute(isHost: Boolean, nickname: String) =
+            "wifi-direct-setup/$isHost/${nickname.replace(" ", "_")}"
+    }
 
     // Subject configurator
     object SubjectConfig : Screen("subject-config/{subjectId}") {
@@ -378,6 +384,17 @@ fun App(driver: SqlDriver) {
 
                     composable(Screen.PvPNetworkResult.route) {
                         PvPNetworkResultScreen(
+                            navController = navController,
+                            bottomPadding = effectiveBottomPadding
+                        )
+                    }
+
+                    composable(Screen.WifiDirectSetup.route) { backStackEntry ->
+                        val isHost = backStackEntry.arguments?.getString("isHost")?.toBooleanStrictOrNull() ?: false
+                        val nickname = backStackEntry.arguments?.getString("nickname")?.replace("_", " ") ?: ""
+                        WifiDirectSetupScreen(
+                            isHost = isHost,
+                            nickname = nickname,
                             navController = navController,
                             bottomPadding = effectiveBottomPadding
                         )

@@ -12,52 +12,34 @@ import io.ktor.network.sockets.openWriteChannel
 import io.ktor.utils.io.ByteWriteChannel
 import io.ktor.utils.io.readUTF8Line
 import io.ktor.utils.io.writeStringUtf8
-import kotlinx.io.readByteArray
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import kotlinx.serialization.json.Json
 
 class GameClient {
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     private val selectorManager = SelectorManager(Dispatchers.Default)
+    private val discovery = PvPDiscovery()
     private var socket: Socket? = null
     private var writeChannel: ByteWriteChannel? = null
-    private var discoveryJob: Job? = null
 
     var onHostDiscovered: ((DiscoveredHost) -> Unit)? = null
     var onMessageReceived: ((GameMessage) -> Unit)? = null
     var onDisconnected: (() -> Unit)? = null
 
     fun startDiscovery() {
-        discoveryJob?.cancel()
-        discoveryJob = scope.launch {
-            try {
-                val udpSocket = aSocket(selectorManager).udp()
-                    .bind(InetSocketAddress("0.0.0.0", DISCOVERY_PORT))
-                while (isActive) {
-                    try {
-                        val datagram = udpSocket.receive()
-                        val senderAddress = (datagram.address as? InetSocketAddress)?.hostname
-                            ?: continue
-                        val text = datagram.packet.readByteArray().decodeToString()
-                        val host = Json.decodeFromString<DiscoveredHost>(text)
-                        onHostDiscovered?.invoke(host.copy(address = senderAddress))
-                    } catch (_: Exception) {}
-                }
-                udpSocket.close()
-            } catch (_: Exception) {}
-        }
+        discovery.browse(
+            onFound = { host -> onHostDiscovered?.invoke(host) },
+            onLost = { }
+        )
     }
 
     fun stopDiscovery() {
-        discoveryJob?.cancel()
-        discoveryJob = null
+        discovery.stopBrowsing()
     }
 
     suspend fun connect(host: DiscoveredHost, nickname: String) {
@@ -90,6 +72,7 @@ class GameClient {
 
     fun stop() {
         stopDiscovery()
+        discovery.close()
         scope.cancel()
         socket?.dispose()
         selectorManager.close()

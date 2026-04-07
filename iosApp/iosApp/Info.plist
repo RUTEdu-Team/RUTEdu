@@ -8,7 +8,7 @@
 	<string>Tryb wieloosobowy wymaga dostępu do sieci lokalnej, aby gracze mogli się połączyć bez internetu.</string>
 	<key>NSBonjourServices</key>
 	<array>
-		<string>_rutedu._tcp</string>
+		<string>_pvpgame._tcp</string>
 	</array>
 </dict>
 </plist>

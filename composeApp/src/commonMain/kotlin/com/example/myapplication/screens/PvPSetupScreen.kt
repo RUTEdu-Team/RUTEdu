@@ -45,6 +45,7 @@ import com.example.myapplication.Screen
 import com.example.myapplication.data.SubjectRepository
 import com.example.myapplication.multiplayer.model.MultiplayerMode
 import com.example.myapplication.multiplayer.network.MultiplayerSessionManager
+import com.example.myapplication.multiplayer.network.isWifiDirectSupported
 
 private val Orange = Color(0xFFF47B20)
 private val LightBg = Color(0xFFF5F6FA)
@@ -62,6 +63,7 @@ fun PvPSetupScreen(
     var timePerRound by remember { mutableStateOf(15) }
     var rounds by remember { mutableStateOf(10) }
     var isHost by remember { mutableStateOf<Boolean?>(null) }
+    var useWifiDirect by remember { mutableStateOf(false) }
 
     val subjects = remember { SubjectRepository.subjects }
     val topics = remember(selectedSubjectId) {
@@ -113,6 +115,26 @@ fun PvPSetupScreen(
                     shape = RoundedCornerShape(14.dp),
                     modifier = Modifier.fillMaxWidth()
                 )
+            }
+
+            // Transport selector (shown only when WiFi Direct is supported)
+            if (isWifiDirectSupported) {
+                item {
+                    SectionLabel("Sposób połączenia")
+                    Spacer(Modifier.height(8.dp))
+                    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                        TimeChip(
+                            label = "WiFi / Hotspot",
+                            selected = !useWifiDirect,
+                            modifier = Modifier.weight(1f)
+                        ) { useWifiDirect = false }
+                        TimeChip(
+                            label = "WiFi Direct",
+                            selected = useWifiDirect,
+                            modifier = Modifier.weight(1f)
+                        ) { useWifiDirect = true }
+                    }
+                }
             }
 
             // Role
@@ -208,19 +230,28 @@ fun PvPSetupScreen(
 
         Button(
             onClick = {
+                val nick = nickname.trim()
                 if (isHost == true) {
                     MultiplayerSessionManager.initAsHost(
-                        nickname = nickname.trim(),
+                        nickname = nick,
                         mode = mode,
                         subjectId = selectedSubjectId,
                         topicId = selectedTopicId,
                         rounds = rounds,
                         timePerRoundSec = timePerRound
                     )
-                    navController.navigate(Screen.PvPLobbyHost.route)
+                    if (useWifiDirect) {
+                        navController.navigate(Screen.WifiDirectSetup.createRoute(isHost = true, nickname = nick))
+                    } else {
+                        navController.navigate(Screen.PvPLobbyHost.route)
+                    }
                 } else {
-                    MultiplayerSessionManager.initAsClient(nickname.trim())
-                    navController.navigate(Screen.PvPLobbyClient.route)
+                    if (useWifiDirect) {
+                        navController.navigate(Screen.WifiDirectSetup.createRoute(isHost = false, nickname = nick))
+                    } else {
+                        MultiplayerSessionManager.initAsClient(nick)
+                        navController.navigate(Screen.PvPLobbyClient.route)
+                    }
                 }
             },
             enabled = canProceed,
