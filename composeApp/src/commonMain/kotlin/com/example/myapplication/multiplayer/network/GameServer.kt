@@ -30,6 +30,7 @@ class GameServer {
     private val selectorManager = SelectorManager(Dispatchers.Default)
     private var serverSocket: ServerSocket? = null
     private val discovery = PvPDiscovery()
+    private var lobbyPassword: String = ""
 
     private data class ClientConn(
         val nickname: String,
@@ -48,11 +49,13 @@ class GameServer {
         deviceName: String,
         mode: String,
         maxPlayers: Int,
+        password: String = "",
         onReady: () -> Unit
     ) {
+        lobbyPassword = password
         serverSocket = aSocket(selectorManager).tcp().bind(InetSocketAddress("0.0.0.0", GAME_PORT))
         onReady()
-        discovery.advertise(deviceName, GAME_PORT, mode, 1, maxPlayers)
+        discovery.advertise(deviceName, GAME_PORT, mode, 1, maxPlayers, password.isNotEmpty())
         acceptClients()
     }
 
@@ -87,6 +90,15 @@ class GameServer {
                 } catch (_: Exception) { continue }
 
                 if (message is GameMessage.Join) {
+                    // Validate password if lobby is protected
+                    if (lobbyPassword.isNotEmpty() && message.password != lobbyPassword) {
+                        val reject = gameJson.encodeToString<GameMessage>(
+                            GameMessage.JoinRejected("Błędne hasło")
+                        ) + "\n"
+                        try { writeChannel.writeStringUtf8(reject) } catch (_: Exception) {}
+                        socket.dispose()
+                        return
+                    }
                     nickname = message.nickname
                     val conn = ClientConn(nickname, socket, writeChannel)
                     clientsMutex.withLock { clients.add(conn) }

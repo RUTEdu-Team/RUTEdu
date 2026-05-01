@@ -19,6 +19,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -49,7 +50,8 @@ object MultiplayerSessionManager {
         subjectId: String,
         topicId: String,
         rounds: Int,
-        timePerRoundSec: Int
+        timePerRoundSec: Int,
+        password: String = ""
     ) {
         cleanup()
         scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
@@ -71,7 +73,6 @@ object MultiplayerSessionManager {
                 scoresMutex.withLock { scores[clientName] = 0 }
                 refreshPlayers(srv, nickname)
                 updateState { copy(errorMessage = null) }
-                // Update mDNS/UDP advertisement with current player count
                 val count = scoresMutex.withLock { scores.size }
                 srv.updateAdvertisedPlayerCount(count)
             }
@@ -107,6 +108,7 @@ object MultiplayerSessionManager {
                 totalRounds = rounds,
                 timePerRoundMs = timePerRoundSec * 1000L,
                 scores = mapOf(nickname to 0),
+                hasPassword = password.isNotEmpty(),
                 errorMessage = null
             )
         }
@@ -116,7 +118,8 @@ object MultiplayerSessionManager {
                 srv.start(
                     deviceName = nickname,
                     mode = if (mode == MultiplayerMode.ONE_VS_ONE) "1v1" else "turniej",
-                    maxPlayers = if (mode == MultiplayerMode.ONE_VS_ONE) 2 else 4
+                    maxPlayers = if (mode == MultiplayerMode.ONE_VS_ONE) 2 else 4,
+                    password = password
                 ) { /* server ready */ }
             } catch (e: Exception) {
                 updateState { copy(errorMessage = "Błąd serwera: ${e.message}") }
@@ -139,8 +142,13 @@ object MultiplayerSessionManager {
         }
         cli.onMessageReceived = { message -> handleClientMessage(message) }
         cli.onDisconnected = {
-            if (state.phase != GamePhase.GAME_OVER && state.phase != GamePhase.IDLE) {
-                updateState { copy(phase = GamePhase.IDLE, errorMessage = "Host rozłączył się") }
+            when (state.phase) {
+                GamePhase.LOBBY_CLIENT,
+                GamePhase.IN_ROUND,
+                GamePhase.COUNTDOWN,
+                GamePhase.ROUND_RESULT ->
+                    updateState { copy(phase = GamePhase.IDLE, errorMessage = "Host rozłączył się") }
+                else -> {}  // IDLE / DISCOVERING / GAME_OVER — don't override
             }
         }
 
@@ -156,13 +164,13 @@ object MultiplayerSessionManager {
         cli.startDiscovery()
     }
 
-    fun joinHost(host: DiscoveredHost) {
+    fun joinHost(host: DiscoveredHost, password: String = "") {
         val cli = client ?: return
         val nickname = state.myNickname
         scope.launch {
             try {
                 cli.stopDiscovery()
-                cli.connect(host, nickname)
+                cli.connect(host, nickname, password)
                 updateState { copy(phase = GamePhase.LOBBY_CLIENT, players = listOf(nickname)) }
             } catch (e: Exception) {
                 updateState {
@@ -214,48 +222,6 @@ object MultiplayerSessionManager {
                 }
             }
             PlayerRole.NONE -> {}
-        }
-    }
-
-    fun initAsClientDirect(nickname: String, hostIp: String) {
-        cleanup()
-        scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
-
-        val cli = GameClient()
-        client = cli
-
-        cli.onMessageReceived = { message -> handleClientMessage(message) }
-        cli.onDisconnected = {
-            if (state.phase != GamePhase.GAME_OVER && state.phase != GamePhase.IDLE) {
-                updateState { copy(phase = GamePhase.IDLE, errorMessage = "Host rozłączył się") }
-            }
-        }
-
-        updateState {
-            copy(
-                phase = GamePhase.LOBBY_CLIENT,
-                role = PlayerRole.CLIENT,
-                myNickname = nickname,
-                discoveredHosts = emptyList(),
-                players = listOf(nickname),
-                errorMessage = null
-            )
-        }
-
-        scope.launch {
-            try {
-                val host = DiscoveredHost(
-                    name = "Host",
-                    address = hostIp,
-                    port = GAME_PORT,
-                    mode = "1v1",
-                    currentPlayers = 1,
-                    maxPlayers = 2
-                )
-                cli.connect(host, nickname)
-            } catch (e: Exception) {
-                updateState { copy(phase = GamePhase.IDLE, errorMessage = "Nie można połączyć: ${e.message}") }
-            }
         }
     }
 
@@ -387,6 +353,10 @@ object MultiplayerSessionManager {
 
     private fun handleClientMessage(message: GameMessage) {
         when (message) {
+            is GameMessage.JoinRejected -> {
+                updateState { copy(phase = GamePhase.DISCOVERING, errorMessage = message.reason) }
+                scope.launch { client?.startDiscovery() }
+            }
             is GameMessage.PlayerJoined -> {
                 updateState { copy(players = message.players) }
             }

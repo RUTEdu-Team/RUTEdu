@@ -50,24 +50,26 @@ actual class PvPDiscovery actual constructor() {
     private var currentMode = ""
     private var currentPlayers = 1
     private var currentMaxPlayers = 2
+    private var currentHasPassword = false
 
     private val foundHostsMutex = Mutex()
     private val foundHosts = mutableMapOf<String, DiscoveredHost>()
 
-    actual fun advertise(deviceName: String, port: Int, mode: String, currentPlayers: Int, maxPlayers: Int) {
+    actual fun advertise(deviceName: String, port: Int, mode: String, currentPlayers: Int, maxPlayers: Int, hasPassword: Boolean) {
         currentDeviceName = deviceName
         currentPort = port
         currentMode = mode
         this.currentPlayers = currentPlayers
         currentMaxPlayers = maxPlayers
-        registerNsd(deviceName, port, mode, currentPlayers, maxPlayers)
-        startUdpBroadcast(deviceName, port, mode, currentPlayers, maxPlayers)
+        currentHasPassword = hasPassword
+        registerNsd(deviceName, port, mode, currentPlayers, maxPlayers, hasPassword)
+        startUdpBroadcast(deviceName, port, mode, currentPlayers, maxPlayers, hasPassword)
     }
 
     actual fun updatePlayerCount(currentPlayers: Int) {
         this.currentPlayers = currentPlayers
         stopAdvertising()
-        advertise(currentDeviceName, currentPort, currentMode, currentPlayers, currentMaxPlayers)
+        advertise(currentDeviceName, currentPort, currentMode, currentPlayers, currentMaxPlayers, currentHasPassword)
     }
 
     actual fun stopAdvertising() {
@@ -102,7 +104,7 @@ actual class PvPDiscovery actual constructor() {
         selectorManager.close()
     }
 
-    private fun registerNsd(deviceName: String, port: Int, mode: String, cp: Int, mp: Int) {
+    private fun registerNsd(deviceName: String, port: Int, mode: String, cp: Int, mp: Int, hasPassword: Boolean) {
         val info = NsdServiceInfo().apply {
             serviceName = deviceName
             serviceType = NSD_TYPE
@@ -110,6 +112,7 @@ actual class PvPDiscovery actual constructor() {
             setAttribute("mode", mode)
             setAttribute("cp", cp.toString())
             setAttribute("mp", mp.toString())
+            setAttribute("pw", if (hasPassword) "1" else "0")
         }
         val listener = object : NsdManager.RegistrationListener {
             override fun onRegistrationFailed(i: NsdServiceInfo, e: Int) {}
@@ -122,13 +125,14 @@ actual class PvPDiscovery actual constructor() {
         catch (_: Exception) {}
     }
 
-    private fun startUdpBroadcast(deviceName: String, port: Int, mode: String, cp: Int, mp: Int) {
+    private fun startUdpBroadcast(deviceName: String, port: Int, mode: String, cp: Int, mp: Int, hasPassword: Boolean) {
         udpBroadcastJob?.cancel()
         udpBroadcastJob = scope.launch {
+            val udpSocket = try {
+                aSocket(selectorManager).udp().bind(InetSocketAddress("0.0.0.0", 0)) { broadcast = true }
+            } catch (_: Exception) { return@launch }
             try {
-                val udpSocket = aSocket(selectorManager).udp()
-                    .bind(InetSocketAddress("0.0.0.0", 0)) { broadcast = true }
-                val json = Json.encodeToString(DiscoveredHost(deviceName, "", port, mode, cp, mp))
+                val json = Json.encodeToString(DiscoveredHost(deviceName, "", port, mode, cp, mp, hasPassword))
                 while (isActive) {
                     try {
                         val buf = Buffer().also { it.write(json.encodeToByteArray()) }
@@ -136,8 +140,9 @@ actual class PvPDiscovery actual constructor() {
                     } catch (_: Exception) {}
                     delay(2000)
                 }
-                udpSocket.close()
-            } catch (_: Exception) {}
+            } finally {
+                try { udpSocket.close() } catch (_: Exception) {}
+            }
         }
     }
 
@@ -152,19 +157,22 @@ actual class PvPDiscovery actual constructor() {
                 nsdManager.resolveService(info, object : NsdManager.ResolveListener {
                     override fun onResolveFailed(i: NsdServiceInfo, e: Int) {}
                     override fun onServiceResolved(i: NsdServiceInfo) {
-                        val address = i.host?.hostAddress ?: return
+                        val rawAddress = i.host?.hostAddress ?: return
+                        if (rawAddress.contains(':') || rawAddress.contains('%')) return
                         val host = DiscoveredHost(
                             name = i.serviceName,
-                            address = address,
+                            address = rawAddress,
                             port = i.port,
                             mode = i.attributes["mode"]?.decodeToString() ?: "1v1",
                             currentPlayers = i.attributes["cp"]?.decodeToString()?.toIntOrNull() ?: 1,
-                            maxPlayers = i.attributes["mp"]?.decodeToString()?.toIntOrNull() ?: 2
+                            maxPlayers = i.attributes["mp"]?.decodeToString()?.toIntOrNull() ?: 2,
+                            hasPassword = i.attributes["pw"]?.decodeToString() == "1"
                         )
                         scope.launch {
                             val isNew = foundHostsMutex.withLock {
-                                if (!foundHosts.containsKey(address)) { foundHosts[address] = host; true }
-                                else false
+                                if (!foundHosts.containsKey(rawAddress)) {
+                                    foundHosts[rawAddress] = host; true
+                                } else false
                             }
                             if (isNew) onFound(host)
                         }
@@ -189,9 +197,10 @@ actual class PvPDiscovery actual constructor() {
     private fun startUdpListen(onFound: (DiscoveredHost) -> Unit) {
         udpListenJob?.cancel()
         udpListenJob = scope.launch {
+            val udpSocket = try {
+                aSocket(selectorManager).udp().bind(InetSocketAddress("0.0.0.0", DISCOVERY_PORT))
+            } catch (_: Exception) { return@launch }
             try {
-                val udpSocket = aSocket(selectorManager).udp()
-                    .bind(InetSocketAddress("0.0.0.0", DISCOVERY_PORT))
                 while (isActive) {
                     try {
                         val datagram = udpSocket.receive()
@@ -205,8 +214,9 @@ actual class PvPDiscovery actual constructor() {
                         if (isNew) onFound(host)
                     } catch (_: Exception) {}
                 }
-                udpSocket.close()
-            } catch (_: Exception) {}
+            } finally {
+                try { udpSocket.close() } catch (_: Exception) {}
+            }
         }
     }
 }

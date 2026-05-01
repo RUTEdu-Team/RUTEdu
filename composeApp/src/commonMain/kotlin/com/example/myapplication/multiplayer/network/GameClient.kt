@@ -42,13 +42,13 @@ class GameClient {
         discovery.stopBrowsing()
     }
 
-    suspend fun connect(host: DiscoveredHost, nickname: String) {
+    suspend fun connect(host: DiscoveredHost, nickname: String, password: String = "") {
         val tcpSocket = aSocket(selectorManager).tcp()
             .connect(InetSocketAddress(host.address, host.port))
         socket = tcpSocket
         writeChannel = tcpSocket.openWriteChannel(autoFlush = true)
 
-        send(GameMessage.Join(nickname))
+        send(GameMessage.Join(nickname, password))
 
         scope.launch {
             val readChannel = tcpSocket.openReadChannel()

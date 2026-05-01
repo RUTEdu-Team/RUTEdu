@@ -14,7 +14,10 @@ val gameJson = Json {
 sealed class GameMessage {
 
     @Serializable @SerialName("join")
-    data class Join(val nickname: String) : GameMessage()
+    data class Join(val nickname: String, val password: String = "") : GameMessage()
+
+    @Serializable @SerialName("join_rejected")
+    data class JoinRejected(val reason: String) : GameMessage()
 
     @Serializable @SerialName("player_joined")
     data class PlayerJoined(val players: List<String>) : GameMessage()
@@ -73,5 +76,6 @@ data class DiscoveredHost(
     val port: Int,
     val mode: String,
     val currentPlayers: Int,
-    val maxPlayers: Int
+    val maxPlayers: Int,
+    val hasPassword: Boolean = false
 )

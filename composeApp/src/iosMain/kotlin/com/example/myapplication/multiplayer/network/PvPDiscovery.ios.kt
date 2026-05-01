@@ -20,7 +20,6 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 // iOS: UDP broadcast/listen only (NSD discovery is Android-specific).
-// Android hosts also broadcast UDP so cross-platform discovery works.
 actual class PvPDiscovery actual constructor() {
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
@@ -28,23 +27,22 @@ actual class PvPDiscovery actual constructor() {
     private var broadcastJob: Job? = null
     private var listenJob: Job? = null
 
-    private var lastParams: AdvertiseParams? = null
-
     private data class AdvertiseParams(
         val deviceName: String, val port: Int, val mode: String,
-        val currentPlayers: Int, val maxPlayers: Int
+        val currentPlayers: Int, val maxPlayers: Int, val hasPassword: Boolean
     )
+    private var lastParams: AdvertiseParams? = null
 
-    actual fun advertise(deviceName: String, port: Int, mode: String, currentPlayers: Int, maxPlayers: Int) {
-        lastParams = AdvertiseParams(deviceName, port, mode, currentPlayers, maxPlayers)
-        startBroadcast(deviceName, port, mode, currentPlayers, maxPlayers)
+    actual fun advertise(deviceName: String, port: Int, mode: String, currentPlayers: Int, maxPlayers: Int, hasPassword: Boolean) {
+        lastParams = AdvertiseParams(deviceName, port, mode, currentPlayers, maxPlayers, hasPassword)
+        startBroadcast(deviceName, port, mode, currentPlayers, maxPlayers, hasPassword)
     }
 
     actual fun updatePlayerCount(currentPlayers: Int) {
         val p = lastParams?.copy(currentPlayers = currentPlayers) ?: return
         lastParams = p
         stopAdvertising()
-        startBroadcast(p.deviceName, p.port, p.mode, p.currentPlayers, p.maxPlayers)
+        startBroadcast(p.deviceName, p.port, p.mode, p.currentPlayers, p.maxPlayers, p.hasPassword)
     }
 
     actual fun stopAdvertising() {
@@ -55,9 +53,10 @@ actual class PvPDiscovery actual constructor() {
     actual fun browse(onFound: (DiscoveredHost) -> Unit, onLost: (String) -> Unit) {
         listenJob?.cancel()
         listenJob = scope.launch {
+            val udpSocket = try {
+                aSocket(selectorManager).udp().bind(InetSocketAddress("0.0.0.0", DISCOVERY_PORT))
+            } catch (_: Exception) { return@launch }
             try {
-                val udpSocket = aSocket(selectorManager).udp()
-                    .bind(InetSocketAddress("0.0.0.0", DISCOVERY_PORT))
                 while (isActive) {
                     try {
                         val datagram = udpSocket.receive()
@@ -67,8 +66,9 @@ actual class PvPDiscovery actual constructor() {
                         onFound(host)
                     } catch (_: Exception) {}
                 }
-                udpSocket.close()
-            } catch (_: Exception) {}
+            } finally {
+                try { udpSocket.close() } catch (_: Exception) {}
+            }
         }
     }
 
@@ -84,13 +84,14 @@ actual class PvPDiscovery actual constructor() {
         selectorManager.close()
     }
 
-    private fun startBroadcast(deviceName: String, port: Int, mode: String, cp: Int, mp: Int) {
+    private fun startBroadcast(deviceName: String, port: Int, mode: String, cp: Int, mp: Int, hasPassword: Boolean) {
         broadcastJob?.cancel()
         broadcastJob = scope.launch {
+            val udpSocket = try {
+                aSocket(selectorManager).udp().bind(InetSocketAddress("0.0.0.0", 0)) { broadcast = true }
+            } catch (_: Exception) { return@launch }
             try {
-                val udpSocket = aSocket(selectorManager).udp()
-                    .bind(InetSocketAddress("0.0.0.0", 0)) { broadcast = true }
-                val json = Json.encodeToString(DiscoveredHost(deviceName, "", port, mode, cp, mp))
+                val json = Json.encodeToString(DiscoveredHost(deviceName, "", port, mode, cp, mp, hasPassword))
                 while (isActive) {
                     try {
                         val buf = Buffer().also { it.write(json.encodeToByteArray()) }
@@ -98,8 +99,9 @@ actual class PvPDiscovery actual constructor() {
                     } catch (_: Exception) {}
                     delay(2000)
                 }
-                udpSocket.close()
-            } catch (_: Exception) {}
+            } finally {
+                try { udpSocket.close() } catch (_: Exception) {}
+            }
         }
     }
 }

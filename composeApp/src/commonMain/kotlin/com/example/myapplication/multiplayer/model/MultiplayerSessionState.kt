@@ -35,5 +35,6 @@ data class MultiplayerSessionState(
     val gameMode: MultiplayerMode = MultiplayerMode.ONE_VS_ONE,
     val selectedSubjectId: String = "",
     val selectedTopicId: String = "",
-    val errorMessage: String? = null
+    val errorMessage: String? = null,
+    val hasPassword: Boolean = false
 )

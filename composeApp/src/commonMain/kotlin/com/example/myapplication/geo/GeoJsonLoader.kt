@@ -1,5 +1,7 @@
 package com.example.myapplication.geo
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
@@ -45,6 +47,13 @@ private fun parseRing(ringArray: kotlinx.serialization.json.JsonArray): List<Lon
 suspend fun loadCountries(): List<CountryFeature> {
     cachedCountries?.let { return it }
 
+    return withContext(Dispatchers.Default) {
+        loadCountriesInternal()
+    }.also { cachedCountries = it }
+}
+
+@OptIn(ExperimentalResourceApi::class)
+private suspend fun loadCountriesInternal(): List<CountryFeature> {
     val bytes = Res.readBytes("files/countries.geojson")
     val jsonStr = bytes.decodeToString()
     val root = Json.parseToJsonElement(jsonStr).jsonObject
@@ -86,6 +95,5 @@ suspend fun loadCountries(): List<CountryFeature> {
         result.add(CountryFeature(name, iso2, rings))
     }
 
-    cachedCountries = result
     return result
 }

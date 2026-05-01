@@ -20,6 +20,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Groups
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.LockOpen
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -37,6 +39,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -45,7 +49,6 @@ import com.example.myapplication.Screen
 import com.example.myapplication.data.SubjectRepository
 import com.example.myapplication.multiplayer.model.MultiplayerMode
 import com.example.myapplication.multiplayer.network.MultiplayerSessionManager
-import com.example.myapplication.multiplayer.network.isWifiDirectSupported
 
 private val Orange = Color(0xFFF47B20)
 private val LightBg = Color(0xFFF5F6FA)
@@ -57,13 +60,14 @@ fun PvPSetupScreen(
     navController: NavController,
     bottomPadding: Dp = 0.dp
 ) {
-    var nickname by remember { mutableStateOf("") }
+    var nickname by remember { mutableStateOf(com.example.myapplication.lastMultiplayerNickname) }
+    var lobbyPassword by remember { mutableStateOf("") }
+    var showPassword by remember { mutableStateOf(false) }
     var selectedSubjectId by remember { mutableStateOf("") }
     var selectedTopicId by remember { mutableStateOf("") }
     var timePerRound by remember { mutableStateOf(15) }
     var rounds by remember { mutableStateOf(10) }
     var isHost by remember { mutableStateOf<Boolean?>(null) }
-    var useWifiDirect by remember { mutableStateOf(false) }
 
     val subjects = remember { SubjectRepository.subjects }
     val topics = remember(selectedSubjectId) {
@@ -76,7 +80,6 @@ fun PvPSetupScreen(
             .background(Color.White)
             .statusBarsPadding()
     ) {
-        // Header
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -117,26 +120,6 @@ fun PvPSetupScreen(
                 )
             }
 
-            // Transport selector (shown only when WiFi Direct is supported)
-            if (isWifiDirectSupported) {
-                item {
-                    SectionLabel("Sposób połączenia")
-                    Spacer(Modifier.height(8.dp))
-                    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                        TimeChip(
-                            label = "WiFi / Hotspot",
-                            selected = !useWifiDirect,
-                            modifier = Modifier.weight(1f)
-                        ) { useWifiDirect = false }
-                        TimeChip(
-                            label = "WiFi Direct",
-                            selected = useWifiDirect,
-                            modifier = Modifier.weight(1f)
-                        ) { useWifiDirect = true }
-                    }
-                }
-            }
-
             // Role
             item {
                 SectionLabel("Twoja rola")
@@ -157,8 +140,32 @@ fun PvPSetupScreen(
                 }
             }
 
-            // Subject + topic (host only)
+            // Host-only fields
             if (isHost == true) {
+                // Optional lobby password
+                item {
+                    SectionLabel("Hasło lobby (opcjonalne)")
+                    Spacer(Modifier.height(8.dp))
+                    OutlinedTextField(
+                        value = lobbyPassword,
+                        onValueChange = { lobbyPassword = it.take(16) },
+                        placeholder = { Text("Zostaw puste = otwarte lobby", color = Color(0xFF9E9E9E)) },
+                        singleLine = true,
+                        shape = RoundedCornerShape(14.dp),
+                        modifier = Modifier.fillMaxWidth(),
+                        visualTransformation = if (showPassword) VisualTransformation.None else PasswordVisualTransformation(),
+                        trailingIcon = {
+                            IconButton(onClick = { showPassword = !showPassword }) {
+                                Icon(
+                                    imageVector = if (showPassword) Icons.Default.LockOpen else Icons.Default.Lock,
+                                    contentDescription = null,
+                                    tint = Color(0xFF9E9E9E)
+                                )
+                            }
+                        }
+                    )
+                }
+
                 item {
                     SectionLabel("Przedmiot")
                     Spacer(Modifier.height(8.dp))
@@ -224,13 +231,13 @@ fun PvPSetupScreen(
             item { Spacer(Modifier.height(8.dp)) }
         }
 
-        // Start button
         val canProceed = nickname.isNotBlank() && isHost != null &&
                 (isHost == false || (selectedSubjectId.isNotEmpty() && selectedTopicId.isNotEmpty()))
 
         Button(
             onClick = {
                 val nick = nickname.trim()
+                com.example.myapplication.lastMultiplayerNickname = nick
                 if (isHost == true) {
                     MultiplayerSessionManager.initAsHost(
                         nickname = nick,
@@ -238,20 +245,13 @@ fun PvPSetupScreen(
                         subjectId = selectedSubjectId,
                         topicId = selectedTopicId,
                         rounds = rounds,
-                        timePerRoundSec = timePerRound
+                        timePerRoundSec = timePerRound,
+                        password = lobbyPassword
                     )
-                    if (useWifiDirect) {
-                        navController.navigate(Screen.WifiDirectSetup.createRoute(isHost = true, nickname = nick))
-                    } else {
-                        navController.navigate(Screen.PvPLobbyHost.route)
-                    }
+                    navController.navigate(Screen.PvPLobbyHost.route)
                 } else {
-                    if (useWifiDirect) {
-                        navController.navigate(Screen.WifiDirectSetup.createRoute(isHost = false, nickname = nick))
-                    } else {
-                        MultiplayerSessionManager.initAsClient(nick)
-                        navController.navigate(Screen.PvPLobbyClient.route)
-                    }
+                    MultiplayerSessionManager.initAsClient(nick)
+                    navController.navigate(Screen.PvPLobbyClient.route)
                 }
             },
             enabled = canProceed,

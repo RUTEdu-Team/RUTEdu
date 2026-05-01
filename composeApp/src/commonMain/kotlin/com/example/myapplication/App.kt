@@ -43,7 +43,6 @@ import com.example.myapplication.screens.PvPLobbyHostScreen
 import com.example.myapplication.screens.PvPNetworkBattleScreen
 import com.example.myapplication.screens.PvPNetworkResultScreen
 import com.example.myapplication.screens.PvPSetupScreen
-import com.example.myapplication.screens.WifiDirectSetupScreen
 import com.example.myapplication.screens.SelectionScreen
 import com.example.myapplication.screens.Settings
 import com.example.myapplication.screens.SubjectConfigScreen
@@ -83,11 +82,6 @@ sealed class Screen(val route: String) {
     object PvPNetworkBattle : Screen("pvp-network-battle")
     object PvPNetworkResult : Screen("pvp-network-result")
 
-    object WifiDirectSetup : Screen("wifi-direct-setup/{isHost}/{nickname}") {
-        fun createRoute(isHost: Boolean, nickname: String) =
-            "wifi-direct-setup/$isHost/${nickname.replace(" ", "_")}"
-    }
-
     // Subject configurator
     object SubjectConfig : Screen("subject-config/{subjectId}") {
         fun createRoute(subjectId: String) = "subject-config/$subjectId"
@@ -112,6 +106,9 @@ sealed class Screen(val route: String) {
 
 // Global state to hold the selected player ID
 var selectedPlayerId by mutableStateOf<Long?>(null)
+
+// Remembers last used multiplayer nickname within the session
+var lastMultiplayerNickname by mutableStateOf("")
 
 // Remembers the last visited subject so NAUKA tab returns to it
 var lastVisitedSubjectId by mutableStateOf<String?>(null)
@@ -389,17 +386,8 @@ fun App(driver: SqlDriver) {
                         )
                     }
 
-                    composable(Screen.WifiDirectSetup.route) { backStackEntry ->
-                        val isHost = backStackEntry.arguments?.getString("isHost")?.toBooleanStrictOrNull() ?: false
-                        val nickname = backStackEntry.arguments?.getString("nickname")?.replace("_", " ") ?: ""
-                        WifiDirectSetupScreen(
-                            isHost = isHost,
-                            nickname = nickname,
-                            navController = navController,
-                            bottomPadding = effectiveBottomPadding
-                        )
-                    }
                 }
+
             }
         }
     }
