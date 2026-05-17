@@ -17,6 +17,8 @@ object ChemistryQuestionGenerator {
             "chemia_1_4" -> chemia_1_4(seed)
             "chemia_2_1" -> chemia_2_1(seed)
             "chemia_2_2" -> chemia_2_2(seed)
+            "chemia_3_1" -> chemia_3_1(seed)
+            "chemia_3_2" -> chemia_3_2(seed)
             "chemia_4_1" -> chemia_4_1(seed)
             "chemia_4_2" -> chemia_4_2(seed)
             "chemia_5_1" -> chemia_5_1(seed)
@@ -91,6 +93,199 @@ object ChemistryQuestionGenerator {
     private fun chemia_2_2(seed: Long): List<Question> {
         val rng = Random(seed)
         return propertyQuestions(rng)
+    }
+
+    // ── chemia_3_1  Wzory kwasów ─────────────────────────────────────────────
+
+    private data class AcidEntry(
+        val formula: String,
+        val namePL: String,
+        val type: String,           // "beztlenowy" / "tlenowy"
+        val hint: String
+    )
+
+    private val acids = listOf(
+        AcidEntry("HF",      "kwas fluorowodorowy",   "beztlenowy", "HF – fluorowodorowy, trawiący szkło."),
+        AcidEntry("HCl",     "kwas chlorowodorowy",   "beztlenowy", "HCl – chlorowodorowy (solny), składnik soku żołądkowego."),
+        AcidEntry("HBr",     "kwas bromowodorowy",    "beztlenowy", "HBr – bromowodorowy, podobny do HCl."),
+        AcidEntry("HI",      "kwas jodowodorowy",     "beztlenowy", "HI – jodowodorowy, silny kwas beztlenowy."),
+        AcidEntry("H₂S",    "kwas siarkowodorowy",   "beztlenowy", "H₂S – siarkowodorowy, znany ze smrodu zgniłych jaj."),
+        AcidEntry("H₂SO₄",  "kwas siarkowy(VI)",      "tlenowy",    "H₂SO₄ – siarkowy(VI), siarka na +6. Najważniejszy kwas przemysłowy."),
+        AcidEntry("H₂SO₃",  "kwas siarkowy(IV)",      "tlenowy",    "H₂SO₃ – siarkowy(IV), siarka na +4. Przyczyna kwaśnych deszczy."),
+        AcidEntry("HNO₃",   "kwas azotowy(V)",        "tlenowy",    "HNO₃ – azotowy(V), azot na +5. Używany do nawozów i materiałów wybuchowych."),
+        AcidEntry("HNO₂",   "kwas azotowy(III)",      "tlenowy",    "HNO₂ – azotowy(III), azot na +3. Słabszy kwas niż HNO₃."),
+        AcidEntry("H₃PO₄",  "kwas fosforowy(V)",      "tlenowy",    "H₃PO₄ – fosforowy(V). Składnik nawozów i napojów cola."),
+        AcidEntry("H₂CO₃",  "kwas węglowy",           "tlenowy",    "H₂CO₃ – węglowy. Powstaje gdy CO₂ rozpuszcza się w wodzie."),
+        AcidEntry("HClO₄",  "kwas chlorowy(VII)",     "tlenowy",    "HClO₄ – chlorowy(VII), chlor na +7. Jeden z najmocniejszych kwasów."),
+        AcidEntry("HClO₃",  "kwas chlorowy(V)",       "tlenowy",    "HClO₃ – chlorowy(V), chlor na +5."),
+        AcidEntry("HClO₂",  "kwas chlorowy(III)",     "tlenowy",    "HClO₂ – chlorowy(III), chlor na +3."),
+        AcidEntry("HClO",   "kwas chlorowy(I)",       "tlenowy",    "HClO – chlorowy(I), chlor na +1. Słaby kwas, właściwości odkażające."),
+        AcidEntry("H₃BO₃",  "kwas borowy",            "tlenowy",    "H₃BO₃ – borowy. Stosowany w okulistyce jako środek dezynfekcyjny."),
+    )
+
+    private fun chemia_3_1(seed: Long): List<Question> {
+        val rng = Random(seed)
+        val qs = mutableListOf<SelectFromList>()
+        val allFormulas = acids.map { it.formula }
+        val allNames    = acids.map { it.namePL }
+        val typeOpts    = listOf("beztlenowy", "tlenowy")
+        val typeHint    = "Kwasy beztlenowe nie zawierają tlenu (HX, H₂X). Kwasy tlenowe zawierają tlen (np. HNO₃, H₂SO₄)."
+
+        acids.forEach { acid ->
+            // formula → name
+            val wNames = allNames.filter { it != acid.namePL }.shuffled(rng).take(3)
+            val opts1 = (wNames + acid.namePL).shuffled(rng)
+            qs += SelectFromList(
+                id = 0,
+                prompt = "Kwas o wzorze ${acid.formula} to:",
+                options = opts1,
+                correctIndices = setOf(opts1.indexOf(acid.namePL)),
+                hint = Hint(acid.hint, boldPart = acid.namePL)
+            )
+
+            // name → formula
+            val wForms = allFormulas.filter { it != acid.formula }.shuffled(rng).take(3)
+            val opts2 = (wForms + acid.formula).shuffled(rng)
+            qs += SelectFromList(
+                id = 0,
+                prompt = "Wzór ${acid.namePL} to:",
+                options = opts2,
+                correctIndices = setOf(opts2.indexOf(acid.formula)),
+                hint = Hint(acid.hint, boldPart = acid.formula)
+            )
+
+            // type: tlenowy / beztlenowy
+            qs += SelectFromList(
+                id = 0,
+                prompt = "${acid.namePL} (${acid.formula}) jest kwasem:",
+                options = typeOpts,
+                correctIndices = setOf(typeOpts.indexOf(acid.type)),
+                hint = Hint(typeHint, boldPart = acid.type)
+            )
+        }
+
+        return qs.shuffled(rng).mapIndexed { i, q -> q.copy(id = 3100 + i) }
+    }
+
+    // ── chemia_3_2  Reakcje otrzymywania kwasów ───────────────────────────────
+
+    private val acidReactions: List<EquationBalance> = listOf(
+        // ── Direct synthesis (H₂ + non-metal) ────────────────────────────────
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj reakcję syntezy kwasu",
+            reactants = listOf(BalanceTerm("H₂", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("Cl₂", fixedCoefficient = 1)),
+            products = listOf(BalanceTerm("HCl", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("H₂ + Cl₂ → 2HCl. Po lewej: 2H i 2Cl → po prawej 2 cząsteczki HCl.", boldPart = "2HCl",
+                steps = listOf("1×H₂ = 2H, 1×Cl₂ = 2Cl", "2H + 2Cl → 2×HCl"))
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj reakcję syntezy kwasu",
+            reactants = listOf(BalanceTerm("H₂", fixedCoefficient = 1), BalanceTerm("F₂", fixedCoefficient = null, correctCoefficient = 1)),
+            products = listOf(BalanceTerm("HF", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("H₂ + F₂ → 2HF. Analogicznie jak synteza HCl.", boldPart = "2HF",
+                steps = listOf("1×H₂ = 2H, 1×F₂ = 2F", "2H + 2F → 2×HF"))
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj reakcję syntezy kwasu",
+            reactants = listOf(BalanceTerm("H₂", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("Br₂", fixedCoefficient = 1)),
+            products = listOf(BalanceTerm("HBr", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("H₂ + Br₂ → 2HBr.", boldPart = "2HBr",
+                steps = listOf("1×H₂ = 2H, 1×Br₂ = 2Br", "2H + 2Br → 2×HBr"))
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj reakcję syntezy kwasu",
+            reactants = listOf(BalanceTerm("H₂", fixedCoefficient = 1), BalanceTerm("I₂", fixedCoefficient = null, correctCoefficient = 1)),
+            products = listOf(BalanceTerm("HI", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("H₂ + I₂ → 2HI.", boldPart = "2HI",
+                steps = listOf("1×H₂ = 2H, 1×I₂ = 2I", "2H + 2I → 2×HI"))
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj reakcję syntezy kwasu",
+            reactants = listOf(BalanceTerm("H₂", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("S", fixedCoefficient = 1)),
+            products = listOf(BalanceTerm("H₂S", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("H₂ + S → H₂S. Wszystkie współczynniki = 1.", boldPart = "H₂S")
+        ),
+        // ── Oxide + water ─────────────────────────────────────────────────────
+        EquationBalance(
+            id = 0,
+            instruction = "Uzupełnij reakcję otrzymywania kwasu",
+            reactants = listOf(BalanceTerm("SO₃", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = 1)),
+            products = listOf(BalanceTerm("H₂SO₄", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("SO₃ + H₂O → H₂SO₄. Tlenek kwasowy + woda → kwas.", boldPart = "H₂SO₄")
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Uzupełnij reakcję otrzymywania kwasu",
+            reactants = listOf(BalanceTerm("SO₂", fixedCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 1)),
+            products = listOf(BalanceTerm("H₂SO₃", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("SO₂ + H₂O → H₂SO₃. Kwas siarkowy(IV) — przyczyna kwaśnych deszczy.", boldPart = "H₂SO₃")
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Uzupełnij reakcję otrzymywania kwasu",
+            reactants = listOf(BalanceTerm("CO₂", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = 1)),
+            products = listOf(BalanceTerm("H₂CO₃", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("CO₂ + H₂O → H₂CO₃. Tak powstaje kwas węglowy w napojach gazowanych.", boldPart = "H₂CO₃")
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj równanie reakcji",
+            reactants = listOf(BalanceTerm("N₂O₅", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = 1)),
+            products = listOf(BalanceTerm("HNO₃", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("N₂O₅ + H₂O → 2HNO₃. Dwa atomy N → 2 cząsteczki HNO₃.", boldPart = "2HNO₃",
+                steps = listOf("N₂O₅ ma 2N → potrzeba 2×HNO₃", "2×HNO₃ ma 2H → 1×H₂O"))
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj równanie reakcji",
+            reactants = listOf(BalanceTerm("N₂O₃", fixedCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 1)),
+            products = listOf(BalanceTerm("HNO₂", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("N₂O₃ + H₂O → 2HNO₂. Kwas azotowy(III).", boldPart = "2HNO₂",
+                steps = listOf("N₂O₃ ma 2N → potrzeba 2×HNO₂", "2×HNO₂ ma 2H → 1×H₂O"))
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj równanie reakcji",
+            reactants = listOf(BalanceTerm("P₂O₅", fixedCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 3)),
+            products = listOf(BalanceTerm("H₃PO₄", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("P₂O₅ + 3H₂O → 2H₃PO₄.", boldPart = "2H₃PO₄",
+                steps = listOf("2P → 2×H₃PO₄", "2×H₃PO₄ ma 6H → 3×H₂O", "Sprawdź O: 5+3=8 = 2×4 ✓"))
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj równanie reakcji",
+            reactants = listOf(BalanceTerm("Cl₂O₇", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = 1)),
+            products = listOf(BalanceTerm("HClO₄", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("Cl₂O₇ + H₂O → 2HClO₄. Dwa atomy Cl → 2 cząsteczki kwasu.", boldPart = "2HClO₄",
+                steps = listOf("Cl₂O₇ ma 2Cl → 2×HClO₄", "2×HClO₄ ma 2H → 1×H₂O"))
+        ),
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj równanie reakcji",
+            reactants = listOf(BalanceTerm("Cl₂O", fixedCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 1)),
+            products = listOf(BalanceTerm("HClO", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("Cl₂O + H₂O → 2HClO. Kwas chlorowy(I).", boldPart = "2HClO",
+                steps = listOf("Cl₂O ma 2Cl → 2×HClO", "2×HClO ma 2H → 1×H₂O"))
+        ),
+        // ── Synthesis of water (context reaction) ────────────────────────────
+        EquationBalance(
+            id = 0,
+            instruction = "Zbilansuj reakcję syntezy wody",
+            reactants = listOf(BalanceTerm("H₂", fixedCoefficient = null, correctCoefficient = 2), BalanceTerm("O₂", fixedCoefficient = 1)),
+            products = listOf(BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("2H₂ + O₂ → 2H₂O. Klasyczna reakcja syntezy wody.", boldPart = "2H₂O",
+                steps = listOf("2×H₂O = 4H i 2O", "4H → 2×H₂", "2O → 1×O₂"))
+        ),
+    )
+
+    private fun chemia_3_2(seed: Long): List<Question> {
+        val rng = Random(seed)
+        return acidReactions.shuffled(rng).mapIndexed { i, q -> q.copy(id = 3200 + i) }
     }
 
     // ── chemia_4_1  Skala pH ──────────────────────────────────────────────────

@@ -25,7 +25,7 @@ import com.example.myapplication.math.TriangleBuilder
 object QuestionBank {
 
     fun questionsFor(lessonId: String): List<Question> =
-        if (lessonId.startsWith("chemia_") && lessonId !in listOf("chemia_3_1", "chemia_3_2"))
+        if (lessonId.startsWith("chemia_"))
             ChemistryQuestionGenerator.generateFor(lessonId)
         else
             banks[lessonId] ?: emptyList()
@@ -856,8 +856,6 @@ object QuestionBank {
         "mat_3_1" to genericMath,
         "mat_4_1" to mat_4_1,
         "mat_5_1" to mat_5_1,
-        "chemia_3_1" to chemia_3_1,
-        "chemia_3_2" to chemia_3_2,
         "geo_1_1" to geo_1_1,
         "geo_4_1" to geo_4_1,
         "geo_4_2" to geo_4_2,
