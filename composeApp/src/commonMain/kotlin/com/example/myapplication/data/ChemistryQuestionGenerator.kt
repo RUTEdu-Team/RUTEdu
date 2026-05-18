@@ -19,10 +19,13 @@ object ChemistryQuestionGenerator {
             "chemia_2_2" -> chemia_2_2(seed)
             "chemia_3_1" -> chemia_3_1(seed)
             "chemia_3_2" -> chemia_3_2(seed)
+            "chemia_3_3" -> chemia_3_3(seed)
+            "chemia_3_4" -> chemia_3_4(seed)
             "chemia_4_1" -> chemia_4_1(seed)
             "chemia_4_2" -> chemia_4_2(seed)
             "chemia_5_1" -> chemia_5_1(seed)
             "chemia_5_2" -> chemia_5_2(seed)
+            "chemia_6_1" -> chemia_6_1(seed)
             else -> emptyList()
         }
     }
@@ -283,9 +286,176 @@ object ChemistryQuestionGenerator {
         ),
     )
 
+    private val metalAcidReactions: List<EquationBalance> = listOf(
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję metalu z kwasem",
+            reactants = listOf(BalanceTerm("Zn", fixedCoefficient = 1), BalanceTerm("HCl", fixedCoefficient = null, correctCoefficient = 2)),
+            products  = listOf(BalanceTerm("ZnCl₂", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂", fixedCoefficient = 1)),
+            hint = Hint("Zn + 2HCl → ZnCl₂ + H₂. Metal + kwas → sól + wodór.", boldPart = "2HCl",
+                steps = listOf("Zn²⁺ + 2Cl⁻ → ZnCl₂", "2H z HCl → H₂"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję metalu z kwasem",
+            reactants = listOf(BalanceTerm("Mg", fixedCoefficient = 1), BalanceTerm("HCl", fixedCoefficient = null, correctCoefficient = 2)),
+            products  = listOf(BalanceTerm("MgCl₂", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂", fixedCoefficient = 1)),
+            hint = Hint("Mg + 2HCl → MgCl₂ + H₂.", boldPart = "2HCl",
+                steps = listOf("Mg²⁺ + 2Cl⁻ → MgCl₂", "2H → H₂"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję metalu z kwasem",
+            reactants = listOf(BalanceTerm("Fe", fixedCoefficient = 1), BalanceTerm("H₂SO₄", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("FeSO₄", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("Fe + H₂SO₄ → FeSO₄ + H₂. Wszystkie współczynniki = 1.", boldPart = "FeSO₄",
+                steps = listOf("Fe²⁺ + SO₄²⁻ → FeSO₄", "2H z H₂SO₄ → H₂"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję metalu z kwasem",
+            reactants = listOf(BalanceTerm("Ca", fixedCoefficient = 1), BalanceTerm("HCl", fixedCoefficient = null, correctCoefficient = 2)),
+            products  = listOf(BalanceTerm("CaCl₂", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂", fixedCoefficient = 1)),
+            hint = Hint("Ca + 2HCl → CaCl₂ + H₂.", boldPart = "2HCl",
+                steps = listOf("Ca²⁺ + 2Cl⁻ → CaCl₂", "2H → H₂"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję metalu z kwasem",
+            reactants = listOf(BalanceTerm("Zn", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂SO₄", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("ZnSO₄", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂", fixedCoefficient = 1)),
+            hint = Hint("Zn + H₂SO₄ → ZnSO₄ + H₂. Wszystkie współczynniki = 1.", boldPart = "ZnSO₄")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję metalu z kwasem",
+            reactants = listOf(BalanceTerm("Mg", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂SO₄", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("MgSO₄", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂", fixedCoefficient = 1)),
+            hint = Hint("Mg + H₂SO₄ → MgSO₄ + H₂. Wszystkie współczynniki = 1.", boldPart = "MgSO₄")
+        ),
+    )
+
+    private val neutralizationReactions: List<EquationBalance> = listOf(
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję zobojętniania",
+            reactants = listOf(BalanceTerm("NaOH", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("HCl", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("NaCl", fixedCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("NaOH + HCl → NaCl + H₂O. Zasada + kwas → sól + woda.", boldPart = "NaCl + H₂O",
+                steps = listOf("Na⁺ + Cl⁻ → NaCl", "OH⁻ + H⁺ → H₂O"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję zobojętniania",
+            reactants = listOf(BalanceTerm("KOH", fixedCoefficient = 1), BalanceTerm("HNO₃", fixedCoefficient = null, correctCoefficient = 1)),
+            products  = listOf(BalanceTerm("KNO₃", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = 1)),
+            hint = Hint("KOH + HNO₃ → KNO₃ + H₂O.", boldPart = "KNO₃",
+                steps = listOf("K⁺ + NO₃⁻ → KNO₃", "OH⁻ + H⁺ → H₂O"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję zobojętniania",
+            reactants = listOf(BalanceTerm("Ca(OH)₂", fixedCoefficient = 1), BalanceTerm("HCl", fixedCoefficient = null, correctCoefficient = 2)),
+            products  = listOf(BalanceTerm("CaCl₂", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("Ca(OH)₂ + 2HCl → CaCl₂ + 2H₂O.", boldPart = "2HCl",
+                steps = listOf("Ca(OH)₂ ma 2 grupy OH⁻ → potrzeba 2 HCl", "2Cl⁻ + Ca²⁺ → CaCl₂", "2OH⁻ + 2H⁺ → 2H₂O"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję zobojętniania",
+            reactants = listOf(BalanceTerm("NaOH", fixedCoefficient = null, correctCoefficient = 2), BalanceTerm("H₂SO₄", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("Na₂SO₄", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O.", boldPart = "2NaOH",
+                steps = listOf("H₂SO₄ ma 2H⁺ → potrzeba 2 NaOH", "2Na⁺ + SO₄²⁻ → Na₂SO₄", "2OH⁻ + 2H⁺ → 2H₂O"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję zobojętniania",
+            subInstruction = "Siarczan baru wytrąca się jako biały osad",
+            reactants = listOf(BalanceTerm("Ba(OH)₂", fixedCoefficient = 1), BalanceTerm("H₂SO₄", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("BaSO₄", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("Ba(OH)₂ + H₂SO₄ → BaSO₄↓ + 2H₂O. BaSO₄ to biały osad — reakcja służy do wykrywania siarczanów.", boldPart = "BaSO₄",
+                steps = listOf("Ba²⁺ + SO₄²⁻ → BaSO₄↓", "2OH⁻ + 2H⁺ → 2H₂O"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję zobojętniania",
+            reactants = listOf(BalanceTerm("NaOH", fixedCoefficient = null, correctCoefficient = 3), BalanceTerm("H₃PO₄", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("Na₃PO₄", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 3)),
+            hint = Hint("3NaOH + H₃PO₄ → Na₃PO₄ + 3H₂O.", boldPart = "3NaOH",
+                steps = listOf("H₃PO₄ ma 3H⁺ → potrzeba 3 NaOH", "3Na⁺ + PO₄³⁻ → Na₃PO₄", "3OH⁻ + 3H⁺ → 3H₂O"))
+        ),
+    )
+
+    private val combustionReactions: List<EquationBalance> = listOf(
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję spalania",
+            reactants = listOf(BalanceTerm("C", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("O₂", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("CO₂", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("C + O₂ → CO₂. Spalanie węgla. Wszystkie współczynniki = 1.", boldPart = "CO₂")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję spalania",
+            reactants = listOf(BalanceTerm("S", fixedCoefficient = 1), BalanceTerm("O₂", fixedCoefficient = null, correctCoefficient = 1)),
+            products  = listOf(BalanceTerm("SO₂", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("S + O₂ → SO₂. Spalanie siarki. Wszystkie współczynniki = 1.", boldPart = "SO₂")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję spalania",
+            reactants = listOf(BalanceTerm("Mg", fixedCoefficient = null, correctCoefficient = 2), BalanceTerm("O₂", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("MgO", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("2Mg + O₂ → 2MgO. O₂ = 2 atomy O → 2 cząsteczki MgO.", boldPart = "2MgO",
+                steps = listOf("1×O₂ = 2 atomy O", "2O → 2×MgO", "2×MgO wymaga 2×Mg"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję spalania",
+            reactants = listOf(BalanceTerm("Ca", fixedCoefficient = null, correctCoefficient = 2), BalanceTerm("O₂", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("CaO", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("2Ca + O₂ → 2CaO. Analogicznie jak spalanie magnezu.", boldPart = "2CaO",
+                steps = listOf("O₂ = 2O → 2×CaO → 2×Ca"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj spalanie metanu",
+            subInstruction = "Metan — główny składnik gazu ziemnego",
+            reactants = listOf(BalanceTerm("CH₄", fixedCoefficient = 1), BalanceTerm("O₂", fixedCoefficient = null, correctCoefficient = 2)),
+            products  = listOf(BalanceTerm("CO₂", fixedCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("CH₄ + 2O₂ → CO₂ + 2H₂O.", boldPart = "2O₂",
+                steps = listOf("CH₄ ma 4H → 2×H₂O (2O)", "CO₂ potrzebuje 2O", "Razem 4O → 2×O₂"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj spalanie etanu",
+            reactants = listOf(BalanceTerm("C₂H₆", fixedCoefficient = null, correctCoefficient = 2), BalanceTerm("O₂", fixedCoefficient = null, correctCoefficient = 7)),
+            products  = listOf(BalanceTerm("CO₂", fixedCoefficient = null, correctCoefficient = 4), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 6)),
+            hint = Hint("2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O.", boldPart = "7O₂",
+                steps = listOf("2×C₂H₆ ma 4C → 4CO₂", "2×C₂H₆ ma 12H → 6H₂O", "4CO₂ + 6H₂O = 8O+6O = 14O → 7O₂"))
+        ),
+    )
+
+    private val decompositionReactions: List<EquationBalance> = listOf(
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję rozkładu",
+            subInstruction = "Rozkład wody utlenionej (katalizator: MnO₂)",
+            reactants = listOf(BalanceTerm("H₂O₂", fixedCoefficient = null, correctCoefficient = 2)),
+            products  = listOf(BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 2), BalanceTerm("O₂", fixedCoefficient = 1)),
+            hint = Hint("2H₂O₂ → 2H₂O + O₂. Katalizator MnO₂ przyspiesza rozkład.", boldPart = "2H₂O₂",
+                steps = listOf("2×H₂O₂ = 4H + 4O", "4H → 2×H₂O (2O)", "Pozostałe 2O → O₂"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję rozkładu",
+            subInstruction = "Historyczna reakcja Lavoisiera — rozkład tlenku rtęci(II)",
+            reactants = listOf(BalanceTerm("HgO", fixedCoefficient = null, correctCoefficient = 2)),
+            products  = listOf(BalanceTerm("Hg", fixedCoefficient = null, correctCoefficient = 2), BalanceTerm("O₂", fixedCoefficient = 1)),
+            hint = Hint("2HgO → 2Hg + O₂.", boldPart = "2HgO",
+                steps = listOf("2×HgO = 2Hg + 2O", "2O → O₂"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję prażenia wapienia",
+            subInstruction = "Ważna reakcja przemysłowa — produkcja wapna palonego",
+            reactants = listOf(BalanceTerm("CaCO₃", fixedCoefficient = null, correctCoefficient = 1)),
+            products  = listOf(BalanceTerm("CaO", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("CO₂", fixedCoefficient = 1)),
+            hint = Hint("CaCO₃ → CaO + CO₂. Wapno palone (CaO) stosowane w budownictwie.", boldPart = "CaO")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję elektrolizy wody",
+            reactants = listOf(BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 2)),
+            products  = listOf(BalanceTerm("H₂", fixedCoefficient = null, correctCoefficient = 2), BalanceTerm("O₂", fixedCoefficient = 1)),
+            hint = Hint("2H₂O → 2H₂ + O₂. Elektroliza — odwrotność syntezy wody.", boldPart = "2H₂",
+                steps = listOf("2×H₂O = 4H + 2O", "4H → 2×H₂", "2O → O₂"))
+        ),
+    )
+
     private fun chemia_3_2(seed: Long): List<Question> {
         val rng = Random(seed)
-        return acidReactions.shuffled(rng).mapIndexed { i, q -> q.copy(id = 3200 + i) }
+        val all = acidReactions + metalAcidReactions + neutralizationReactions + combustionReactions + decompositionReactions
+        return all.shuffled(rng).mapIndexed { i, q -> q.copy(id = 3200 + i) }
     }
 
     // ── chemia_4_1  Skala pH ──────────────────────────────────────────────────
@@ -605,6 +775,300 @@ object ChemistryQuestionGenerator {
         }
 
         return qs.shuffled(rng).mapIndexed { i, q -> q.copy(id = 5200 + i) }
+    }
+
+    // ── chemia_3_3  Wodorotlenki ─────────────────────────────────────────────
+
+    private data class BaseEntry(val formula: String, val namePL: String, val soluble: Boolean)
+
+    private val hydroxides = listOf(
+        BaseEntry("NaOH",      "wodorotlenek sodu",         true),
+        BaseEntry("KOH",       "wodorotlenek potasu",       true),
+        BaseEntry("LiOH",      "wodorotlenek litu",         true),
+        BaseEntry("Ca(OH)₂",  "wodorotlenek wapnia",       true),
+        BaseEntry("Ba(OH)₂",  "wodorotlenek baru",         true),
+        BaseEntry("Mg(OH)₂",  "wodorotlenek magnezu",      false),
+        BaseEntry("Fe(OH)₂",  "wodorotlenek żelaza(II)",   false),
+        BaseEntry("Fe(OH)₃",  "wodorotlenek żelaza(III)",  false),
+        BaseEntry("Cu(OH)₂",  "wodorotlenek miedzi(II)",   false),
+        BaseEntry("Al(OH)₃",  "wodorotlenek glinu",        false),
+        BaseEntry("Zn(OH)₂",  "wodorotlenek cynku",        false),
+        BaseEntry("Mn(OH)₂",  "wodorotlenek manganu(II)",  false),
+        BaseEntry("Ni(OH)₂",  "wodorotlenek niklu(II)",    false),
+    )
+
+    private val hydroxideFormingReactions: List<EquationBalance> = listOf(
+        EquationBalance(
+            id = 0, instruction = "Uzupełnij reakcję otrzymywania zasady",
+            subInstruction = "Tlenek zasadowy + woda → zasada",
+            reactants = listOf(BalanceTerm("Na₂O", fixedCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 1)),
+            products  = listOf(BalanceTerm("NaOH", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("Na₂O + H₂O → 2NaOH. 2 atomy Na → 2 cząsteczki NaOH.", boldPart = "2NaOH",
+                steps = listOf("Na₂O ma 2Na → 2×NaOH", "H₂O daje grupę OH⁻ dla każdego Na"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Uzupełnij reakcję gaszenia wapna",
+            subInstruction = "Wapno palone + woda → wapno gaszone",
+            reactants = listOf(BalanceTerm("CaO", fixedCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 1)),
+            products  = listOf(BalanceTerm("Ca(OH)₂", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("CaO + H₂O → Ca(OH)₂. Wszystkie współczynniki = 1.", boldPart = "Ca(OH)₂")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Uzupełnij reakcję otrzymywania zasady",
+            reactants = listOf(BalanceTerm("K₂O", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("KOH", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("K₂O + H₂O → 2KOH. 2 atomy K → 2 cząsteczki KOH.", boldPart = "2KOH")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Uzupełnij reakcję otrzymywania zasady",
+            reactants = listOf(BalanceTerm("BaO", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("Ba(OH)₂", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("BaO + H₂O → Ba(OH)₂. Wszystkie współczynniki = 1.", boldPart = "Ba(OH)₂")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Uzupełnij reakcję otrzymywania zasady",
+            reactants = listOf(BalanceTerm("Li₂O", fixedCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 1)),
+            products  = listOf(BalanceTerm("LiOH", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("Li₂O + H₂O → 2LiOH. 2 atomy Li → 2 cząsteczki LiOH.", boldPart = "2LiOH")
+        ),
+    )
+
+    private fun chemia_3_3(seed: Long): List<Question> {
+        val rng = Random(seed)
+        val qs = mutableListOf<Question>()
+        val allFormulas = hydroxides.map { it.formula }
+        val allNames    = hydroxides.map { it.namePL }
+        val solubHint   = "Rozpuszczalne zasady (mocne): NaOH, KOH, LiOH, Ca(OH)₂, Ba(OH)₂. Pozostałe są trudno rozpuszczalne."
+        val solubItems  = listOf("NaOH, KOH, LiOH — gr. 1", "Ca(OH)₂, Ba(OH)₂ — gr. 2", "Inne wodorotlenki — trudno rozpuszczalne")
+
+        hydroxides.forEach { base ->
+            val wNames = allNames.filter { it != base.namePL }.shuffled(rng).take(3)
+            val opts1  = (wNames + base.namePL).shuffled(rng)
+            qs += SelectFromList(id = 0,
+                prompt = "Wodorotlenek o wzorze ${base.formula} to:",
+                options = opts1, correctIndices = setOf(opts1.indexOf(base.namePL)),
+                hint = Hint("${base.formula} to ${base.namePL}.", boldPart = base.namePL))
+
+            val wForms = allFormulas.filter { it != base.formula }.shuffled(rng).take(3)
+            val opts2  = (wForms + base.formula).shuffled(rng)
+            qs += SelectFromList(id = 0,
+                prompt = "Wzór ${base.namePL} to:",
+                options = opts2, correctIndices = setOf(opts2.indexOf(base.formula)),
+                hint = Hint("Wzór ${base.namePL} to ${base.formula}.", boldPart = base.formula))
+
+            val sType = if (base.soluble) "rozpuszczalny" else "trudno rozpuszczalny"
+            val sOpts = listOf("rozpuszczalny", "trudno rozpuszczalny")
+            qs += SelectFromList(id = 0,
+                prompt = "${base.namePL} (${base.formula}) jest:",
+                options = sOpts, correctIndices = setOf(sOpts.indexOf(sType)),
+                hint = Hint(solubHint, boldPart = sType, sectionTitle = "Rozpuszczalność zasad", items = solubItems))
+        }
+
+        qs.addAll(hydroxideFormingReactions.shuffled(rng))
+        return qs.shuffled(rng).mapIndexed { i, q ->
+            when (q) {
+                is SelectFromList -> q.copy(id = 3300 + i)
+                is EquationBalance -> q.copy(id = 3300 + i)
+                else -> q
+            }
+        }
+    }
+
+    // ── chemia_3_4  Sole ─────────────────────────────────────────────────────
+
+    private data class SaltEntry(val formula: String, val namePL: String, val acidName: String)
+
+    private val salts = listOf(
+        SaltEntry("NaCl",          "chlorek sodu",              "kwas chlorowodorowy"),
+        SaltEntry("KCl",           "chlorek potasu",             "kwas chlorowodorowy"),
+        SaltEntry("CaCl₂",         "chlorek wapnia",             "kwas chlorowodorowy"),
+        SaltEntry("MgCl₂",         "chlorek magnezu",            "kwas chlorowodorowy"),
+        SaltEntry("FeCl₂",         "chlorek żelaza(II)",         "kwas chlorowodorowy"),
+        SaltEntry("FeCl₃",         "chlorek żelaza(III)",        "kwas chlorowodorowy"),
+        SaltEntry("AlCl₃",         "chlorek glinu",              "kwas chlorowodorowy"),
+        SaltEntry("ZnCl₂",         "chlorek cynku",              "kwas chlorowodorowy"),
+        SaltEntry("Na₂SO₄",        "siarczan(VI) sodu",          "kwas siarkowy(VI)"),
+        SaltEntry("CaSO₄",         "siarczan(VI) wapnia",        "kwas siarkowy(VI)"),
+        SaltEntry("MgSO₄",         "siarczan(VI) magnezu",       "kwas siarkowy(VI)"),
+        SaltEntry("ZnSO₄",         "siarczan(VI) cynku",         "kwas siarkowy(VI)"),
+        SaltEntry("FeSO₄",         "siarczan(VI) żelaza(II)",    "kwas siarkowy(VI)"),
+        SaltEntry("BaSO₄",         "siarczan(VI) baru",          "kwas siarkowy(VI)"),
+        SaltEntry("K₂SO₄",         "siarczan(VI) potasu",        "kwas siarkowy(VI)"),
+        SaltEntry("Na₂CO₃",        "węglan sodu",                "kwas węglowy"),
+        SaltEntry("CaCO₃",         "węglan wapnia",              "kwas węglowy"),
+        SaltEntry("MgCO₃",         "węglan magnezu",             "kwas węglowy"),
+        SaltEntry("NaNO₃",         "azotan(V) sodu",             "kwas azotowy(V)"),
+        SaltEntry("Ca(NO₃)₂",      "azotan(V) wapnia",           "kwas azotowy(V)"),
+        SaltEntry("KNO₃",          "azotan(V) potasu",           "kwas azotowy(V)"),
+        SaltEntry("Na₃PO₄",        "fosforan(V) sodu",           "kwas fosforowy(V)"),
+        SaltEntry("Ca₃(PO₄)₂",    "fosforan(V) wapnia",         "kwas fosforowy(V)"),
+    )
+
+    private fun chemia_3_4(seed: Long): List<Question> {
+        val rng  = Random(seed)
+        val qs   = mutableListOf<SelectFromList>()
+        val allFormulas = salts.map { it.formula }
+        val allNames    = salts.map { it.namePL }
+        val allAcids    = salts.map { it.acidName }.distinct()
+        val saltItems   = listOf(
+            "Chlorki — od HCl (kwas chlorowodorowy)",
+            "Siarczany(VI) — od H₂SO₄",
+            "Azotany(V) — od HNO₃",
+            "Węglany — od H₂CO₃",
+            "Fosforany(V) — od H₃PO₄"
+        )
+
+        salts.forEach { salt ->
+            val wNames = allNames.filter { it != salt.namePL }.shuffled(rng).take(3)
+            val opts1  = (wNames + salt.namePL).shuffled(rng)
+            qs += SelectFromList(id = 0,
+                prompt = "Sól o wzorze ${salt.formula} to:",
+                options = opts1, correctIndices = setOf(opts1.indexOf(salt.namePL)),
+                hint = Hint("${salt.formula} to ${salt.namePL}.", boldPart = salt.namePL,
+                    sectionTitle = "Nazewnictwo soli", items = saltItems))
+
+            val wForms = allFormulas.filter { it != salt.formula }.shuffled(rng).take(3)
+            val opts2  = (wForms + salt.formula).shuffled(rng)
+            qs += SelectFromList(id = 0,
+                prompt = "Wzór ${salt.namePL} to:",
+                options = opts2, correctIndices = setOf(opts2.indexOf(salt.formula)),
+                hint = Hint("Wzór ${salt.namePL} to ${salt.formula}.", boldPart = salt.formula))
+
+            val wAcids = allAcids.filter { it != salt.acidName }.shuffled(rng).take(3)
+            val opts3  = (wAcids + salt.acidName).shuffled(rng)
+            qs += SelectFromList(id = 0,
+                prompt = "${salt.namePL} (${salt.formula}) pochodzi od:",
+                options = opts3, correctIndices = setOf(opts3.indexOf(salt.acidName)),
+                hint = Hint("${salt.formula} pochodzi od ${salt.acidName}.", boldPart = salt.acidName))
+        }
+
+        return qs.shuffled(rng).mapIndexed { i, q -> q.copy(id = 3400 + i) }
+    }
+
+    // ── chemia_6_1  Tlenki ───────────────────────────────────────────────────
+
+    private data class OxideEntry(val formula: String, val namePL: String, val type: String)
+
+    private val oxides = listOf(
+        OxideEntry("Na₂O",   "tlenek sodu",           "zasadowy"),
+        OxideEntry("K₂O",    "tlenek potasu",          "zasadowy"),
+        OxideEntry("CaO",    "tlenek wapnia",          "zasadowy"),
+        OxideEntry("MgO",    "tlenek magnezu",         "zasadowy"),
+        OxideEntry("BaO",    "tlenek baru",            "zasadowy"),
+        OxideEntry("FeO",    "tlenek żelaza(II)",      "zasadowy"),
+        OxideEntry("Fe₂O₃",  "tlenek żelaza(III)",     "zasadowy"),
+        OxideEntry("CuO",    "tlenek miedzi(II)",      "zasadowy"),
+        OxideEntry("Li₂O",   "tlenek litu",            "zasadowy"),
+        OxideEntry("CO₂",    "dwutlenek węgla",        "kwasowy"),
+        OxideEntry("SO₂",    "dwutlenek siarki",       "kwasowy"),
+        OxideEntry("SO₃",    "trójtlenek siarki",      "kwasowy"),
+        OxideEntry("N₂O₅",   "tlenek azotu(V)",        "kwasowy"),
+        OxideEntry("P₂O₅",   "tlenek fosforu(V)",      "kwasowy"),
+        OxideEntry("SiO₂",   "dwutlenek krzemu",       "kwasowy"),
+        OxideEntry("CO",     "tlenek węgla(II)",       "obojętny"),
+        OxideEntry("NO",     "tlenek azotu(II)",       "obojętny"),
+        OxideEntry("ZnO",    "tlenek cynku",           "amfoteryczny"),
+        OxideEntry("Al₂O₃",  "tlenek glinu",           "amfoteryczny"),
+    )
+
+    private val oxideFormingReactions: List<EquationBalance> = listOf(
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję tworzenia tlenku",
+            reactants = listOf(BalanceTerm("Mg", fixedCoefficient = null, correctCoefficient = 2), BalanceTerm("O₂", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("MgO", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("2Mg + O₂ → 2MgO. O₂ = 2 atomy O → 2×MgO.", boldPart = "2MgO",
+                steps = listOf("O₂ dostarcza 2O", "2O → 2×MgO", "2×MgO wymaga 2×Mg"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję tworzenia tlenku",
+            reactants = listOf(BalanceTerm("Ca", fixedCoefficient = null, correctCoefficient = 2), BalanceTerm("O₂", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("CaO", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("2Ca + O₂ → 2CaO.", boldPart = "2CaO",
+                steps = listOf("O₂ = 2O → 2×CaO → 2×Ca"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję tworzenia tlenku",
+            reactants = listOf(BalanceTerm("Na", fixedCoefficient = null, correctCoefficient = 4), BalanceTerm("O₂", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("Na₂O", fixedCoefficient = null, correctCoefficient = 2)),
+            hint = Hint("4Na + O₂ → 2Na₂O.", boldPart = "2Na₂O",
+                steps = listOf("O₂ = 2O → 2×Na₂O", "2×Na₂O ma 4Na → 4×Na"))
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję tworzenia tlenku kwasowego",
+            reactants = listOf(BalanceTerm("C", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("O₂", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("CO₂", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("C + O₂ → CO₂. Tlenek kwasowy — reaguje z zasadami i z wodą.", boldPart = "CO₂")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Zbilansuj reakcję tworzenia tlenku kwasowego",
+            reactants = listOf(BalanceTerm("S", fixedCoefficient = 1), BalanceTerm("O₂", fixedCoefficient = null, correctCoefficient = 1)),
+            products  = listOf(BalanceTerm("SO₂", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("S + O₂ → SO₂. Dwutlenek siarki — przyczyna kwaśnych deszczy.", boldPart = "SO₂")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Uzupełnij reakcję tlenku kwasowego z wodą",
+            reactants = listOf(BalanceTerm("SO₃", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("H₂SO₄", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("SO₃ + H₂O → H₂SO₄. Tlenek kwasowy + woda → kwas.", boldPart = "H₂SO₄")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Uzupełnij reakcję tlenku zasadowego z wodą",
+            subInstruction = "Wapno palone + woda → wapno gaszone",
+            reactants = listOf(BalanceTerm("CaO", fixedCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 1)),
+            products  = listOf(BalanceTerm("Ca(OH)₂", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("CaO + H₂O → Ca(OH)₂. Tlenek zasadowy + woda → zasada.", boldPart = "Ca(OH)₂")
+        ),
+        EquationBalance(
+            id = 0, instruction = "Uzupełnij reakcję tlenku kwasowego z wodą",
+            reactants = listOf(BalanceTerm("CO₂", fixedCoefficient = null, correctCoefficient = 1), BalanceTerm("H₂O", fixedCoefficient = 1)),
+            products  = listOf(BalanceTerm("H₂CO₃", fixedCoefficient = null, correctCoefficient = 1)),
+            hint = Hint("CO₂ + H₂O → H₂CO₃. Tak powstaje kwas węglowy w napojach gazowanych.", boldPart = "H₂CO₃")
+        ),
+    )
+
+    private fun chemia_6_1(seed: Long): List<Question> {
+        val rng = Random(seed)
+        val qs  = mutableListOf<Question>()
+        val allFormulas = oxides.map { it.formula }
+        val allNames    = oxides.map { it.namePL }
+        val typeOpts    = listOf("zasadowy", "kwasowy", "amfoteryczny", "obojętny")
+        val typeHint    = "Tlenki zasadowe = tlenki metali; tlenki kwasowe = tlenki niemetali. Amfoteryczne reagują zarówno z kwasami jak i zasadami."
+        val typeItems   = listOf(
+            "zasadowy: tlenek metalu → reaguje z kwasami (→ sól + H₂O)",
+            "kwasowy: tlenek niemetalu → reaguje z zasadami (→ sól + H₂O) i z H₂O (→ kwas)",
+            "amfoteryczny: reaguje z kwasami i z zasadami (ZnO, Al₂O₃)",
+            "obojętny: nie reaguje z kwasami ani zasadami (CO, NO)"
+        )
+
+        oxides.forEach { oxide ->
+            val wNames = allNames.filter { it != oxide.namePL }.shuffled(rng).take(3)
+            val opts1  = (wNames + oxide.namePL).shuffled(rng)
+            qs += SelectFromList(id = 0,
+                prompt = "Tlenek o wzorze ${oxide.formula} to:",
+                options = opts1, correctIndices = setOf(opts1.indexOf(oxide.namePL)),
+                hint = Hint("${oxide.formula} to ${oxide.namePL}.", boldPart = oxide.namePL))
+
+            val wForms = allFormulas.filter { it != oxide.formula }.shuffled(rng).take(3)
+            val opts2  = (wForms + oxide.formula).shuffled(rng)
+            qs += SelectFromList(id = 0,
+                prompt = "Wzór ${oxide.namePL} to:",
+                options = opts2, correctIndices = setOf(opts2.indexOf(oxide.formula)),
+                hint = Hint("Wzór ${oxide.namePL} to ${oxide.formula}.", boldPart = oxide.formula))
+
+            qs += SelectFromList(id = 0,
+                prompt = "${oxide.namePL} (${oxide.formula}) jest tlenkiem:",
+                options = typeOpts, correctIndices = setOf(typeOpts.indexOf(oxide.type)),
+                hint = Hint(typeHint, boldPart = oxide.type, sectionTitle = "Typy tlenków", items = typeItems))
+        }
+
+        qs.addAll(oxideFormingReactions.shuffled(rng))
+        return qs.shuffled(rng).mapIndexed { i, q ->
+            when (q) {
+                is SelectFromList  -> q.copy(id = 6100 + i)
+                is EquationBalance -> q.copy(id = 6100 + i)
+                else -> q
+            }
+        }
     }
 
     // ── ElementCardQuiz builders ──────────────────────────────────────────────

@@ -68,12 +68,14 @@ internal fun AnswerFeedbackOverlay(
             exit = fadeOut() + scaleOut(targetScale = 0.85f)
         ) {
             val isCorrect = displayState == FeedbackState.CORRECT
-            val iconColor = if (isCorrect) accentColor else Color(0xFFE53935)
+            val green = Color(0xFF3DBD7D)
+            val red   = Color(0xFFE53935)
+            val iconColor = if (isCorrect) green else red
 
             Card(
                 shape = RoundedCornerShape(24.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.White),
-                elevation = CardDefaults.cardElevation(10.dp),
+                elevation = CardDefaults.cardElevation(0.dp),
                 modifier = Modifier.width(200.dp)
             ) {
                 Column(
@@ -85,13 +87,13 @@ internal fun AnswerFeedbackOverlay(
                         modifier = Modifier
                             .size(72.dp)
                             .clip(CircleShape)
-                            .background(iconColor.copy(alpha = 0.12f)),
+                            .background(iconColor),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
                             imageVector = if (isCorrect) Icons.Default.Check else Icons.Default.Close,
                             contentDescription = null,
-                            tint = iconColor,
+                            tint = Color.White,
                             modifier = Modifier.size(38.dp)
                         )
                     }

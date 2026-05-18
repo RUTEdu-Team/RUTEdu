@@ -154,7 +154,7 @@ private fun CardContent(
     titleColor: Color,
     subtitleColor: Color,
     statusText: String,
-    statusColor: Color
+    statusColor: Color,
 ) {
     Column(modifier = Modifier.padding(16.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {

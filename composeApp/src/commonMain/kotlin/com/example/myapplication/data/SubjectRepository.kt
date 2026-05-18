@@ -303,8 +303,8 @@ object SubjectRepository {
                 ),
                 Topic(
                     id = "chemia_3",
-                    name = "Kwasy",
-                    description = "Wzory kwasów i reakcje otrzymywania",
+                    name = "Związki nieorganiczne",
+                    description = "Kwasy, zasady, sole i tlenki",
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFF3DBD7D),
@@ -321,12 +321,30 @@ object SubjectRepository {
                         ),
                         Lesson(
                             id = "chemia_3_2",
-                            name = "Reakcje otrzymywania kwasów",
-                            description = "Uzupełnij równania stechiometryczne",
+                            name = "Równania reakcji",
+                            description = "Bilansuj reakcje kwasów, metali, spalania i rozkładu",
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF3DBD7D),
                             icon = Icons.Default.Bolt
+                        ),
+                        Lesson(
+                            id = "chemia_3_3",
+                            name = "Wodorotlenki",
+                            description = "Wzory zasad i reakcje otrzymywania",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF4A80F0),
+                            icon = Icons.Default.Science
+                        ),
+                        Lesson(
+                            id = "chemia_3_4",
+                            name = "Sole",
+                            description = "Wzory i nazwy soli, powiązanie z kwasami",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFF47B20),
+                            icon = Icons.Default.Science
                         )
                     )
                 ),
@@ -356,6 +374,26 @@ object SubjectRepository {
                             isLocked = false,
                             color = Color(0xFF4A80F0),
                             icon = Icons.Default.Bolt
+                        )
+                    )
+                ),
+                Topic(
+                    id = "chemia_6",
+                    name = "Tlenki",
+                    description = "Tlenki zasadowe, kwasowe i amfoteryczne",
+                    progress = 0.0f,
+                    isLocked = false,
+                    color = Color(0xFF7C4DFF),
+                    icon = Icons.Default.Science,
+                    lessons = listOf(
+                        Lesson(
+                            id = "chemia_6_1",
+                            name = "Rodzaje tlenków",
+                            description = "Wzory, nazwy i klasyfikacja tlenków + równania tworzenia",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF7C4DFF),
+                            icon = Icons.Default.Science
                         )
                     )
                 ),

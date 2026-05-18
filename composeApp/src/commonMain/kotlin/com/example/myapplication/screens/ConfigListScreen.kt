@@ -21,7 +21,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.myapplication.Screen
+import com.example.myapplication.data.QuestionBank
 import com.example.myapplication.data.SubjectRepository
+import androidx.compose.runtime.remember
 
 @Composable
 fun ConfigListScreen(
@@ -46,6 +48,15 @@ fun ConfigListScreen(
                 Icon(Icons.Default.ArrowBack, contentDescription = "Wróć", tint = Color(0xFF1A1A1A))
             }
             Text("Ustawienia", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A1A1A))
+        }
+
+        val questionTotals = remember {
+            SubjectRepository.subjects.associate { subject ->
+                subject.id to subject.topics
+                    .flatMap { it.lessons }
+                    .filter { !it.isLocked }
+                    .sumOf { QuestionBank.questionsFor(it.id).size }
+            }
         }
 
         LazyColumn(
@@ -103,8 +114,10 @@ fun ConfigListScreen(
                                 fontWeight = FontWeight.SemiBold,
                                 color = Color(0xFF1A1A1A)
                             )
+                            val lessonCount = subject.topics.flatMap { it.lessons }.count { !it.isLocked }
+                            val totalQ = questionTotals[subject.id] ?: 0
                             Text(
-                                "${subject.topics.flatMap { it.lessons }.count { !it.isLocked }} lekcji",
+                                "$lessonCount lekcji · $totalQ pytań",
                                 fontSize = 13.sp,
                                 color = Color(0xFF9E9E9E)
                             )
