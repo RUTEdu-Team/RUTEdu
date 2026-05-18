@@ -24,9 +24,9 @@ import com.example.myapplication.math.TriangleBuilder
 
 object QuestionBank {
 
-    fun questionsFor(lessonId: String): List<Question> =
+    fun questionsFor(lessonId: String, seed: Long = 0L, excludeIds: Set<Int> = emptySet()): List<Question> =
         if (lessonId.startsWith("chemia_"))
-            ChemistryQuestionGenerator.generateFor(lessonId)
+            ChemistryQuestionGenerator.generateFor(lessonId, seed, excludeIds)
         else
             banks[lessonId] ?: emptyList()
 

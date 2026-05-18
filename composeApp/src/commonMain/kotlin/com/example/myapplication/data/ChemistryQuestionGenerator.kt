@@ -8,9 +8,8 @@ import kotlin.random.Random
 
 object ChemistryQuestionGenerator {
 
-    fun generateFor(lessonId: String): List<Question> {
-        val seed = Random.nextLong()
-        return when (lessonId) {
+    fun generateFor(lessonId: String, seed: Long, excludeIds: Set<Int> = emptySet()): List<Question> {
+        val all = when (lessonId) {
             "chemia_1_1" -> chemia_1_1(seed)
             "chemia_1_2" -> chemia_1_2(seed)
             "chemia_1_3" -> chemia_1_3(seed)
@@ -28,7 +27,10 @@ object ChemistryQuestionGenerator {
             "chemia_6_1" -> chemia_6_1(seed)
             else -> emptyList()
         }
+        return if (excludeIds.isEmpty()) all else all.filter { it.id !in excludeIds }
     }
+
+    fun totalFor(lessonId: String): Int = generateFor(lessonId, seed = 0L).size
 
     // ── lesson generators ─────────────────────────────────────────────────────
 
