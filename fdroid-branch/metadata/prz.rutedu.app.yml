@@ -1,0 +1,32 @@
+Categories:
+  - Education
+
+License: MIT
+
+WebSite: https://github.com/RUTEdu-Team/RUTEdu
+SourceCode: https://github.com/RUTEdu-Team/RUTEdu
+IssueTracker: https://github.com/RUTEdu-Team/RUTEdu/issues
+
+AutoName: RUTEdu
+
+Summary: Aplikacja edukacyjna — chemia, matematyka, geografia
+Description: |
+  RUTEdu to interaktywna aplikacja edukacyjna dla uczniów szkół średnich.
+  Zawiera quizy i ćwiczenia z chemii (układ okresowy, równoważenie równań),
+  matematyki (funkcje, geometria) oraz geografii (quiz z mapą).
+
+  Funkcje:
+  * Interaktywny układ okresowy pierwiastków
+  * Quizy z chemii z automatycznym generatorem pytań
+  * Równoważenie równań chemicznych
+  * Quiz geograficzny z mapą
+  * Tryb multiplayer (WiFi lokalny)
+  * Śledzenie postępów
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: v1.0
+    subdir: composeApp
+    gradle:
+      - release

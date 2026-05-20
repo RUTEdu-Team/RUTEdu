@@ -1,0 +1,9 @@
+repo_url: "https://rutedu-team.github.io/RUTEdu/repo"
+repo_name: "RUTEdu"
+repo_description: "RUTEdu — aplikacja edukacyjna do nauki chemii, matematyki i geografii"
+
+keystore: "keystore.jks"
+repo_keyalias: "fdroid"
+keystorepass: env:FDROID_KEY_PASSWORD
+keypass: env:FDROID_KEY_PASSWORD
+keydname: "CN=RUTEdu, O=RUTEdu Team, C=PL"
