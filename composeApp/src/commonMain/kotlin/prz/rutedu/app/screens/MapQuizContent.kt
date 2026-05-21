@@ -246,7 +246,8 @@ internal fun MapQuizContent(
         panOffset += panChange
     }
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(question.mapFile) {
+        loading = true
         countries = prz.rutedu.app.geo.loadGeoJson(question.mapFile)
         loading = false
     }
