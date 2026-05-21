@@ -542,6 +542,15 @@ object SubjectRepository {
                             isLocked = false,
                             color = Color(0xFFF47B20),
                             icon = Icons.Default.Public
+                        ),
+                        Lesson(
+                            id = "geo_4_4",
+                            name = "Województwa Polski",
+                            description = "Zaznacz województwa na mapie Polski",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF959955),
+                            icon = Icons.Default.Public
                         )
                     )
                 )
