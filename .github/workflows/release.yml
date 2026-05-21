@@ -57,28 +57,28 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
         run: |
           if [ -f keystore.jks ]; then
-            ./gradlew :composeApp:assembleRelease \
+            ./gradlew :androidApp:assembleRelease \
               -Pandroid.injected.signing.store.file="$KEYSTORE_PATH" \
               -Pandroid.injected.signing.store.password="$STORE_PASSWORD" \
               -Pandroid.injected.signing.key.alias="$KEY_ALIAS" \
               -Pandroid.injected.signing.key.password="$KEY_PASSWORD"
           else
-            ./gradlew :composeApp:assembleRelease
+            ./gradlew :androidApp:assembleRelease
           fi
 
       - name: Rename APK with tag version
         run: |
           TAG=${GITHUB_REF_NAME}
-          mv composeApp/build/outputs/apk/release/composeApp-release*.apk \
-             composeApp/build/outputs/apk/release/RUTEdu-${TAG}.apk || \
-          mv composeApp/build/outputs/apk/release/*.apk \
-             composeApp/build/outputs/apk/release/RUTEdu-${TAG}.apk
+          mv androidApp/build/outputs/apk/release/androidApp-release*.apk \
+             androidApp/build/outputs/apk/release/RUTEdu-${TAG}.apk || \
+          mv androidApp/build/outputs/apk/release/*.apk \
+             androidApp/build/outputs/apk/release/RUTEdu-${TAG}.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: android-apk
-          path: composeApp/build/outputs/apk/release/RUTEdu-*.apk
+          path: androidApp/build/outputs/apk/release/RUTEdu-*.apk
 
   # ─── iOS ───────────────────────────────────────────────────────────────────
   build-ios:

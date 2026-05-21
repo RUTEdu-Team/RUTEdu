@@ -49,7 +49,7 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
         run: |
-          ./gradlew :composeApp:assembleRelease \
+          ./gradlew :androidApp:assembleRelease \
             -Pandroid.injected.signing.store.file="$KEYSTORE_PATH" \
             -Pandroid.injected.signing.store.password="$STORE_PASSWORD" \
             -Pandroid.injected.signing.key.alias="$KEY_ALIAS" \
@@ -58,8 +58,8 @@ jobs:
       - name: Rename APK
         run: |
           TAG=${GITHUB_REF_NAME}
-          mv composeApp/build/outputs/apk/release/*.apk \
-             composeApp/build/outputs/apk/release/RUTEdu-${TAG}.apk
+          mv androidApp/build/outputs/apk/release/*.apk \
+             androidApp/build/outputs/apk/release/RUTEdu-${TAG}.apk
 
       - name: Install fdroidserver
         run: |
@@ -74,7 +74,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Copy APK to repo
-        run: cp composeApp/build/outputs/apk/release/RUTEdu-*.apk fdroid-repo/repo/
+        run: cp androidApp/build/outputs/apk/release/RUTEdu-*.apk fdroid-repo/repo/
 
       - name: Decode F-Droid keystore
         env:
