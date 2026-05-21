@@ -13,7 +13,7 @@ import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.Public
 import androidx.compose.material.icons.filled.Science
 import androidx.compose.material.icons.filled.TableChart
-import androidx.compose.material.icons.filled.TrendingUp
+import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.ui.graphics.Color
 import prz.rutedu.app.models.Lesson
 import prz.rutedu.app.models.Subject
@@ -104,7 +104,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF3DBD7D),
-                            icon = Icons.Default.TrendingUp
+                            icon = Icons.AutoMirrored.Filled.TrendingUp
                         ),
                         Lesson(
                             id = "mat_1_4",
@@ -200,7 +200,7 @@ object SubjectRepository {
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFF7C4DFF),
-                    icon = Icons.Default.TrendingUp,
+                    icon = Icons.AutoMirrored.Filled.TrendingUp,
                     lessons = listOf(
                         Lesson(
                             id = "mat_4_1",
@@ -209,7 +209,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF7C4DFF),
-                            icon = Icons.Default.TrendingUp
+                            icon = Icons.AutoMirrored.Filled.TrendingUp
                         )
                     )
                 ),

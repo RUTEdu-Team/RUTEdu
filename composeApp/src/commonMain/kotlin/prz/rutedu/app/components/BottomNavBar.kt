@@ -1,9 +1,9 @@
 package prz.rutedu.app.components
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Assignment
+import androidx.compose.material.icons.automirrored.filled.Assignment
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -85,8 +85,8 @@ fun BottomNavBar(
                     Icon(
                         imageVector = when (tab) {
                             NavTab.START     -> Icons.Default.Home
-                            NavTab.NAUKA     -> Icons.Default.MenuBook
-                            NavTab.CWICZENIA -> Icons.Default.Assignment
+                            NavTab.NAUKA     -> Icons.AutoMirrored.Filled.MenuBook
+                            NavTab.CWICZENIA -> Icons.AutoMirrored.Filled.Assignment
                         },
                         contentDescription = tab.label
                     )
