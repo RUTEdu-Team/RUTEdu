@@ -46,7 +46,7 @@ import rutedu.composeapp.generated.resources.Res
 import rutedu.composeapp.generated.resources.player1
 import rutedu.composeapp.generated.resources.player2
 import org.jetbrains.compose.resources.stringResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * All navigation destinations in the app, expressed as a sealed class hierarchy.
