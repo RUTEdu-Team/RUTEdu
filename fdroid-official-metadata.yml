@@ -16,7 +16,7 @@ Builds:
   - versionName: '0.4'
     versionCode: 400
     commit: v0.4
-    subdir: composeApp
+    subdir: androidApp
     gradle:
       - release
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		9402A017B6C7408139311C3D /* MyApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9402A017B6C7408139311C3D /* RUTEdu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RUTEdu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -59,7 +59,7 @@
 		3F0F617AB521946D7F494DF1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9402A017B6C7408139311C3D /* MyApplication.app */,
+				9402A017B6C7408139311C3D /* RUTEdu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,7 +87,7 @@
 			packageProductDependencies = (
 			);
 			productName = iosApp;
-			productReference = 9402A017B6C7408139311C3D /* MyApplication.app */;
+			productReference = 9402A017B6C7408139311C3D /* RUTEdu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
