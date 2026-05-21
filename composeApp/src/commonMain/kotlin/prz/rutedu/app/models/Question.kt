@@ -57,6 +57,8 @@ enum class MapRegion(
 ) {
     /** Shows the entire European continent from Iceland to the Urals. */
     EUROPE(-27f, 60f, 27f, 75f),
+    /** Zoomed-in view of Poland - suitable for Polish rivers, provinces, cities and national parks questions. */
+    POLAND(14f, 24f, 48f, 55f),
     /** Zoomed-in view of Central Europe - suitable for Poland-neighbour questions. */
     CENTRAL_EUROPE(-8f, 35f, 44f, 60f),
     /** Shows the Asian continent from Turkey to Japan. */
@@ -211,6 +213,8 @@ sealed class Question(open val id: Int) {
      * @property questionText  Full grammatically correct question in Polish
      *                         (e.g. `"Gdzie leży Polska?"`).
      * @property region        Which portion of the world map to display. Defaults to [MapRegion.EUROPE].
+     * @property mapFile       File path to the geojson file for the desired game.
+     *                         (e.g. `"files/countries.geojson"`)
      * @property hint          Full hint shown in the bottom sheet.
      */
     data class MapQuiz(
@@ -218,6 +222,7 @@ sealed class Question(open val id: Int) {
         val countryKey: String,
         val questionText: String,
         val region: MapRegion = MapRegion.EUROPE,
+        val mapFile: String = "files/countries.geojson",
         val hint: Hint = Hint("")
     ) : Question(id)
 
