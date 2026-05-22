@@ -1,8 +1,18 @@
 package prz.rutedu.app.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,8 +21,16 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Lightbulb
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -54,7 +72,7 @@ internal fun HintBottomSheet(
 ) {
     ModalBottomSheet(
         onDismissRequest = onDismiss,
-        containerColor = Color.White,
+        containerColor = MaterialTheme.colorScheme.surface,
         shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
     ) {
         Column(
@@ -89,11 +107,11 @@ internal fun HintBottomSheet(
                     text = "Podpowiedź",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF1A1A1A),
+                    color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.weight(1f)
                 )
                 IconButton(onClick = onDismiss) {
-                    Icon(Icons.Default.Close, contentDescription = "Zamknij", tint = Color(0xFF9E9E9E))
+                    Icon(Icons.Default.Close, contentDescription = "Zamknij", tint = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }
 
@@ -128,7 +146,7 @@ internal fun HintBottomSheet(
                     Text(
                         text = annotated,
                         fontSize = 14.sp,
-                        color = Color(0xFF1A1A1A),
+                        color = MaterialTheme.colorScheme.onSurface,
                         lineHeight = 20.sp,
                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 12.dp)
                     )
@@ -142,7 +160,7 @@ internal fun HintBottomSheet(
                     text = hint.sectionTitle,
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF9E9E9E),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     letterSpacing = 1.sp
                 )
                 Spacer(Modifier.height(8.dp))
@@ -150,7 +168,7 @@ internal fun HintBottomSheet(
             if (hint.items.isNotEmpty()) {
                 hint.items.forEachIndexed { index, item ->
                     val dotColor = when (index % 3) {
-                        0 -> Color(0xFFBCC1CA)
+                        0 -> MaterialTheme.colorScheme.outline
                         1 -> accentColor
                         else -> accentColor.copy(alpha = 0.5f)
                     }
@@ -159,7 +177,7 @@ internal fun HintBottomSheet(
                             .fillMaxWidth()
                             .padding(vertical = 4.dp)
                             .clip(RoundedCornerShape(12.dp))
-                            .background(if (index == 1) accentColor.copy(alpha = 0.08f) else Color(0xFFF5F6FA))
+                            .background(if (index == 1) accentColor.copy(alpha = 0.08f) else MaterialTheme.colorScheme.background)
                             .padding(horizontal = 12.dp, vertical = 10.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -170,7 +188,7 @@ internal fun HintBottomSheet(
                                 .background(dotColor)
                         )
                         Spacer(Modifier.width(10.dp))
-                        Text(text = item, fontSize = 14.sp, color = Color(0xFF1A1A1A))
+                        Text(text = item, fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface)
                     }
                 }
                 Spacer(Modifier.height(16.dp))
@@ -182,7 +200,7 @@ internal fun HintBottomSheet(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(16.dp))
-                        .background(Color(0xFFF5F6FA))
+                        .background(MaterialTheme.colorScheme.background)
                         .padding(16.dp)
                 ) {
                     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -190,17 +208,17 @@ internal fun HintBottomSheet(
                             text = "Krok po kroku:",
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF1A1A1A)
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                         hint.steps.forEach { step ->
                             Row(verticalAlignment = Alignment.Top) {
                                 Text(
                                     text = "•",
                                     fontSize = 14.sp,
-                                    color = Color(0xFF9E9E9E),
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     modifier = Modifier.padding(end = 6.dp, top = 1.dp)
                                 )
-                                Text(text = step, fontSize = 14.sp, color = Color(0xFF4A4A4A), lineHeight = 20.sp)
+                                Text(text = step, fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface, lineHeight = 20.sp)
                             }
                         }
                     }

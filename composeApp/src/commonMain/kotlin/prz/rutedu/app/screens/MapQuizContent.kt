@@ -5,13 +5,36 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.rememberTransformableState
 import androidx.compose.foundation.gestures.transformable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Lightbulb
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,9 +51,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import prz.rutedu.app.geo.CountryFeature
-import prz.rutedu.app.geo.loadGeoJson
 import prz.rutedu.app.models.MapRegion
 import prz.rutedu.app.models.Question
+import prz.rutedu.app.theme.isAppInDarkTheme
 import kotlin.math.PI
 import kotlin.math.cos
 
@@ -230,6 +253,12 @@ internal fun MapQuizContent(
     var zoomScale    by remember(question.id) { mutableStateOf(1f) }
     var canvasSize   by remember { mutableStateOf<Pair<Int, Int>?>(null) }
 
+    val isDark = isAppInDarkTheme()
+    val oceanColor = if (isDark) Color(0xFF1E262B) else COLOR_OCEAN
+    val countryColor = if (isDark) Color(0xFF384A3E) else COLOR_COUNTRY
+    val borderColor = if (isDark) Color(0xFF1E2022) else COLOR_BORDER
+    val selectedColor = if (isDark) Color(0xFFE08D1E) else COLOR_SELECTED
+
     val region = question.region
     val screenCountries = remember(countries, canvasSize, region) {
         val cs = canvasSize ?: return@remember emptyList()
@@ -274,14 +303,14 @@ internal fun MapQuizContent(
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             shape = RoundedCornerShape(20.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.White),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
             elevation = CardDefaults.cardElevation(2.dp)
         ) {
             Text(
                 text = question.questionText,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF1A1A1A),
+                color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -301,10 +330,10 @@ internal fun MapQuizContent(
         ) {
             if (loading) {
                 Box(
-                    modifier = Modifier.fillMaxSize().background(COLOR_OCEAN),
+                    modifier = Modifier.fillMaxSize().background(oceanColor),
                     contentAlignment = Alignment.Center
                 ) {
-                    CircularProgressIndicator(color = Color.White)
+                    CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
                 }
             } else {
                 Canvas(
@@ -339,7 +368,7 @@ internal fun MapQuizContent(
                             }
                         }
                 ) {
-                    drawRect(color = COLOR_OCEAN)
+                    drawRect(color = oceanColor)
 
                     withTransform(
                         transformBlock = {
@@ -351,17 +380,17 @@ internal fun MapQuizContent(
                         screenCountries.forEach { sc ->
                             if (sc.feature.name != selectedCountry) {
                                 sc.rings.forEach { ring ->
-                                    drawPath(ring.path, color = COLOR_COUNTRY)
-                                    drawPath(ring.path, color = COLOR_BORDER, style = Stroke(width = 1.2f))
+                                    drawPath(ring.path, color = countryColor)
+                                    drawPath(ring.path, color = borderColor, style = Stroke(width = 1.2f))
                                 }
                             }
                         }
                         // Selected country drawn on top
                         screenCountries.firstOrNull { it.feature.name == selectedCountry }?.let { sc ->
-                            val fill = if (isWrong) COLOR_WRONG else COLOR_SELECTED
+                            val fill = if (isWrong) COLOR_WRONG else selectedColor
                             sc.rings.forEach { ring ->
                                 drawPath(ring.path, color = fill)
-                                drawPath(ring.path, color = COLOR_BORDER, style = Stroke(width = 1.8f))
+                                drawPath(ring.path, color = borderColor, style = Stroke(width = 1.8f))
                             }
                         }
                     }

@@ -1,13 +1,31 @@
 package prz.rutedu.app.screens
 
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,8 +52,6 @@ private fun Float.to3dp(): String {
     val decPart = abs(rounded % 1000)
     return "$intPart.${decPart.toString().padStart(3, '0')}"
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
 
 /**
  * Question content for [Question.ElementCardQuiz] - displays a styled element card and asks the
@@ -79,17 +95,14 @@ internal fun ElementCardContent(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(bottom = bottomPadding),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(bottom = bottomPadding)
     ) {
-        Spacer(Modifier.height(20.dp))
-
         // Question prompt
         Text(
             text = question.prompt,
             fontSize = 22.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF1A1A1A),
+            color = MaterialTheme.colorScheme.onBackground,
             textAlign = TextAlign.Center,
             lineHeight = 30.sp,
             modifier = Modifier.padding(horizontal = 24.dp)
@@ -98,7 +111,7 @@ internal fun ElementCardContent(
         Text(
             text = question.subtitle,
             fontSize = 14.sp,
-            color = Color(0xFF9E9E9E),
+            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f),
             textAlign = TextAlign.Center,
             lineHeight = 20.sp,
             modifier = Modifier.padding(horizontal = 24.dp)
@@ -120,11 +133,11 @@ internal fun ElementCardContent(
                     modifier = Modifier.padding(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    // Inner white card with symbol
+                    // Inner card with symbol
                     Card(
                         modifier = Modifier.wrapContentSize(),
                         shape = RoundedCornerShape(16.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color.White),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                         elevation = CardDefaults.cardElevation(0.dp)
                     ) {
                         Column(
@@ -135,14 +148,14 @@ internal fun ElementCardContent(
                             Box(
                                 modifier = Modifier
                                     .size(84.dp)
-                                    .border(3.dp, Color(0xFF1A1A1A), CircleShape),
+                                    .border(3.dp, MaterialTheme.colorScheme.onSurface, CircleShape),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
                                     text = element.symbol,
                                     fontSize = 38.sp,
                                     fontWeight = FontWeight.Bold,
-                                    color = Color(0xFF1A1A1A)
+                                    color = MaterialTheme.colorScheme.onSurface
                                 )
                             }
                             Spacer(Modifier.height(10.dp))
@@ -150,12 +163,12 @@ internal fun ElementCardContent(
                                 text = element.namePL,
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.SemiBold,
-                                color = Color(0xFF1A1A1A)
+                                color = MaterialTheme.colorScheme.onSurface
                             )
                             Text(
                                 text = element.atomicMass.to3dp(),
                                 fontSize = 13.sp,
-                                color = Color(0xFF9E9E9E)
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
@@ -194,14 +207,14 @@ internal fun ElementCardContent(
                     val index = rowIdx * 2 + colIdx
                     val isSelected = selectedIndex == index
                     val borderColor = when {
-                        isWrong && isSelected -> Color(0xFFE53935)
+                        isWrong && isSelected -> MaterialTheme.colorScheme.error
                         isSelected            -> accentColor
-                        else                  -> Color(0xFFE8EAF0)
+                        else                  -> MaterialTheme.colorScheme.outlineVariant
                     }
                     val bgColor = when {
-                        isWrong && isSelected -> Color(0xFFFFEBEA)
+                        isWrong && isSelected -> MaterialTheme.colorScheme.errorContainer
                         isSelected            -> accentColor.copy(alpha = 0.10f)
-                        else                  -> Color.White
+                        else                  -> MaterialTheme.colorScheme.surface
                     }
 
                     Card(
@@ -222,7 +235,7 @@ internal fun ElementCardContent(
                                 text = option,
                                 fontSize = 22.sp,
                                 fontWeight = FontWeight.SemiBold,
-                                color = if (isSelected && !isWrong) accentColor else Color(0xFF1A1A1A)
+                                color = if (isSelected && !isWrong) accentColor else MaterialTheme.colorScheme.onSurface
                             )
                         }
                     }
@@ -254,7 +267,7 @@ private fun ElementInfoRow(label: String, value: String, accentColor: Color) {
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(label, fontSize = 14.sp, color = Color(0xFF1A1A1A))
+        Text(label, fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface)
         Text(value, fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = accentColor)
     }
 }

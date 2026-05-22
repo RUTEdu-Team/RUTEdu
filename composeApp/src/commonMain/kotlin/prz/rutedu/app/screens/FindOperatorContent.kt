@@ -8,31 +8,50 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import prz.rutedu.app.models.MathOperator
 import prz.rutedu.app.models.Question
 import kotlin.math.roundToInt
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 
 /**
  * Question content for [Question.FindOperator] - the student drags the correct math operator
@@ -125,9 +144,9 @@ internal fun FindOperatorContent(
 
     val targetBorderColor by animateColorAsState(
         when {
-            isWrong -> Color(0xFFE53935)
+            isWrong -> MaterialTheme.colorScheme.error
             selectedOperator != null -> accentColor
-            else -> Color(0xFFBCC1CA)
+            else -> MaterialTheme.colorScheme.outline
         }
     )
 
@@ -151,7 +170,7 @@ internal fun FindOperatorContent(
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(20.dp))
-                    .background(Color(0xFFEBF1FF))
+                    .background(accentColor.copy(alpha = 0.15f))
                     .padding(horizontal = 16.dp, vertical = 6.dp)
             ) {
                 Text("MATEMATYKA", fontSize = 11.sp, fontWeight = FontWeight.Bold, color = accentColor)
@@ -159,11 +178,11 @@ internal fun FindOperatorContent(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            Text("Uzupełnij równanie", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A1A1A))
+            Text("Uzupełnij równanie", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
             Text(
                 text = "Przeciągnij brakujący znak w puste pole",
                 fontSize = 14.sp,
-                color = Color(0xFF9E9E9E),
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f),
                 textAlign = TextAlign.Center
             )
 
@@ -174,7 +193,7 @@ internal fun FindOperatorContent(
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp),
                 shape = RoundedCornerShape(20.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(2.dp)
             ) {
                 val eqFontSize = if (maxOf("${question.operand1}".length, "${question.operand2}".length, "${question.result}".length) >= 3) 34.sp else 48.sp
@@ -185,7 +204,7 @@ internal fun FindOperatorContent(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    EquationText("${question.operand1}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand1}", MaterialTheme.colorScheme.onSurface, eqFontSize)
                     Spacer(Modifier.width(12.dp))
 
                     Box(
@@ -209,9 +228,9 @@ internal fun FindOperatorContent(
                     }
 
                     Spacer(Modifier.width(12.dp))
-                    EquationText("${question.operand2}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand2}", MaterialTheme.colorScheme.onSurface, eqFontSize)
                     Spacer(Modifier.width(8.dp))
-                    EquationText("=", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("=", MaterialTheme.colorScheme.onSurface, eqFontSize)
                     Spacer(Modifier.width(8.dp))
                     EquationText("${question.result}", accentColor, eqFontSize)
                 }
@@ -230,7 +249,7 @@ internal fun FindOperatorContent(
                             .padding(8.dp)
                             .size(64.dp)
                             .clip(RoundedCornerShape(16.dp))
-                            .background(if (isSelected) accentColor else Color.White)
+                            .background(if (isSelected) accentColor else MaterialTheme.colorScheme.surface)
                             .onGloballyPositioned { coords ->
                                 chipRootPositions[op] = coords.positionInRoot()
                             }
@@ -275,7 +294,7 @@ internal fun FindOperatorContent(
                             text = op.symbol,
                             fontSize = 26.sp,
                             fontWeight = FontWeight.Bold,
-                            color = if (isSelected) Color.White else Color(0xFF1A1A1A)
+                            color = if (isSelected) Color.White else MaterialTheme.colorScheme.onSurface
                         )
                     }
                 }

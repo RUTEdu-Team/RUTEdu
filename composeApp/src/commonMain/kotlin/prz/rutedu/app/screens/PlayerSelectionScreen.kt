@@ -38,29 +38,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import prz.rutedu.app.Database
-import prz.rutedu.app.Screen
-import prz.rutedu.app.Player
 import kotlinx.coroutines.launch
-import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.ic_add_black_24dp
-import rutedu.composeapp.generated.resources.ic_star_yellow_24dp
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import rutedu.composeapp.generated.resources.fragment_choose_player_instruction
+import prz.rutedu.app.Database
+import prz.rutedu.app.Player
+import rutedu.composeapp.generated.resources.Res
+import rutedu.composeapp.generated.resources.add_player
+import rutedu.composeapp.generated.resources.back
+import rutedu.composeapp.generated.resources.cancel
 import rutedu.composeapp.generated.resources.choose_player_input
 import rutedu.composeapp.generated.resources.choose_player_nick_exist
-import rutedu.composeapp.generated.resources.nick_empty
-import rutedu.composeapp.generated.resources.cancel
-import rutedu.composeapp.generated.resources.save
-import rutedu.composeapp.generated.resources.back
-import rutedu.composeapp.generated.resources.no_players_yet
 import rutedu.composeapp.generated.resources.create_first_player
 import rutedu.composeapp.generated.resources.create_player
-import rutedu.composeapp.generated.resources.add_player
-import rutedu.composeapp.generated.resources.nickname
 import rutedu.composeapp.generated.resources.error_creating_player
+import rutedu.composeapp.generated.resources.fragment_choose_player_instruction
 import rutedu.composeapp.generated.resources.high_score_games
+import rutedu.composeapp.generated.resources.ic_add_black_24dp
+import rutedu.composeapp.generated.resources.ic_star_yellow_24dp
+import rutedu.composeapp.generated.resources.nick_empty
+import rutedu.composeapp.generated.resources.nickname
+import rutedu.composeapp.generated.resources.no_players_yet
+import rutedu.composeapp.generated.resources.save
 import rutedu.composeapp.generated.resources.star
 
 /**
@@ -115,7 +114,7 @@ fun PlayerSelectionScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.surface)
+            .background(MaterialTheme.colorScheme.background)
             .safeContentPadding()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,

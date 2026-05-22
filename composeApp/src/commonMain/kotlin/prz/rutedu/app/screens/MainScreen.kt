@@ -23,6 +23,7 @@ import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -30,22 +31,20 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import app.cash.sqldelight.db.SqlDriver
 import prz.rutedu.app.Screen
 import prz.rutedu.app.components.SubjectCard
 import prz.rutedu.app.data.LessonProgressStore
 import prz.rutedu.app.data.SubjectRepository
-import prz.rutedu.app.models.Subject
 
 /**
  * Home screen - the first screen the user sees after launch.
@@ -90,7 +89,7 @@ fun MainScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
             .statusBarsPadding()
             .padding(horizontal = 20.dp)
     ) {
@@ -102,31 +101,36 @@ fun MainScreen(
                 modifier = Modifier
                     .size(40.dp)
                     .clip(RoundedCornerShape(10.dp))
-                    .background(Color(0xFFF47B20)),
+                    .background(MaterialTheme.colorScheme.primary),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.MenuBook,
                     contentDescription = null,
-                    tint = Color.White,
+                    tint = MaterialTheme.colorScheme.onPrimary,
                     modifier = Modifier.size(22.dp)
                 )
             }
             Spacer(modifier = Modifier.width(10.dp))
-            Text(text = "RUTEdu", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A1A1A))
+            Text(
+                text = "RUTEdu",
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onBackground
+            )
             Spacer(modifier = Modifier.weight(1f))
             IconButton(onClick = { navController.navigate(Screen.ConfigList.route) }) {
                 Box(
                     modifier = Modifier
                         .size(38.dp)
                         .clip(androidx.compose.foundation.shape.CircleShape)
-                        .background(Color(0xFFF5F6FA)),
+                        .background(MaterialTheme.colorScheme.surfaceVariant),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
                         imageVector = Icons.Default.Settings,
                         contentDescription = "Ustawienia",
-                        tint = Color(0xFF1A1A1A),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.size(22.dp)
                     )
                 }
@@ -135,12 +139,16 @@ fun MainScreen(
 
         Spacer(modifier = Modifier.height(28.dp))
 
-        Text(text = "Dzień dobry!", fontSize = 15.sp, color = Color(0xFF9E9E9E))
+        Text(
+            text = "Dzień dobry!",
+            fontSize = 15.sp,
+            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
+        )
         Text(
             text = "Czego dzisiaj się nauczymy?",
             fontSize = 22.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF1A1A1A),
+            color = MaterialTheme.colorScheme.onBackground,
             lineHeight = 30.sp
         )
 

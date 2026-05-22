@@ -1,43 +1,67 @@
 package prz.rutedu.app.screens
 
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTransformGestures
-import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lightbulb
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.delay
+import prz.rutedu.app.models.ELEMENTS
 import prz.rutedu.app.models.Element
 import prz.rutedu.app.models.ElementCategory
-import prz.rutedu.app.models.ELEMENTS
 import prz.rutedu.app.models.Hint
 import prz.rutedu.app.models.Question
 import prz.rutedu.app.models.elementByNumber
-import kotlinx.coroutines.delay
+import prz.rutedu.app.theme.isAppInDarkTheme
 
 /**
  * KMP-safe atomic mass formatter - see [ElementCardContent] for the full explanation.
@@ -174,14 +198,14 @@ fun PeriodicTableContent(
             text = question.questionText,
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF1A1A1A),
+            color = MaterialTheme.colorScheme.onBackground,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp)
         )
         Text(
             text = "Wybierz pierwiastek z tacy, wstaw w puste miejsce",
             fontSize = 13.sp,
-            color = Color(0xFF9E9E9E),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp)
         )
@@ -213,7 +237,7 @@ fun PeriodicTableContent(
 
         // Element tray
         Surface(
-            color = Color.White,
+            color = MaterialTheme.colorScheme.surface,
             shadowElevation = 4.dp,
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -317,7 +341,7 @@ private fun ZoomablePeriodicTable(
         ELEMENTS.associateBy { el -> Pair(el.tableRow, el.tableCol) }
     }
 
-    Box(modifier = modifier) {
+    Box(modifier = modifier.clipToBounds()) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -458,7 +482,7 @@ private fun TableContent(
             Text(
                 text = "$period",
                 fontSize = 8.sp,
-                color = Color(0xFF9E9E9E),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier
                     .offset(x = 2.dp, y = y + CELL_SIZE / 2 - 5.dp)
             )
@@ -471,7 +495,7 @@ private fun TableContent(
         Text(
             text = "Lantanowce →",
             fontSize = 7.sp,
-            color = Color(0xFF9E9E9E),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.offset(
                 x = (CELL_PADDING + (CELL_SIZE + CELL_PADDING * 2) * 2),
                 y = (CELL_PADDING + (CELL_SIZE + CELL_PADDING * 2) * 8)
@@ -480,7 +504,7 @@ private fun TableContent(
         Text(
             text = "Aktynowce →",
             fontSize = 7.sp,
-            color = Color(0xFF9E9E9E),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.offset(
                 x = (CELL_PADDING + (CELL_SIZE + CELL_PADDING * 2) * 2),
                 y = (CELL_PADDING + (CELL_SIZE + CELL_PADDING * 2) * 9)
@@ -505,17 +529,27 @@ private fun ElementCell(
     findOverrideColor: Color? = null,
     onClick: () -> Unit = {}
 ) {
+    val isDark = isAppInDarkTheme()
     val bgColor = when {
         isJustPlaced -> Color(0xFF66BB6A)
         findOverrideColor != null -> findOverrideColor.copy(alpha = 0.35f)
-        else -> elementColor(element.category)
+        else -> {
+            val baseColor = elementColor(element.category)
+            if (isDark) baseColor.copy(alpha = 0.25f) else baseColor
+        }
     }
+    val baseBgModifier = if (isDark) Modifier.background(MaterialTheme.colorScheme.surface) else Modifier
+
+    val symbolColor = if (isDark) MaterialTheme.colorScheme.onSurface else Color(0xFF1A1A1A)
+    val numberColor = if (isDark) MaterialTheme.colorScheme.onSurfaceVariant else Color(0xFF424242)
+    val massColor = if (isDark) MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f) else Color(0xFF616161)
 
     Box(
         modifier = Modifier
             .offset(x = x, y = y)
             .size(CELL_SIZE)
             .clip(RoundedCornerShape(4.dp))
+            .then(baseBgModifier)
             .background(bgColor)
             .then(if (findOverrideColor != null) Modifier.border(2.dp, findOverrideColor, RoundedCornerShape(4.dp)) else Modifier)
             .clickable(onClick = onClick),
@@ -529,20 +563,20 @@ private fun ElementCell(
             Text(
                 text = "${element.atomicNumber}",
                 fontSize = 7.sp,
-                color = Color(0xFF424242),
+                color = numberColor,
                 lineHeight = 7.sp
             )
             Text(
                 text = element.symbol,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF1A1A1A),
+                color = symbolColor,
                 lineHeight = 14.sp
             )
             Text(
                 text = element.atomicMass.to3dp(),
                 fontSize = 6.sp,
-                color = Color(0xFF616161),
+                color = massColor,
                 lineHeight = 6.sp,
                 maxLines = 1,
                 overflow = TextOverflow.Clip
@@ -566,12 +600,16 @@ private fun EmptySlotCell(
     accentColor: Color,
     onClick: () -> Unit
 ) {
+    val isDark = isAppInDarkTheme()
+    val defaultBg = if (isDark) MaterialTheme.colorScheme.surfaceVariant else COLOR_EMPTY_SLOT
+    val defaultBorder = if (isDark) MaterialTheme.colorScheme.outline else COLOR_EMPTY_BORDER
+
     val borderColor by animateColorAsState(
-        if (isHighlighted) accentColor else COLOR_EMPTY_BORDER,
+        if (isHighlighted) accentColor else defaultBorder,
         animationSpec = tween(200)
     )
     val bgColor by animateColorAsState(
-        if (isHighlighted) accentColor.copy(alpha = 0.15f) else COLOR_EMPTY_SLOT,
+        if (isHighlighted) accentColor.copy(alpha = 0.15f) else defaultBg,
         animationSpec = tween(200)
     )
 
@@ -611,11 +649,20 @@ private fun FilledSlotCell(
     checkState: Boolean?,   // null=pending, true=correct, false=wrong
     onClick: () -> Unit
 ) {
+    val isDark = isAppInDarkTheme()
+    val baseBgModifier = if (isDark) Modifier.background(MaterialTheme.colorScheme.surface) else Modifier
+    val textColor = if (checkState != null) {
+        Color.White
+    } else {
+        if (isDark) MaterialTheme.colorScheme.onSurface else Color(0xFF1A1A1A)
+    }
+
     Box(
         modifier = Modifier
             .offset(x = x, y = y)
             .size(CELL_SIZE)
             .clip(RoundedCornerShape(4.dp))
+            .then(baseBgModifier)
             .background(slotColor.copy(alpha = if (checkState != null) 0.8f else 0.25f))
             .border(2.dp, slotColor, RoundedCornerShape(4.dp))
             .clickable(enabled = checkState == null, onClick = onClick),
@@ -630,7 +677,7 @@ private fun FilledSlotCell(
                 text = element.symbol,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = if (checkState != null) Color.White else Color(0xFF1A1A1A),
+                color = textColor,
                 lineHeight = 14.sp
             )
             if (checkState != null) {
@@ -660,23 +707,33 @@ private fun TrayElementCard(
     accentColor: Color,
     onClick: () -> Unit
 ) {
+    val isDark = isAppInDarkTheme()
     val bgColor = when {
-        isPlaced -> Color(0xFFE8F5E9)
+        isPlaced -> if (isDark) Color(0xFF1B3C24) else Color(0xFFE8F5E9)
         isSelected -> accentColor.copy(alpha = 0.12f)
-        else -> elementColor(element.category)
+        else -> {
+            val baseColor = elementColor(element.category)
+            if (isDark) baseColor.copy(alpha = 0.25f) else baseColor
+        }
     }
     val borderColor = when {
-        isPlaced -> Color(0xFF66BB6A)
+        isPlaced -> if (isDark) Color(0xFF2E7D32) else Color(0xFF66BB6A)
         isSelected -> accentColor
-        else -> Color.Transparent
+        else -> if (isDark) MaterialTheme.colorScheme.outline else Color.Transparent
     }
     val textAlpha = if (isPlaced) 0.4f else 1f
+
+    val baseBgModifier = if (isDark) Modifier.background(MaterialTheme.colorScheme.surface) else Modifier
+    val symbolColor = if (isDark) MaterialTheme.colorScheme.onSurface else Color(0xFF1A1A1A)
+    val nameColor = if (isDark) MaterialTheme.colorScheme.onSurfaceVariant else Color(0xFF616161)
+    val massColor = if (isDark) MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f) else Color(0xFF757575)
 
     Box(
         modifier = Modifier
             .width(72.dp)
             .height(88.dp)
             .clip(RoundedCornerShape(10.dp))
+            .then(baseBgModifier)
             .background(bgColor)
             .border(2.dp, borderColor, RoundedCornerShape(10.dp))
             .clickable(enabled = !isPlaced, onClick = onClick),
@@ -693,12 +750,12 @@ private fun TrayElementCard(
                     text = element.symbol,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF1A1A1A).copy(alpha = textAlpha)
+                    color = symbolColor.copy(alpha = textAlpha)
                 )
                 Text(
                     text = element.namePL,
                     fontSize = 9.sp,
-                    color = Color(0xFF616161).copy(alpha = textAlpha),
+                    color = nameColor.copy(alpha = textAlpha),
                     textAlign = TextAlign.Center,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
@@ -706,7 +763,7 @@ private fun TrayElementCard(
                 Text(
                     text = element.atomicMass.to3dp(),
                     fontSize = 8.sp,
-                    color = Color(0xFF757575).copy(alpha = textAlpha)
+                    color = massColor.copy(alpha = textAlpha)
                 )
             }
         }
@@ -733,10 +790,11 @@ fun PeriodicTableByShellContent(
     onCorrect: () -> Unit,
     onWrong: () -> Unit = {}
 ) {
+    val isDark = isAppInDarkTheme()
     PeriodicTableFindContent(
         topLabel = "CHEMIA",
         questionText = "Wskaż pierwiastek o konfiguracji powłokowej",
-        clueContent = {
+        clueContent = { clueColor ->
             Text(
                 text = question.shellConfig,
                 fontSize = 36.sp,
@@ -748,7 +806,7 @@ fun PeriodicTableByShellContent(
             Text(
                 text = "elektrony w powłokach K, L, M, N…",
                 fontSize = 12.sp,
-                color = Color(0xFF9E9E9E),
+                color = if (isDark) MaterialTheme.colorScheme.onSurfaceVariant else Color(0xFF9E9E9E),
                 textAlign = TextAlign.Center
             )
         },
@@ -784,12 +842,12 @@ fun PeriodicTableByNameContent(
     PeriodicTableFindContent(
         topLabel = "CHEMIA",
         questionText = "Znajdź w układzie pierwiastek o nazwie",
-        clueContent = {
+        clueContent = { clueColor ->
             Text(
                 text = question.elementNamePL,
                 fontSize = 34.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF1A1A1A),
+                color = clueColor,
                 textAlign = TextAlign.Center
             )
         },
@@ -832,7 +890,7 @@ fun PeriodicTableByNameContent(
 private fun PeriodicTableFindContent(
     topLabel: String,
     questionText: String,
-    clueContent: @Composable ColumnScope.() -> Unit,
+    clueContent: @Composable ColumnScope.(clueColor: Color) -> Unit,
     targetAtomicNumber: Int,
     hint: Hint,
     accentColor: Color,
@@ -876,17 +934,18 @@ private fun PeriodicTableFindContent(
         Text(
             text = questionText,
             fontSize = 15.sp,
-            color = Color(0xFF9E9E9E),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp)
         )
         Spacer(Modifier.height(8.dp))
 
         // Clue card - flashes green/red based on check result
+        val isDark = isAppInDarkTheme()
         val cardBg = when (checkState) {
-            FindCheckState.CORRECT -> Color(0xFFE8F5E9)
-            FindCheckState.WRONG   -> Color(0xFFFFCDD2)
-            FindCheckState.IDLE    -> Color.White
+            FindCheckState.CORRECT -> if (isDark) Color(0xFF1C3A27) else Color(0xFFE8F5E9)
+            FindCheckState.WRONG   -> if (isDark) Color(0xFF422121) else Color(0xFFFFCDD2)
+            FindCheckState.IDLE    -> MaterialTheme.colorScheme.surface
         }
         Card(
             modifier = Modifier
@@ -902,7 +961,11 @@ private fun PeriodicTableFindContent(
                     .fillMaxWidth()
                     .padding(vertical = 20.dp, horizontal = 16.dp)
             ) {
-                clueContent()
+                val clueColor = when (checkState) {
+                    FindCheckState.CORRECT, FindCheckState.WRONG -> if (isDark) Color.White else Color(0xFF1A1A1A)
+                    FindCheckState.IDLE -> MaterialTheme.colorScheme.onSurface
+                }
+                clueContent(clueColor)
             }
         }
 
@@ -926,7 +989,7 @@ private fun PeriodicTableFindContent(
 
         // Bottom bar - solid background so table doesn't show through
         Surface(
-            color = Color.White,
+            color = MaterialTheme.colorScheme.surface,
             shadowElevation = 4.dp,
             modifier = Modifier.fillMaxWidth()
         ) {
