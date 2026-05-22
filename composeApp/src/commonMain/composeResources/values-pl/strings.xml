@@ -103,4 +103,9 @@
     <string name="unit_conversion_question">%1$d %2$s = ? %3$s</string>
     <string name="divisibility_question">Czy %1$d jest podzielne przez %2$d?</string>
 
+    <!-- Theme selection -->
+    <string name="theme_select_theme">Wybierz motyw</string>
+    <string name="theme_system">Domyślny systemu</string>
+    <string name="theme_light">Jasny</string>
+    <string name="theme_dark">Ciemny</string>
 </resources>

@@ -102,5 +102,4 @@
     <string name="unit_days">days</string>
     <string name="unit_conversion_question">%1$d %2$s = ? %3$s</string>
     <string name="divisibility_question">Is %1$d divisible by %2$d?</string>
-
 </resources>
