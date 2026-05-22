@@ -83,7 +83,7 @@ jobs:
   # ─── iOS ───────────────────────────────────────────────────────────────────
   build-ios:
     name: Build iOS IPA
-    runs-on: macos-latest
+    runs-on: macos-26
 
     steps:
       - name: Checkout
