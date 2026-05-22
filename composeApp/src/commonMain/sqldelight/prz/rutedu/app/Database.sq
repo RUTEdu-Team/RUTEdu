@@ -30,6 +30,17 @@ setLanguage:
 INSERT OR REPLACE INTO appSettings (setting_key, setting_value)
 VALUES ('language', ?);
 
+-- Get the current theme mode
+getThemeMode:
+SELECT setting_value
+FROM appSettings
+WHERE setting_key = 'theme_mode';
+
+-- Set the theme mode
+setThemeMode:
+INSERT OR REPLACE INTO appSettings (setting_key, setting_value)
+VALUES ('theme_mode', ?);
+
 -- Players table for game players
 CREATE TABLE player (
   id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
