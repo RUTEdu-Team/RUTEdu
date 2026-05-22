@@ -1,35 +1,56 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# RUTEdu
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+RUTEdu is an educational quiz application for mobile platforms. It helps users learn and practice topics in Mathematics, Chemistry, and Geography. The application is built using Kotlin Multiplatform and Compose Multiplatform, allowing it to run on both Android and iOS devices from a shared codebase.
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+## Key Features
 
-### Build and Run Android Application
+* **Multiple Subjects**
+  * **Mathematics**: Practice arithmetic operations (addition, subtraction, multiplication, and division), test divisibility rules, complete unit conversions, and solve algebra problems.
+  * **Chemistry**: Practice with randomly generated questions. Activities include balancing chemical equations, exploring element cards, and testing your knowledge of acids, bases, hydrocarbons, and the periodic table.
+  * **Geography**: Participate in interactive map-based quizzes using country coordinates and regional maps.
+* **Gameplay Modes**
+  * **Solo Mode**: Practice lessons and review hints at your own pace.
+  * **PvP (Player versus Player) Mode**: Challenge another player to educational battles on the same device.
+* **Progress Tracking**: Create player profiles to save your learning history, track progress, and customize the number of questions per lesson.
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
+## Project Structure
+
+The project is divided into the following main directories:
+* `composeApp/`: Contains the shared user interface and core logic code written in Kotlin.
+  * `commonMain/`: The core codebase shared across all platforms.
+  * `androidMain/`: Android-specific setup and platform configurations.
+  * `iosMain/`: iOS-specific platform configurations.
+* `androidApp/`: The Android launcher application wrapper.
+* `iosApp/`: The iOS launcher application wrapper and SwiftUI entry point.
+
+## Getting Started
+
+### Prerequisites
+
+To build this project, you will need:
+* Java Development Kit (JDK) 17 or higher
+* Android SDK (to build the Android app)
+* macOS with Xcode (to build the iOS app)
+
+### Building the Android App
+
+Open the project in Android Studio, or compile it directly from your terminal:
+* On Linux or macOS:
+  ```bash
   ./gradlew :androidApp:assembleDebug
   ```
-- on Windows
-  ```shell
-  .\gradlew.bat :androidApp:assembleDebug
+* On Windows:
+  ```cmd
+  gradlew.bat :androidApp:assembleDebug
   ```
 
-### Build and Run iOS Application
+### Building the iOS App
 
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+To build and run the iOS application, open the `iosApp` directory in Xcode and start the build, or run it directly using the configuration in your IDE.
 
----
+## Technology Stack
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+* **Kotlin Multiplatform**: Shared code between Android and iOS.
+* **Compose Multiplatform**: Shared user interface toolkit for building the application screens.
+* **SQLDelight**: Local database management to store user profiles and lesson progress.
+* **Dokka**: Documentation generation tool.
