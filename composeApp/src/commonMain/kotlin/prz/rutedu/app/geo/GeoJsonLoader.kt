@@ -37,6 +37,11 @@ data class CountryFeature(
  */
 data class LonLat(val lon: Float, val lat: Float)
 
+/**
+ * Module-level cache mapping GeoJSON asset paths to their parsed [CountryFeature] lists.
+ * Subsequent calls to [loadGeoJson] with the same path return the cached list without
+ * re-reading or re-parsing the asset.
+ */
 private val geoCache = mutableMapOf<String, List<CountryFeature>>()
 
 /**
@@ -67,6 +72,10 @@ private fun List<LonLat>.simplify(epsilon: Float = 0.025f): List<LonLat> {
     return result
 }
 
+/**
+ * Parses one GeoJSON coordinate ring (an array of [lon, lat] pairs) into a list of [LonLat].
+ * Points with fewer than two coordinates are silently skipped.
+ */
 private fun parseRing(ringArray: kotlinx.serialization.json.JsonArray): List<LonLat> {
     return ringArray.mapNotNull { ptElem ->
         val pt = ptElem.jsonArray
@@ -74,6 +83,23 @@ private fun parseRing(ringArray: kotlinx.serialization.json.JsonArray): List<Lon
     }
 }
 
+/**
+ * Loads and parses a GeoJSON asset from the specified [path], returning a list of
+ * [CountryFeature] objects ready for rendering and hit-testing.
+ *
+ * The function is **suspend** because reading a bundled resource is an IO operation on
+ * some platforms. The result is cached in memory under [geoCache] after the first call
+ * so repeated invocations for the same path are instant.
+ *
+ * Supported GeoJSON geometry types:
+ * - `"Polygon"` - a single polygon (outer ring only; holes are ignored).
+ * - `"MultiPolygon"` - multiple polygons (outer rings only), e.g. island chains.
+ *
+ * Features with no valid rings after simplification are excluded from the result.
+ *
+ * @param path The resource path to the GeoJSON file (e.g., `"files/countries.geojson"`).
+ * @return A list of [CountryFeature] objects parsed from the specified file.
+ */
 @OptIn(ExperimentalResourceApi::class)
 suspend fun loadGeoJson(path: String): List<CountryFeature> {
     geoCache[path]?.let { return it }
