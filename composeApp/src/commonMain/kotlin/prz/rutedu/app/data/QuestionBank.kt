@@ -1,26 +1,25 @@
 package prz.rutedu.app.data
 
-import prz.rutedu.app.models.Hint
-import prz.rutedu.app.models.MathOperator
-import prz.rutedu.app.models.MathOperator.ADD
-import prz.rutedu.app.models.MathOperator.SUBTRACT
-import prz.rutedu.app.models.MathOperator.MULTIPLY
-import prz.rutedu.app.models.MathOperator.DIVIDE
-import prz.rutedu.app.models.MathOperator.POWER
-import prz.rutedu.app.models.MapRegion
-import prz.rutedu.app.models.Question
-import prz.rutedu.app.models.Question.FindAnswer
-import prz.rutedu.app.models.Question.FindOperator
-import prz.rutedu.app.models.Question.MapQuiz
-import prz.rutedu.app.models.Question.SelectFromList
-import prz.rutedu.app.models.Question.TypeAnswer
-import prz.rutedu.app.models.Question.EquationBalance
-import prz.rutedu.app.models.Question.BalanceTerm
-import prz.rutedu.app.models.Question.GraphTypeAnswer
-import prz.rutedu.app.models.Question.GraphSelectFromList
+import prz.rutedu.app.data.QuestionBank.banks
 import prz.rutedu.app.math.MathShape
 import prz.rutedu.app.math.MathViewport
 import prz.rutedu.app.math.TriangleBuilder
+import prz.rutedu.app.models.Hint
+import prz.rutedu.app.models.MapRegion
+import prz.rutedu.app.models.MathOperator.ADD
+import prz.rutedu.app.models.MathOperator.DIVIDE
+import prz.rutedu.app.models.MathOperator.MULTIPLY
+import prz.rutedu.app.models.MathOperator.POWER
+import prz.rutedu.app.models.MathOperator.SUBTRACT
+import prz.rutedu.app.models.Question
+import prz.rutedu.app.models.Question.BalanceTerm
+import prz.rutedu.app.models.Question.EquationBalance
+import prz.rutedu.app.models.Question.FindAnswer
+import prz.rutedu.app.models.Question.FindOperator
+import prz.rutedu.app.models.Question.GraphSelectFromList
+import prz.rutedu.app.models.Question.GraphTypeAnswer
+import prz.rutedu.app.models.Question.MapQuiz
+import prz.rutedu.app.models.Question.SelectFromList
 
 /**
  * Central registry of all static (hardcoded) quiz questions.

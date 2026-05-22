@@ -1,6 +1,7 @@
 package prz.rutedu.app.math
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -18,7 +19,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlin.math.*
+import kotlin.math.PI
+import kotlin.math.abs
+import kotlin.math.atan2
+import kotlin.math.ceil
+import kotlin.math.sqrt
 
 /**
  * A general-purpose mathematical canvas composable that renders a coordinate system
@@ -64,18 +69,27 @@ fun MathCanvas(
     viewport: MathViewport = MathViewport()
 ) {
     val tm = rememberTextMeasurer()
+    val gridColor = MaterialTheme.colorScheme.outlineVariant
+    val axisColor = MaterialTheme.colorScheme.outline
+    val labelColor = MaterialTheme.colorScheme.onSurfaceVariant
+    val textColor = MaterialTheme.colorScheme.onBackground
+    val midTextColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+
     Canvas(modifier = modifier) {
-        if (viewport.showGrid) drawGrid(viewport)
-        if (viewport.showAxes) drawAxes(viewport, tm)
+        if (viewport.showGrid) drawGrid(viewport, gridColor)
+        if (viewport.showAxes) drawAxes(viewport, tm, axisColor, labelColor)
         shapes.forEach { shape ->
             when (shape) {
                 is MathShape.FunctionPlot -> drawFunctionPlot(shape, viewport)
                 is MathShape.Circle       -> drawCircleShape(shape, viewport)
-                is MathShape.Triangle     -> drawTriangleShape(shape, viewport, tm)
+                is MathShape.Triangle     -> drawTriangleShape(shape, viewport, tm, textColor, midTextColor)
                 is MathShape.Rectangle    -> drawRectangleShape(shape, viewport)
                 is MathShape.PointMark    -> drawPointMark(shape, viewport, tm)
                 is MathShape.Segment      -> drawSegmentShape(shape, viewport)
-                is MathShape.TextLabel    -> drawTextLabel(shape, viewport, tm)
+                is MathShape.TextLabel    -> {
+                    val resolvedColor = if (shape.color == Color(0xFF1A1A1A)) textColor else shape.color
+                    drawTextLabel(shape.copy(color = resolvedColor), viewport, tm)
+                }
             }
         }
     }
@@ -102,8 +116,7 @@ private fun DrawScope.toCanvas(pt: Pt, vp: MathViewport): Offset =
  * A small epsilon (`1e-9`) is added to the loop bounds to avoid missing the last
  * grid line due to floating-point rounding.
  */
-private fun DrawScope.drawGrid(vp: MathViewport) {
-    val color = Color(0xFFE8EAF0)
+private fun DrawScope.drawGrid(vp: MathViewport, color: Color) {
     var wx = ceil(vp.xMin / vp.gridStep) * vp.gridStep
     while (wx <= vp.xMax + 1e-9) {
         if (abs(wx) > 1e-10) {
@@ -127,9 +140,8 @@ private fun DrawScope.drawGrid(vp: MathViewport) {
  * Each axis is only drawn when world-coordinate zero falls inside the viewport
  * (e.g. the x-axis is skipped if the entire visible range is above y = 0).
  */
-private fun DrawScope.drawAxes(vp: MathViewport, tm: TextMeasurer) {
-    val axisColor = Color(0xFFBBC1CA)
-    val labelStyle = TextStyle(fontSize = 10.sp, color = Color(0xFF9E9E9E))
+private fun DrawScope.drawAxes(vp: MathViewport, tm: TextMeasurer, axisColor: Color, labelColor: Color) {
+    val labelStyle = TextStyle(fontSize = 10.sp, color = labelColor)
 
     // x-axis - only visible when y = 0 is within the viewport
     if (vp.yMin <= 0.0 && vp.yMax >= 0.0) {
@@ -206,7 +218,13 @@ private fun DrawScope.drawCircleShape(shape: MathShape.Circle, vp: MathViewport)
  * remain outside the triangle regardless of its shape. The unknown-angle marker
  * `"?"` is rendered in red and at a larger size to draw the student's attention.
  */
-private fun DrawScope.drawTriangleShape(shape: MathShape.Triangle, vp: MathViewport, tm: TextMeasurer) {
+private fun DrawScope.drawTriangleShape(
+    shape: MathShape.Triangle,
+    vp: MathViewport,
+    tm: TextMeasurer,
+    textColor: Color,
+    midTextColor: Color
+) {
     val pa = toCanvas(shape.a, vp)
     val pb = toCanvas(shape.b, vp)
     val pc = toCanvas(shape.c, vp)
@@ -236,7 +254,7 @@ private fun DrawScope.drawTriangleShape(shape: MathShape.Triangle, vp: MathViewp
             val style = if (isUnknown) {
                 TextStyle(fontSize = 17.sp, fontWeight = FontWeight.Bold, color = Color(0xFFE53935))
             } else {
-                TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A1A1A))
+                TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Bold, color = textColor)
             }
             val dx = v.x - gx; val dy = v.y - gy
             val len = sqrt(dx * dx + dy * dy).coerceAtLeast(1f)
@@ -248,7 +266,7 @@ private fun DrawScope.drawTriangleShape(shape: MathShape.Triangle, vp: MathViewp
         }
 
     // Side labels - pushed outward from the centroid at each side's midpoint
-    val midStyle = TextStyle(fontSize = 12.sp, color = Color(0xFF555555))
+    val midStyle = TextStyle(fontSize = 12.sp, color = midTextColor)
     val midLabelOffsetPx = 14.dp.toPx()
     listOf(
         Offset((pb.x + pc.x) / 2f, (pb.y + pc.y) / 2f) to shape.labelBC,

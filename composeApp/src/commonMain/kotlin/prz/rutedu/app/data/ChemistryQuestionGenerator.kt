@@ -1,8 +1,29 @@
 package prz.rutedu.app.data
 
-import prz.rutedu.app.models.*
-import prz.rutedu.app.models.ElementCategory.*
-import prz.rutedu.app.models.Question.*
+import prz.rutedu.app.data.ChemistryQuestionGenerator.generateFor
+import prz.rutedu.app.models.ELEMENTS
+import prz.rutedu.app.models.Element
+import prz.rutedu.app.models.ElementCategory.ACTINIDE
+import prz.rutedu.app.models.ElementCategory.ALKALINE_EARTH
+import prz.rutedu.app.models.ElementCategory.ALKALI_METAL
+import prz.rutedu.app.models.ElementCategory.HALOGEN
+import prz.rutedu.app.models.ElementCategory.LANTHANIDE
+import prz.rutedu.app.models.ElementCategory.METALLOID
+import prz.rutedu.app.models.ElementCategory.NOBLE_GAS
+import prz.rutedu.app.models.ElementCategory.POST_TRANSITION
+import prz.rutedu.app.models.ElementCategory.REACTIVE_NONMETAL
+import prz.rutedu.app.models.ElementCategory.TRANSITION_METAL
+import prz.rutedu.app.models.Hint
+import prz.rutedu.app.models.Question
+import prz.rutedu.app.models.Question.BalanceTerm
+import prz.rutedu.app.models.Question.ElementCardQuiz
+import prz.rutedu.app.models.Question.EquationBalance
+import prz.rutedu.app.models.Question.PeriodicTableByName
+import prz.rutedu.app.models.Question.PeriodicTableByShell
+import prz.rutedu.app.models.Question.PeriodicTableQuiz
+import prz.rutedu.app.models.Question.SelectFromList
+import prz.rutedu.app.models.elementByNumber
+import prz.rutedu.app.models.shellConfigByNumber
 import kotlin.math.roundToInt
 import kotlin.random.Random
 

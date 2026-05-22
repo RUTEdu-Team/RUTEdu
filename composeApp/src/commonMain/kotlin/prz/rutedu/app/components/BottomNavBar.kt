@@ -2,9 +2,10 @@ package prz.rutedu.app.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Assignment
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
@@ -59,7 +60,7 @@ fun BottomNavBar(
     onTabSelected: (NavTab) -> Unit,
     activeColor: Color = Color(0xFFF47B20)
 ) {
-    val inactiveColor = Color(0xFF8F9BB3)
+    val inactiveColor = MaterialTheme.colorScheme.onSurfaceVariant
 
     // Determine which tab is visually active based on the current route prefix.
     // This keeps the indicator in sync even when navigating via the system back button.
@@ -73,7 +74,7 @@ fun BottomNavBar(
     }
 
     NavigationBar(
-        containerColor = Color.White,
+        containerColor = MaterialTheme.colorScheme.surface,
         tonalElevation = 0.dp // no shadow - border is handled by Scaffold's bottom bar
     ) {
         NavTab.entries.forEach { tab ->

@@ -1,20 +1,20 @@
 package prz.rutedu.app.data
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.Calculate
-import androidx.compose.material.icons.filled.Cloud
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Cloud
 import androidx.compose.material.icons.filled.Functions
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.Public
 import androidx.compose.material.icons.filled.Science
 import androidx.compose.material.icons.filled.TableChart
-import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.ui.graphics.Color
+import prz.rutedu.app.data.SubjectRepository.subjects
 import prz.rutedu.app.models.Lesson
 import prz.rutedu.app.models.Subject
 import prz.rutedu.app.models.Topic
@@ -60,7 +60,7 @@ object SubjectRepository {
      */
     val subjects: List<Subject> = listOf(
 
-        // ── MATEMATYKA ────────────────────────────────────
+        // -- MATEMATYKA ---------------------------------------------------------------------------
         Subject(
             id = "matematyka",
             name = "Matematyka",
@@ -236,7 +236,7 @@ object SubjectRepository {
             )
         ),
 
-        // ── CHEMIA ────────────────────────────────────────
+        // -- CHEMIA -------------------------------------------------------------------------------
         Subject(
             id = "chemia",
             name = "Chemia",
@@ -450,7 +450,7 @@ object SubjectRepository {
             )
         ),
 
-        // ── GEOGRAFIA ─────────────────────────────────────
+        // -- GEOGRAFIA ----------------------------------------------------------------------------
         Subject(
             id = "geografia",
             name = "Geografia",

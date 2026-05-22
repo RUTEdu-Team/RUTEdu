@@ -5,8 +5,8 @@ import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import rutedu.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.ExperimentalResourceApi
+import rutedu.composeapp.generated.resources.Res
 
 /**
  * Parsed representation of one country from the GeoJSON asset.
