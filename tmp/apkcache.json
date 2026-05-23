@@ -1,0 +1,48 @@
+{
+  "METADATA_VERSION": 20002,
+  "allow_disabled_algorithms": false,
+  "RUTEdu-v0.4.5.apk": {
+    "hash": "a2bcd7bb74ade1f7dc650401972a5c26fca7f033ecfa859d409f780178f9846b",
+    "hashType": "sha256",
+    "uses-permission": [
+      [
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        null
+      ],
+      [
+        "android.permission.READ_PHONE_STATE",
+        null
+      ],
+      [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        null
+      ],
+      [
+        "prz.rutedu.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+        null
+      ]
+    ],
+    "uses-permission-sdk-23": [],
+    "features": [],
+    "icons_src": {},
+    "icons": {},
+    "antiFeatures": {},
+    "packageName": "prz.rutedu.app",
+    "versionCode": 405,
+    "name": "RUTEdu",
+    "versionName": "0.4.5",
+    "minSdkVersion": 24,
+    "targetSdkVersion": 37,
+    "nativecode": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "sig": "35ba1dc23397b97b4d3c05265c72db2f",
+    "signer": "cc2f916fe9ff5dc5191afb5bc3863c69cda68cb403076ac1d256c7b69f87bdff",
+    "size": 22918142,
+    "apkName": "RUTEdu-v0.4.5.apk",
+    "added": 1779523296.124587
+  }
+}
