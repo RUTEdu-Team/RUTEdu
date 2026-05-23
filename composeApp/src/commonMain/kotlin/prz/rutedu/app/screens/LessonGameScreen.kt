@@ -91,14 +91,14 @@ fun LessonGameScreen(
     val subject = SubjectRepository.getById(subjectId)
     val topic = SubjectRepository.getTopicById(subjectId, topicId)
     val lesson = topic?.lessons?.find { it.id == lessonId }
-    val isChemistry = lessonId.startsWith("chemia_")
-    val chemSeed = remember {
-        if (isChemistry) ChemistrySessionStore.getOrCreateSeed(driver, lessonId) else 0L
+    val isGenerated = lessonId.startsWith("chemia_") || lessonId.startsWith("algebra_")
+    val genSeed = remember {
+        if (isGenerated) ChemistrySessionStore.getOrCreateSeed(driver, lessonId) else 0L
     }
-    val chemAnswered = remember {
-        if (isChemistry) ChemistrySessionStore.getAnsweredIds(driver, lessonId) else emptySet()
+    val genAnswered = remember {
+        if (isGenerated) ChemistrySessionStore.getAnsweredIds(driver, lessonId) else emptySet()
     }
-    val allQuestions = remember { QuestionBank.questionsFor(lessonId, chemSeed, chemAnswered) }
+    val allQuestions = remember { QuestionBank.questionsFor(lessonId, genSeed, genAnswered) }
     val configuredCount = remember {
         if (allQuestions.isEmpty()) 0
         else SubjectConfigStore.load(driver, lessonId)?.questionCount?.coerceIn(1, allQuestions.size)
@@ -112,7 +112,7 @@ fun LessonGameScreen(
     var currentIndex by remember {
         mutableStateOf(
             when {
-                isChemistry -> 0  // always start from filtered list beginning
+                isGenerated -> 0  // always start from filtered list beginning
                 savedProgress == null -> 0
                 savedProgress.currentIndex >= totalCount -> totalCount  // complete – keep at end, not 0
                 savedProgress.currentIndex >= 0 -> savedProgress.currentIndex
@@ -120,10 +120,10 @@ fun LessonGameScreen(
             }
         )
     }
-    var correctCount by remember { mutableStateOf(if (isChemistry) 0 else savedProgress?.correctCount ?: 0) }
+    var correctCount by remember { mutableStateOf(if (isGenerated) 0 else savedProgress?.correctCount ?: 0) }
 
     var isComplete by remember {
-        mutableStateOf(!isChemistry && savedProgress != null && savedProgress.currentIndex >= totalCount && totalCount > 0)
+        mutableStateOf(!isGenerated && savedProgress != null && savedProgress.currentIndex >= totalCount && totalCount > 0)
     }
 
     // rememberUpdatedState captures the *latest* values without restarting DisposableEffect.
@@ -184,7 +184,7 @@ fun LessonGameScreen(
 
     val advanceQuestion: () -> Unit = {
         feedbackState = FeedbackState.NONE
-        if (isChemistry) {
+        if (isGenerated) {
             ChemistrySessionStore.markAnswered(driver, lessonId, questions[currentIndex.coerceIn(0, totalCount - 1)].id)
         }
         val newCorrect = correctCount + 1
@@ -351,6 +351,13 @@ fun LessonGameScreen(
                     onWrong = onWrongAnswer
                 )
                 is Question.GraphSelectFromList -> GraphSelectFromListContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.ExpressionTypeAnswer -> ExpressionTypeAnswerContent(
                     question = question,
                     accentColor = accentColor,
                     bottomPadding = bottomPadding,

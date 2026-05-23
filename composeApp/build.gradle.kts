@@ -38,6 +38,7 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.ui.tooling.preview)
             implementation(libs.sqldelight.android.driver)
+            implementation(libs.matheclipse.core)
         }
         commonMain.dependencies {
             implementation(libs.runtime)

@@ -18,6 +18,7 @@ material3 = "1.9.0"
 materialIconsExtended = "1.7.3"
 runtime = "1.11.0"
 sqldelight = "2.3.2"
+matheclipse = "3.1.0"
 
 [libraries]
 components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "componentsResources" }
@@ -41,6 +42,7 @@ runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "run
 sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
 sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
+matheclipse-core = { module = "org.matheclipse:matheclipse-core", version.ref = "matheclipse" }
 compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "composeMultiplatform" }
 ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "composeMultiplatform" }
 ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "composeMultiplatform" }

@@ -450,6 +450,86 @@ object SubjectRepository {
             )
         ),
 
+        // -- ALGEBRA ------------------------------------------------------------------------------
+        Subject(
+            id = "algebra",
+            name = "Algebra",
+            lessonCount = 5,
+            progress = 0.0f,
+            color = Color(0xFF7C4DFF),
+            backgroundColor = Color(0xFFF0EBFF),
+            icon = Icons.Default.Functions,
+            topics = listOf(
+                Topic(
+                    id = "algebra_1",
+                    name = "Przekształcenia wyrażeń",
+                    description = "Upraszczanie, pochodne, całki",
+                    progress = 0.0f,
+                    isLocked = false,
+                    color = Color(0xFF7C4DFF),
+                    icon = Icons.Default.Functions,
+                    lessons = listOf(
+                        Lesson(
+                            id = "algebra_1_1",
+                            name = "Upraszczanie wyrażeń",
+                            description = "Rozwiń i uprość wyrażenia algebraiczne",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF7C4DFF),
+                            icon = Icons.Default.Functions
+                        ),
+                        Lesson(
+                            id = "algebra_1_2",
+                            name = "Pochodne",
+                            description = "Oblicz pochodną funkcji wielomianowej",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF4A80F0),
+                            icon = Icons.AutoMirrored.Filled.TrendingUp
+                        ),
+                        Lesson(
+                            id = "algebra_1_3",
+                            name = "Całki nieoznaczone",
+                            description = "Oblicz całkę nieoznaczoną wielomianu",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF3DBD7D),
+                            icon = Icons.AutoMirrored.Filled.TrendingUp
+                        )
+                    )
+                ),
+                Topic(
+                    id = "algebra_2",
+                    name = "Równania",
+                    description = "Liniowe i kwadratowe",
+                    progress = 0.0f,
+                    isLocked = false,
+                    color = Color(0xFFF47B20),
+                    icon = Icons.Default.Calculate,
+                    lessons = listOf(
+                        Lesson(
+                            id = "algebra_2_1",
+                            name = "Równania liniowe",
+                            description = "Znajdź x w równaniu liniowym",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFF47B20),
+                            icon = Icons.Default.Calculate
+                        ),
+                        Lesson(
+                            id = "algebra_2_2",
+                            name = "Równania kwadratowe",
+                            description = "Wyznacz pierwiastki równania kwadratowego",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFF47B20),
+                            icon = Icons.Default.Calculate
+                        )
+                    )
+                )
+            )
+        ),
+
         // -- GEOGRAFIA ----------------------------------------------------------------------------
         Subject(
             id = "geografia",

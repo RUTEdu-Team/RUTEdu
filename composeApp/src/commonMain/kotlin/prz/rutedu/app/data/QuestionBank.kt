@@ -57,10 +57,14 @@ object QuestionBank {
      * @return Ordered list of questions to present, or an empty list if [lessonId] is not registered.
      */
     fun questionsFor(lessonId: String, seed: Long = 0L, excludeIds: Set<Int> = emptySet()): List<Question> =
-        if (lessonId.startsWith("chemia_"))
-            ChemistryQuestionGenerator.generateFor(lessonId, seed, excludeIds)
-        else
-            banks[lessonId] ?: emptyList()
+        when {
+            lessonId.startsWith("chemia_") ->
+                ChemistryQuestionGenerator.generateFor(lessonId, seed, excludeIds)
+            lessonId.startsWith("algebra_") ->
+                AlgebraQuestionGenerator.generateFor(lessonId, seed, excludeIds)
+            else ->
+                banks[lessonId] ?: emptyList()
+        }
 
     /**
      * Static questions for Lesson 1-1: "Dodawanie i odejmowanie" (Addition & Subtraction).

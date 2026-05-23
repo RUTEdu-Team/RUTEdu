@@ -403,4 +403,29 @@ sealed class Question(open val id: Int) {
         val correctIndices: Set<Int>,
         val hint: Hint = Hint("")
     ) : Question(id)
+
+    /**
+     * The student types an algebraic expression that is checked for mathematical equivalence
+     * against [correctExpr] using [prz.rutedu.app.math.MathEngine.areEquivalent].
+     *
+     * On iOS ([prz.rutedu.app.math.mathEngineAvailable] = false), this question type is never
+     * generated — [prz.rutedu.app.data.AlgebraQuestionGenerator] returns [SelectFromList]
+     * fallbacks instead.
+     *
+     * Rendered by `ExpressionTypeAnswerContent`.
+     *
+     * @property prompt          The question text, e.g. "Oblicz pochodną f(x) = 3x²".
+     * @property correctExpr     Canonical correct answer in Symja notation, e.g. "6*x".
+     * @property displayCorrect  Human-readable form shown in feedback (e.g. "6x"). Defaults to [correctExpr].
+     * @property inlineHint      Persistent tip (e.g. "użyj * dla mnożenia, ^ dla potęgi").
+     * @property hint            Full hint shown in the bottom sheet.
+     */
+    data class ExpressionTypeAnswer(
+        override val id: Int,
+        val prompt: String,
+        val correctExpr: String,
+        val displayCorrect: String = correctExpr,
+        val inlineHint: String? = "Użyj * dla mnożenia, ^ dla potęgi (np. 3*x^2)",
+        val hint: Hint = Hint("")
+    ) : Question(id)
 }
