@@ -64,7 +64,6 @@ object SubjectRepository {
         Subject(
             id = "matematyka",
             name = "Matematyka",
-//            lessonCount = 10,
             progress = 0.25f,
             color = Color(0xFF4A80F0),
             backgroundColor = Color(0xFFEBF1FF),
@@ -190,13 +189,22 @@ object SubjectRepository {
                             isLocked = false,
                             color = Color(0xFF9E9E9E),
                             icon = Icons.Default.Lock
+                        ),
+                        Lesson(
+                            id = "mat_3_3",
+                            name = "Nierówności liniowe",
+                            description = "Metoda podstawiania i przeciwnych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF9E9E9E),
+                            icon = Icons.Default.Lock
                         )
                     )
                 ),
                 Topic(
                     id = "mat_4",
                     name = "Funkcje",
-                    description = "Wykresy i własności",
+                    description = "Wykresy i własności funkcji",
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFF7C4DFF),
@@ -204,8 +212,35 @@ object SubjectRepository {
                     lessons = listOf(
                         Lesson(
                             id = "mat_4_1",
+                            name = "Funkcja liniowa",
+                            description = "Wprowadzenie do funkcji liniowej i jej wykresu y = ax + b",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF7C4DFF),
+                            icon = Icons.AutoMirrored.Filled.TrendingUp
+                        ),
+                        Lesson(
+                            id = "mat_4_2",
                             name = "Funkcja kwadratowa",
-                            description = "Parabola — wykres i obliczanie wartości",
+                            description = "Wykres funkcji kwadratowej (parabola) i jej podstawowe własności",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF7C4DFF),
+                            icon = Icons.AutoMirrored.Filled.TrendingUp
+                        ),
+                        Lesson(
+                            id = "mat_4_3",
+                            name = "Odczytywanie wykresów funkcji",
+                            description = "Interpretacja wykresów funkcji: wartości, miejsca zerowe i przedziały",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF7C4DFF),
+                            icon = Icons.AutoMirrored.Filled.TrendingUp
+                        ),
+                        Lesson(
+                            id = "mat_4_4",
+                            name = "Własności funkcji",
+                            description = "Dziedzina, zbiór wartości, monotoniczność i miejsca zerowe funkcji",
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF7C4DFF),
@@ -216,16 +251,370 @@ object SubjectRepository {
                 Topic(
                     id = "mat_5",
                     name = "Geometria płaska",
-                    description = "Trójkąty i okręgi",
+                    description = "Figury, kąty, pola i zależności geometryczne na płaszczyźnie",
+                    progress = 0.0f,
+                    isLocked = false,
+                    color = Color(0xFF00BFA6),
+                    icon = Icons.Default.BarChart,
+                    lessons = listOf(
+                        Lesson(
+                            id = "mat_5_1",
+                            name = "Kąty w trójkącie",
+                            description = "Suma kątów wewnętrznych trójkąta i podstawowe własności kątów",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF00BFA6),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_5_2",
+                            name = "Czworokąty",
+                            description = "Własności prostokąta, kwadratu, równoległoboku i trapezu",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF00BFA6),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_5_3",
+                            name = "Okręgi i koła",
+                            description = "Elementy okręgu: promień, średnica, cięciwa i własności koła",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF00BFA6),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_5_4",
+                            name = "Pola i obwody figur",
+                            description = "Obliczanie pól i obwodów podstawowych figur geometrycznych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF00BFA6),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_5_5",
+                            name = "Twierdzenie Pitagorasa",
+                            description = "Zależność a² + b² = c² w trójkącie prostokątnym",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF00BFA6),
+                            icon = Icons.Default.BarChart
+                        )
+                    )
+                ),
+
+                Topic(
+                    id = "mat_6",
+                    name = "Ułamki",
+                    description = "Operacje na ułamkach zwykłych i dziesiętnych oraz ich zastosowania",
+                    progress = 0.0f,
+                    isLocked = false,
+                    color = Color(0xFFFFB300),
+                    icon = Icons.Default.BarChart,
+                    lessons = listOf(
+                        Lesson(
+                            id = "mat_6_1",
+                            name = "Zamiana ułamków",
+                            description = "Przekształcanie ułamków zwykłych i dziesiętnych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFFFB300),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_6_2",
+                            name = "Działania na ułamkach",
+                            description = "Dodawanie, odejmowanie, mnożenie i dzielenie ułamków",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFFFB300),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_6_3",
+                            name = "Porównywanie ułamków",
+                            description = "Porównywanie wartości ułamków zwykłych i dziesiętnych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFFFB300),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_6_4",
+                            name = "Ułamki dziesiętne",
+                            description = "Działania na liczbach dziesiętnych i ich zastosowania",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFFFB300),
+                            icon = Icons.Default.BarChart
+                        )
+                    )
+                ),
+
+                Topic(
+                    id = "mat_7",
+                    name = "Procenty",
+                    description = "Obliczenia procentowe i ich zastosowanie w życiu codziennym",
+                    progress = 0.0f,
+                    isLocked = false,
+                    color = Color(0xFFEF5350),
+                    icon = Icons.Default.BarChart,
+                    lessons = listOf(
+                        Lesson(
+                            id = "mat_7_1",
+                            name = "Procent liczby",
+                            description = "Obliczanie procentu danej liczby",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFEF5350),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_7_2",
+                            name = "Zniżki i podwyżki",
+                            description = "Zmiany procentowe w cenach i wartościach",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFEF5350),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_7_3",
+                            name = "Zadania tekstowe",
+                            description = "Zastosowanie procentów w problemach praktycznych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFEF5350),
+                            icon = Icons.Default.BarChart
+                        )
+                    )
+                ),
+
+                Topic(
+                    id = "mat_8",
+                    name = "Proporcje i skala",
+                    description = "Zależności proporcjonalne i praca ze skalą oraz mapami",
+                    progress = 0.0f,
+                    isLocked = false,
+                    color = Color(0xFF42A5F5),
+                    icon = Icons.Default.BarChart,
+                    lessons = listOf(
+                        Lesson(
+                            id = "mat_8_1",
+                            name = "Proporcje",
+                            description = "Rozwiązywanie proporcji prostych i odwrotnych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF42A5F5),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_8_2",
+                            name = "Skala",
+                            description = "Odczytywanie i stosowanie skali na mapach i planach",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF42A5F5),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_8_3",
+                            name = "Mapa i odległości",
+                            description = "Obliczanie rzeczywistych odległości na mapie",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF42A5F5),
+                            icon = Icons.Default.BarChart
+                        )
+                    )
+                ),
+
+                Topic(
+                    id = "mat_9",
+                    name = "Geometria przestrzenna",
+                    description = "Bryły, ich własności oraz obliczenia objętości i pól powierzchni",
+                    progress = 0.0f,
+                    isLocked = false,
+                    color = Color(0xFFAB47BC),
+                    icon = Icons.Default.BarChart,
+                    lessons = listOf(
+                        Lesson(
+                            id = "mat_9_1",
+                            name = "Graniastosłupy",
+                            description = "Własności i elementy graniastosłupów",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFAB47BC),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_9_2",
+                            name = "Ostrosłupy",
+                            description = "Własności i elementy ostrosłupów",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFAB47BC),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_9_3",
+                            name = "Bryły obrotowe",
+                            description = "Walec, stożek i kula oraz ich własności",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFAB47BC),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_9_4",
+                            name = "Pola brył",
+                            description = "Obliczanie pól powierzchni brył",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFAB47BC),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_9_5",
+                            name = "Objętość brył",
+                            description = "Obliczanie objętości brył geometrycznych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFAB47BC),
+                            icon = Icons.Default.BarChart
+                        )
+                    )
+                ),
+
+                Topic(
+                    id = "mat_10",
+                    name = "Układ współrzędnych",
+                    description = "Punkty, wykresy i geometria analityczna na płaszczyźnie",
+                    progress = 0.0f,
+                    isLocked = false,
+                    color = Color(0xFF26C6DA),
+                    icon = Icons.Default.BarChart,
+                    lessons = listOf(
+                        Lesson(
+                            id = "mat_10_1",
+                            name = "Układ współrzędnych",
+                            description = "Wprowadzenie do osi X i Y",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF26C6DA),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_10_2",
+                            name = "Odczytywanie punktów",
+                            description = "Współrzędne punktów na płaszczyźnie",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF26C6DA),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_10_3",
+                            name = "Rysowanie figur",
+                            description = "Rysowanie prostych i figur w układzie współrzędnych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF26C6DA),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_10_4",
+                            name = "Odległość punktów",
+                            description = "Obliczanie odległości między punktami",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF26C6DA),
+                            icon = Icons.Default.BarChart
+                        )
+                    )
+                ),
+
+                Topic(
+                    id = "mat_11",
+                    name = "Statystyka i prawdopodobieństwo",
+                    description = "Średnia, mediana, wykresy i prawdopodobieństwo.",
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFF3DBD7D),
                     icon = Icons.Default.BarChart,
                     lessons = listOf(
                         Lesson(
-                            id = "mat_5_1",
-                            name = "Kąty w trójkącie",
-                            description = "Suma kątów wewnętrznych trójkąta",
+                            id = "mat_11_1",
+                            name = "Średnia arytmetyczna",
+                            description = "Obliczanie średniej arytmetycznej danych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF3DBD7D),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_11_2",
+                            name = "Mediana i dominanta",
+                            description = "Wyznaczanie mediany i dominanty w zbiorach danych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF3DBD7D),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_11_3",
+                            name = "Wykresy i diagramy",
+                            description = "Odczytywanie i tworzenie wykresów oraz diagramów",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF3DBD7D),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_11_4",
+                            name = "Prawdopodobieństwo prostych zdarzeń",
+                            description = "Obliczanie prawdopodobieństwa prostych zdarzeń losowych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF3DBD7D),
+                            icon = Icons.Default.BarChart
+                        )
+                    )
+                ),
+
+                Topic(
+                    id = "mat_12",
+                    name = "Liczby całkowite",
+                    description = "Liczby dodatnie i ujemne oraz działania.",
+                    progress = 0.0f,
+                    isLocked = false,
+                    color = Color(0xFF3DBD7D),
+                    icon = Icons.Default.BarChart,
+                    lessons = listOf(
+                        Lesson(
+                            id = "mat_12_1",
+                            name = "Liczby dodatnie i ujemne",
+                            description = "Wprowadzenie do liczb całkowitych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF3DBD7D),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_12_2",
+                            name = "Dodawanie i odejmowanie",
+                            description = "Działania na liczbach całkowitych",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF3DBD7D),
+                            icon = Icons.Default.BarChart
+                        ),
+                        Lesson(
+                            id = "mat_12_3",
+                            name = "Mnożenie i dzielenie",
+                            description = "Działania na liczbach całkowitych",
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF3DBD7D),
@@ -240,7 +629,6 @@ object SubjectRepository {
         Subject(
             id = "chemia",
             name = "Chemia",
-//            lessonCount = 15,
             progress = 0.60f,
             color = Color(0xFFF47B20),
             backgroundColor = Color(0xFFFFF0E8),
@@ -454,7 +842,6 @@ object SubjectRepository {
         Subject(
             id = "algebra",
             name = "Algebra",
-//            lessonCount = 5,
             progress = 0.0f,
             color = Color(0xFF7C4DFF),
             backgroundColor = Color(0xFFF0EBFF),
@@ -534,7 +921,6 @@ object SubjectRepository {
         Subject(
             id = "geografia",
             name = "Geografia",
-//            lessonCount = 8,
             progress = 0.35f,
             color = Color(0xFF3DBD7D),
             backgroundColor = Color(0xFFE8F8F0),
