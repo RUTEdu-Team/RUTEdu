@@ -1,7 +1,11 @@
 package prz.rutedu.app.models
 
+import prz.rutedu.app.math.MathEngine
 import prz.rutedu.app.math.MathShape
 import prz.rutedu.app.math.MathViewport
+import kotlin.math.log
+import kotlin.math.pow
+import kotlin.math.roundToInt
 
 /**
  * The five arithmetic operators that can appear in quiz questions.
@@ -13,7 +17,9 @@ enum class MathOperator(val symbol: String) {
     SUBTRACT("−"),
     MULTIPLY("×"),
     DIVIDE("÷"),
-    POWER("^")
+    POWER("^"),
+    ROOT("√"),
+    LOG("log")
 }
 
 /**
@@ -65,6 +71,52 @@ enum class MapRegion(
     ASIA(25f, 155f, 5f, 75f)
 }
 
+
+fun getBottomIndex(int: Int): String {
+    val map = mapOf(
+        '0' to '₀',
+        '1' to '₁',
+        '2' to '₂',
+        '3' to '₃',
+        '4' to '₄',
+        '5' to '₅',
+        '6' to '₆',
+        '7' to '₇',
+        '8' to '₈',
+        '9' to '₉',
+        '-' to '₋'
+    )
+
+    return int.toString()
+        .map { map[it] ?: it }
+        .joinToString("")
+}
+
+fun getTopIndex(int: Int): String {
+    val map = mapOf(
+        '0' to '⁰',
+        '1' to '¹',
+        '2' to '²',
+        '3' to '³',
+        '4' to '⁴',
+        '5' to '⁵',
+        '6' to '⁶',
+        '7' to '⁷',
+        '8' to '⁸',
+        '9' to '⁹',
+        '-' to '⁻'
+    )
+
+    return int.toString()
+        .map { map[it] ?: it }
+        .joinToString("")
+}
+
+data class Equation(
+    val left: String,
+    val right: String
+)
+
 /**
  * Sealed hierarchy of all question types that the app can present during a lesson.
  *
@@ -110,6 +162,14 @@ sealed class Question(open val id: Int) {
             MathOperator.SUBTRACT -> operand1 - operand2
             MathOperator.MULTIPLY -> operand1 * operand2
             MathOperator.DIVIDE   -> operand1 / operand2
+            MathOperator.LOG   -> {
+                log(operand2.toDouble(), operand1.toDouble()).roundToInt()
+            }
+            MathOperator.ROOT     -> {
+                operand2.toDouble()
+                    .pow(1.0 / operand1)
+                    .toInt()
+            }
             MathOperator.POWER    -> {
                 var r = 1
                 repeat(operand2) { r *= operand1 }
@@ -118,6 +178,25 @@ sealed class Question(open val id: Int) {
         }
     }
 
+    data class Factorization(
+        override val id: Int,
+        val expression: String,
+        val hint: Hint = Hint("")
+    ) : Question(id)
+
+    data class LinearEquation(
+        override val id: Int,
+        val equation: String,
+        val equationDisplay: String,
+        val hint: Hint = Hint("")
+    ) : Question(id)
+
+    data class SystemOfEquations(
+        override val id: Int,
+        val equations: List<Equation>,
+        val variables: List<String>,
+        val hint: Hint = Hint("")
+    ) : Question(id)
     /**
      * The student must identify the correct arithmetic operator for a given equation.
      *

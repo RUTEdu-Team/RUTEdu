@@ -287,6 +287,27 @@ fun LessonGameScreen(
                     onWrong = onWrongAnswer,
                     onSkip = { if (currentIndex < totalCount - 1) currentIndex++ }
                 )
+                is Question.Factorization -> FactorizationContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.LinearEquation -> LinearEquationContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.SystemOfEquations -> SystemOfEquationsContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
                 is Question.SelectFromList -> SelectFromListContent(
                     question = question,
                     accentColor = accentColor,
@@ -364,6 +385,7 @@ fun LessonGameScreen(
                     onCorrect = onAnsweredCorrectly,
                     onWrong = onWrongAnswer
                 )
+
             }
             AnswerFeedbackOverlay(
                 state = feedbackState,

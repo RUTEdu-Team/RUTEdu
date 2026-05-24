@@ -35,10 +35,12 @@ import androidx.compose.ui.graphics.vector.ImageVector
 data class Subject(
     val id: String,
     val name: String,
-    val lessonCount: Int,
     val progress: Float,
     val color: Color,
     val backgroundColor: Color,
     val icon: ImageVector,
     val topics: List<Topic> = emptyList()
-)
+) {
+    val lessonCount: Int
+        get() = topics.sumOf { it.lessons.size }
+}

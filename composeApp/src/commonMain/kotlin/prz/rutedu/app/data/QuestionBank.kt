@@ -6,11 +6,14 @@ import prz.rutedu.app.math.MathViewport
 import prz.rutedu.app.math.TriangleBuilder
 import prz.rutedu.app.models.Hint
 import prz.rutedu.app.models.MapRegion
+import prz.rutedu.app.models.MathOperator
 import prz.rutedu.app.models.MathOperator.ADD
 import prz.rutedu.app.models.MathOperator.DIVIDE
 import prz.rutedu.app.models.MathOperator.MULTIPLY
 import prz.rutedu.app.models.MathOperator.POWER
 import prz.rutedu.app.models.MathOperator.SUBTRACT
+import prz.rutedu.app.models.MathOperator.ROOT
+import prz.rutedu.app.models.MathOperator.LOG
 import prz.rutedu.app.models.Question
 import prz.rutedu.app.models.Question.BalanceTerm
 import prz.rutedu.app.models.Question.EquationBalance
@@ -20,6 +23,10 @@ import prz.rutedu.app.models.Question.GraphSelectFromList
 import prz.rutedu.app.models.Question.GraphTypeAnswer
 import prz.rutedu.app.models.Question.MapQuiz
 import prz.rutedu.app.models.Question.SelectFromList
+import prz.rutedu.app.models.Question.Factorization
+import prz.rutedu.app.models.Question.LinearEquation
+import prz.rutedu.app.models.Question.SystemOfEquations
+import prz.rutedu.app.models.Equation
 
 /**
  * Central registry of all static (hardcoded) quiz questions.
@@ -196,6 +203,152 @@ object QuestionBank {
                 steps = listOf("3 × 3 = 9", "9 × 3 = 27", "27 × 3 = 81")))
     )
 
+    private val mat_1_4: List<Question> = listOf(
+        FindAnswer(0, 2, 9, ROOT,
+            Hint(
+                "Szukamy liczby, która pomnożona przez siebie daje 9.",
+                sectionTitle = "PIERWIASTEK KWADRATOWY",
+                items = listOf("√a oznacza liczbę, która² = a", "3 × 3 = 9"),
+                steps = listOf("√9 = 3")
+            )
+        ),
+
+        FindAnswer(1, 3, 27, ROOT,
+            Hint(
+                "Szukamy liczby, która pomnożona 3 razy daje 27.",
+                sectionTitle = "PIERWIASTEK SZEŚCIENNY",
+                items = listOf("∛a oznacza liczbę, która³ = a", "3 × 3 × 3 = 27"),
+                steps = listOf("3 × 3 = 9", "9 × 3 = 27", "∛27 = 3")
+            )
+        ),
+
+        FindAnswer(2, 2, 16, ROOT,
+            Hint(
+                "Szukamy liczby, która pomnożona przez siebie daje 16.",
+                steps = listOf("4 × 4 = 16", "√16 = 4")
+            )
+        ),
+
+        FindAnswer(3, 4, 81, ROOT,
+            Hint(
+                "Szukamy liczby, która pomnożona 4 razy daje 81.",
+                items = listOf("⁴√a oznacza liczbę, która⁴ = a"),
+                steps = listOf("3 × 3 = 9", "9 × 3 = 27", "27 × 3 = 81", "⁴√81 = 3")
+            )
+        ),
+
+        FindAnswer(4, 3, 8, ROOT,
+            Hint(
+                "Szukamy liczby, której sześcian daje 8.",
+                steps = listOf("2 × 2 = 4", "2 × 2 × 2 = 8", "∛8 = 2")
+            )
+        ),
+
+        FindAnswer(5, 2, 25, ROOT,
+            Hint(
+                "Szukamy liczby, która pomnożona przez siebie daje 25.",
+                steps = listOf("5 × 5 = 25", "√25 = 5")
+            )
+        ),
+
+        FindAnswer(6, 3, 64, ROOT,
+            Hint(
+                "Szukamy liczby, która pomnożona 3 razy daje 64.",
+                steps = listOf("4 × 4 = 16", "4 × 4 × 4 = 64", "∛64 = 4")
+            )
+        ),
+
+        FindAnswer(7, 2, 49, ROOT,
+            Hint(
+                "Szukamy liczby, która pomnożona przez siebie daje 49.",
+                steps = listOf("7 × 7 = 49", "√49 = 7")
+            )
+        ),
+
+        FindAnswer(8, 3, 125, ROOT,
+            Hint(
+                "Szukamy liczby, która pomnożona 3 razy daje 125.",
+                steps = listOf("5 × 5 = 25", "5 × 5 × 5 = 125", "∛125 = 5")
+            )
+        )
+    )
+
+    private val mat_1_5: List<Question> = listOf(
+        FindAnswer(0,2,2, LOG,
+            Hint(
+                "Szukamy liczby, do której trzeba podnieść 2, aby otrzymać 2.",
+                sectionTitle = "DEFINICJA LOGARYTMU",
+                items = listOf("log₂(2) = ? oznacza 2^? = 2", "2 × 2 = 4", "2 × 1 = 2"),
+                steps = listOf("2^1 = 2", "2^2 = 4", "2^3 = 8", "log₂(2) = 1")
+            )
+        ),
+        FindAnswer(1, 2, 8, LOG,
+            Hint(
+                "Szukamy liczby, do której trzeba podnieść 2, aby otrzymać 8.",
+                sectionTitle = "DEFINICJA LOGARYTMU",
+                items = listOf("log₂(8) = ? oznacza 2^? = 8", "2 × 2 = 4", "4 × 2 = 8"),
+                steps = listOf("2^1 = 2", "2^2 = 4", "2^3 = 8", "log₂(8) = 3")
+            )
+        ),
+
+        FindAnswer(2, 2, 16, LOG,
+            Hint(
+               "Szukamy wykładnika dla podstawy 2, aby otrzymać 16.",
+                steps = listOf("2^2 = 4", "2^3 = 8", "2^4 = 16", "log₂(16) = 4")
+            )
+        ),
+
+        FindAnswer(3, 3, 27, LOG,
+            Hint(
+                "Szukamy liczby, do której trzeba podnieść 3, aby otrzymać 27.",
+                steps = listOf("3^1 = 3", "3^2 = 9", "3^3 = 27", "log₃(27) = 3")
+            )
+        ),
+
+        FindAnswer(4, 10, 100, LOG,
+            Hint(
+                "Szukamy wykładnika dla 10, aby otrzymać 100.",
+                steps = listOf("10^1 = 10", "10^2 = 100", "log₁₀(100) = 2")
+            )
+        ),
+
+        FindAnswer(5, 5, 25, LOG,
+            Hint(
+                "Szukamy liczby, do której trzeba podnieść 5, aby otrzymać 25.",
+                steps = listOf("5^1 = 5", "5^2 = 25", "log₅(25) = 2")
+            )
+        ),
+
+        FindAnswer(6, 2, 32, LOG,
+            Hint(
+                "Szukamy wykładnika dla 2, aby otrzymać 32.",
+                steps = listOf("2^3 = 8", "2^4 = 16", "2^5 = 32", "log₂(32) = 5")
+            )
+        ),
+
+        FindAnswer(7, 4, 16, LOG,
+            Hint(
+                "Szukamy liczby, do której trzeba podnieść 4, aby otrzymać 16.",
+                steps = listOf("4^1 = 4", "4^2 = 16", "log₄(16) = 2")
+            )
+        ),
+
+        FindAnswer(8, 3, 81, LOG,
+            Hint(
+                "Szukamy wykładnika dla 3, aby otrzymać 81.",
+                steps = listOf("3^2 = 9", "3^3 = 27", "3^4 = 81", "log₃(81) = 4")
+            )
+        ),
+
+        FindAnswer(9, 2, 64, LOG,
+            Hint(
+                "Szukamy wykładnika dla 2, aby otrzymać 64.",
+                steps = listOf("2^5 = 32", "2^6 = 64", "log₂(64) = 6")
+        )
+    )
+
+
+    )
     /**
      * Static questions for Lesson 2-1: "Jednomiany i wielomiany" (Monomials & Polynomials).
      *
@@ -338,6 +491,237 @@ object QuestionBank {
             setOf(2),
             hint = Hint("Użyj wzoru (a+b)² z a=10, b=1.",
                 steps = listOf("10² = 100", "2·10·1 = 20", "1² = 1", "Razem: 121")))
+    )
+
+
+
+    private val mat_2_3: List<Question> = listOf(
+
+        Factorization(
+            id = 0,
+            expression = "x^2 + 5x + 6"
+        ),
+
+        Factorization(
+            id = 1,
+            expression = "x^2 + 7x + 12"
+        ),
+
+        Factorization(
+            id = 2,
+            expression = "x^2 - 9"
+        ),
+
+        Factorization(
+            id = 3,
+            expression = "x^2 - 4x + 4"
+        ),
+
+        Factorization(
+            id = 4,
+            expression = "x^2 + 2x + 1"
+        ),
+
+        Factorization(
+            id = 5,
+            expression = "2x^2 + 4x"
+        ),
+
+        Factorization(
+            id = 6,
+            expression = "3x^2 + 6x"
+        ),
+
+        Factorization(
+            id = 7,
+            expression = "x^2 - x - 6"
+        ),
+
+        Factorization(
+            id = 8,
+            expression = "x^2 - 16"
+        ),
+
+        Factorization(
+            id = 9,
+            expression = "4x^2 - 12x"
+        )
+    )
+
+    private val mat_3_1: List<Question> = listOf(
+
+        LinearEquation(
+            id = 0,
+            equation = "2*x + 4 == 0",
+            equationDisplay = "2x + 4 = 0",
+            hint = Hint("Przenieś 4 na drugą stronę i podziel przez 2")
+        ),
+
+        LinearEquation(
+            id = 1,
+            equation = "5*x - 10 == 0",
+            equationDisplay = "5x - 10 = 0",
+            hint = Hint("Wyłącz x przed nawias lub przenieś liczbę")
+        ),
+
+        LinearEquation(
+            id = 2,
+            equation = "3*x + 9 == 0",
+            equationDisplay = "3x + 9 = 0",
+            hint = Hint("Podziel wszystko przez 3")
+        ),
+
+        LinearEquation(
+            id = 3,
+            equation = "7*x - 14 == 0",
+            equationDisplay = "7x - 14 = 0",
+            hint = Hint("Sprowadź do postaci x = ...")
+        ),
+
+        LinearEquation(
+            id = 4,
+            equation = "x + 6 == 0",
+            equationDisplay = "x + 6 = 0",
+            hint = Hint("To najprostszy przypadek")
+        ),
+
+        LinearEquation(
+            id = 5,
+            equation = "4*x + 2 == 10",
+            equationDisplay = "4x + 2 = 10",
+            hint = Hint("Najpierw przenieś 2 na prawą stronę")
+        ),
+
+        LinearEquation(
+            id = 6,
+            equation = "6*x - 3 == 15",
+            equationDisplay = "6x - 3 = 15",
+            hint = Hint("Dodaj 3 do obu stron")
+        ),
+
+        LinearEquation(
+            id = 7,
+            equation = "8*x == 32",
+            equationDisplay = "8x = 32",
+            hint = Hint("Podziel przez 8")
+        ),
+
+        LinearEquation(
+            id = 8,
+            equation = "9*x + 18 == 0",
+            equationDisplay = "9x + 18 = 0",
+            hint = Hint("Wyłącz 9 przed nawias")
+        ),
+
+        LinearEquation(
+            id = 9,
+            equation = "10*x - 5 == 25",
+            equationDisplay = "10x - 5 = 25",
+            hint = Hint("Dodaj 5 do obu stron, potem podziel")
+        )
+    )
+
+    private val mat_3_2: List<Question> = listOf(
+
+        SystemOfEquations(
+            id = 0,
+            equations = listOf(
+                Equation("x + y", "5"),
+                Equation("x - y", "1")
+            ),
+            variables = listOf("x", "y"),
+            hint = Hint("Dodaj równania stronami, aby wyeliminować y")
+        ),
+
+        SystemOfEquations(
+            id = 1,
+            equations = listOf(
+                Equation("2*x + y", "7"),
+                Equation("x - y", "1")
+            ),
+            variables = listOf("x", "y"),
+            hint = Hint("Podstaw lub dodaj równania")
+        ),
+
+        SystemOfEquations(
+            id = 2,
+            equations = listOf(
+                Equation("x + y", "8"),
+                Equation("2*x - y", "1")
+            ),
+            variables = listOf("x", "y"),
+            hint = Hint("Wyeliminuj y przez dodanie równań")
+        ),
+
+        SystemOfEquations(
+            id = 3,
+            equations = listOf(
+                Equation("3*x + y", "10"),
+                Equation("x - y", "2")
+            ),
+            variables = listOf("x", "y"),
+            hint = Hint("Dodaj równania, aby pozbyć się y")
+        ),
+
+        SystemOfEquations(
+            id = 4,
+            equations = listOf(
+                Equation("x + 2*y", "9"),
+                Equation("x - y", "0")
+            ),
+            variables = listOf("x", "y"),
+            hint = Hint("x = y z drugiego równania")
+        ),
+
+        SystemOfEquations(
+            id = 5,
+            equations = listOf(
+                Equation("2*x + 3*y", "12"),
+                Equation("x - y", "1")
+            ),
+            variables = listOf("x", "y"),
+            hint = Hint("Podstaw x = y + 1")
+        ),
+
+        SystemOfEquations(
+            id = 6,
+            equations = listOf(
+                Equation("4*x + y", "13"),
+                Equation("x + y", "5")
+            ),
+            variables = listOf("x", "y"),
+            hint = Hint("Odejmij równania")
+        ),
+
+        SystemOfEquations(
+            id = 7,
+            equations = listOf(
+                Equation("3*x + 2*y", "16"),
+                Equation("x + y", "5")
+            ),
+            variables = listOf("x", "y"),
+            hint = Hint("Wyznacz x z drugiego równania")
+        ),
+
+        SystemOfEquations(
+            id = 8,
+            equations = listOf(
+                Equation("5*x - y", "9"),
+                Equation("x + y", "7")
+            ),
+            variables = listOf("x", "y"),
+            hint = Hint("Dodaj równania, aby usunąć y")
+        ),
+
+        SystemOfEquations(
+            id = 9,
+            equations = listOf(
+                Equation("2*x + y", "11"),
+                Equation("x - 2*y", "1")
+            ),
+            variables = listOf("x", "y"),
+            hint = Hint("Spróbuj podstawienia")
+        )
     )
 
     /**
@@ -984,9 +1368,13 @@ object QuestionBank {
         "mat_1_1" to mat_1_1,
         "mat_1_2" to mat_1_2,
         "mat_1_3" to mat_1_3,
+        "mat_1_4" to mat_1_4,
+        "mat_1_5" to mat_1_5,
         "mat_2_1" to mat_2_1,
         "mat_2_2" to mat_2_2,
-        "mat_3_1" to genericMath,
+        "mat_2_3" to mat_2_3,
+        "mat_3_1" to mat_3_1,
+        "mat_3_2" to mat_3_2,
         "mat_4_1" to mat_4_1,
         "mat_5_1" to mat_5_1,
         "geo_1_1" to geo_1_1,

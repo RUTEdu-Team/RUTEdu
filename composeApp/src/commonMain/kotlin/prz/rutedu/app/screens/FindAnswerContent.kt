@@ -29,7 +29,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import prz.rutedu.app.components.NumberKeypad
+import prz.rutedu.app.models.MathOperator
 import prz.rutedu.app.models.Question
+import prz.rutedu.app.models.getBottomIndex
+import prz.rutedu.app.models.getTopIndex
 
 /**
  * Question content for [Question.FindAnswer] - the student computes a missing arithmetic result.
@@ -95,13 +98,54 @@ internal fun FindAnswerContent(
             horizontalArrangement = Arrangement.Center,
             modifier = Modifier.fillMaxWidth()
         ) {
-            EquationText("${question.operand1}", MaterialTheme.colorScheme.onBackground, eqFontSize)
+
+            when (question.operator) {
+
+                MathOperator.POWER -> {
+                    EquationText("${question.operand1}", Color(0xFF1A1A1A), eqFontSize)
+                    Spacer(Modifier.width(0.dp))
+                    EquationText(
+                        getTopIndex(question.operand2),
+                        accentColor,
+                        eqFontSize
+                    )
+                }
+
+                MathOperator.ROOT -> {
+                    EquationText(
+                        getTopIndex(question.operand1),
+                        accentColor,
+                        eqFontSize
+                    )
+                    Spacer(Modifier.width(0.dp))
+                    EquationText("√", accentColor, eqFontSize)
+                    Spacer(Modifier.width(0.dp))
+                    EquationText("${question.operand2}", Color(0xFF1A1A1A), eqFontSize)
+                }
+
+                MathOperator.LOG -> {
+                    EquationText("log", accentColor, eqFontSize)
+                    Spacer(Modifier.width(2.dp))
+                    EquationText(
+                        getBottomIndex(question.operand1),
+                        accentColor,
+                        eqFontSize * 0.7f
+                    )
+                    Spacer(Modifier.width(2.dp))
+                    EquationText("${question.operand2}", Color(0xFF1A1A1A), eqFontSize)
+                }
+
+                else -> {
+                    EquationText("${question.operand1}", Color(0xFF1A1A1A), eqFontSize)
+                    Spacer(Modifier.width(8.dp))
+                    EquationText(question.operator.symbol, accentColor, eqFontSize)
+                    Spacer(Modifier.width(8.dp))
+                    EquationText("${question.operand2}", Color(0xFF1A1A1A), eqFontSize)
+                }
+            }
+
             Spacer(Modifier.width(12.dp))
-            EquationText(question.operator.symbol, accentColor, eqFontSize)
-            Spacer(Modifier.width(12.dp))
-            EquationText("${question.operand2}", MaterialTheme.colorScheme.onBackground, eqFontSize)
-            Spacer(Modifier.width(12.dp))
-            EquationText("=", MaterialTheme.colorScheme.onBackground, eqFontSize)
+            EquationText("=", Color(0xFF1A1A1A), eqFontSize)
             Spacer(Modifier.width(12.dp))
             EquationText("?", accentColor, eqFontSize)
         }

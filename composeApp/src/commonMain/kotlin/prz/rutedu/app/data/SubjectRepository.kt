@@ -64,7 +64,7 @@ object SubjectRepository {
         Subject(
             id = "matematyka",
             name = "Matematyka",
-            lessonCount = 10,
+//            lessonCount = 10,
             progress = 0.25f,
             color = Color(0xFF4A80F0),
             backgroundColor = Color(0xFFEBF1FF),
@@ -111,7 +111,7 @@ object SubjectRepository {
                             name = "Pierwiastkowanie",
                             description = "Własności pierwiastków",
                             progress = 0.0f,
-                            isLocked = true,
+                            isLocked = false,
                             color = Color(0xFF9E9E9E),
                             icon = Icons.Default.Lock
                         ),
@@ -120,7 +120,7 @@ object SubjectRepository {
                             name = "Logarytmy",
                             description = "Wprowadzenie do logarytmów",
                             progress = 0.0f,
-                            isLocked = true,
+                            isLocked = false,
                             color = Color(0xFF9E9E9E),
                             icon = Icons.Default.Lock
                         )
@@ -158,7 +158,7 @@ object SubjectRepository {
                             name = "Rozkład na czynniki",
                             description = "Metody faktoryzacji",
                             progress = 0.0f,
-                            isLocked = true,
+                            isLocked = false,
                             color = Color(0xFF9E9E9E),
                             icon = Icons.Default.Lock
                         )
@@ -169,7 +169,7 @@ object SubjectRepository {
                     name = "Równania i nierówności",
                     description = "Metody rozwiązywania układów",
                     progress = 0.10f,
-                    isLocked = true,
+                    isLocked = false,
                     color = Color(0xFF3DBD7D),
                     icon = Icons.Default.BarChart,
                     lessons = listOf(
@@ -187,7 +187,7 @@ object SubjectRepository {
                             name = "Układy równań",
                             description = "Metoda podstawiania i przeciwnych",
                             progress = 0.0f,
-                            isLocked = true,
+                            isLocked = false,
                             color = Color(0xFF9E9E9E),
                             icon = Icons.Default.Lock
                         )
@@ -240,7 +240,7 @@ object SubjectRepository {
         Subject(
             id = "chemia",
             name = "Chemia",
-            lessonCount = 15,
+//            lessonCount = 15,
             progress = 0.60f,
             color = Color(0xFFF47B20),
             backgroundColor = Color(0xFFFFF0E8),
@@ -454,7 +454,7 @@ object SubjectRepository {
         Subject(
             id = "algebra",
             name = "Algebra",
-            lessonCount = 5,
+//            lessonCount = 5,
             progress = 0.0f,
             color = Color(0xFF7C4DFF),
             backgroundColor = Color(0xFFF0EBFF),
@@ -534,7 +534,7 @@ object SubjectRepository {
         Subject(
             id = "geografia",
             name = "Geografia",
-            lessonCount = 8,
+//            lessonCount = 8,
             progress = 0.35f,
             color = Color(0xFF3DBD7D),
             backgroundColor = Color(0xFFE8F8F0),
