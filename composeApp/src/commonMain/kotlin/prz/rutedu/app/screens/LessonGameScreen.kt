@@ -91,20 +91,27 @@ fun LessonGameScreen(
     val subject = SubjectRepository.getById(subjectId)
     val topic = SubjectRepository.getTopicById(subjectId, topicId)
     val lesson = topic?.lessons?.find { it.id == lessonId }
-    val isGenerated = lessonId.startsWith("chemia_") || lessonId.startsWith("algebra_")
-    val genSeed = remember {
-        if (isGenerated) ChemistrySessionStore.getOrCreateSeed(driver, lessonId) else 0L
+    val isGenerated = lessonId.startsWith("chemia_") || lessonId.startsWith("algebra_") || 
+                      lessonId.startsWith("mat_1_") || lessonId.startsWith("mat_2_") || 
+                      lessonId.startsWith("mat_3_") || lessonId.startsWith("mat_6_") ||
+                      lessonId.startsWith("mat_7_") || lessonId.startsWith("mat_8_") ||
+                      lessonId.startsWith("mat_9_") || lessonId.startsWith("mat_10_") ||
+                      lessonId.startsWith("mat_11_") || lessonId.startsWith("mat_12_")
+    
+    var genSeed by remember {
+        mutableStateOf(if (isGenerated) ChemistrySessionStore.getOrCreateSeed(driver, lessonId) else 0L)
     }
-    val genAnswered = remember {
-        if (isGenerated) ChemistrySessionStore.getAnsweredIds(driver, lessonId) else emptySet()
+    var genAnswered by remember {
+        mutableStateOf(if (isGenerated) ChemistrySessionStore.getAnsweredIds(driver, lessonId) else emptySet())
     }
-    val allQuestions = remember { QuestionBank.questionsFor(lessonId, genSeed, genAnswered) }
-    val configuredCount = remember {
+    
+    val allQuestions = remember(genSeed, genAnswered) { QuestionBank.questionsFor(lessonId, genSeed, genAnswered) }
+    val configuredCount = remember(allQuestions) {
         if (allQuestions.isEmpty()) 0
         else SubjectConfigStore.load(driver, lessonId)?.questionCount?.coerceIn(1, allQuestions.size)
             ?: allQuestions.size
     }
-    val questions = remember(configuredCount) { allQuestions.take(configuredCount) }
+    val questions = remember(allQuestions, configuredCount) { allQuestions.take(configuredCount) }
     val totalCount = questions.size
 
     val savedProgress = remember { LessonProgressStore.load(driver, lessonId) }
@@ -151,6 +158,12 @@ fun LessonGameScreen(
             accentColor = accentColor,
             bottomPadding = bottomPadding,
             onReset = {
+                if (isGenerated) {
+                    // For generated lessons, ensure we get a new seed/answered set immediately.
+                    ChemistrySessionStore.resetSession(driver, lessonId)
+                    genSeed = ChemistrySessionStore.getOrCreateSeed(driver, lessonId)
+                    genAnswered = ChemistrySessionStore.getAnsweredIds(driver, lessonId)
+                }
                 currentIndex = 0
                 correctCount = 0
                 isComplete = false
@@ -197,6 +210,10 @@ fun LessonGameScreen(
             currentIndex = totalCount
             isComplete = true
             LessonProgressStore.save(driver, lessonId, LessonProgressStore.Progress(totalCount, newCorrect, totalCount))
+            // Clear session state when 100% completed so the next visit starts fresh.
+            if (isGenerated) {
+                ChemistrySessionStore.resetSession(driver, lessonId)
+            }
         }
     }
 
@@ -379,6 +396,27 @@ fun LessonGameScreen(
                     onWrong = onWrongAnswer
                 )
                 is Question.ExpressionTypeAnswer -> ExpressionTypeAnswerContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.FractionAnswer -> FractionAnswerContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.DecimalAnswer -> DecimalAnswerContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.ComparisonQuiz -> ComparisonQuizContent(
                     question = question,
                     accentColor = accentColor,
                     bottomPadding = bottomPadding,

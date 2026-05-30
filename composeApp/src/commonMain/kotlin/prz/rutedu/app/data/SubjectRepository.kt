@@ -1,18 +1,34 @@
 package prz.rutedu.app.data
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.CompareArrows
 import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.Calculate
+import androidx.compose.material.icons.filled.ChangeHistory
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Cloud
+import androidx.compose.material.icons.filled.Expand
+import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Functions
-import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Groups
+import androidx.compose.material.icons.filled.Landscape
+import androidx.compose.material.icons.filled.Layers
+import androidx.compose.material.icons.filled.Map
+import androidx.compose.material.icons.filled.Percent
+import androidx.compose.material.icons.filled.PieChart
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Public
+import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.filled.Roofing
 import androidx.compose.material.icons.filled.Science
+import androidx.compose.material.icons.filled.Straighten
 import androidx.compose.material.icons.filled.TableChart
+import androidx.compose.material.icons.filled.Timeline
+import androidx.compose.material.icons.filled.ViewInAr
+import androidx.compose.material.icons.filled.WifiTethering
 import androidx.compose.ui.graphics.Color
 import prz.rutedu.app.data.SubjectRepository.subjects
 import prz.rutedu.app.models.Lesson
@@ -111,8 +127,8 @@ object SubjectRepository {
                             description = "Własności pierwiastków",
                             progress = 0.0f,
                             isLocked = false,
-                            color = Color(0xFF9E9E9E),
-                            icon = Icons.Default.Lock
+                            color = Color(0xFF3DBD7D),
+                            icon = Icons.Default.Roofing
                         ),
                         Lesson(
                             id = "mat_1_5",
@@ -120,8 +136,8 @@ object SubjectRepository {
                             description = "Wprowadzenie do logarytmów",
                             progress = 0.0f,
                             isLocked = false,
-                            color = Color(0xFF9E9E9E),
-                            icon = Icons.Default.Lock
+                            color = Color(0xFFF47B20),
+                            icon = Icons.Default.Functions
                         )
                     )
                 ),
@@ -158,8 +174,8 @@ object SubjectRepository {
                             description = "Metody faktoryzacji",
                             progress = 0.0f,
                             isLocked = false,
-                            color = Color(0xFF9E9E9E),
-                            icon = Icons.Default.Lock
+                            color = Color(0xFF7C4DFF),
+                            icon = Icons.Default.Expand
                         )
                     )
                 ),
@@ -187,8 +203,8 @@ object SubjectRepository {
                             description = "Metoda podstawiania i przeciwnych",
                             progress = 0.0f,
                             isLocked = false,
-                            color = Color(0xFF9E9E9E),
-                            icon = Icons.Default.Lock
+                            color = Color(0xFF4A80F0),
+                            icon = Icons.Default.TableChart
                         ),
                         Lesson(
                             id = "mat_3_3",
@@ -196,8 +212,8 @@ object SubjectRepository {
                             description = "Metoda podstawiania i przeciwnych",
                             progress = 0.0f,
                             isLocked = false,
-                            color = Color(0xFF9E9E9E),
-                            icon = Icons.Default.Lock
+                            color = Color(0xFFEF5350),
+                            icon = Icons.Default.Calculate
                         )
                     )
                 ),
@@ -255,7 +271,7 @@ object SubjectRepository {
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFF00BFA6),
-                    icon = Icons.Default.BarChart,
+                    icon = Icons.Default.ChangeHistory,
                     lessons = listOf(
                         Lesson(
                             id = "mat_5_1",
@@ -264,7 +280,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF00BFA6),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.ChangeHistory
                         ),
                         Lesson(
                             id = "mat_5_2",
@@ -273,7 +289,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF00BFA6),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Layers
                         ),
                         Lesson(
                             id = "mat_5_3",
@@ -282,7 +298,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF00BFA6),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.PieChart
                         ),
                         Lesson(
                             id = "mat_5_4",
@@ -291,7 +307,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF00BFA6),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Straighten
                         ),
                         Lesson(
                             id = "mat_5_5",
@@ -300,7 +316,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF00BFA6),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Functions
                         )
                     )
                 ),
@@ -312,7 +328,7 @@ object SubjectRepository {
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFFFFB300),
-                    icon = Icons.Default.BarChart,
+                    icon = Icons.Default.Layers,
                     lessons = listOf(
                         Lesson(
                             id = "mat_6_1",
@@ -321,7 +337,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFFFB300),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.AutoMirrored.Filled.CompareArrows
                         ),
                         Lesson(
                             id = "mat_6_2",
@@ -330,7 +346,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFFFB300),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Calculate
                         ),
                         Lesson(
                             id = "mat_6_3",
@@ -339,7 +355,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFFFB300),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.AutoMirrored.Filled.CompareArrows
                         ),
                         Lesson(
                             id = "mat_6_4",
@@ -348,7 +364,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFFFB300),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Calculate
                         )
                     )
                 ),
@@ -360,7 +376,7 @@ object SubjectRepository {
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFFEF5350),
-                    icon = Icons.Default.BarChart,
+                    icon = Icons.Default.Percent,
                     lessons = listOf(
                         Lesson(
                             id = "mat_7_1",
@@ -369,7 +385,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFEF5350),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Percent
                         ),
                         Lesson(
                             id = "mat_7_2",
@@ -378,7 +394,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFEF5350),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.AutoMirrored.Filled.TrendingUp
                         ),
                         Lesson(
                             id = "mat_7_3",
@@ -387,7 +403,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFEF5350),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Functions
                         )
                     )
                 ),
@@ -399,7 +415,7 @@ object SubjectRepository {
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFF42A5F5),
-                    icon = Icons.Default.BarChart,
+                    icon = Icons.Default.Straighten,
                     lessons = listOf(
                         Lesson(
                             id = "mat_8_1",
@@ -408,7 +424,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF42A5F5),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.AutoMirrored.Filled.CompareArrows
                         ),
                         Lesson(
                             id = "mat_8_2",
@@ -417,7 +433,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF42A5F5),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Map
                         ),
                         Lesson(
                             id = "mat_8_3",
@@ -426,7 +442,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF42A5F5),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Explore
                         )
                     )
                 ),
@@ -438,7 +454,7 @@ object SubjectRepository {
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFFAB47BC),
-                    icon = Icons.Default.BarChart,
+                    icon = Icons.Default.ViewInAr,
                     lessons = listOf(
                         Lesson(
                             id = "mat_9_1",
@@ -447,7 +463,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFAB47BC),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.ViewInAr
                         ),
                         Lesson(
                             id = "mat_9_2",
@@ -456,7 +472,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFAB47BC),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.ChangeHistory
                         ),
                         Lesson(
                             id = "mat_9_3",
@@ -465,7 +481,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFAB47BC),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.PieChart
                         ),
                         Lesson(
                             id = "mat_9_4",
@@ -474,7 +490,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFAB47BC),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Straighten
                         ),
                         Lesson(
                             id = "mat_9_5",
@@ -483,7 +499,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFAB47BC),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Layers
                         )
                     )
                 ),
@@ -495,7 +511,7 @@ object SubjectRepository {
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFF26C6DA),
-                    icon = Icons.Default.BarChart,
+                    icon = Icons.Default.Timeline,
                     lessons = listOf(
                         Lesson(
                             id = "mat_10_1",
@@ -504,7 +520,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF26C6DA),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Timeline
                         ),
                         Lesson(
                             id = "mat_10_2",
@@ -513,7 +529,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF26C6DA),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Place
                         ),
                         Lesson(
                             id = "mat_10_3",
@@ -522,7 +538,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF26C6DA),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Layers
                         ),
                         Lesson(
                             id = "mat_10_4",
@@ -531,7 +547,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF26C6DA),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Straighten
                         )
                     )
                 ),
@@ -552,7 +568,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF3DBD7D),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Calculate
                         ),
                         Lesson(
                             id = "mat_11_2",
@@ -561,7 +577,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF3DBD7D),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Timeline
                         ),
                         Lesson(
                             id = "mat_11_3",
@@ -579,7 +595,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF3DBD7D),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Percent
                         )
                     )
                 ),
@@ -591,7 +607,7 @@ object SubjectRepository {
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFF3DBD7D),
-                    icon = Icons.Default.BarChart,
+                    icon = Icons.Default.Remove,
                     lessons = listOf(
                         Lesson(
                             id = "mat_12_1",
@@ -600,7 +616,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF3DBD7D),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.AutoMirrored.Filled.CompareArrows
                         ),
                         Lesson(
                             id = "mat_12_2",
@@ -609,7 +625,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF3DBD7D),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Add
                         ),
                         Lesson(
                             id = "mat_12_3",
@@ -618,7 +634,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF3DBD7D),
-                            icon = Icons.Default.BarChart
+                            icon = Icons.Default.Close
                         )
                     )
                 )
@@ -949,9 +965,9 @@ object SubjectRepository {
                             name = "Ukształtowanie terenu",
                             description = "Góry, niziny, wyżyny",
                             progress = 0.0f,
-                            isLocked = true,
-                            color = Color(0xFF9E9E9E),
-                            icon = Icons.Default.Lock
+                            isLocked = false,
+                            color = Color(0xFF3DBD7D),
+                            icon = Icons.Default.Landscape
                         )
                     )
                 ),
@@ -969,9 +985,9 @@ object SubjectRepository {
                     name = "Ludność świata",
                     description = "Demografia i migracje",
                     progress = 0.0f,
-                    isLocked = true,
-                    color = Color(0xFF9E9E9E),
-                    icon = Icons.Default.Lock
+                    isLocked = false,
+                    color = Color(0xFFF47B20),
+                    icon = Icons.Default.Public
                 ),
                 Topic(
                     id = "geo_4",
@@ -980,7 +996,7 @@ object SubjectRepository {
                     progress = 0.0f,
                     isLocked = false,
                     color = Color(0xFF3DBD7D),
-                    icon = Icons.Default.Public,
+                    icon = Icons.Default.Map,
                     lessons = listOf(
                         Lesson(
                             id = "geo_4_1",
@@ -989,7 +1005,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF3DBD7D),
-                            icon = Icons.Default.Public
+                            icon = Icons.Default.Place
                         ),
                         Lesson(
                             id = "geo_4_2",
@@ -1007,7 +1023,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFFF47B20),
-                            icon = Icons.Default.Public
+                            icon = Icons.Default.Explore
                         ),
                         Lesson(
                             id = "geo_4_4",
@@ -1016,7 +1032,7 @@ object SubjectRepository {
                             progress = 0.0f,
                             isLocked = false,
                             color = Color(0xFF959955),
-                            icon = Icons.Default.Public
+                            icon = Icons.Default.Map
                         )
                     )
                 )

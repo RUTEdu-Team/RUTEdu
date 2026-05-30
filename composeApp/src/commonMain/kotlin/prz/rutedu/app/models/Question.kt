@@ -507,4 +507,48 @@ sealed class Question(open val id: Int) {
         val inlineHint: String? = "Użyj * dla mnożenia, ^ dla potęgi (np. 3*x^2)",
         val hint: Hint = Hint("")
     ) : Question(id)
+
+    /**
+     * The student must provide a fraction (numerator and denominator).
+     *
+     * Rendered by `FractionAnswerContent`.
+     */
+    data class FractionAnswer(
+        override val id: Int,
+        val prompt: String,
+        val correctNumerator: Int,
+        val correctDenominator: Int,
+        val labelBefore: String? = null,
+        val inlineHint: String? = null,
+        val hint: Hint = Hint("")
+    ) : Question(id)
+
+    /**
+     * The student must provide a decimal number (e.g. 0.25).
+     *
+     * Rendered by `DecimalAnswerContent`.
+     */
+    data class DecimalAnswer(
+        override val id: Int,
+        val prompt: String,
+        val correctAnswer: Double,
+        val precision: Int = 2,
+        val labelBefore: String? = null,
+        val inlineHint: String? = null,
+        val hint: Hint = Hint("")
+    ) : Question(id)
+
+    /**
+     * The student compares two mathematical expressions using <, > or =.
+     *
+     * Rendered by `ComparisonQuizContent`.
+     */
+    data class ComparisonQuiz(
+        override val id: Int,
+        val prompt: String,
+        val leftExpr: String,
+        val rightExpr: String,
+        val correctSymbol: String, // "<", ">", "="
+        val hint: Hint = Hint("")
+    ) : Question(id)
 }

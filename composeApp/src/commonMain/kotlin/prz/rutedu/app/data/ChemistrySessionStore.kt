@@ -80,6 +80,15 @@ object ChemistrySessionStore {
         saveString(driver, answeredKey(lessonId), updated)
     }
 
+    /**
+     * Clears the session state for [lessonId], forcing a new seed and empty answered set
+     * on the next load. Call this when a generated lesson is fully completed.
+     */
+    fun resetSession(driver: SqlDriver, lessonId: String) {
+        deleteString(driver, seedKey(lessonId))
+        deleteString(driver, answeredKey(lessonId))
+    }
+
     private fun loadString(driver: SqlDriver, key: String): String? =
         driver.executeQuery(
             identifier = null,
@@ -102,6 +111,15 @@ object ChemistrySessionStore {
                 bindString(0, key)
                 bindString(1, value)
             }
+        )
+    }
+
+    private fun deleteString(driver: SqlDriver, key: String) {
+        driver.execute(
+            identifier = null,
+            sql = "DELETE FROM appSettings WHERE setting_key = ?",
+            parameters = 1,
+            binders = { bindString(0, key) }
         )
     }
 }
