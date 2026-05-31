@@ -32,11 +32,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import app.cash.sqldelight.db.SqlDriver
-import org.jetbrains.compose.resources.stringResource
-import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.*
 import prz.rutedu.app.Screen
-import prz.rutedu.app.locale.getNameRes
 import prz.rutedu.app.components.TopicCard
 import prz.rutedu.app.data.LessonProgressStore
 import prz.rutedu.app.data.SubjectRepository
@@ -97,12 +93,12 @@ fun SubjectDetailScreen(
             IconButton(onClick = { navController.popBackStack() }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(Res.string.back),
+                    contentDescription = "Wróć",
                     tint = MaterialTheme.colorScheme.onSurface
                 )
             }
             Text(
-                text = stringResource(subject.getNameRes()),
+                text = subject.name,
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface

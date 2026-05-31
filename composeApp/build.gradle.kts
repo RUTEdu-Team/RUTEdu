@@ -15,7 +15,6 @@ kotlin {
     android {
         namespace = "prz.rutedu.app.library"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
-        minSdk = libs.versions.android.minSdk.get().toInt()
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)
         }
@@ -39,7 +38,6 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.ui.tooling.preview)
             implementation(libs.sqldelight.android.driver)
-            implementation(libs.matheclipse.core)
         }
         commonMain.dependencies {
             implementation(libs.runtime)

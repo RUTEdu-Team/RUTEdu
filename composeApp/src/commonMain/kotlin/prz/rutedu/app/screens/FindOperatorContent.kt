@@ -38,9 +38,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
-import org.jetbrains.compose.resources.stringResource
-import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.*
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.platform.LocalDensity
@@ -176,14 +173,14 @@ internal fun FindOperatorContent(
                     .background(accentColor.copy(alpha = 0.15f))
                     .padding(horizontal = 16.dp, vertical = 6.dp)
             ) {
-                Text(stringResource(Res.string.subject_math), fontSize = 11.sp, fontWeight = FontWeight.Bold, color = accentColor)
+                Text("MATEMATYKA", fontSize = 11.sp, fontWeight = FontWeight.Bold, color = accentColor)
             }
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            Text(stringResource(Res.string.title_complete_equation), fontSize = 22.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
+            Text("Uzupełnij równanie", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
             Text(
-                text = stringResource(Res.string.desc_drag_operator),
+                text = "Przeciągnij brakujący znak w puste pole",
                 fontSize = 14.sp,
                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f),
                 textAlign = TextAlign.Center

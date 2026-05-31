@@ -38,10 +38,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import kotlinx.coroutines.launch
-import org.jetbrains.compose.resources.stringResource
-import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.*
-import prz.rutedu.app.locale.customAppLocale
 import prz.rutedu.app.Database
 import prz.rutedu.app.theme.ThemeMode
 import prz.rutedu.app.theme.customAppThemeMode
@@ -76,12 +72,12 @@ fun Settings(
             IconButton(onClick = { navController.popBackStack() }) {
                 Icon(
                     Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(Res.string.back),
+                    contentDescription = "Wróć",
                     tint = MaterialTheme.colorScheme.onSurface
                 )
             }
             Text(
-                stringResource(Res.string.settings_theme_title),
+                "Ustawienia motywu",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface
@@ -96,7 +92,7 @@ fun Settings(
                 .padding(horizontal = 16.dp, vertical = 20.dp)
         ) {
             Text(
-                stringResource(Res.string.settings_select_theme).uppercase(),
+                "WYBIERZ MOTYW",
                 fontSize = 11.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -113,16 +109,16 @@ fun Settings(
             ) {
                 Column {
                     ThemeMode.entries.forEachIndexed { index, mode ->
-                                                val displayName = when (mode) {
-                            ThemeMode.SYSTEM -> stringResource(Res.string.settings_theme_system)
-                            ThemeMode.LIGHT -> stringResource(Res.string.settings_theme_light)
-                            ThemeMode.DARK -> stringResource(Res.string.settings_theme_dark)
+                        val displayName = when (mode) {
+                            ThemeMode.SYSTEM -> "Domyślny systemu"
+                            ThemeMode.LIGHT -> "Jasny"
+                            ThemeMode.DARK -> "Ciemny"
                         }
                         
                         val description = when (mode) {
-                            ThemeMode.SYSTEM -> stringResource(Res.string.settings_theme_system_desc)
-                            ThemeMode.LIGHT -> stringResource(Res.string.settings_theme_theme_light_desc)
-                            ThemeMode.DARK -> stringResource(Res.string.settings_theme_theme_dark_desc)
+                            ThemeMode.SYSTEM -> "Automatyczne dostosowanie do motywu urządzenia"
+                            ThemeMode.LIGHT -> "Tradycyjny jasny wygląd"
+                            ThemeMode.DARK -> "Przyjazny dla oczu w ciemności"
                         }
 
                         Row(
@@ -165,9 +161,6 @@ fun Settings(
                     }
                 }
             }
-
-
-
         }
 
         // Save
@@ -189,7 +182,7 @@ fun Settings(
             shape = RoundedCornerShape(28.dp),
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
         ) {
-            Text(stringResource(Res.string.save), fontWeight = FontWeight.Bold, fontSize = 16.sp)
+            Text("Zapisz", fontWeight = FontWeight.Bold, fontSize = 16.sp)
         }
     }
 }

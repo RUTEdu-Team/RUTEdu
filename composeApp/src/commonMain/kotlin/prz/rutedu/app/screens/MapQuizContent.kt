@@ -54,9 +54,6 @@ import prz.rutedu.app.geo.CountryFeature
 import prz.rutedu.app.models.MapRegion
 import prz.rutedu.app.models.Question
 import prz.rutedu.app.theme.isAppInDarkTheme
-import org.jetbrains.compose.resources.stringResource
-import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.*
 import kotlin.math.PI
 import kotlin.math.cos
 
@@ -365,8 +362,12 @@ internal fun MapQuizContent(
                                 )
                                 val hit = screenCountries.firstOrNull { hitTest(base, it) }
                                 if (hit != null) {
-                                    selectedCountry = hit.feature.name
-                                    isWrong = false
+                                    if (question.mapFile.contains("capitals") && !hit.feature.isPoint) {
+                                        // Ignore tap on background province
+                                    } else {
+                                        selectedCountry = hit.feature.name
+                                        isWrong = false
+                                    }
                                 }
                             }
                         }
@@ -379,8 +380,8 @@ internal fun MapQuizContent(
                             scale(zoomScale, zoomScale, center)
                         }
                     ) {
-                        // Unselected countries first
-                        screenCountries.forEach { sc ->
+                        // Unselected countries first (draw in reverse so features at start of file are drawn on top)
+                        screenCountries.asReversed().forEach { sc ->
                             if (sc.feature.name != selectedCountry) {
                                 sc.rings.forEach { ring ->
                                     drawPath(ring.path, color = countryColor)
@@ -418,7 +419,7 @@ internal fun MapQuizContent(
             ) {
                 Icon(Icons.Default.Lightbulb, null, tint = accentColor, modifier = Modifier.size(18.dp))
                 Spacer(Modifier.width(6.dp))
-                Text(stringResource(Res.string.button_hint), color = accentColor, fontWeight = FontWeight.SemiBold)
+                Text("Podpowiedź", color = accentColor, fontWeight = FontWeight.SemiBold)
             }
             Button(
                 onClick = {
@@ -432,7 +433,7 @@ internal fun MapQuizContent(
             ) {
                 Icon(Icons.Default.Check, null, modifier = Modifier.size(18.dp))
                 Spacer(Modifier.width(6.dp))
-                Text(stringResource(Res.string.button_check), fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                Text("Sprawdź", fontWeight = FontWeight.Bold, fontSize = 16.sp)
             }
         }
         Spacer(Modifier.height(16.dp))

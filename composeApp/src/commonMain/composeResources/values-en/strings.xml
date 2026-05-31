@@ -77,22 +77,6 @@
     <string name="score_saved">Score saved for %1$s!</string>
     <string name="play_again">Play Again</string>
     <string name="check">CHECK ✓</string>
-    <string name="button_hint">Hint</string>
-    <string name="button_check">Check</string>
-    <string name="close">Close</string>
-    <string name="feedback_correct">Correct!</string>
-    <string name="feedback_wrong">Try again</string>
-    <string name="your_answer">Your answer</string>
-    <string name="placeholder_algebra">e.g. 2*x^2 + 3*x</string>
-    <string name="subject_math">MATHEMATICS</string>
-    <string name="title_complete_equation">Complete the equation</string>
-    <string name="desc_drag_operator">Drag the missing sign into the empty box</string>
-    <string name="hint_step_by_step">Step by step:</string>
-    <string name="hint_dismiss_button">Got it, back to the task</string>
-    <string name="weii_description">Faculty of Electrical Engineering, Computer Science and Telecommunications</string>
-    <string name="placeholder_enter_result">Enter result...</string>
-    <string name="periodic_table_electrons_shells">electrons in shells K, L, M, N...</string>
-    <string name="select_all_correct_answers">Select all correct answers</string>
     
     <!-- PvP Battle Screen -->
     <string name="back_to_menu">Back to Menu</string>

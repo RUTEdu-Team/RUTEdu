@@ -38,9 +38,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import org.jetbrains.compose.resources.stringResource
-import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
@@ -137,7 +134,7 @@ internal fun AnswerFeedbackOverlay(
                         )
                     }
                     Text(
-                        text = if (isCorrect) stringResource(Res.string.feedback_correct) else stringResource(Res.string.feedback_wrong),
+                        text = if (isCorrect) "Dobrze!" else "Spróbuj jeszcze raz",
                         fontSize = if (isCorrect) 22.sp else 15.sp,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface,

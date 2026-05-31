@@ -38,9 +38,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import prz.rutedu.app.models.Question
 import prz.rutedu.app.theme.isAppInDarkTheme
-import org.jetbrains.compose.resources.stringResource
-import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.*
 
 /**
  * Question content for [Question.SelectFromList] - the student picks one or more options.
@@ -101,7 +98,7 @@ internal fun SelectFromListContent(
         if (question.multiSelect) {
             Spacer(Modifier.height(6.dp))
             Text(
-                text = stringResource(Res.string.select_all_correct_answers),
+                text = "Zaznacz wszystkie poprawne odpowiedzi",
                 fontSize = 13.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,

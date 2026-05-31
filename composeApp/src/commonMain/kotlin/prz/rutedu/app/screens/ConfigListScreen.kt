@@ -22,7 +22,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -39,12 +38,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import org.jetbrains.compose.resources.stringResource
-import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.*
 import prz.rutedu.app.Screen
 import prz.rutedu.app.data.QuestionBank
-import prz.rutedu.app.locale.getNameRes
 import prz.rutedu.app.data.SubjectRepository
 import prz.rutedu.app.theme.ThemeMode
 import prz.rutedu.app.theme.customAppThemeMode
@@ -81,12 +76,12 @@ fun ConfigListScreen(
             IconButton(onClick = { navController.popBackStack() }) {
                 Icon(
                     Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(Res.string.back),
+                    contentDescription = "Wróć",
                     tint = MaterialTheme.colorScheme.onSurface
                 )
             }
             Text(
-                stringResource(Res.string.menu_settings),
+                "Ustawienia",
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface
@@ -109,7 +104,7 @@ fun ConfigListScreen(
         ) {
             item {
                 Text(
-                    stringResource(Res.string.menu_appearance).uppercase(),
+                    "WYGLĄD",
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -152,74 +147,18 @@ fun ConfigListScreen(
                         Spacer(Modifier.width(14.dp))
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                stringResource(Res.string.menu_app_theme),
+                                "Motyw aplikacji",
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.SemiBold,
                                 color = MaterialTheme.colorScheme.onSurface
                             )
                             val themeDesc = when (customAppThemeMode) {
-                                ThemeMode.SYSTEM -> stringResource(Res.string.settings_theme_system)
-                                ThemeMode.LIGHT -> stringResource(Res.string.settings_theme_light)
-                                ThemeMode.DARK -> stringResource(Res.string.settings_theme_dark)
+                                ThemeMode.SYSTEM -> "Domyślny systemu"
+                                ThemeMode.LIGHT -> "Jasny"
+                                ThemeMode.DARK -> "Ciemny"
                             }
                             Text(
                                 themeDesc,
-                                fontSize = 13.sp,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-                        Icon(
-                            Icons.Default.ChevronRight,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.outline,
-                            modifier = Modifier.size(22.dp)
-                        )
-                    }
-                }
-            }
-
-            item {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable {
-                            navController.navigate(Screen.LanguageSettings.route)
-                        },
-                    shape = RoundedCornerShape(16.dp),
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-                    elevation = CardDefaults.cardElevation(0.dp)
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .size(44.dp)
-                                .clip(RoundedCornerShape(12.dp))
-                                .background(MaterialTheme.colorScheme.secondary.copy(alpha = 0.15f)),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Translate,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.secondary,
-                                modifier = Modifier.size(24.dp)
-                            )
-                        }
-                        Spacer(Modifier.width(14.dp))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                stringResource(Res.string.menu_app_lang),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                color = MaterialTheme.colorScheme.onSurface
-                            )
-                            val langDesc = if (prz.rutedu.app.locale.customAppLocale == "pl") "Polski" else "English"
-                            Text(
-                                langDesc,
                                 fontSize = 13.sp,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
@@ -240,7 +179,7 @@ fun ConfigListScreen(
 
             item {
                 Text(
-                    stringResource(Res.string.menu_subject_config).uppercase(),
+                    "KONFIGURACJA PRZEDMIOTÓW",
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -283,7 +222,7 @@ fun ConfigListScreen(
                         Spacer(Modifier.width(14.dp))
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                stringResource(subject.getNameRes()),
+                                subject.name,
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.SemiBold,
                                 color = MaterialTheme.colorScheme.onSurface
@@ -291,7 +230,7 @@ fun ConfigListScreen(
                             val lessonCount = subject.topics.flatMap { it.lessons }.count { !it.isLocked }
                             val totalQ = questionTotals[subject.id] ?: 0
                             Text(
-                                stringResource(Res.string.menu_lessons_questions_format, lessonCount, totalQ),
+                                "$lessonCount lekcji · $totalQ pytań",
                                 fontSize = 13.sp,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )

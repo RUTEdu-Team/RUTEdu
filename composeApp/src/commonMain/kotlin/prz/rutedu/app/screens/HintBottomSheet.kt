@@ -43,9 +43,6 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import prz.rutedu.app.models.Hint
-import org.jetbrains.compose.resources.stringResource
-import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.*
 
 /**
  * Modal bottom sheet that displays a structured [Hint] when the user taps the "Podpowiedź" button.
@@ -107,14 +104,14 @@ internal fun HintBottomSheet(
                 }
                 Spacer(Modifier.width(10.dp))
                 Text(
-                    text = stringResource(Res.string.button_hint),
+                    text = "Podpowiedź",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.weight(1f)
                 )
                 IconButton(onClick = onDismiss) {
-                    Icon(Icons.Default.Close, contentDescription = stringResource(Res.string.close), tint = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Icon(Icons.Default.Close, contentDescription = "Zamknij", tint = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }
 
@@ -208,7 +205,7 @@ internal fun HintBottomSheet(
                 ) {
                     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                         Text(
-                            text = stringResource(Res.string.hint_step_by_step),
+                            text = "Krok po kroku:",
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onSurface
@@ -236,7 +233,7 @@ internal fun HintBottomSheet(
                 shape = RoundedCornerShape(27.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = accentColor)
             ) {
-                Text(stringResource(Res.string.hint_dismiss_button), fontWeight = FontWeight.Bold, fontSize = 15.sp)
+                Text("Rozumiem, wracam do zadania", fontWeight = FontWeight.Bold, fontSize = 15.sp)
                 Spacer(Modifier.width(8.dp))
                 Icon(Icons.Default.Check, contentDescription = null, modifier = Modifier.size(18.dp))
             }
@@ -295,7 +292,7 @@ internal fun BottomButtons(
         ) {
             Icon(Icons.Default.Lightbulb, contentDescription = null, tint = accentColor, modifier = Modifier.size(18.dp))
             Spacer(Modifier.width(6.dp))
-            Text(stringResource(Res.string.button_hint), color = accentColor, fontWeight = FontWeight.SemiBold)
+            Text("Podpowiedź", color = accentColor, fontWeight = FontWeight.SemiBold)
         }
         Button(
             onClick = onCheck,
@@ -304,7 +301,7 @@ internal fun BottomButtons(
             colors = ButtonDefaults.buttonColors(containerColor = accentColor),
             enabled = checkEnabled
         ) {
-            Text(stringResource(Res.string.button_check), fontWeight = FontWeight.Bold, fontSize = 16.sp)
+            Text("Sprawdź", fontWeight = FontWeight.Bold, fontSize = 16.sp)
         }
     }
 }

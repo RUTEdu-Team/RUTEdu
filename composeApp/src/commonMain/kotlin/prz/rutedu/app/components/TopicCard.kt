@@ -30,11 +30,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.jetbrains.compose.resources.stringResource
-import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.*
-import prz.rutedu.app.locale.getNameRes
-import prz.rutedu.app.locale.getDescriptionRes
 import prz.rutedu.app.models.Lesson
 import prz.rutedu.app.models.Topic
 import kotlin.math.roundToInt
@@ -57,12 +52,12 @@ fun TopicCard(
     onClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val statusText = if (topic.isLocked) stringResource(Res.string.status_locked)
-    else stringResource(Res.string.status_completed, "${(topic.progress * 100).roundToInt()}%")
+    val statusText = if (topic.isLocked) "Zablokowane"
+    else "${(topic.progress * 100).roundToInt()}% Ukończono"
 
     ItemCard(
-        name = stringResource(topic.getNameRes()),
-        description = stringResource(topic.getDescriptionRes()),
+        name = topic.name,
+        description = topic.description,
         progress = topic.progress,
         isLocked = topic.isLocked,
         color = topic.color,
@@ -93,14 +88,14 @@ fun LessonCard(
     modifier: Modifier = Modifier
 ) {
     val statusText = when {
-        lesson.isLocked -> stringResource(Res.string.status_locked)
-        lesson.progress > 0f -> stringResource(Res.string.status_continue, "${(lesson.progress * 100).roundToInt()}%")
-        else -> stringResource(Res.string.status_start)
+        lesson.isLocked -> "Zablokowane"
+        lesson.progress > 0f -> "Kontynuuj – ${(lesson.progress * 100).roundToInt()}%"
+        else -> "Rozpocznij – 0%"
     }
 
     ItemCard(
-        name = stringResource(lesson.getNameRes()),
-        description = stringResource(lesson.getDescriptionRes()),
+        name = lesson.name,
+        description = lesson.description,
         progress = lesson.progress,
         isLocked = lesson.isLocked,
         color = lesson.color,

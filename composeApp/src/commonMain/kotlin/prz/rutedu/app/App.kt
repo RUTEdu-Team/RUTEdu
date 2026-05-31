@@ -53,7 +53,8 @@ import prz.rutedu.app.theme.RUTEduTheme
 import prz.rutedu.app.theme.ThemeMode
 import prz.rutedu.app.theme.customAppThemeMode
 import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.*
+import rutedu.composeapp.generated.resources.player1
+import rutedu.composeapp.generated.resources.player2
 
 /**
  * All navigation destinations in the app, expressed as a sealed class hierarchy.
@@ -78,8 +79,6 @@ sealed class Screen(val route: String) {
     object PvP : Screen("pvp")
     /** Language / app settings. */
     object Settings : Screen("settings")
-    /** Language settings. */
-    object LanguageSettings : Screen("language-settings")
     /** Placeholder shown when NAUKA tab is tapped with no last-visited subject. */
     object Nauka : Screen("nauka")
     /** Placeholder shown when ĆWICZENIA tab is tapped with no last-visited lesson. */
@@ -267,14 +266,14 @@ fun App(driver: SqlDriver) {
 
                     composable(Screen.Nauka.route) {
                         PlaceholderScreen(
-                            label = stringResource(Res.string.placeholder_learn),
+                            label = "Nauka",
                             bottomPadding = effectiveBottomPadding
                         )
                     }
 
                     composable(Screen.Cwiczenia.route) {
                         PlaceholderScreen(
-                            label = stringResource(Res.string.placeholder_exercises),
+                            label = "Ćwiczenia",
                             bottomPadding = effectiveBottomPadding
                         )
                     }
@@ -338,14 +337,6 @@ fun App(driver: SqlDriver) {
 
                     composable(Screen.Settings.route) {
                         Settings(
-                            navController = navController,
-                            database = db,
-                            bottomPadding = effectiveBottomPadding
-                        )
-                    }
-
-                    composable(Screen.LanguageSettings.route) {
-                        prz.rutedu.app.screens.LanguageSettings(
                             navController = navController,
                             database = db,
                             bottomPadding = effectiveBottomPadding

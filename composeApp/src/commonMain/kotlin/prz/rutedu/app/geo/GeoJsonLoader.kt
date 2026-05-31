@@ -26,7 +26,8 @@ import rutedu.composeapp.generated.resources.Res
 data class CountryFeature(
     val name: String,
     val iso2: String,
-    val rings: List<List<LonLat>>
+    val rings: List<List<LonLat>>,
+    val isPoint: Boolean = false
 )
 
 /**
@@ -129,7 +130,25 @@ suspend fun loadGeoJson(path: String): List<CountryFeature> {
 
             val rings = mutableListOf<List<LonLat>>()
 
+            var isPoint = false
             when (geomType) {
+                "Point" -> {
+                    isPoint = true
+                    val lon = coordsArr[0].jsonPrimitive.float
+                    val lat = coordsArr[1].jsonPrimitive.float
+                    val radiusLat = 0.12f
+                    val lonCorrection = kotlin.math.cos(lat * kotlin.math.PI / 180.0).toFloat()
+                    val radiusLon = radiusLat / lonCorrection
+                    val pts = mutableListOf<LonLat>()
+                    for (i in 0..16) {
+                        val angle = (i * 2.0 * kotlin.math.PI) / 16.0
+                        pts.add(LonLat(
+                            (lon + radiusLon * kotlin.math.cos(angle)).toFloat(),
+                            (lat + radiusLat * kotlin.math.sin(angle)).toFloat()
+                        ))
+                    }
+                    rings.add(pts)
+                }
                 "Polygon" -> {
                     if (coordsArr.isNotEmpty()) {
                         val outerRing = parseRing(coordsArr[0].jsonArray).simplify()
@@ -148,7 +167,7 @@ suspend fun loadGeoJson(path: String): List<CountryFeature> {
             }
 
             if (rings.isNotEmpty()) {
-                result.add(CountryFeature(name, iso2, rings))
+                result.add(CountryFeature(name, iso2, rings, isPoint))
             }
         }
     } catch (e: Exception) {
