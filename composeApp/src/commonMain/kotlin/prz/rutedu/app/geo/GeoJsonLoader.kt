@@ -23,6 +23,7 @@ import rutedu.composeapp.generated.resources.Res
  *                 in the current quiz logic but kept for potential future features.
  * @property rings Outer contour rings in geographic coordinates (longitude, latitude pairs).
  *                 Each ring has already been simplified by [simplify].
+ * @property point   Geographic coordinate for Point geometries (e.g. province capitals).
  * @property selectable When `false`, the feature is drawn but excluded from tap hit-testing
  *                      (e.g. a country outline behind national parks). Set via GeoJSON
  *                      `"rutedu_selectable"` or inferred for country borders.
@@ -30,7 +31,8 @@ import rutedu.composeapp.generated.resources.Res
 data class CountryFeature(
     val name: String,
     val iso2: String,
-    val rings: List<List<LonLat>>,
+    val rings: List<List<LonLat>> = emptyList(),
+    val point: LonLat? = null,
     val selectable: Boolean = true,
 )
 
@@ -118,8 +120,9 @@ private fun JsonObject.isFeatureSelectable(): Boolean {
  * Supported GeoJSON geometry types:
  * - `"Polygon"` - a single polygon (outer ring only; holes are ignored).
  * - `"MultiPolygon"` - multiple polygons (outer rings only), e.g. island chains.
+ * - `"Point"` - a single point coordinate (e.g. a city on a province map).
  *
- * Features with no valid rings after simplification are excluded from the result.
+ * Features are included when they contain at least one valid polygon ring or a valid point.
  *
  * Each feature receives [CountryFeature.selectable] from [isFeatureSelectable]. Optional
  * GeoJSON property `"rutedu_selectable": false` marks background polygons that are drawn
@@ -156,9 +159,15 @@ suspend fun loadGeoJson(path: String): List<CountryFeature> {
             val geomType = geomObj["type"]?.jsonPrimitive?.content ?: continue
             val coordsArr = geomObj["coordinates"]?.jsonArray ?: continue
 
+            var point: LonLat? = null
             val rings = mutableListOf<List<LonLat>>()
 
             when (geomType) {
+                "Point" -> {
+                    if (coordsArr.size >= 2) {
+                        point = LonLat(coordsArr[0].jsonPrimitive.float, coordsArr[1].jsonPrimitive.float)
+                    }
+                }
                 "Polygon" -> {
                     if (coordsArr.isNotEmpty()) {
                         val outerRing = parseRing(coordsArr[0].jsonArray).simplify()
@@ -176,8 +185,16 @@ suspend fun loadGeoJson(path: String): List<CountryFeature> {
                 }
             }
 
-            if (rings.isNotEmpty()) {
-                result.add(CountryFeature(name, iso2, rings, props.isFeatureSelectable()))
+            if (point != null || rings.isNotEmpty()) {
+                result.add(
+                    CountryFeature(
+                        name = name,
+                        iso2 = iso2,
+                        rings = rings,
+                        point = point,
+                        selectable = props.isFeatureSelectable(),
+                    )
+                )
             }
         }
     } catch (e: Exception) {
