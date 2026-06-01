@@ -163,6 +163,7 @@ fun Lesson.getNameRes(): StringResource {
         "geo_4_2"    -> Res.string.lesson_geo_4_2
         "geo_4_3"    -> Res.string.lesson_geo_4_3
         "geo_4_4"    -> Res.string.lesson_geo_4_4
+        "geo_4_5"    -> Res.string.lesson_geo_4_5
         else         -> Res.string.empty
     }
 }
@@ -244,6 +245,7 @@ fun Lesson.getDescriptionRes(): StringResource {
         "geo_4_2"    -> Res.string.lesson_desc_geo_4_2
         "geo_4_3"    -> Res.string.lesson_desc_geo_4_3
         "geo_4_4"    -> Res.string.lesson_desc_geo_4_4
+        "geo_4_5"    -> Res.string.lesson_desc_geo_4_5
         else         -> Res.string.empty
     }
 }
