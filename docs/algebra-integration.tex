@@ -1,0 +1,346 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{parskip}
+
+\geometry{margin=2.5cm}
+
+\definecolor{codebg}{RGB}{245,245,245}
+\definecolor{codestr}{RGB}{0,128,0}
+\definecolor{codekw}{RGB}{0,0,200}
+\definecolor{codecom}{RGB}{128,128,128}
+\definecolor{purple}{RGB}{124,77,255}
+
+\lstdefinelanguage{Kotlin}{
+  keywords={fun, val, var, class, object, if, else, when, return, true, false,
+            null, actual, expect, try, catch, override, private, internal},
+  keywordstyle=\color{codekw}\bfseries,
+  comment=[l]{//},
+  commentstyle=\color{codecom}\itshape,
+  stringstyle=\color{codestr},
+  morestring=[b]",
+  morestring=[b]',
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  framerule=0.4pt,
+  rulecolor=\color{gray!40},
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=4
+}
+\lstset{language=Kotlin}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=purple,
+  urlcolor=purple
+}
+
+\title{\textbf{Integracja \texttt{symja\_android\_library} z RUTEdu}\\
+  \large Dokumentacja architektury i przewodnik programisty}
+\author{RUTEdu Team}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+% -------------------------------------------------------------------------
+\section{Wprowadzenie}
+
+RUTEdu integruje \textbf{matheclipse-core} (jądro projektu
+\href{https://github.com/axkr/symja_android_library}{symja\_android\_library}) jako silnik
+algebry symbolicznej (CAS — \emph{Computer Algebra System}).
+
+\subsection{Co umożliwia integracja}
+\begin{itemize}
+  \item Sprawdzanie odpowiedzi algebraicznych przez równoważność matematyczną
+        (użytkownik może wpisać \texttt{2*x+6*x} zamiast \texttt{8*x} i dostać zaliczenie).
+  \item Pytania o pochodne, całki, upraszczanie wyrażeń i rozwiązywanie równań.
+  \item Wskazówki krok po kroku generowane na podstawie reguł rachunkowych.
+\end{itemize}
+
+\subsection{Ograniczenie platformy}
+Biblioteka jest oparta na JVM — działa \textbf{tylko na Androidzie}.
+Na iOS \texttt{MathEngine} to stub zwracający \texttt{null}/\texttt{false},
+a \texttt{AlgebraQuestionGenerator} automatycznie serwuje pytania \texttt{SelectFromList}
+z predefiniowanymi odpowiedziami.
+
+% -------------------------------------------------------------------------
+\section{Architektura: \texttt{expect/actual MathEngine}}
+
+\subsection{Diagram}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Moduł} & \textbf{Plik} & \textbf{Implementacja} \\
+\midrule
+\texttt{commonMain} & \texttt{math/MathEngine.kt}
+  & \texttt{expect class} + \texttt{expect val mathEngineAvailable} \\
+\texttt{androidMain} & \texttt{math/MathEngine.android.kt}
+  & \texttt{actual} wrappujący \texttt{ExprEvaluator} \\
+\texttt{iosMain} & \texttt{math/MathEngine.ios.kt}
+  & \texttt{actual} stub — wszystkie metody $\to$ \texttt{null} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Interfejs \texttt{commonMain}}
+
+\begin{lstlisting}
+expect val mathEngineAvailable: Boolean  // true na Android, false na iOS
+
+expect class MathEngine() {
+    val isAvailable: Boolean
+
+    // Zwraca true jesli wyrazenia sa matematycznie rownowazne
+    fun areEquivalent(userExpr: String, correctExpr: String): Boolean?
+
+    // Uproszczona postac wyrazenia (Simplify)
+    fun simplify(expr: String): String?
+
+    // Pochodna wzgledem zmiennej (D[expr, variable])
+    fun differentiate(expr: String, variable: String = "x"): String?
+
+    // Calka nieoznaczona (Integrate[expr, variable])
+    fun integrate(expr: String, variable: String = "x"): String?
+
+    // Rozwiazanie rownania (Solve[equation, variable])
+    fun solve(equation: String, variable: String = "x"): String?
+}
+\end{lstlisting}
+
+\subsection{Implementacja Android}
+
+\begin{lstlisting}
+actual class MathEngine actual constructor() {
+    private val evaluator: ExprEvaluator? = try {
+        ExprEvaluator(false, 100)
+    } catch (e: Throwable) { null }
+
+    actual val isAvailable: Boolean get() = evaluator != null
+
+    actual fun areEquivalent(userExpr: String, correctExpr: String): Boolean? {
+        val eval = evaluator ?: return null
+        return try {
+            eval.eval("Simplify(($userExpr)-($correctExpr))").toString() == "0"
+        } catch (e: Throwable) { null }
+    }
+    // ... pozostale metody analogicznie
+}
+\end{lstlisting}
+
+% -------------------------------------------------------------------------
+\section{Zasady bezpieczeństwa wątkowego}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{\texttt{ExprEvaluator} NIE jest thread-safe.}
+        Każde wywołanie twórz nową instancję \texttt{MathEngine()} — nigdy nie
+        przechowuj jako singleton.
+  \item \textbf{Inicjalizacja trwa 500--2000~ms} (pierwsze ładowanie klas JVM).
+        Zawsze konstruuj na \texttt{Dispatchers.Default}, nigdy na głównym wątku.
+  \item Użyj \texttt{mathEngineAvailable} do sprawdzenia platformy bez tworzenia
+        instancji.
+\end{itemize}
+
+Wzorzec użycia w composable (z \texttt{ExpressionTypeAnswerContent}):
+
+\begin{lstlisting}
+val scope = rememberCoroutineScope()
+
+fun check() {
+    scope.launch(Dispatchers.Default) {    // wątek tła
+        val engine = MathEngine()          // nowa instancja per wywołanie
+        val ok = engine.areEquivalent(input.trim(), question.correctExpr)
+        withContext(Dispatchers.Main) {
+            if (ok == true) onCorrect() else onWrong()
+        }
+    }
+}
+\end{lstlisting}
+
+% -------------------------------------------------------------------------
+\section{Nowy typ pytania: \texttt{ExpressionTypeAnswer}}
+
+\begin{lstlisting}
+data class ExpressionTypeAnswer(
+    override val id: Int,
+    val prompt: String,
+    val correctExpr: String,       // notacja Symja, np. "6*x+2"
+    val displayCorrect: String = correctExpr,  // czytelna forma do feedbacku
+    val inlineHint: String? = "Użyj * dla mnożenia, ^ dla potęgi",
+    val hint: Hint = Hint("")
+) : Question(id)
+\end{lstlisting}
+
+Composable renderujący: \texttt{ExpressionTypeAnswerContent.kt}.
+Branch w \texttt{LessonGameScreen.kt}:
+
+\begin{lstlisting}
+is Question.ExpressionTypeAnswer -> ExpressionTypeAnswerContent(
+    question = question,
+    accentColor = accentColor,
+    bottomPadding = bottomPadding,
+    onCorrect = onAnsweredCorrectly,
+    onWrong = onWrongAnswer
+)
+\end{lstlisting}
+
+% -------------------------------------------------------------------------
+\section{AlgebraQuestionGenerator}
+
+\subsection{Schemat generatora}
+
+\begin{lstlisting}
+object AlgebraQuestionGenerator {
+
+    fun generateFor(lessonId: String, seed: Long,
+                    excludeIds: Set<Int> = emptySet()): List<Question> {
+        val all = if (mathEngineAvailable) {
+            when (lessonId) {
+                "algebra_1_1" -> algebra_1_1_android()  // ExpressionTypeAnswer
+                "algebra_1_2" -> algebra_1_2_android()
+                // ...
+            }
+        } else {
+            when (lessonId) {
+                "algebra_1_1" -> algebra_1_1_ios()      // SelectFromList fallback
+                "algebra_1_2" -> algebra_1_2_ios()
+                // ...
+            }
+        }
+        return all.filter { it.id !in excludeIds }
+    }
+}
+\end{lstlisting}
+
+\subsection{Lekcje algebry}
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+\textbf{ID lekcji} & \textbf{Temat} & \textbf{Android} & \textbf{iOS fallback} \\
+\midrule
+\texttt{algebra\_1\_1} & Upraszczanie wyrażeń & \texttt{ExpressionTypeAnswer} & \texttt{SelectFromList} \\
+\texttt{algebra\_1\_2} & Pochodne & \texttt{ExpressionTypeAnswer} & \texttt{SelectFromList} \\
+\texttt{algebra\_1\_3} & Całki nieoznaczone & \texttt{ExpressionTypeAnswer} & \texttt{SelectFromList} \\
+\texttt{algebra\_2\_1} & Równania liniowe & \texttt{ExpressionTypeAnswer} & \texttt{SelectFromList} \\
+\texttt{algebra\_2\_2} & Równania kwadratowe & \texttt{ExpressionTypeAnswer} & \texttt{SelectFromList} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Routing w QuestionBank}
+
+\begin{lstlisting}
+fun questionsFor(lessonId: String, seed: Long = 0L,
+                 excludeIds: Set<Int> = emptySet()): List<Question> =
+    when {
+        lessonId.startsWith("chemia_") ->
+            ChemistryQuestionGenerator.generateFor(lessonId, seed, excludeIds)
+        lessonId.startsWith("algebra_") ->
+            AlgebraQuestionGenerator.generateFor(lessonId, seed, excludeIds)
+        else ->
+            banks[lessonId] ?: emptyList()
+    }
+\end{lstlisting}
+
+% -------------------------------------------------------------------------
+\section{Dodawanie nowej lekcji algebry}
+
+\begin{enumerate}
+  \item Dodaj \texttt{Lesson} do \texttt{SubjectRepository.kt} z ID
+        zaczynającym się od \texttt{"algebra\_"}.
+  \item W \texttt{AlgebraQuestionGenerator} dopisz dwie funkcje prywatne:
+        \texttt{algebra\_X\_Y\_android()} i \texttt{algebra\_X\_Y\_ios()}.
+  \item Zarejestruj obie w bloku \texttt{when} wewnątrz \texttt{generateFor()}.
+\end{enumerate}
+
+\textbf{Przykład — nowa lekcja \texttt{algebra\_1\_4} (Granice):}
+
+\begin{lstlisting}
+// SubjectRepository.kt
+Lesson(
+    id = "algebra_1_4",
+    name = "Granice funkcji",
+    description = "Oblicz granicę",
+    progress = 0.0f, isLocked = false,
+    color = Color(0xFF7C4DFF),
+    icon = Icons.Default.Functions
+)
+
+// AlgebraQuestionGenerator.kt
+private fun algebra_1_4_android(): List<ExpressionTypeAnswer> = listOf(
+    ExpressionTypeAnswer(0,
+        prompt = "Oblicz: lim(x→2) (x² - 4)/(x - 2)",
+        correctExpr = "4", displayCorrect = "4",
+        hint = Hint("Usuń wspólny czynnik (x-2) z licznika.",
+            steps = listOf("(x²-4)/(x-2) = (x+2)(x-2)/(x-2)", "= x+2", "lim(x→2) = 4")))
+)
+
+private fun algebra_1_4_ios(): List<SelectFromList> = listOf(
+    SelectFromList(0, "lim(x→2) (x²-4)/(x-2) = ?",
+        listOf("4", "0", "2", "nieskończoność"), setOf(0))
+)
+\end{lstlisting}
+
+% -------------------------------------------------------------------------
+\section{Format wyrażeń akceptowanych przez Symja}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Operacja} & \textbf{Notacja Symja} & \textbf{Przykład} \\
+\midrule
+Mnożenie & \texttt{*} & \texttt{3*x^2} \\
+Potęga & \texttt{\textasciicircum} & \texttt{x\textasciicircum 3} \\
+Pierwiastek & \texttt{Sqrt[]} & \texttt{Sqrt[x]} \\
+Ułamek & \texttt{/} & \texttt{x\textasciicircum 2/2} \\
+Równanie & \texttt{==} & \texttt{2*x+4==0} \\
+Sinus/Cosinus & \texttt{Sin[], Cos[]} & \texttt{Sin[x]} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Dla \texttt{areEquivalent}}: Symja sprawdza \texttt{Simplify(userExpr - correctExpr) == 0}.
+Dzięki temu \texttt{6x+2}, \texttt{2+6*x} i \texttt{6*x+2} są traktowane jako równoważne.
+
+% -------------------------------------------------------------------------
+\section{Zależność Gradle i rozmiar APK}
+
+\subsection{Dodawanie zależności}
+
+W \texttt{composeApp/build.gradle.kts}:
+\begin{lstlisting}
+androidMain.dependencies {
+    implementation(libs.matheclipse.core)
+}
+\end{lstlisting}
+
+W \texttt{gradle/libs.versions.toml}:
+\begin{lstlisting}
+[versions]
+matheclipse = "3.1.0"
+
+[libraries]
+matheclipse-core = { module = "org.matheclipse:matheclipse-core",
+                     version.ref = "matheclipse" }
+\end{lstlisting}
+
+\subsection{Rozmiar APK}
+
+Symja + zależności transytywne dodają ok. \textbf{8--15~MB} do APK.
+R8/ProGuard są włączone w buildzie release (\texttt{isMinifyEnabled = true}).
+Reguły keep-ów w \texttt{androidApp/proguard-rules.pro} chronią klasy
+\texttt{org.matheclipse.**}, \texttt{org.antlr.**} i \texttt{org.hipparchus.**}.
+
+\end{document}

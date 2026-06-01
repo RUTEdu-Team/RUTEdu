@@ -1,6 +1,7 @@
 package prz.rutedu.app.data
 
 import app.cash.sqldelight.db.SqlDriver
+import prz.rutedu.app.data.LessonProgressStore.load
 
 /**
  * Persists and retrieves the student's progress through a lesson across app sessions.

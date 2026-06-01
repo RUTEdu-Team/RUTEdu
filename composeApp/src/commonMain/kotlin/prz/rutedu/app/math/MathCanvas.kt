@@ -1,6 +1,7 @@
 package prz.rutedu.app.math
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -18,7 +19,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlin.math.*
+import kotlin.math.PI
+import kotlin.math.abs
+import kotlin.math.atan2
+import kotlin.math.ceil
+import kotlin.math.sqrt
 
 /**
  * A general-purpose mathematical canvas composable that renders a coordinate system
@@ -61,21 +66,57 @@ import kotlin.math.*
 fun MathCanvas(
     shapes: List<MathShape>,
     modifier: Modifier = Modifier,
-    viewport: MathViewport = MathViewport()
+    viewport: MathViewport = MathViewport(),
+    preserveAspectRatio: Boolean = true
 ) {
     val tm = rememberTextMeasurer()
+    val gridColor = MaterialTheme.colorScheme.outlineVariant
+    val axisColor = MaterialTheme.colorScheme.outline
+    val labelColor = MaterialTheme.colorScheme.onSurfaceVariant
+    val textColor = MaterialTheme.colorScheme.onBackground
+    val midTextColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+
     Canvas(modifier = modifier) {
-        if (viewport.showGrid) drawGrid(viewport)
-        if (viewport.showAxes) drawAxes(viewport, tm)
+        val worldWidth = viewport.xMax - viewport.xMin
+        val worldHeight = viewport.yMax - viewport.yMin
+
+        if (worldWidth <= 0 || worldHeight <= 0 || size.width <= 0f || size.height <= 0f) return@Canvas
+
+        // Adjust viewport to preserve aspect ratio if requested
+        val vp = if (preserveAspectRatio) {
+            val canvasAspect = (size.width / size.height).toDouble()
+            val viewAspect = worldWidth / worldHeight
+
+            if (canvasAspect > viewAspect) {
+                // Canvas is wider than viewport - expand world x range
+                val newWidth = worldHeight * canvasAspect
+                val dx = (newWidth - worldWidth) / 2.0
+                viewport.copy(xMin = viewport.xMin - dx, xMax = viewport.xMax + dx)
+            } else {
+                // Canvas is taller than viewport - expand world y range
+                val newHeight = worldWidth / canvasAspect
+                val dy = (newHeight - worldHeight) / 2.0
+                viewport.copy(yMin = viewport.yMin - dy, yMax = viewport.yMax + dy)
+            }
+        } else {
+            viewport
+        }
+
+        if (vp.showGrid) drawGrid(vp, gridColor)
+        if (vp.showAxes) drawAxes(vp, tm, axisColor, labelColor)
         shapes.forEach { shape ->
             when (shape) {
-                is MathShape.FunctionPlot -> drawFunctionPlot(shape, viewport)
-                is MathShape.Circle       -> drawCircleShape(shape, viewport)
-                is MathShape.Triangle     -> drawTriangleShape(shape, viewport, tm)
-                is MathShape.Rectangle    -> drawRectangleShape(shape, viewport)
-                is MathShape.PointMark    -> drawPointMark(shape, viewport, tm)
-                is MathShape.Segment      -> drawSegmentShape(shape, viewport)
-                is MathShape.TextLabel    -> drawTextLabel(shape, viewport, tm)
+                is MathShape.FunctionPlot -> drawFunctionPlot(shape, vp)
+                is MathShape.Circle       -> drawCircleShape(shape, vp)
+                is MathShape.Triangle     -> drawTriangleShape(shape, vp, tm, textColor, midTextColor)
+                is MathShape.Rectangle    -> drawRectangleShape(shape, vp)
+                is MathShape.PointMark    -> drawPointMark(shape, vp, tm)
+                is MathShape.Segment      -> drawSegmentShape(shape, vp)
+                is MathShape.PieChart     -> drawPieChartShape(shape, vp, tm, textColor)
+                is MathShape.TextLabel    -> {
+                    val resolvedColor = if (shape.color == Color(0xFF1A1A1A)) textColor else shape.color
+                    drawTextLabel(shape.copy(color = resolvedColor), vp, tm)
+                }
             }
         }
     }
@@ -102,8 +143,7 @@ private fun DrawScope.toCanvas(pt: Pt, vp: MathViewport): Offset =
  * A small epsilon (`1e-9`) is added to the loop bounds to avoid missing the last
  * grid line due to floating-point rounding.
  */
-private fun DrawScope.drawGrid(vp: MathViewport) {
-    val color = Color(0xFFE8EAF0)
+private fun DrawScope.drawGrid(vp: MathViewport, color: Color) {
     var wx = ceil(vp.xMin / vp.gridStep) * vp.gridStep
     while (wx <= vp.xMax + 1e-9) {
         if (abs(wx) > 1e-10) {
@@ -127,9 +167,8 @@ private fun DrawScope.drawGrid(vp: MathViewport) {
  * Each axis is only drawn when world-coordinate zero falls inside the viewport
  * (e.g. the x-axis is skipped if the entire visible range is above y = 0).
  */
-private fun DrawScope.drawAxes(vp: MathViewport, tm: TextMeasurer) {
-    val axisColor = Color(0xFFBBC1CA)
-    val labelStyle = TextStyle(fontSize = 10.sp, color = Color(0xFF9E9E9E))
+private fun DrawScope.drawAxes(vp: MathViewport, tm: TextMeasurer, axisColor: Color, labelColor: Color) {
+    val labelStyle = TextStyle(fontSize = 10.sp, color = labelColor)
 
     // x-axis - only visible when y = 0 is within the viewport
     if (vp.yMin <= 0.0 && vp.yMax >= 0.0) {
@@ -140,8 +179,10 @@ private fun DrawScope.drawAxes(vp: MathViewport, tm: TextMeasurer) {
             if (abs(wx) > 1e-10) {
                 val x = toCanvasX(wx, vp)
                 drawLine(axisColor, Offset(x, y0 - 4f), Offset(x, y0 + 4f))
-                val m = tm.measure(formatNum(wx), labelStyle)
-                drawText(m, topLeft = Offset(x - m.size.width / 2f, y0 + 5f))
+                if (vp.showXLabels) {
+                    val m = tm.measure(formatNum(wx), labelStyle)
+                    drawText(m, topLeft = Offset(x - m.size.width / 2f, y0 + 5f))
+                }
             }
             wx += vp.gridStep
         }
@@ -156,8 +197,10 @@ private fun DrawScope.drawAxes(vp: MathViewport, tm: TextMeasurer) {
             if (abs(wy) > 1e-10) {
                 val y = toCanvasY(wy, vp)
                 drawLine(axisColor, Offset(x0 - 4f, y), Offset(x0 + 4f, y))
-                val m = tm.measure(formatNum(wy), labelStyle)
-                drawText(m, topLeft = Offset(x0 + 6f, y - m.size.height / 2f))
+                if (vp.showYLabels) {
+                    val m = tm.measure(formatNum(wy), labelStyle)
+                    drawText(m, topLeft = Offset(x0 + 6f, y - m.size.height / 2f))
+                }
             }
             wy += vp.gridStep
         }
@@ -194,9 +237,25 @@ private fun DrawScope.drawFunctionPlot(shape: MathShape.FunctionPlot, vp: MathVi
 /** Draws a circle. Radius is converted from world units to canvas pixels proportionally. */
 private fun DrawScope.drawCircleShape(shape: MathShape.Circle, vp: MathViewport) {
     val center = toCanvas(Pt(shape.cx, shape.cy), vp)
-    val radiusPx = (shape.r * size.width / (vp.xMax - vp.xMin)).toFloat()
-    if (shape.filled) drawCircle(shape.color.copy(alpha = 0.12f), radiusPx, center)
-    drawCircle(shape.color, radiusPx, center, style = Stroke(width = shape.strokeWidth.dp.toPx()))
+    // Use X-scale for radius. If preserveAspectRatio is true, scales are equal.
+    // If not, drawCircle still expects a single radius, so we pick one.
+    // Better yet: we could use drawOval to support non-uniform scaling.
+    val rx = (shape.r * size.width / (vp.xMax - vp.xMin)).toFloat()
+    val ry = (shape.r * size.height / (vp.yMax - vp.yMin)).toFloat()
+
+    if (shape.filled) {
+        drawOval(
+            color = shape.color.copy(alpha = 0.12f),
+            topLeft = Offset(center.x - rx, center.y - ry),
+            size = Size(rx * 2, ry * 2)
+        )
+    }
+    drawOval(
+        color = shape.color,
+        topLeft = Offset(center.x - rx, center.y - ry),
+        size = Size(rx * 2, ry * 2),
+        style = Stroke(width = shape.strokeWidth.dp.toPx())
+    )
 }
 
 /**
@@ -206,7 +265,13 @@ private fun DrawScope.drawCircleShape(shape: MathShape.Circle, vp: MathViewport)
  * remain outside the triangle regardless of its shape. The unknown-angle marker
  * `"?"` is rendered in red and at a larger size to draw the student's attention.
  */
-private fun DrawScope.drawTriangleShape(shape: MathShape.Triangle, vp: MathViewport, tm: TextMeasurer) {
+private fun DrawScope.drawTriangleShape(
+    shape: MathShape.Triangle,
+    vp: MathViewport,
+    tm: TextMeasurer,
+    textColor: Color,
+    midTextColor: Color
+) {
     val pa = toCanvas(shape.a, vp)
     val pb = toCanvas(shape.b, vp)
     val pc = toCanvas(shape.c, vp)
@@ -236,7 +301,7 @@ private fun DrawScope.drawTriangleShape(shape: MathShape.Triangle, vp: MathViewp
             val style = if (isUnknown) {
                 TextStyle(fontSize = 17.sp, fontWeight = FontWeight.Bold, color = Color(0xFFE53935))
             } else {
-                TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A1A1A))
+                TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Bold, color = textColor)
             }
             val dx = v.x - gx; val dy = v.y - gy
             val len = sqrt(dx * dx + dy * dy).coerceAtLeast(1f)
@@ -248,7 +313,7 @@ private fun DrawScope.drawTriangleShape(shape: MathShape.Triangle, vp: MathViewp
         }
 
     // Side labels - pushed outward from the centroid at each side's midpoint
-    val midStyle = TextStyle(fontSize = 12.sp, color = Color(0xFF555555))
+    val midStyle = TextStyle(fontSize = 12.sp, color = midTextColor)
     val midLabelOffsetPx = 14.dp.toPx()
     listOf(
         Offset((pb.x + pc.x) / 2f, (pb.y + pc.y) / 2f) to shape.labelBC,
@@ -328,6 +393,47 @@ private fun DrawScope.drawSegmentShape(shape: MathShape.Segment, vp: MathViewpor
         shape.color,
         style = Stroke(width = shape.strokeWidth.dp.toPx(), pathEffect = effect)
     )
+}
+
+/** Draws a pie chart with slices and optional labels. */
+private fun DrawScope.drawPieChartShape(
+    shape: MathShape.PieChart,
+    vp: MathViewport,
+    tm: TextMeasurer,
+    textColor: Color
+) {
+    val center = toCanvas(Pt(shape.cx, shape.cy), vp)
+    val rx = (shape.r * size.width / (vp.xMax - vp.xMin)).toFloat()
+    val ry = (shape.r * size.height / (vp.yMax - vp.yMin)).toFloat()
+    val total = shape.slices.sumOf { it.value }
+    if (total <= 0) return
+
+    var currentAngle = -90f // Start from top
+    val rect = Rect(center.x - rx, center.y - ry, center.x + rx, center.y + ry)
+
+    shape.slices.forEach { slice ->
+        val sweep = (slice.value / total * 360f).toFloat()
+        val path = Path().apply {
+            moveTo(center.x, center.y)
+            arcTo(rect, currentAngle, sweep, false)
+            close()
+        }
+        drawPath(path, slice.color)
+        drawPath(path, textColor.copy(alpha = 0.3f), style = Stroke(width = shape.strokeWidth.dp.toPx()))
+
+        if (slice.label != null && sweep > 15f) {
+            val midAngle = (currentAngle + sweep / 2f) * PI / 180f
+            val labelRX = rx * 0.65f
+            val labelRY = ry * 0.65f
+            val labelPos = Offset(
+                center.x + labelRX * kotlin.math.cos(midAngle).toFloat(),
+                center.y + labelRY * kotlin.math.sin(midAngle).toFloat()
+            )
+            val m = tm.measure(slice.label, TextStyle(fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.White))
+            drawText(m, topLeft = Offset(labelPos.x - m.size.width / 2f, labelPos.y - m.size.height / 2f))
+        }
+        currentAngle += sweep
+    }
 }
 
 /** Draws text centred on the world-space point [shape].pt. */

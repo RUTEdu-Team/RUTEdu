@@ -6,7 +6,6 @@ import androidx.compose.runtime.ProvidedValue
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import java.util.Locale
-import androidx.compose.ui.platform.LocalResources
 
 /**
  * Android implementation of the [LocalAppLocale] expect object.

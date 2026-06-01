@@ -4,6 +4,6 @@ repo_description: "RUTEdu — aplikacja edukacyjna do nauki chemii, matematyki i
 
 keystore: "keystore.jks"
 repo_keyalias: "fdroid"
-keystorepass: env:FDROID_KEY_PASSWORD
-keypass: env:FDROID_KEY_PASSWORD
+keystorepass: {env: FDROID_KEY_PASSWORD}
+keypass: {env: FDROID_KEY_PASSWORD}
 keydname: "CN=RUTEdu, O=RUTEdu Team, C=PL"

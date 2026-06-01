@@ -1,11 +1,29 @@
 package prz.rutedu.app.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,7 +38,11 @@ import prz.rutedu.app.data.LessonProgressStore
 import prz.rutedu.app.data.QuestionBank
 import prz.rutedu.app.data.SubjectConfigStore
 import prz.rutedu.app.data.SubjectRepository
+import org.jetbrains.compose.resources.stringResource
+import rutedu.composeapp.generated.resources.Res
+import rutedu.composeapp.generated.resources.*
 import prz.rutedu.app.models.Question
+import prz.rutedu.app.locale.getNameRes
 import kotlin.math.roundToInt
 
 /**
@@ -73,20 +95,27 @@ fun LessonGameScreen(
     val subject = SubjectRepository.getById(subjectId)
     val topic = SubjectRepository.getTopicById(subjectId, topicId)
     val lesson = topic?.lessons?.find { it.id == lessonId }
-    val isChemistry = lessonId.startsWith("chemia_")
-    val chemSeed = remember {
-        if (isChemistry) ChemistrySessionStore.getOrCreateSeed(driver, lessonId) else 0L
+    val isGenerated = lessonId.startsWith("chemia_") || lessonId.startsWith("algebra_") || 
+                      lessonId.startsWith("mat_1_") || lessonId.startsWith("mat_2_") || 
+                      lessonId.startsWith("mat_3_") || lessonId.startsWith("mat_6_") ||
+                      lessonId.startsWith("mat_7_") || lessonId.startsWith("mat_8_") ||
+                      lessonId.startsWith("mat_9_") || lessonId.startsWith("mat_10_") ||
+                      lessonId.startsWith("mat_11_") || lessonId.startsWith("mat_12_")
+    
+    var genSeed by remember {
+        mutableStateOf(if (isGenerated) ChemistrySessionStore.getOrCreateSeed(driver, lessonId) else 0L)
     }
-    val chemAnswered = remember {
-        if (isChemistry) ChemistrySessionStore.getAnsweredIds(driver, lessonId) else emptySet()
+    var genAnswered by remember {
+        mutableStateOf(if (isGenerated) ChemistrySessionStore.getAnsweredIds(driver, lessonId) else emptySet())
     }
-    val allQuestions = remember { QuestionBank.questionsFor(lessonId, chemSeed, chemAnswered) }
-    val configuredCount = remember {
+    
+    val allQuestions = remember(genSeed, genAnswered) { QuestionBank.questionsFor(lessonId, genSeed, genAnswered) }
+    val configuredCount = remember(allQuestions) {
         if (allQuestions.isEmpty()) 0
         else SubjectConfigStore.load(driver, lessonId)?.questionCount?.coerceIn(1, allQuestions.size)
             ?: allQuestions.size
     }
-    val questions = remember(configuredCount) { allQuestions.take(configuredCount) }
+    val questions = remember(allQuestions, configuredCount) { allQuestions.take(configuredCount) }
     val totalCount = questions.size
 
     val savedProgress = remember { LessonProgressStore.load(driver, lessonId) }
@@ -94,7 +123,7 @@ fun LessonGameScreen(
     var currentIndex by remember {
         mutableStateOf(
             when {
-                isChemistry -> 0  // always start from filtered list beginning
+                isGenerated -> 0  // always start from filtered list beginning
                 savedProgress == null -> 0
                 savedProgress.currentIndex >= totalCount -> totalCount  // complete – keep at end, not 0
                 savedProgress.currentIndex >= 0 -> savedProgress.currentIndex
@@ -102,10 +131,10 @@ fun LessonGameScreen(
             }
         )
     }
-    var correctCount by remember { mutableStateOf(if (isChemistry) 0 else savedProgress?.correctCount ?: 0) }
+    var correctCount by remember { mutableStateOf(if (isGenerated) 0 else savedProgress?.correctCount ?: 0) }
 
     var isComplete by remember {
-        mutableStateOf(!isChemistry && savedProgress != null && savedProgress.currentIndex >= totalCount && totalCount > 0)
+        mutableStateOf(!isGenerated && savedProgress != null && savedProgress.currentIndex >= totalCount && totalCount > 0)
     }
 
     // rememberUpdatedState captures the *latest* values without restarting DisposableEffect.
@@ -128,11 +157,17 @@ fun LessonGameScreen(
 
     if (isComplete) {
         LessonCompleteContent(
-            subjectName = subject?.name ?: "",
-            lessonName = lesson?.name ?: "",
+            subjectName = subject?.let { stringResource(it.getNameRes()) } ?: "",
+            lessonName = lesson?.let { stringResource(it.getNameRes()) } ?: "",
             accentColor = accentColor,
             bottomPadding = bottomPadding,
             onReset = {
+                if (isGenerated) {
+                    // For generated lessons, ensure we get a new seed/answered set immediately.
+                    ChemistrySessionStore.resetSession(driver, lessonId)
+                    genSeed = ChemistrySessionStore.getOrCreateSeed(driver, lessonId)
+                    genAnswered = ChemistrySessionStore.getAnsweredIds(driver, lessonId)
+                }
                 currentIndex = 0
                 correctCount = 0
                 isComplete = false
@@ -145,11 +180,11 @@ fun LessonGameScreen(
 
     if (questions.isEmpty()) {
         Column(
-            modifier = Modifier.fillMaxSize().background(Color(0xFFF5F6FA)),
+            modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text("Brak pytań dla tej lekcji", color = Color(0xFF9E9E9E), fontSize = 16.sp)
+            Text(stringResource(Res.string.lesson_no_questions), color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 16.sp)
         }
         return
     }
@@ -166,7 +201,7 @@ fun LessonGameScreen(
 
     val advanceQuestion: () -> Unit = {
         feedbackState = FeedbackState.NONE
-        if (isChemistry) {
+        if (isGenerated) {
             ChemistrySessionStore.markAnswered(driver, lessonId, questions[currentIndex.coerceIn(0, totalCount - 1)].id)
         }
         val newCorrect = correctCount + 1
@@ -179,6 +214,10 @@ fun LessonGameScreen(
             currentIndex = totalCount
             isComplete = true
             LessonProgressStore.save(driver, lessonId, LessonProgressStore.Progress(totalCount, newCorrect, totalCount))
+            // Clear session state when 100% completed so the next visit starts fresh.
+            if (isGenerated) {
+                ChemistrySessionStore.resetSession(driver, lessonId)
+            }
         }
     }
 
@@ -188,12 +227,12 @@ fun LessonGameScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF5F6FA))
+            .background(MaterialTheme.colorScheme.background)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.White)
+                .background(MaterialTheme.colorScheme.surface)
                 .statusBarsPadding()
         ) {
             Row(
@@ -203,13 +242,17 @@ fun LessonGameScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 IconButton(onClick = { navController.popBackStack() }) {
-                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Wróć", tint = Color(0xFF1A1A1A))
+                    Icon(
+                        Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = stringResource(Res.string.back),
+                        tint = MaterialTheme.colorScheme.onSurface
+                    )
                 }
                 Text(
-                    text = subject?.name ?: "Lekcja",
+                    text = subject?.let { stringResource(it.getNameRes()) } ?: stringResource(Res.string.lesson_fallback),
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF1A1A1A)
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
             Row(
@@ -220,9 +263,9 @@ fun LessonGameScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "${(headerProgress * 100).roundToInt()}% ukończone",
+                    text = stringResource(Res.string.lesson_progress_completed, "${(headerProgress * 100).roundToInt()}%"),
                     fontSize = 12.sp,
-                    color = Color(0xFF9E9E9E),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.weight(1f)
                 )
                 Text(
@@ -264,6 +307,27 @@ fun LessonGameScreen(
                     onCorrect = onAnsweredCorrectly,
                     onWrong = onWrongAnswer,
                     onSkip = { if (currentIndex < totalCount - 1) currentIndex++ }
+                )
+                is Question.Factorization -> FactorizationContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.LinearEquation -> LinearEquationContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.SystemOfEquations -> SystemOfEquationsContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
                 )
                 is Question.SelectFromList -> SelectFromListContent(
                     question = question,
@@ -335,6 +399,35 @@ fun LessonGameScreen(
                     onCorrect = onAnsweredCorrectly,
                     onWrong = onWrongAnswer
                 )
+                is Question.ExpressionTypeAnswer -> ExpressionTypeAnswerContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.FractionAnswer -> FractionAnswerContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.DecimalAnswer -> DecimalAnswerContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+                is Question.ComparisonQuiz -> ComparisonQuizContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
+
             }
             AnswerFeedbackOverlay(
                 state = feedbackState,

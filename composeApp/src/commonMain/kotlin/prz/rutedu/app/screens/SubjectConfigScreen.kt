@@ -1,17 +1,47 @@
 package prz.rutedu.app.screens
 
+import org.jetbrains.compose.resources.stringResource
+import rutedu.composeapp.generated.resources.Res
+import rutedu.composeapp.generated.resources.*
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import prz.rutedu.app.locale.getNameRes
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -101,29 +131,33 @@ fun SubjectConfigScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF5F6FA))
+            .background(MaterialTheme.colorScheme.background)
     ) {
-        // ── Header ──────────────────────────────────────────────────────────
+        // Header
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.White)
+                .background(MaterialTheme.colorScheme.surface)
                 .statusBarsPadding()
                 .padding(horizontal = 8.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = { navController.popBackStack() }) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Wróć", tint = Color(0xFF1A1A1A))
+                Icon(
+                    Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(Res.string.back),
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
             }
             Text(
-                "Konfiguracja: ${subject.name}",
+                stringResource(Res.string.config_subject_title, stringResource(subject.getNameRes())),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF1A1A1A)
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
 
-        // ── Scrollable content ───────────────────────────────────────────────
+        // Scrollable content
         Column(
             modifier = Modifier
                 .weight(1f)
@@ -131,15 +165,15 @@ fun SubjectConfigScreen(
                 .padding(horizontal = 16.dp, vertical = 20.dp)
         ) {
 
-            // ── Per-topic lesson sliders ──────────────────────────────────
+            // Per-topic lesson sliders
             unlockedTopics.forEachIndexed { topicIndex, (topic, lessons) ->
                 if (topicIndex > 0) Spacer(Modifier.height(24.dp))
 
                 Text(
-                    topic.name.uppercase(),
+                    stringResource(topic.getNameRes()).uppercase(),
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF9E9E9E),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     letterSpacing = 1.sp,
                     modifier = Modifier.padding(horizontal = 4.dp, vertical = 4.dp)
                 )
@@ -153,16 +187,16 @@ fun SubjectConfigScreen(
 
                     Card(
                         shape = RoundedCornerShape(16.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color.White),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                         elevation = CardDefaults.cardElevation(0.dp),
                         modifier = Modifier.fillMaxWidth().padding(bottom = 10.dp)
                     ) {
                         Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp)) {
                             Text(
-                                lesson.name,
+                                stringResource(lesson.getNameRes()),
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.SemiBold,
-                                color = Color(0xFF9E9E9E)
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                             Spacer(Modifier.height(4.dp))
 
@@ -174,7 +208,7 @@ fun SubjectConfigScreen(
                                     "$count",
                                     fontSize = 38.sp,
                                     fontWeight = FontWeight.ExtraBold,
-                                    color = Color(0xFF1A1A1A),
+                                    color = MaterialTheme.colorScheme.onSurface,
                                     modifier = Modifier.weight(1f)
                                 )
                                 if (count == suggested) {
@@ -185,7 +219,7 @@ fun SubjectConfigScreen(
                                             .padding(horizontal = 10.dp, vertical = 4.dp)
                                     ) {
                                         Text(
-                                            "Sugerowane",
+                                            stringResource(Res.string.config_suggested),
                                             fontSize = 12.sp,
                                             fontWeight = FontWeight.SemiBold,
                                             color = accentColor
@@ -212,8 +246,8 @@ fun SubjectConfigScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
-                                Text("5 ZADAŃ", fontSize = 11.sp, color = Color(0xFF9E9E9E))
-                                Text("$maxQ ZADAŃ", fontSize = 11.sp, color = Color(0xFF9E9E9E))
+                                Text(stringResource(Res.string.config_tasks_count, 5), fontSize = 11.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                Text(stringResource(Res.string.config_tasks_count, maxQ), fontSize = 11.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
                             }
                         }
                     }
@@ -222,18 +256,18 @@ fun SubjectConfigScreen(
 
             Spacer(Modifier.height(24.dp))
 
-            // ── Zarządzanie postępami ─────────────────────────────────────
+            // Progress management
             Text(
-                "Zarządzanie postępami",
+                stringResource(Res.string.config_progress_mgmt),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF1A1A1A),
+                color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.padding(bottom = 10.dp)
             )
 
             Card(
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(0.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -243,7 +277,7 @@ fun SubjectConfigScreen(
                             modifier = Modifier
                                 .size(36.dp)
                                 .clip(RoundedCornerShape(10.dp))
-                                .background(Color(0xFFFFEBEA)),
+                                .background(Color(0xFFE53935).copy(alpha = 0.15f)),
                             contentAlignment = Alignment.Center
                         ) {
                             Icon(
@@ -256,16 +290,16 @@ fun SubjectConfigScreen(
                         Spacer(Modifier.width(12.dp))
                         Column {
                             Text(
-                                "Resetuj postęp",
+                                stringResource(Res.string.config_reset_progress),
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color(0xFFE53935)
                             )
                             Spacer(Modifier.height(2.dp))
                             Text(
-                                "To trwale usunie Twoje wyniki i historię dla tego przedmiotu. Operacja jest nieodwracalna.",
+                                stringResource(Res.string.config_reset_desc),
                                 fontSize = 13.sp,
-                                color = Color(0xFF9E9E9E),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 lineHeight = 18.sp
                             )
                         }
@@ -278,12 +312,12 @@ fun SubjectConfigScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clip(RoundedCornerShape(12.dp))
-                                .background(Color(0xFFE8F8F0))
+                                .background(Color(0xFF3DBD7D).copy(alpha = 0.15f))
                                 .padding(12.dp),
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
-                                "Postęp zresetowany ✓",
+                                stringResource(Res.string.config_reset_done),
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.SemiBold,
                                 color = Color(0xFF3DBD7D)
@@ -297,7 +331,7 @@ fun SubjectConfigScreen(
                             border = androidx.compose.foundation.BorderStroke(1.5.dp, Color(0xFFE53935))
                         ) {
                             Text(
-                                "Resetuj postęp",
+                                stringResource(Res.string.config_reset_progress),
                                 color = Color(0xFFE53935),
                                 fontWeight = FontWeight.SemiBold
                             )
@@ -319,14 +353,14 @@ fun SubjectConfigScreen(
                             shape = RoundedCornerShape(23.dp),
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFE53935))
                         ) {
-                            Text("Potwierdź reset postępu", fontWeight = FontWeight.Bold)
+                            Text(stringResource(Res.string.config_reset_confirm), fontWeight = FontWeight.Bold)
                         }
                         Spacer(Modifier.height(6.dp))
                         TextButton(
                             onClick = { showResetConfirm = false },
                             modifier = Modifier.fillMaxWidth()
                         ) {
-                            Text("Anuluj", color = Color(0xFF9E9E9E))
+                            Text(stringResource(Res.string.cancel), color = MaterialTheme.colorScheme.onSurfaceVariant)
                         }
                     }
                 }
@@ -335,7 +369,7 @@ fun SubjectConfigScreen(
             Spacer(Modifier.height(24.dp))
         }
 
-        // ── Zapisz ──────────────────────────────────────────────────────────
+        // Save
         Button(
             onClick = {
                 questionCounts.forEach { (lessonId, count) ->
@@ -351,7 +385,7 @@ fun SubjectConfigScreen(
             shape = RoundedCornerShape(28.dp),
             colors = ButtonDefaults.buttonColors(containerColor = accentColor)
         ) {
-            Text("Zapisz", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+            Text(stringResource(Res.string.save), fontWeight = FontWeight.Bold, fontSize = 16.sp)
         }
     }
 }

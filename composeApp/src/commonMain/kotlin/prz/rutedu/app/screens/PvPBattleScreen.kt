@@ -6,19 +6,14 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -39,21 +34,21 @@ import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.battle_game_ended
-import rutedu.composeapp.generated.resources.yes
-import rutedu.composeapp.generated.resources.no
-import rutedu.composeapp.generated.resources.play_again
+import rutedu.composeapp.generated.resources.answer_submitted
 import rutedu.composeapp.generated.resources.back_to_menu
-import rutedu.composeapp.generated.resources.player_wins
-import rutedu.composeapp.generated.resources.its_a_tie
-import rutedu.composeapp.generated.resources.round_counter
+import rutedu.composeapp.generated.resources.battle_game_ended
 import rutedu.composeapp.generated.resources.both_correct
 import rutedu.composeapp.generated.resources.both_wrong
-import rutedu.composeapp.generated.resources.waiting
-import rutedu.composeapp.generated.resources.correct
-import rutedu.composeapp.generated.resources.wrong
-import rutedu.composeapp.generated.resources.answer_submitted
 import rutedu.composeapp.generated.resources.check
+import rutedu.composeapp.generated.resources.correct
+import rutedu.composeapp.generated.resources.its_a_tie
+import rutedu.composeapp.generated.resources.no
+import rutedu.composeapp.generated.resources.play_again
+import rutedu.composeapp.generated.resources.player_wins
+import rutedu.composeapp.generated.resources.round_counter
+import rutedu.composeapp.generated.resources.waiting
+import rutedu.composeapp.generated.resources.wrong
+import rutedu.composeapp.generated.resources.yes
 
 /**
  * A single round question in the two-player PvP battle.
@@ -256,7 +251,8 @@ fun PvPBattleScreen(
                 },
                 modifier = Modifier.fillMaxWidth(0.7f).height(56.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF4CAF50)
+                    containerColor = Color(0xFF4CAF50),
+                    contentColor = Color.White
                 )
             ) {
                 Text(playAgainText, fontSize = 18.sp, fontWeight = FontWeight.Bold)
@@ -571,9 +567,9 @@ fun PvPNumberPad(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(2.dp)
         ) {
-            PvPKeyButton("C", Modifier.weight(1f), Color(0xFFFF9800)) { onClear() }
+            PvPKeyButton("C", Modifier.weight(1f), backgroundColor = Color(0xFFFF9800), contentColor = Color.White) { onClear() }
             PvPKeyButton("0", Modifier.weight(1f)) { onNumberClick("0") }
-            PvPKeyButton("⌫", Modifier.weight(1f), Color(0xFFF44336)) { onDelete() }
+            PvPKeyButton("⌫", Modifier.weight(1f), backgroundColor = Color(0xFFF44336), contentColor = Color.White) { onDelete() }
         }
         
         // Row 5: Minus and Submit
@@ -590,7 +586,8 @@ fun PvPNumberPad(
                     .height(40.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = accentColor
+                    containerColor = accentColor,
+                    contentColor = Color.White
                 )
             ) {
                 Text(
@@ -609,6 +606,7 @@ fun PvPNumberPad(
  * @param text            Label shown on the key.
  * @param modifier        Modifier applied to the button (typically `Modifier.weight(1f)`).
  * @param backgroundColor Key background; defaults to `primaryContainer`.
+ * @param contentColor    Key text color; defaults to `onPrimaryContainer`.
  * @param onClick         Click handler.
  */
 @Composable
@@ -616,6 +614,7 @@ fun PvPKeyButton(
     text: String,
     modifier: Modifier = Modifier,
     backgroundColor: Color = MaterialTheme.colorScheme.primaryContainer,
+    contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
     onClick: () -> Unit
 ) {
     Button(
@@ -623,14 +622,14 @@ fun PvPKeyButton(
         modifier = modifier.height(40.dp),
         shape = RoundedCornerShape(8.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = backgroundColor
+            containerColor = backgroundColor,
+            contentColor = contentColor
         )
     ) {
         Text(
             text = text,
             fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onPrimaryContainer
+            fontWeight = FontWeight.Bold
         )
     }
 }

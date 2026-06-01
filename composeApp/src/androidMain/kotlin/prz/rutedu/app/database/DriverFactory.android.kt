@@ -2,9 +2,9 @@ package prz.rutedu.app.database
 
 import android.content.Context
 import app.cash.sqldelight.async.coroutines.synchronous
-import prz.rutedu.app.Database
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
+import prz.rutedu.app.Database
 
 /**
  * Android implementation of [DriverFactory].

@@ -19,6 +19,7 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,6 +30,11 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.stringResource
+import rutedu.composeapp.generated.resources.Res
+import rutedu.composeapp.generated.resources.*
+import prz.rutedu.app.locale.getNameRes
+import prz.rutedu.app.locale.getDescriptionRes
 import prz.rutedu.app.models.Lesson
 import prz.rutedu.app.models.Topic
 import kotlin.math.roundToInt
@@ -51,12 +57,12 @@ fun TopicCard(
     onClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val statusText = if (topic.isLocked) "Zablokowane"
-    else "${(topic.progress * 100).roundToInt()}% Ukończono"
+    val statusText = if (topic.isLocked) stringResource(Res.string.status_locked)
+    else stringResource(Res.string.status_completed, "${(topic.progress * 100).roundToInt()}%")
 
     ItemCard(
-        name = topic.name,
-        description = topic.description,
+        name = stringResource(topic.getNameRes()),
+        description = stringResource(topic.getDescriptionRes()),
         progress = topic.progress,
         isLocked = topic.isLocked,
         color = topic.color,
@@ -87,14 +93,14 @@ fun LessonCard(
     modifier: Modifier = Modifier
 ) {
     val statusText = when {
-        lesson.isLocked -> "Zablokowane"
-        lesson.progress > 0f -> "Kontynuuj – ${(lesson.progress * 100).roundToInt()}%"
-        else -> "Rozpocznij – 0%"
+        lesson.isLocked -> stringResource(Res.string.status_locked)
+        lesson.progress > 0f -> stringResource(Res.string.status_continue, "${(lesson.progress * 100).roundToInt()}%")
+        else -> stringResource(Res.string.status_start)
     }
 
     ItemCard(
-        name = lesson.name,
-        description = lesson.description,
+        name = stringResource(lesson.getNameRes()),
+        description = stringResource(lesson.getDescriptionRes()),
         progress = lesson.progress,
         isLocked = lesson.isLocked,
         color = lesson.color,
@@ -129,12 +135,12 @@ private fun ItemCard(
     onClick: () -> Unit,
     modifier: Modifier
 ) {
-    val iconBg = if (isLocked) Color(0xFFE2E6ED) else color.copy(alpha = 0.13f)
-    val iconTint = if (isLocked) Color(0xFFADB5BD) else color
+    val iconBg = if (isLocked) MaterialTheme.colorScheme.outlineVariant else color.copy(alpha = 0.13f)
+    val iconTint = if (isLocked) MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f) else color
     val displayIcon = if (isLocked) Icons.Default.Lock else icon
-    val titleColor = if (isLocked) Color(0xFFADB5BD) else Color(0xFF1A1A1A)
-    val subtitleColor = if (isLocked) Color(0xFFBCC1CA) else Color(0xFF9E9E9E)
-    val statusColor = if (isLocked) Color(0xFFADB5BD) else color
+    val titleColor = if (isLocked) MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f) else MaterialTheme.colorScheme.onSurface
+    val subtitleColor = if (isLocked) MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f) else MaterialTheme.colorScheme.onSurfaceVariant
+    val statusColor = if (isLocked) MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f) else color
 
     val cardModifier = modifier
         .fillMaxWidth()
@@ -144,9 +150,9 @@ private fun ItemCard(
         Card(
             modifier = cardModifier,
             shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F6FA)),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)),
             elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-            border = BorderStroke(1.dp, Color(0xFFDDE1E9))
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
         ) {
             CardContent(
                 name, description, progress, isLocked, displayIcon,
@@ -157,7 +163,7 @@ private fun ItemCard(
         Card(
             modifier = cardModifier,
             shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.White),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
             elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
         ) {
             CardContent(
@@ -248,7 +254,7 @@ private fun CardContent(
                     .fillMaxWidth()
                     .height(5.dp)
                     .clip(RoundedCornerShape(3.dp))
-                    .background(Color(0xFFE8EBF0))
+                    .background(MaterialTheme.colorScheme.outlineVariant)
             )
         } else {
             Box(

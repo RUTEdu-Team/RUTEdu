@@ -4,13 +4,28 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -97,7 +112,7 @@ internal fun EquationBalanceContent(
                 text = question.instruction,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF1A1A1A),
+                color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp)
             )
@@ -105,7 +120,7 @@ internal fun EquationBalanceContent(
             Text(
                 text = question.subInstruction,
                 fontSize = 13.sp,
-                color = Color(0xFF9E9E9E),
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f),
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp)
             )
@@ -117,8 +132,8 @@ internal fun EquationBalanceContent(
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp)
                     .clip(RoundedCornerShape(20.dp))
-                    .background(Color.White)
-                    .border(1.dp, Color(0xFFE8EAF0), RoundedCornerShape(20.dp)),
+                    .background(MaterialTheme.colorScheme.surface)
+                    .border(1.dp, MaterialTheme.colorScheme.outlineVariant, RoundedCornerShape(20.dp)),
                 contentAlignment = Alignment.Center
             ) {
                 Row(
@@ -129,7 +144,7 @@ internal fun EquationBalanceContent(
                     horizontalArrangement = Arrangement.Center
                 ) {
                     question.reactants.forEachIndexed { i, term ->
-                        if (i > 0) Text("+", fontSize = 20.sp, fontWeight = FontWeight.Medium, color = Color(0xFF1A1A1A))
+                        if (i > 0) Text("+", fontSize = 20.sp, fontWeight = FontWeight.Medium, color = MaterialTheme.colorScheme.onSurface)
                         val pos = i
                         EquationTermCell(
                             formula = term.formula,
@@ -143,11 +158,11 @@ internal fun EquationBalanceContent(
                     }
 
                     Spacer(Modifier.width(8.dp))
-                    Text("→", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A1A1A))
+                    Text("→", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onSurface)
                     Spacer(Modifier.width(8.dp))
 
                     question.products.forEachIndexed { i, term ->
-                        if (i > 0) Text("+", fontSize = 20.sp, fontWeight = FontWeight.Medium, color = Color(0xFF1A1A1A))
+                        if (i > 0) Text("+", fontSize = 20.sp, fontWeight = FontWeight.Medium, color = MaterialTheme.colorScheme.onSurface)
                         val pos = question.reactants.size + i
                         EquationTermCell(
                             formula = term.formula,
@@ -230,15 +245,15 @@ internal fun EquationTermCell(
     onClick: (() -> Unit)?
 ) {
     val borderColor = when {
-        isWrong -> Color(0xFFE53935)
+        isWrong -> MaterialTheme.colorScheme.error
         isActive -> accentColor
-        isBlank -> Color(0xFFBCC1CA)
-        else -> Color(0xFFE8EAF0)
+        isBlank -> MaterialTheme.colorScheme.outline
+        else -> MaterialTheme.colorScheme.outlineVariant
     }
     val bgColor = when {
-        isWrong -> Color(0xFFFFEBEA)
+        isWrong -> MaterialTheme.colorScheme.errorContainer
         isActive -> accentColor.copy(alpha = 0.08f)
-        else -> Color.White
+        else -> MaterialTheme.colorScheme.surface
     }
 
     Column(
@@ -259,13 +274,13 @@ internal fun EquationTermCell(
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 color = when {
-                    isBlank && coefficient.isEmpty() -> Color(0xFFBCC1CA)
+                    isBlank && coefficient.isEmpty() -> MaterialTheme.colorScheme.outline
                     isActive -> accentColor
-                    else -> Color(0xFF1A1A1A)
+                    else -> MaterialTheme.colorScheme.onSurface
                 }
             )
         }
-        Text(text = formula, fontSize = 17.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFF1A1A1A))
+        Text(text = formula, fontSize = 17.sp, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.onSurface)
     }
 }
 

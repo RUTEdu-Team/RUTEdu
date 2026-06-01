@@ -30,12 +30,12 @@ fun ensureTablesExist(driver: SqlDriver) {
         parameters = 0
     )
 
-    // Default language setting - inserted only when missing, never overwritten
+    // Default theme mode setting - inserted only when missing, never overwritten
     driver.execute(
         identifier = null,
         sql = """
             INSERT OR IGNORE INTO appSettings (setting_key, setting_value)
-            VALUES ('language', 'en')
+            VALUES ('theme_mode', 'system')
         """.trimIndent(),
         parameters = 0
     )

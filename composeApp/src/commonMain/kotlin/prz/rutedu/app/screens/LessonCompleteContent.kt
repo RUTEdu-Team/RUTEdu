@@ -1,15 +1,32 @@
 package prz.rutedu.app.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -19,6 +36,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.stringResource
+import rutedu.composeapp.generated.resources.Res
+import rutedu.composeapp.generated.resources.*
 
 /**
  * Celebration screen shown by [LessonGameScreen] when the student answers all questions correctly.
@@ -53,7 +73,7 @@ internal fun LessonCompleteContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF5F6FA))
+            .background(MaterialTheme.colorScheme.background)
             .statusBarsPadding()
             .padding(bottom = bottomPadding),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -65,13 +85,17 @@ internal fun LessonCompleteContent(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = onBack) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Wróć", tint = Color(0xFF1A1A1A))
+                Icon(
+                    Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(Res.string.back),
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
             }
             Text(
                 text = subjectName,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF1A1A1A)
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
 
@@ -93,12 +117,17 @@ internal fun LessonCompleteContent(
         }
 
         Spacer(modifier = Modifier.height(32.dp))
-        Text("Świetna robota!", fontSize = 28.sp, fontWeight = FontWeight.ExtraBold, color = Color(0xFF1A1A1A))
+        Text(
+            stringResource(Res.string.lesson_complete_headline),
+            fontSize = 28.sp,
+            fontWeight = FontWeight.ExtraBold,
+            color = MaterialTheme.colorScheme.onSurface
+        )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = lessonName,
             fontSize = 16.sp,
-            color = Color(0xFF9E9E9E),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(horizontal = 32.dp)
         )
@@ -110,7 +139,7 @@ internal fun LessonCompleteContent(
                 .background(accentColor.copy(alpha = 0.12f))
                 .padding(horizontal = 24.dp, vertical = 10.dp)
         ) {
-            Text("100% ukończone", fontSize = 15.sp, fontWeight = FontWeight.Bold, color = accentColor)
+            Text(stringResource(Res.string.lesson_complete_progress), fontSize = 15.sp, fontWeight = FontWeight.Bold, color = accentColor)
         }
 
         Spacer(modifier = Modifier.weight(1f))
@@ -129,7 +158,7 @@ internal fun LessonCompleteContent(
             ) {
                 Icon(Icons.Default.Refresh, contentDescription = null, tint = accentColor, modifier = Modifier.size(20.dp))
                 Spacer(Modifier.width(8.dp))
-                Text("Resetuj i zagraj ponownie", color = accentColor, fontWeight = FontWeight.SemiBold, fontSize = 15.sp)
+                Text(stringResource(Res.string.lesson_complete_replay), color = accentColor, fontWeight = FontWeight.SemiBold, fontSize = 15.sp)
             }
             Button(
                 onClick = onBack,
@@ -137,7 +166,7 @@ internal fun LessonCompleteContent(
                 shape = RoundedCornerShape(27.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = accentColor)
             ) {
-                Text("Wróć do lekcji", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                Text(stringResource(Res.string.lesson_complete_back), fontWeight = FontWeight.Bold, fontSize = 16.sp)
             }
         }
 

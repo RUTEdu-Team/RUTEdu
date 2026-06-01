@@ -4,14 +4,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -34,29 +32,28 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import prz.rutedu.app.Database
 import kotlinx.coroutines.launch
-import kotlin.random.Random
 import org.jetbrains.compose.resources.stringResource
+import prz.rutedu.app.Database
 import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.fragment_modes_add_sub
-import rutedu.composeapp.generated.resources.fragment_modes_mul_div
-import rutedu.composeapp.generated.resources.fragment_modes_divisibility
-import rutedu.composeapp.generated.resources.fragment_modes_units
-import rutedu.composeapp.generated.resources.fragment_modes_table
-import rutedu.composeapp.generated.resources.question_counter
-import rutedu.composeapp.generated.resources.game_over
-import rutedu.composeapp.generated.resources.result_excellent
-import rutedu.composeapp.generated.resources.result_great
-import rutedu.composeapp.generated.resources.result_good
-import rutedu.composeapp.generated.resources.result_practice
-import rutedu.composeapp.generated.resources.score_saved
-import rutedu.composeapp.generated.resources.play_again
 import rutedu.composeapp.generated.resources.back
 import rutedu.composeapp.generated.resources.check
-import rutedu.composeapp.generated.resources.yes
+import rutedu.composeapp.generated.resources.fragment_modes_add_sub
+import rutedu.composeapp.generated.resources.fragment_modes_divisibility
+import rutedu.composeapp.generated.resources.fragment_modes_mul_div
+import rutedu.composeapp.generated.resources.fragment_modes_table
+import rutedu.composeapp.generated.resources.fragment_modes_units
+import rutedu.composeapp.generated.resources.game_over
 import rutedu.composeapp.generated.resources.no
-import rutedu.composeapp.generated.resources.divisibility_question
+import rutedu.composeapp.generated.resources.play_again
+import rutedu.composeapp.generated.resources.question_counter
+import rutedu.composeapp.generated.resources.result_excellent
+import rutedu.composeapp.generated.resources.result_good
+import rutedu.composeapp.generated.resources.result_great
+import rutedu.composeapp.generated.resources.result_practice
+import rutedu.composeapp.generated.resources.score_saved
+import rutedu.composeapp.generated.resources.yes
+import kotlin.random.Random
 
 /**
  * The solo mini-game mode selected from [SelectionScreen].
@@ -272,7 +269,7 @@ fun GameScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.surface)
+            .background(MaterialTheme.colorScheme.background)
             .safeContentPadding()
             .padding(horizontal = 8.dp, vertical = 8.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -527,7 +524,8 @@ fun YesNoButtons(
                 .weight(1f)
                 .height(120.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF4CAF50)
+                containerColor = Color(0xFF4CAF50),
+                contentColor = Color.White
             ),
             shape = RoundedCornerShape(16.dp)
         ) {
@@ -544,7 +542,8 @@ fun YesNoButtons(
                 .weight(1f)
                 .height(120.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFFF44336)
+                containerColor = Color(0xFFF44336),
+                contentColor = Color.White
             ),
             shape = RoundedCornerShape(16.dp)
         ) {
@@ -621,9 +620,9 @@ fun FullScreenNumberPad(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(6.dp)
         ) {
-            FullWidthKeyButton("C", Modifier.weight(1f), Color(0xFFFF9800)) { onClear() }
+            FullWidthKeyButton("C", Modifier.weight(1f), backgroundColor = Color(0xFFFF9800), contentColor = Color.White) { onClear() }
             FullWidthKeyButton("0", Modifier.weight(1f)) { onNumberClick("0") }
-            FullWidthKeyButton("⌫", Modifier.weight(1f), Color(0xFFF44336)) { onDelete() }
+            FullWidthKeyButton("⌫", Modifier.weight(1f), backgroundColor = Color(0xFFF44336), contentColor = Color.White) { onDelete() }
         }
         
         // Row 5: Minus and Submit
@@ -640,7 +639,8 @@ fun FullScreenNumberPad(
                     .height(64.dp),
                 shape = RoundedCornerShape(12.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF4CAF50)
+                    containerColor = Color(0xFF4CAF50),
+                    contentColor = Color.White
                 )
             ) {
                 Text(
@@ -659,6 +659,7 @@ fun FullScreenNumberPad(
  * @param text            Label shown on the key.
  * @param modifier        Modifier applied to the button (typically `Modifier.weight(1f)`).
  * @param backgroundColor Key background; defaults to `primaryContainer`.
+ * @param contentColor    Key text color; defaults to `onPrimaryContainer`.
  * @param onClick         Click handler.
  */
 @Composable
@@ -666,6 +667,7 @@ fun FullWidthKeyButton(
     text: String,
     modifier: Modifier = Modifier,
     backgroundColor: Color = MaterialTheme.colorScheme.primaryContainer,
+    contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
     onClick: () -> Unit
 ) {
     Button(
@@ -673,14 +675,14 @@ fun FullWidthKeyButton(
         modifier = modifier.height(64.dp),
         shape = RoundedCornerShape(12.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = backgroundColor
+            containerColor = backgroundColor,
+            contentColor = contentColor
         )
     ) {
         Text(
             text = text,
             fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onPrimaryContainer
+            fontWeight = FontWeight.Bold
         )
     }
 }

@@ -1,30 +1,37 @@
 package prz.rutedu.app
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
-import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.animation.EnterTransition
-import androidx.compose.animation.ExitTransition
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import app.cash.sqldelight.db.SqlDriver
+import org.jetbrains.compose.resources.stringResource
 import prz.rutedu.app.components.BottomNavBar
 import prz.rutedu.app.components.NavTab
 import prz.rutedu.app.data.SubjectRepository
@@ -33,6 +40,7 @@ import prz.rutedu.app.locale.customAppLocale
 import prz.rutedu.app.screens.ConfigListScreen
 import prz.rutedu.app.screens.GameMode
 import prz.rutedu.app.screens.GameScreen
+import prz.rutedu.app.screens.LessonGameScreen
 import prz.rutedu.app.screens.MainScreen
 import prz.rutedu.app.screens.PlayerSelectionScreen
 import prz.rutedu.app.screens.PvPBattleScreen
@@ -40,13 +48,12 @@ import prz.rutedu.app.screens.SelectionScreen
 import prz.rutedu.app.screens.Settings
 import prz.rutedu.app.screens.SubjectConfigScreen
 import prz.rutedu.app.screens.SubjectDetailScreen
-import prz.rutedu.app.screens.LessonGameScreen
 import prz.rutedu.app.screens.TopicDetailScreen
+import prz.rutedu.app.theme.RUTEduTheme
+import prz.rutedu.app.theme.ThemeMode
+import prz.rutedu.app.theme.customAppThemeMode
 import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.player1
-import rutedu.composeapp.generated.resources.player2
-import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.tooling.preview.Preview
+import rutedu.composeapp.generated.resources.*
 
 /**
  * All navigation destinations in the app, expressed as a sealed class hierarchy.
@@ -71,6 +78,8 @@ sealed class Screen(val route: String) {
     object PvP : Screen("pvp")
     /** Language / app settings. */
     object Settings : Screen("settings")
+    /** Language settings. */
+    object LanguageSettings : Screen("language-settings")
     /** Placeholder shown when NAUKA tab is tapped with no last-visited subject. */
     object Nauka : Screen("nauka")
     /** Placeholder shown when ĆWICZENIA tab is tapped with no last-visited lesson. */
@@ -175,16 +184,26 @@ private fun showBottomNav(route: String?): Boolean =
 @Preview
 fun App(driver: SqlDriver) {
     val navController = rememberNavController()
-    val db = Database(driver)
+    val db = remember { Database(driver) }
 
-    LaunchedEffect(Unit) {
+    // Load initial settings synchronously during the first composition to prevent flashes
+    remember(db) {
         try {
             val savedLanguage = db.databaseQueries.getLanguage().executeAsOneOrNull()
-            if (savedLanguage != null) customAppLocale = savedLanguage
+            if (savedLanguage != null) {
+                customAppLocale = savedLanguage
+            }
         } catch (_: Exception) {}
+        try {
+            val savedTheme = db.databaseQueries.getThemeMode().executeAsOneOrNull()
+            if (savedTheme != null) {
+                customAppThemeMode = ThemeMode.fromString(savedTheme)
+            }
+        } catch (_: Exception) {}
+        Unit
     }
 
-    MaterialTheme {
+    RUTEduTheme {
         AppLocaleProvider {
             val backStackEntry by navController.currentBackStackEntryAsState()
             val currentRoute = backStackEntry?.destination?.route
@@ -248,14 +267,14 @@ fun App(driver: SqlDriver) {
 
                     composable(Screen.Nauka.route) {
                         PlaceholderScreen(
-                            label = "Nauka",
+                            label = stringResource(Res.string.placeholder_learn),
                             bottomPadding = effectiveBottomPadding
                         )
                     }
 
                     composable(Screen.Cwiczenia.route) {
                         PlaceholderScreen(
-                            label = "Ćwiczenia",
+                            label = stringResource(Res.string.placeholder_exercises),
                             bottomPadding = effectiveBottomPadding
                         )
                     }
@@ -318,7 +337,19 @@ fun App(driver: SqlDriver) {
                     }
 
                     composable(Screen.Settings.route) {
-                        Settings(navController = navController, database = db)
+                        Settings(
+                            navController = navController,
+                            database = db,
+                            bottomPadding = effectiveBottomPadding
+                        )
+                    }
+
+                    composable(Screen.LanguageSettings.route) {
+                        prz.rutedu.app.screens.LanguageSettings(
+                            navController = navController,
+                            database = db,
+                            bottomPadding = effectiveBottomPadding
+                        )
                     }
 
                     composable(Screen.PlayerSelection.route) {
@@ -408,7 +439,7 @@ private fun PlaceholderScreen(label: String, bottomPadding: Dp = 0.dp) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
             .padding(bottom = bottomPadding),
         contentAlignment = Alignment.Center
     ) {
@@ -416,7 +447,7 @@ private fun PlaceholderScreen(label: String, bottomPadding: Dp = 0.dp) {
             text = label,
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF1A1A1A)
+            color = MaterialTheme.colorScheme.onBackground
         )
     }
 }

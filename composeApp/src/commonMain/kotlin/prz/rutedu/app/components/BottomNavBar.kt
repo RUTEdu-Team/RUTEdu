@@ -2,9 +2,10 @@ package prz.rutedu.app.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Assignment
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
@@ -13,6 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.stringResource
+import rutedu.composeapp.generated.resources.Res
+import rutedu.composeapp.generated.resources.*
 
 /**
  * The three tabs available in the bottom navigation bar.
@@ -59,7 +63,7 @@ fun BottomNavBar(
     onTabSelected: (NavTab) -> Unit,
     activeColor: Color = Color(0xFFF47B20)
 ) {
-    val inactiveColor = Color(0xFF8F9BB3)
+    val inactiveColor = MaterialTheme.colorScheme.onSurfaceVariant
 
     // Determine which tab is visually active based on the current route prefix.
     // This keeps the indicator in sync even when navigating via the system back button.
@@ -73,11 +77,16 @@ fun BottomNavBar(
     }
 
     NavigationBar(
-        containerColor = Color.White,
+        containerColor = MaterialTheme.colorScheme.surface,
         tonalElevation = 0.dp // no shadow - border is handled by Scaffold's bottom bar
     ) {
         NavTab.entries.forEach { tab ->
             val isSelected = tab == activeTab
+            val labelText = when (tab) {
+                NavTab.START -> stringResource(Res.string.nav_start)
+                NavTab.NAUKA -> stringResource(Res.string.nav_learn)
+                NavTab.CWICZENIA -> stringResource(Res.string.nav_exercises)
+            }
             NavigationBarItem(
                 selected = isSelected,
                 onClick = { onTabSelected(tab) },
@@ -88,12 +97,12 @@ fun BottomNavBar(
                             NavTab.NAUKA     -> Icons.AutoMirrored.Filled.MenuBook
                             NavTab.CWICZENIA -> Icons.AutoMirrored.Filled.Assignment
                         },
-                        contentDescription = tab.label
+                        contentDescription = labelText
                     )
                 },
                 label = {
                     Text(
-                        text = tab.label,
+                        text = labelText,
                         fontSize = 10.sp
                     )
                 },

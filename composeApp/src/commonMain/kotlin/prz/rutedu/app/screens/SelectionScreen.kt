@@ -16,21 +16,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-
+import org.jetbrains.compose.resources.stringResource
 import prz.rutedu.app.Screen
 import prz.rutedu.app.components.MenuButton
 import rutedu.composeapp.generated.resources.Res
-import rutedu.composeapp.generated.resources.ic_add_sub
-import rutedu.composeapp.generated.resources.ic_mult_div
-import rutedu.composeapp.generated.resources.ic_dumbbell_solid
-import rutedu.composeapp.generated.resources.fragment_modes_instruction
-import rutedu.composeapp.generated.resources.fragment_modes_add_sub
-import rutedu.composeapp.generated.resources.fragment_modes_mul_div
-import rutedu.composeapp.generated.resources.fragment_modes_divisibility
-import rutedu.composeapp.generated.resources.fragment_modes_units
-import rutedu.composeapp.generated.resources.fragment_modes_table
 import rutedu.composeapp.generated.resources.back
-import org.jetbrains.compose.resources.stringResource
+import rutedu.composeapp.generated.resources.fragment_modes_add_sub
+import rutedu.composeapp.generated.resources.fragment_modes_divisibility
+import rutedu.composeapp.generated.resources.fragment_modes_instruction
+import rutedu.composeapp.generated.resources.fragment_modes_mul_div
+import rutedu.composeapp.generated.resources.fragment_modes_table
+import rutedu.composeapp.generated.resources.fragment_modes_units
+import rutedu.composeapp.generated.resources.ic_add_sub
+import rutedu.composeapp.generated.resources.ic_dumbbell_solid
+import rutedu.composeapp.generated.resources.ic_mult_div
 
 /**
  * Game-mode selection screen shown after a player is chosen in [PlayerSelectionScreen].
@@ -53,7 +52,7 @@ fun SelectionScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.surface)
+            .background(MaterialTheme.colorScheme.background)
             .safeContentPadding()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,

@@ -36,6 +36,8 @@ data class MathViewport(
     val yMax: Double = 4.0,
     val showGrid: Boolean = true,
     val showAxes: Boolean = true,
+    val showXLabels: Boolean = true,
+    val showYLabels: Boolean = true,
     val gridStep: Double = 1.0
 )
 
@@ -201,6 +203,24 @@ sealed class MathShape {
         val dashed: Boolean = false,
         val strokeWidth: Float = 2f
     ) : MathShape()
+
+    /**
+     * A pie chart with slices sized proportionally to their values.
+     *
+     * @property cx     World x-coordinate of the centre.
+     * @property cy     World y-coordinate of the centre.
+     * @property r      Radius in world units.
+     * @property slices List of data points to represent as slices.
+     */
+    data class PieChart(
+        val cx: Double,
+        val cy: Double,
+        val r: Double,
+        val slices: List<Slice>,
+        val strokeWidth: Float = 1.5f
+    ) : MathShape() {
+        data class Slice(val value: Double, val color: Color, val label: String? = null)
+    }
 
     /**
      * Free-floating text centred on a world-space point.

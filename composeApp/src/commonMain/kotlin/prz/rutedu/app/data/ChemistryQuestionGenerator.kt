@@ -1,8 +1,29 @@
 package prz.rutedu.app.data
 
-import prz.rutedu.app.models.*
-import prz.rutedu.app.models.ElementCategory.*
-import prz.rutedu.app.models.Question.*
+import prz.rutedu.app.data.ChemistryQuestionGenerator.generateFor
+import prz.rutedu.app.models.ELEMENTS
+import prz.rutedu.app.models.Element
+import prz.rutedu.app.models.ElementCategory.ACTINIDE
+import prz.rutedu.app.models.ElementCategory.ALKALINE_EARTH
+import prz.rutedu.app.models.ElementCategory.ALKALI_METAL
+import prz.rutedu.app.models.ElementCategory.HALOGEN
+import prz.rutedu.app.models.ElementCategory.LANTHANIDE
+import prz.rutedu.app.models.ElementCategory.METALLOID
+import prz.rutedu.app.models.ElementCategory.NOBLE_GAS
+import prz.rutedu.app.models.ElementCategory.POST_TRANSITION
+import prz.rutedu.app.models.ElementCategory.REACTIVE_NONMETAL
+import prz.rutedu.app.models.ElementCategory.TRANSITION_METAL
+import prz.rutedu.app.models.Hint
+import prz.rutedu.app.models.Question
+import prz.rutedu.app.models.Question.BalanceTerm
+import prz.rutedu.app.models.Question.ElementCardQuiz
+import prz.rutedu.app.models.Question.EquationBalance
+import prz.rutedu.app.models.Question.PeriodicTableByName
+import prz.rutedu.app.models.Question.PeriodicTableByShell
+import prz.rutedu.app.models.Question.PeriodicTableQuiz
+import prz.rutedu.app.models.Question.SelectFromList
+import prz.rutedu.app.models.elementByNumber
+import prz.rutedu.app.models.shellConfigByNumber
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
@@ -93,7 +114,7 @@ object ChemistryQuestionGenerator {
                     shellConfig = shell,
                     targetAtomicNumber = z,
                     hint = Hint(
-                        mainText = "${el.namePL} (${el.symbol}) ma $z elektronów: $shell.",
+                        mainText = "${el.name} (${el.symbol}) ma $z elektronów: $shell.",
                         boldPart = el.symbol,
                         steps = shellSteps(z, shell)
                     )
@@ -118,10 +139,10 @@ object ChemistryQuestionGenerator {
             .mapIndexed { i, el ->
                 PeriodicTableByName(
                     id = 1200 + i,
-                    elementNamePL = el.namePL,
+                    elementName = el.name,
                     targetAtomicNumber = el.atomicNumber,
                     hint = Hint(
-                        mainText = "${el.namePL} (${el.symbol}) — gr. ${el.tableCol}, okres ${el.tableRow}.",
+                        mainText = "${el.name} (${el.symbol}) — gr. ${el.tableCol}, okres ${el.tableRow}.",
                         boldPart = el.symbol
                     )
                 )
@@ -195,13 +216,13 @@ object ChemistryQuestionGenerator {
      * Lookup record for a single acid used in chemia_3_1 question generation.
      *
      * @property formula Chemical formula (e.g. `"H₂SO₄"`).
-     * @property namePL  Polish name (e.g. `"kwas siarkowy(VI)"`).
+     * @property name  Polish name (e.g. `"kwas siarkowy(VI)"`).
      * @property type    Acid class: `"beztlenowy"` (oxyacid-free) or `"tlenowy"` (oxyacid).
      * @property hint    Hint sentence shown to the student after a wrong answer.
      */
     private data class AcidEntry(
         val formula: String,
-        val namePL: String,
+        val name: String,
         val type: String,
         val hint: String
     )
@@ -238,20 +259,20 @@ object ChemistryQuestionGenerator {
         val rng = Random(seed)
         val qs = mutableListOf<SelectFromList>()
         val allFormulas = acids.map { it.formula }
-        val allNames    = acids.map { it.namePL }
+        val allNames    = acids.map { it.name }
         val typeOpts    = listOf("beztlenowy", "tlenowy")
         val typeHint    = "Kwasy beztlenowe nie zawierają tlenu (HX, H₂X). Kwasy tlenowe zawierają tlen (np. HNO₃, H₂SO₄)."
 
         acids.forEach { acid ->
             // formula -> name
-            val wNames = allNames.filter { it != acid.namePL }.shuffled(rng).take(3)
-            val opts1 = (wNames + acid.namePL).shuffled(rng)
+            val wNames = allNames.filter { it != acid.name }.shuffled(rng).take(3)
+            val opts1 = (wNames + acid.name).shuffled(rng)
             qs += SelectFromList(
                 id = 0,
                 prompt = "Kwas o wzorze ${acid.formula} to:",
                 options = opts1,
-                correctIndices = setOf(opts1.indexOf(acid.namePL)),
-                hint = Hint(acid.hint, boldPart = acid.namePL)
+                correctIndices = setOf(opts1.indexOf(acid.name)),
+                hint = Hint(acid.hint, boldPart = acid.name)
             )
 
             // name -> formula
@@ -259,7 +280,7 @@ object ChemistryQuestionGenerator {
             val opts2 = (wForms + acid.formula).shuffled(rng)
             qs += SelectFromList(
                 id = 0,
-                prompt = "Wzór ${acid.namePL} to:",
+                prompt = "Wzór ${acid.name} to:",
                 options = opts2,
                 correctIndices = setOf(opts2.indexOf(acid.formula)),
                 hint = Hint(acid.hint, boldPart = acid.formula)
@@ -268,7 +289,7 @@ object ChemistryQuestionGenerator {
             // type: tlenowy / beztlenowy
             qs += SelectFromList(
                 id = 0,
-                prompt = "${acid.namePL} (${acid.formula}) jest kwasem:",
+                prompt = "${acid.name} (${acid.formula}) jest kwasem:",
                 options = typeOpts,
                 correctIndices = setOf(typeOpts.indexOf(acid.type)),
                 hint = Hint(typeHint, boldPart = acid.type)
@@ -669,13 +690,13 @@ object ChemistryQuestionGenerator {
      * Lookup record for a single electrolyte used in chemia_4_2 dissociation question generation.
      *
      * @property formula Chemical formula (e.g. `"HCl"`).
-     * @property namePL  Polish name (e.g. `"kwas solny"`).
+     * @property name  Polish name (e.g. `"kwas solny"`).
      * @property ions    Ion pair produced on dissociation (e.g. `"H⁺ i Cl⁻"`).
      * @property type    Compound class: `"kwas"`, `"zasada"`, or `"sól"`.
      */
     private data class DissocEntry(
         val formula: String,
-        val namePL: String,
+        val name: String,
         val ions: String,
         val type: String
     )
@@ -724,7 +745,7 @@ object ChemistryQuestionGenerator {
             val opts1 = (wrongIons + entry.ions).shuffled(rng)
             qs += SelectFromList(
                 id = 0,
-                prompt = "Podczas dysocjacji ${entry.formula} (${entry.namePL}) powstają jony:",
+                prompt = "Podczas dysocjacji ${entry.formula} (${entry.name}) powstają jony:",
                 options = opts1,
                 correctIndices = setOf(opts1.indexOf(entry.ions)),
                 hint = Hint("${entry.formula} → ${entry.ions}.", boldPart = entry.ions)
@@ -742,7 +763,7 @@ object ChemistryQuestionGenerator {
 
             qs += SelectFromList(
                 id = 0,
-                prompt = "${entry.formula} (${entry.namePL}) jest:",
+                prompt = "${entry.formula} (${entry.name}) jest:",
                 options = typeOpts,
                 correctIndices = setOf(typeOpts.indexOf(entry.type)),
                 hint = Hint(typeHints[entry.type]!!, boldPart = entry.type)
@@ -756,13 +777,13 @@ object ChemistryQuestionGenerator {
      * Lookup record for a single hydrocarbon used in chemia_5_1 question generation.
      *
      * @property formula Chemical formula (e.g. `"CH₄"`).
-     * @property namePL  Polish name (e.g. `"metan"`).
+     * @property name  Polish name (e.g. `"metan"`).
      * @property cCount  Number of carbon atoms in the molecule.
      * @property type    Homologous series: `"alkan"`, `"alken"`, or `"alkyn"`.
      */
     private data class Hydrocarbon(
         val formula: String,
-        val namePL: String,
+        val name: String,
         val cCount: Int,
         val type: String
     )
@@ -800,34 +821,34 @@ object ChemistryQuestionGenerator {
     private fun chemia_5_1(seed: Long): List<Question> {
         val rng = Random(seed)
         val qs = mutableListOf<SelectFromList>()
-        val allNames    = hydrocarbons.map { it.namePL }
+        val allNames    = hydrocarbons.map { it.name }
         val allFormulas = hydrocarbons.map { it.formula }
         val typeOpts    = listOf("alkan", "alken", "alkyn")
 
         hydrocarbons.forEach { hc ->
-            val wNames = allNames.filter { it != hc.namePL }.shuffled(rng).take(3)
-            val opts1 = (wNames + hc.namePL).shuffled(rng)
+            val wNames = allNames.filter { it != hc.name }.shuffled(rng).take(3)
+            val opts1 = (wNames + hc.name).shuffled(rng)
             qs += SelectFromList(
                 id = 0,
                 prompt = "Jak nazywa się związek o wzorze ${hc.formula}?",
                 options = opts1,
-                correctIndices = setOf(opts1.indexOf(hc.namePL)),
-                hint = Hint("${hc.formula} to ${hc.namePL}.", boldPart = hc.namePL)
+                correctIndices = setOf(opts1.indexOf(hc.name)),
+                hint = Hint("${hc.formula} to ${hc.name}.", boldPart = hc.name)
             )
 
             val wForms = allFormulas.filter { it != hc.formula }.shuffled(rng).take(3)
             val opts2 = (wForms + hc.formula).shuffled(rng)
             qs += SelectFromList(
                 id = 0,
-                prompt = "Jaki jest wzór sumaryczny ${hc.namePL}?",
+                prompt = "Jaki jest wzór sumaryczny ${hc.name}?",
                 options = opts2,
                 correctIndices = setOf(opts2.indexOf(hc.formula)),
-                hint = Hint("Wzór ${hc.namePL} to ${hc.formula}.", boldPart = hc.formula)
+                hint = Hint("Wzór ${hc.name} to ${hc.formula}.", boldPart = hc.formula)
             )
 
             qs += SelectFromList(
                 id = 0,
-                prompt = "${hc.namePL} (${hc.formula}) należy do szeregu:",
+                prompt = "${hc.name} (${hc.formula}) należy do szeregu:",
                 options = typeOpts,
                 correctIndices = setOf(typeOpts.indexOf(hc.type)),
                 hint = Hint(hcTypeHints[hc.type]!!, boldPart = hc.type)
@@ -837,7 +858,7 @@ object ChemistryQuestionGenerator {
             val opts4 = (wC + hc.cCount.toString()).shuffled(rng)
             qs += SelectFromList(
                 id = 0,
-                prompt = "Ile atomów węgla zawiera ${hc.namePL} (${hc.formula})?",
+                prompt = "Ile atomów węgla zawiera ${hc.name} (${hc.formula})?",
                 options = opts4,
                 correctIndices = setOf(opts4.indexOf(hc.cCount.toString())),
                 hint = Hint("${hc.formula}: ${hc.cCount} atomy C.", boldPart = "${hc.cCount}")
@@ -851,13 +872,13 @@ object ChemistryQuestionGenerator {
      * Lookup record for a single organic compound used in chemia_5_2 question generation.
      *
      * @property formula    Chemical formula (e.g. `"CH₃OH"`).
-     * @property namePL     Polish name (e.g. `"metanol"`).
+     * @property name     Polish name (e.g. `"metanol"`).
      * @property group      Functional group notation: `"-OH"`, `"-COOH"`, `"-NH₂"`, or `"ester"`.
      * @property groupName  Compound class name: `"alkohol"`, `"kwas karboksylowy"`, `"amina"`, or `"ester"`.
      */
     private data class OrgCompound(
         val formula: String,
-        val namePL: String,
+        val name: String,
         val group: String,
         val groupName: String
     )
@@ -896,24 +917,24 @@ object ChemistryQuestionGenerator {
     private fun chemia_5_2(seed: Long): List<Question> {
         val rng = Random(seed)
         val qs = mutableListOf<SelectFromList>()
-        val allNames   = orgCompounds.map { it.namePL }
+        val allNames   = orgCompounds.map { it.name }
         val typeOpts   = listOf("alkohol", "kwas karboksylowy", "amina", "ester")
         val groupOpts  = listOf("-OH", "-COOH", "-NH₂", "ester")
 
         orgCompounds.forEach { oc ->
-            val wNames = allNames.filter { it != oc.namePL }.shuffled(rng).take(3)
-            val opts1 = (wNames + oc.namePL).shuffled(rng)
+            val wNames = allNames.filter { it != oc.name }.shuffled(rng).take(3)
+            val opts1 = (wNames + oc.name).shuffled(rng)
             qs += SelectFromList(
                 id = 0,
                 prompt = "Jak nazywa się związek o wzorze ${oc.formula}?",
                 options = opts1,
-                correctIndices = setOf(opts1.indexOf(oc.namePL)),
-                hint = Hint("${oc.formula} to ${oc.namePL}.", boldPart = oc.namePL)
+                correctIndices = setOf(opts1.indexOf(oc.name)),
+                hint = Hint("${oc.formula} to ${oc.name}.", boldPart = oc.name)
             )
 
             qs += SelectFromList(
                 id = 0,
-                prompt = "${oc.namePL} (${oc.formula}) należy do grupy:",
+                prompt = "${oc.name} (${oc.formula}) należy do grupy:",
                 options = typeOpts,
                 correctIndices = setOf(typeOpts.indexOf(oc.groupName)),
                 hint = Hint(
@@ -930,7 +951,7 @@ object ChemistryQuestionGenerator {
 
             qs += SelectFromList(
                 id = 0,
-                prompt = "Jaką grupę funkcyjną zawiera ${oc.namePL} (${oc.formula})?",
+                prompt = "Jaką grupę funkcyjną zawiera ${oc.name} (${oc.formula})?",
                 options = groupOpts,
                 correctIndices = setOf(groupOpts.indexOf(oc.group)),
                 hint = Hint("Grupa ${oc.group} → ${oc.groupName}.", boldPart = oc.group)
@@ -944,10 +965,10 @@ object ChemistryQuestionGenerator {
      * Lookup record for a single hydroxide used in chemia_3_3 question generation.
      *
      * @property formula  Chemical formula (e.g. `"NaOH"`).
-     * @property namePL   Polish name (e.g. `"wodorotlenek sodu"`).
+     * @property name   Polish name (e.g. `"wodorotlenek sodu"`).
      * @property soluble  `true` if the hydroxide dissolves readily in water.
      */
-    private data class BaseEntry(val formula: String, val namePL: String, val soluble: Boolean)
+    private data class BaseEntry(val formula: String, val name: String, val soluble: Boolean)
 
     private val hydroxides = listOf(
         BaseEntry("NaOH",      "wodorotlenek sodu",         true),
@@ -1014,29 +1035,29 @@ object ChemistryQuestionGenerator {
         val rng = Random(seed)
         val qs = mutableListOf<Question>()
         val allFormulas = hydroxides.map { it.formula }
-        val allNames    = hydroxides.map { it.namePL }
+        val allNames    = hydroxides.map { it.name }
         val solubHint   = "Rozpuszczalne zasady (mocne): NaOH, KOH, LiOH, Ca(OH)₂, Ba(OH)₂. Pozostałe są trudno rozpuszczalne."
         val solubItems  = listOf("NaOH, KOH, LiOH — gr. 1", "Ca(OH)₂, Ba(OH)₂ — gr. 2", "Inne wodorotlenki — trudno rozpuszczalne")
 
         hydroxides.forEach { base ->
-            val wNames = allNames.filter { it != base.namePL }.shuffled(rng).take(3)
-            val opts1  = (wNames + base.namePL).shuffled(rng)
+            val wNames = allNames.filter { it != base.name }.shuffled(rng).take(3)
+            val opts1  = (wNames + base.name).shuffled(rng)
             qs += SelectFromList(id = 0,
                 prompt = "Wodorotlenek o wzorze ${base.formula} to:",
-                options = opts1, correctIndices = setOf(opts1.indexOf(base.namePL)),
-                hint = Hint("${base.formula} to ${base.namePL}.", boldPart = base.namePL))
+                options = opts1, correctIndices = setOf(opts1.indexOf(base.name)),
+                hint = Hint("${base.formula} to ${base.name}.", boldPart = base.name))
 
             val wForms = allFormulas.filter { it != base.formula }.shuffled(rng).take(3)
             val opts2  = (wForms + base.formula).shuffled(rng)
             qs += SelectFromList(id = 0,
-                prompt = "Wzór ${base.namePL} to:",
+                prompt = "Wzór ${base.name} to:",
                 options = opts2, correctIndices = setOf(opts2.indexOf(base.formula)),
-                hint = Hint("Wzór ${base.namePL} to ${base.formula}.", boldPart = base.formula))
+                hint = Hint("Wzór ${base.name} to ${base.formula}.", boldPart = base.formula))
 
             val sType = if (base.soluble) "rozpuszczalny" else "trudno rozpuszczalny"
             val sOpts = listOf("rozpuszczalny", "trudno rozpuszczalny")
             qs += SelectFromList(id = 0,
-                prompt = "${base.namePL} (${base.formula}) jest:",
+                prompt = "${base.name} (${base.formula}) jest:",
                 options = sOpts, correctIndices = setOf(sOpts.indexOf(sType)),
                 hint = Hint(solubHint, boldPart = sType, sectionTitle = "Rozpuszczalność zasad", items = solubItems))
         }
@@ -1055,10 +1076,10 @@ object ChemistryQuestionGenerator {
      * Lookup record for a single salt used in chemia_3_4 question generation.
      *
      * @property formula   Chemical formula (e.g. `"NaCl"`).
-     * @property namePL    Polish name (e.g. `"chlorek sodu"`).
+     * @property name    Polish name (e.g. `"chlorek sodu"`).
      * @property acidName  Polish name of the parent acid (e.g. `"kwas chlorowodorowy"`).
      */
-    private data class SaltEntry(val formula: String, val namePL: String, val acidName: String)
+    private data class SaltEntry(val formula: String, val name: String, val acidName: String)
 
     private val salts = listOf(
         SaltEntry("NaCl",          "chlorek sodu",              "kwas chlorowodorowy"),
@@ -1099,7 +1120,7 @@ object ChemistryQuestionGenerator {
         val rng  = Random(seed)
         val qs   = mutableListOf<SelectFromList>()
         val allFormulas = salts.map { it.formula }
-        val allNames    = salts.map { it.namePL }
+        val allNames    = salts.map { it.name }
         val allAcids    = salts.map { it.acidName }.distinct()
         val saltItems   = listOf(
             "Chlorki — od HCl (kwas chlorowodorowy)",
@@ -1110,25 +1131,25 @@ object ChemistryQuestionGenerator {
         )
 
         salts.forEach { salt ->
-            val wNames = allNames.filter { it != salt.namePL }.shuffled(rng).take(3)
-            val opts1  = (wNames + salt.namePL).shuffled(rng)
+            val wNames = allNames.filter { it != salt.name }.shuffled(rng).take(3)
+            val opts1  = (wNames + salt.name).shuffled(rng)
             qs += SelectFromList(id = 0,
                 prompt = "Sól o wzorze ${salt.formula} to:",
-                options = opts1, correctIndices = setOf(opts1.indexOf(salt.namePL)),
-                hint = Hint("${salt.formula} to ${salt.namePL}.", boldPart = salt.namePL,
+                options = opts1, correctIndices = setOf(opts1.indexOf(salt.name)),
+                hint = Hint("${salt.formula} to ${salt.name}.", boldPart = salt.name,
                     sectionTitle = "Nazewnictwo soli", items = saltItems))
 
             val wForms = allFormulas.filter { it != salt.formula }.shuffled(rng).take(3)
             val opts2  = (wForms + salt.formula).shuffled(rng)
             qs += SelectFromList(id = 0,
-                prompt = "Wzór ${salt.namePL} to:",
+                prompt = "Wzór ${salt.name} to:",
                 options = opts2, correctIndices = setOf(opts2.indexOf(salt.formula)),
-                hint = Hint("Wzór ${salt.namePL} to ${salt.formula}.", boldPart = salt.formula))
+                hint = Hint("Wzór ${salt.name} to ${salt.formula}.", boldPart = salt.formula))
 
             val wAcids = allAcids.filter { it != salt.acidName }.shuffled(rng).take(3)
             val opts3  = (wAcids + salt.acidName).shuffled(rng)
             qs += SelectFromList(id = 0,
-                prompt = "${salt.namePL} (${salt.formula}) pochodzi od:",
+                prompt = "${salt.name} (${salt.formula}) pochodzi od:",
                 options = opts3, correctIndices = setOf(opts3.indexOf(salt.acidName)),
                 hint = Hint("${salt.formula} pochodzi od ${salt.acidName}.", boldPart = salt.acidName))
         }
@@ -1140,10 +1161,10 @@ object ChemistryQuestionGenerator {
      * Lookup record for a single oxide used in chemia_6_1 question generation.
      *
      * @property formula Chemical formula (e.g. `"Na₂O"`).
-     * @property namePL  Polish name (e.g. `"tlenek sodu"`).
+     * @property name  Polish name (e.g. `"tlenek sodu"`).
      * @property type    Oxide class: `"zasadowy"` (basic), `"kwasowy"` (acidic), or `"amfoteryczny"` (amphoteric).
      */
-    private data class OxideEntry(val formula: String, val namePL: String, val type: String)
+    private data class OxideEntry(val formula: String, val name: String, val type: String)
 
     private val oxides = listOf(
         OxideEntry("Na₂O",   "tlenek sodu",           "zasadowy"),
@@ -1235,7 +1256,7 @@ object ChemistryQuestionGenerator {
         val rng = Random(seed)
         val qs  = mutableListOf<Question>()
         val allFormulas = oxides.map { it.formula }
-        val allNames    = oxides.map { it.namePL }
+        val allNames    = oxides.map { it.name }
         val typeOpts    = listOf("zasadowy", "kwasowy", "amfoteryczny", "obojętny")
         val typeHint    = "Tlenki zasadowe = tlenki metali; tlenki kwasowe = tlenki niemetali. Amfoteryczne reagują zarówno z kwasami jak i zasadami."
         val typeItems   = listOf(
@@ -1246,22 +1267,22 @@ object ChemistryQuestionGenerator {
         )
 
         oxides.forEach { oxide ->
-            val wNames = allNames.filter { it != oxide.namePL }.shuffled(rng).take(3)
-            val opts1  = (wNames + oxide.namePL).shuffled(rng)
+            val wNames = allNames.filter { it != oxide.name }.shuffled(rng).take(3)
+            val opts1  = (wNames + oxide.name).shuffled(rng)
             qs += SelectFromList(id = 0,
                 prompt = "Tlenek o wzorze ${oxide.formula} to:",
-                options = opts1, correctIndices = setOf(opts1.indexOf(oxide.namePL)),
-                hint = Hint("${oxide.formula} to ${oxide.namePL}.", boldPart = oxide.namePL))
+                options = opts1, correctIndices = setOf(opts1.indexOf(oxide.name)),
+                hint = Hint("${oxide.formula} to ${oxide.name}.", boldPart = oxide.name))
 
             val wForms = allFormulas.filter { it != oxide.formula }.shuffled(rng).take(3)
             val opts2  = (wForms + oxide.formula).shuffled(rng)
             qs += SelectFromList(id = 0,
-                prompt = "Wzór ${oxide.namePL} to:",
+                prompt = "Wzór ${oxide.name} to:",
                 options = opts2, correctIndices = setOf(opts2.indexOf(oxide.formula)),
-                hint = Hint("Wzór ${oxide.namePL} to ${oxide.formula}.", boldPart = oxide.formula))
+                hint = Hint("Wzór ${oxide.name} to ${oxide.formula}.", boldPart = oxide.formula))
 
             qs += SelectFromList(id = 0,
-                prompt = "${oxide.namePL} (${oxide.formula}) jest tlenkiem:",
+                prompt = "${oxide.name} (${oxide.formula}) jest tlenkiem:",
                 options = typeOpts, correctIndices = setOf(typeOpts.indexOf(oxide.type)),
                 hint = Hint(typeHint, boldPart = oxide.type, sectionTitle = "Typy tlenków", items = typeItems))
         }
@@ -1288,7 +1309,7 @@ object ChemistryQuestionGenerator {
         val opts = buildOptions(z.toString(), distractors(z, 1, 120, rng), rng)
         return ElementCardQuiz(
             id = 0,
-            prompt = "Ile elektronów posiada atom ${el.namePL}?",
+            prompt = "Ile elektronów posiada atom ${el.name}?",
             atomicNumber = z,
             options = opts,
             correctIndex = opts.indexOf(z.toString()),
@@ -1311,7 +1332,7 @@ object ChemistryQuestionGenerator {
         val opts = buildOptions(z.toString(), distractors(z, 1, 120, rng), rng)
         return ElementCardQuiz(
             id = 0,
-            prompt = "Ile protonów posiada atom ${el.namePL}?",
+            prompt = "Ile protonów posiada atom ${el.name}?",
             atomicNumber = z,
             options = opts,
             correctIndex = opts.indexOf(z.toString()),
@@ -1363,7 +1384,7 @@ object ChemistryQuestionGenerator {
             options = opts,
             correctIndex = opts.indexOf(p.toString()),
             hint = Hint(
-                "${el.namePL} leży w $p. okresie układu.",
+                "${el.name} leży w $p. okresie układu.",
                 steps = listOf("Policz wiersz od góry tabeli — to numer okresu")
             )
         )
@@ -1581,10 +1602,10 @@ object ChemistryQuestionGenerator {
             val opts = listOf("metal", "niemetal", "metaloid", "gaz szlachetny")
             qs += SelectFromList(
                 id = 0,
-                prompt = "Do jakiej grupy zaliczamy ${el.namePL} (${el.symbol})?",
+                prompt = "Do jakiej grupy zaliczamy ${el.name} (${el.symbol})?",
                 options = opts,
                 correctIndices = setOf(opts.indexOf(type)),
-                hint = Hint("${el.namePL} to $type.", boldPart = type)
+                hint = Hint("${el.name} to $type.", boldPart = type)
             )
         }
 
@@ -1599,13 +1620,13 @@ object ChemistryQuestionGenerator {
             if (correctPool.isNotEmpty() && wrongPool.size >= 3) {
                 correctPool.shuffled(rng).forEach { c ->
                     val ws   = wrongPool.shuffled(rng).take(3)
-                    val opts = (ws.map { it.namePL } + c.namePL).shuffled(rng)
+                    val opts = (ws.map { it.name } + c.name).shuffled(rng)
                     qs += SelectFromList(
                         id = 0,
                         prompt = "Który z tych pierwiastków jest $label?",
                         options = opts,
-                        correctIndices = setOf(opts.indexOf(c.namePL)),
-                        hint = Hint("${c.namePL} to $label.", boldPart = c.namePL)
+                        correctIndices = setOf(opts.indexOf(c.name)),
+                        hint = Hint("${c.name} to $label.", boldPart = c.name)
                     )
                 }
             }
@@ -1627,6 +1648,6 @@ object ChemistryQuestionGenerator {
         val shellNames = listOf("K", "L", "M", "N", "O", "P")
         return config.split(",").mapIndexed { i, n ->
             "Powłoka ${shellNames.getOrElse(i) { "?" }}: $n"
-        } + "Razem: $z → ${elementByNumber[z]?.namePL} (${elementByNumber[z]?.symbol})"
+        } + "Razem: $z → ${elementByNumber[z]?.name} (${elementByNumber[z]?.symbol})"
     }
 }

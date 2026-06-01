@@ -1,6 +1,9 @@
 package prz.rutedu.app.math
 
-import kotlin.math.*
+import prz.rutedu.app.math.TriangleBuilder.fromAngles
+import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.sin
 
 /**
  * Factory object for computing triangle vertices from geometric descriptions.
