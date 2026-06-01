@@ -303,6 +303,30 @@ sealed class Question(open val id: Int) {
     ) : Question(id)
 
     /**
+     * The student taps a specific point (e.g. a province capital) on an interactive map.
+     *
+     * Similar to [MapQuiz], but the target is a point instead of a polygon. Used for
+     * province capitals where some provinces may have two capitals.
+     *
+     * Rendered by [prz.rutedu.app.screens.PointMapQuizContent].
+     *
+     * @property targetNames   List of names of the correct point(s). For provinces with
+     *                         two capitals, both are included.
+     * @property questionText  Full question in Polish (e.g. `"Zaznacz na mapie Kraków"`).
+     * @property region        Map viewport region.
+     * @property mapFile       Path to GeoJSON containing both points and background polygons.
+     * @property hint          Full hint shown in the bottom sheet.
+     */
+    data class PointMapQuiz(
+        override val id: Int,
+        val targetNames: List<String>,
+        val questionText: String,
+        val region: MapRegion = MapRegion.POLAND,
+        val mapFile: String = "files/polish_provinces_and_capitals.geojson",
+        val hint: Hint = Hint("")
+    ) : Question(id)
+
+    /**
      * A zoomable full periodic table from which several elements have been removed.
      * The student selects one element from a tray at the bottom and taps its correct
      * empty slot in the table.
