@@ -376,6 +376,8 @@
     <string name="lesson_desc_geo_4_4">Zaznacz województwa na mapie Polski</string>
     <string name="lesson_geo_4_5">Polskie Parki Narodowe</string>
     <string name="lesson_desc_geo_4_5">Rozpoznaj i wskaż polskie parki narodowe na mapie</string>
+    <string name="lesson_geografia_stolice_woj">Stolice wojew�dztw</string>
+    <string name="lesson_desc_geografia_stolice_woj">Wska� stolice na mapie Polski</string>
     <string name="topic_mat_2">Wyrażenia algebraiczne</string>
     <string name="topic_desc_mat_2">Wzory skróconego mnożenia</string>
     <string name="topic_mat_3">Równania i nierówności</string>

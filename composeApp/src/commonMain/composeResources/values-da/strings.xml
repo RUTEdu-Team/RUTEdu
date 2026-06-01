@@ -380,6 +380,8 @@ Spil i kamptilstand for at se de bedste spilleres resultater!</string>
     <string name="lesson_desc_geo_4_4">Marker voivodskaber på kortet over Polen</string>
     <string name="lesson_geo_4_5">Polens nationalparker</string>
     <string name="lesson_desc_geo_4_5">Marker nationalparkerne på kortet over Polen</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Algebraiske udtryk</string>
     <string name="topic_desc_mat_2">Algebraiske identiteter og faktorisering</string>
     <string name="topic_mat_3">Ligninger &amp; Uligheder</string>

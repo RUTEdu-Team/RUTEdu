@@ -363,6 +363,8 @@
     <string name="lesson_desc_geo_4_4">Marcar los voivodatos en el mapa de Polonia</string>
     <string name="lesson_geo_4_5">Parques nacionales de Polonia</string>
     <string name="lesson_desc_geo_4_5">Señala los parques nacionales polacos en el mapa de Polonia</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Expresiones Algebraicas</string>
     <string name="topic_desc_mat_2">Identidades algebraicas y factorización</string>
     <string name="topic_mat_3">Ecuaciones e Inecuaciones</string>

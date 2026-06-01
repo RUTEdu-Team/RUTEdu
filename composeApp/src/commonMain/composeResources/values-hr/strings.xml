@@ -380,6 +380,8 @@ Igrajte u borbenom načinu da biste vidjeli rezultate najboljih igrača!</string
     <string name="lesson_desc_geo_4_4">Označite vojvodstva na karti Poljske</string>
     <string name="lesson_geo_4_5">Poljski nacionalni parkovi</string>
     <string name="lesson_desc_geo_4_5">Označite nacionalne parkove na karti Poljske</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Algebarski izrazi</string>
     <string name="topic_desc_mat_2">Algebarski identiteti i rastavljanje na faktore</string>
     <string name="topic_mat_3">Jednadžbe i nejednadžbe</string>
