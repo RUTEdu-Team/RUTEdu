@@ -350,6 +350,13 @@ fun LessonGameScreen(
                     onCorrect = onAnsweredCorrectly,
                     onWrong = onWrongAnswer
                 )
+                is Question.PointMapQuiz -> PointMapQuizContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = bottomPadding,
+                    onCorrect = onAnsweredCorrectly,
+                    onWrong = onWrongAnswer
+                )
                 is Question.PeriodicTableQuiz -> PeriodicTableContent(
                     question = question,
                     accentColor = accentColor,
