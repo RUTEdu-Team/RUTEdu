@@ -358,6 +358,8 @@
     <string name="lesson_desc_geo_4_3">Land anhand des Hauptstadt-Namens bestimmen</string>
     <string name="lesson_geo_4_4">Woiwodschaften Polens</string>
     <string name="lesson_desc_geo_4_4">Woiwodschaften auf der Karte Polens markieren</string>
+    <string name="lesson_geo_4_5">Polnische Nationalparks</string>
+    <string name="lesson_desc_geo_4_5">Markiere die Nationalparks auf der Karte Polens</string>
     <string name="topic_mat_2">Algebraische Ausdrücke</string>
     <string name="topic_desc_mat_2">Binomische Formeln und Faktorisierung</string>
     <string name="topic_mat_3">Gleichungen &amp; Ungleichungen</string>

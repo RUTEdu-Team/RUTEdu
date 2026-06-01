@@ -378,6 +378,8 @@ Pelaa taistelutilassa nähdäksesi parhaiden pelaajien tulokset!</string>
     <string name="lesson_desc_geo_4_3">Osoita maa sen pääkaupungin nimen perusteella</string>
     <string name="lesson_geo_4_4">Puolan voivodikunnat</string>
     <string name="lesson_desc_geo_4_4">Merkitse voivodikunnat Puolan kartalle</string>
+    <string name="lesson_geo_4_5">Puolan kansallispuistot</string>
+    <string name="lesson_desc_geo_4_5">Merkitse kansallispuistot Puolan kartalle</string>
     <string name="topic_mat_2">Algebralliset lausekkeet</string>
     <string name="topic_desc_mat_2">Algebralliset identiteetit ja tekijöihinjako</string>
     <string name="topic_mat_3">Yhtälöt &amp; Epäyhtälöt</string>

@@ -378,6 +378,8 @@ Spela i stridsläget för att se de bästa spelarnas resultat!</string>
     <string name="lesson_desc_geo_4_3">Peka ut landet efter huvudstadens namn</string>
     <string name="lesson_geo_4_4">Polens vojvodskap</string>
     <string name="lesson_desc_geo_4_4">Markera vojvodskap på kartan över Polen</string>
+    <string name="lesson_geo_4_5">Polens nationalparker</string>
+    <string name="lesson_desc_geo_4_5">Markera nationalparkerna på kartan över Polen</string>
     <string name="topic_mat_2">Algebraiska uttryck</string>
     <string name="topic_desc_mat_2">Algebraiska identiteter och faktorisering</string>
     <string name="topic_mat_3">Ekvationer &amp; Olikheter</string>

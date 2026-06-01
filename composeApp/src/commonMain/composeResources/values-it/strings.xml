@@ -359,6 +359,8 @@
     <string name="lesson_desc_geo_4_3">Individua il paese dal nome della sua capitale</string>
     <string name="lesson_geo_4_4">Voivodati della Polonia</string>
     <string name="lesson_desc_geo_4_4">Segna i voivodati sulla mappa della Polonia</string>
+    <string name="lesson_geo_4_5">Parchi nazionali polacchi</string>
+    <string name="lesson_desc_geo_4_5">Indica i parchi nazionali polacchi sulla mappa della Polonia</string>
     <string name="topic_mat_2">Espressioni algebriche</string>
     <string name="topic_desc_mat_2">Prodotti notevoli e scomposizione</string>
     <string name="topic_mat_3">Equazioni e disequazioni</string>
