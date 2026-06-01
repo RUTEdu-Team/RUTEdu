@@ -217,7 +217,39 @@ fun ConfigListScreen(
                                 fontWeight = FontWeight.SemiBold,
                                 color = MaterialTheme.colorScheme.onSurface
                             )
-                            val langDesc = if (prz.rutedu.app.locale.customAppLocale == "pl") "Polski" else "English"
+                            val currentLocale = prz.rutedu.app.locale.customAppLocale ?: "en"
+                            val langDescRes = when (currentLocale) {
+                                "pl" -> Res.string.settings_lang_pl
+                                "en" -> Res.string.settings_lang_en
+                                "cs" -> Res.string.settings_lang_cs
+                                "de" -> Res.string.settings_lang_de
+                                "el" -> Res.string.settings_lang_el
+                                "es" -> Res.string.settings_lang_es
+                                "fr" -> Res.string.settings_lang_fr
+                                "hu" -> Res.string.settings_lang_hu
+                                "it" -> Res.string.settings_lang_it
+                                "nl" -> Res.string.settings_lang_nl
+                                "pt" -> Res.string.settings_lang_pt
+                                "sk" -> Res.string.settings_lang_sk
+                                "uk" -> Res.string.settings_lang_uk
+                                "bg" -> Res.string.settings_lang_bg
+                                "hr" -> Res.string.settings_lang_hr
+                                "sr" -> Res.string.settings_lang_sr
+                                "sv" -> Res.string.settings_lang_sv
+                                "da" -> Res.string.settings_lang_da
+                                "no" -> Res.string.settings_lang_no
+                                "is" -> Res.string.settings_lang_is
+                                "fi" -> Res.string.settings_lang_fi
+                                "et" -> Res.string.settings_lang_et
+                                "lv" -> Res.string.settings_lang_lv
+                                "lt" -> Res.string.settings_lang_lt
+                                "ro" -> Res.string.settings_lang_ro
+                                "sl" -> Res.string.settings_lang_sl
+                                "ga" -> Res.string.settings_lang_ga
+                                "mt" -> Res.string.settings_lang_mt
+                                else -> Res.string.settings_lang_en
+                            }
+                            val langDesc = stringResource(langDescRes)
                             Text(
                                 langDesc,
                                 fontSize = 13.sp,

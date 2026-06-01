@@ -112,7 +112,33 @@ fun LanguageSettings(
                 Column {
                     val languages = listOf(
                         ("pl" to stringResource(Res.string.settings_lang_pl)) to stringResource(Res.string.settings_lang_pl_desc),
-                        ("en" to stringResource(Res.string.settings_lang_en)) to stringResource(Res.string.settings_lang_en_desc)
+                        ("en" to stringResource(Res.string.settings_lang_en)) to stringResource(Res.string.settings_lang_en_desc),
+                        ("cs" to stringResource(Res.string.settings_lang_cs)) to stringResource(Res.string.settings_lang_cs_desc),
+                        ("de" to stringResource(Res.string.settings_lang_de)) to stringResource(Res.string.settings_lang_de_desc),
+                        ("el" to stringResource(Res.string.settings_lang_el)) to stringResource(Res.string.settings_lang_el_desc),
+                        ("es" to stringResource(Res.string.settings_lang_es)) to stringResource(Res.string.settings_lang_es_desc),
+                        ("fr" to stringResource(Res.string.settings_lang_fr)) to stringResource(Res.string.settings_lang_fr_desc),
+                        ("hu" to stringResource(Res.string.settings_lang_hu)) to stringResource(Res.string.settings_lang_hu_desc),
+                        ("it" to stringResource(Res.string.settings_lang_it)) to stringResource(Res.string.settings_lang_it_desc),
+                        ("nl" to stringResource(Res.string.settings_lang_nl)) to stringResource(Res.string.settings_lang_nl_desc),
+                        ("pt" to stringResource(Res.string.settings_lang_pt)) to stringResource(Res.string.settings_lang_pt_desc),
+                        ("sk" to stringResource(Res.string.settings_lang_sk)) to stringResource(Res.string.settings_lang_sk_desc),
+                        ("uk" to stringResource(Res.string.settings_lang_uk)) to stringResource(Res.string.settings_lang_uk_desc),
+                        ("bg" to stringResource(Res.string.settings_lang_bg)) to stringResource(Res.string.settings_lang_bg_desc),
+                        ("hr" to stringResource(Res.string.settings_lang_hr)) to stringResource(Res.string.settings_lang_hr_desc),
+                        ("sr" to stringResource(Res.string.settings_lang_sr)) to stringResource(Res.string.settings_lang_sr_desc),
+                        ("sv" to stringResource(Res.string.settings_lang_sv)) to stringResource(Res.string.settings_lang_sv_desc),
+                        ("da" to stringResource(Res.string.settings_lang_da)) to stringResource(Res.string.settings_lang_da_desc),
+                        ("no" to stringResource(Res.string.settings_lang_no)) to stringResource(Res.string.settings_lang_no_desc),
+                        ("is" to stringResource(Res.string.settings_lang_is)) to stringResource(Res.string.settings_lang_is_desc),
+                        ("fi" to stringResource(Res.string.settings_lang_fi)) to stringResource(Res.string.settings_lang_fi_desc),
+                        ("et" to stringResource(Res.string.settings_lang_et)) to stringResource(Res.string.settings_lang_et_desc),
+                        ("lv" to stringResource(Res.string.settings_lang_lv)) to stringResource(Res.string.settings_lang_lv_desc),
+                        ("lt" to stringResource(Res.string.settings_lang_lt)) to stringResource(Res.string.settings_lang_lt_desc),
+                        ("ro" to stringResource(Res.string.settings_lang_ro)) to stringResource(Res.string.settings_lang_ro_desc),
+                        ("sl" to stringResource(Res.string.settings_lang_sl)) to stringResource(Res.string.settings_lang_sl_desc),
+                        ("ga" to stringResource(Res.string.settings_lang_ga)) to stringResource(Res.string.settings_lang_ga_desc),
+                        ("mt" to stringResource(Res.string.settings_lang_mt)) to stringResource(Res.string.settings_lang_mt_desc)
                     )
                     languages.forEachIndexed { index, (pair, desc) ->
                         val (code, name) = pair
