@@ -278,22 +278,19 @@ sealed class Question(open val id: Int) {
     ) : Question(id)
 
     /**
-     * The student taps a country on an interactive, zoomable world map.
+     * The student taps a region on an interactive, zoomable map loaded from GeoJSON.
      *
-     * The map is loaded from a GeoJSON asset and rendered on a `Canvas`. The student
-     * can pinch-to-zoom and pan the map before selecting a country. The check is done
-     * by name matching against [countryKey] (English, exactly as stored in the GeoJSON).
+     * Rendered by [prz.rutedu.app.screens.MapQuizContent]. Selection is verified by exact
+     * match of the tapped feature name against [countryKey].
      *
-     * Rendered by `MapQuizContent`.
-     *
-     * @property countryKey    The country's English name as it appears in the GeoJSON `"name"`
-     *                         property (e.g. `"Poland"`, `"South Korea"`). This is the
-     *                         authoritative identifier used for hit-testing.
-     * @property questionText  Full grammatically correct question in Polish
-     *                         (e.g. `"Gdzie leży Polska?"`).
-     * @property region        Which portion of the world map to display. Defaults to [MapRegion.EUROPE].
-     * @property mapFile       File path to the geojson file for the desired game.
-     *                         (e.g. `"files/countries.geojson"`)
+     * @property countryKey    Feature `"name"` from GeoJSON (e.g. `"Poland"`, `"Karkonoski Park Narodowy"`).
+     *                         Must match a selectable feature in [mapFile] — see [CountryFeature.selectable]
+     *                         in [prz.rutedu.app.geo.loadGeoJson].
+     * @property questionText  Prompt shown above the map (typically Polish).
+     * @property region        Visible map window. Use [MapRegion.POLAND] for Polish provinces/parks.
+     * @property mapFile       Compose resource path to GeoJSON under `composeResources/files/`
+     *                         (e.g. `"files/countries.geojson"`, `"files/polish_provinces.geojson"`,
+     *                         `"files/polish_national_parks.geojson"`).
      * @property hint          Full hint shown in the bottom sheet.
      */
     data class MapQuiz(
