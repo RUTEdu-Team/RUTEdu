@@ -292,7 +292,61 @@ object QuestionBank {
         MapQuiz(4416, "świętokrzyskie", "Wskaż województwo świętokrzyskie", MapRegion.POLAND, "files/polish_provinces.geojson",
             Hint("Świętokrzyskie leży w południowo-środkowej Polsce, ze stolicą w Kielcach."))
     )
-    
+
+    /**
+     * Static questions for Lesson 4-5: "Polskie Parki Narodowe" (Polish National Parks).
+     *
+     * Asks students to identify Polish National Parks on the map based on their names.
+     */
+    private val geo_4_5: List<Question> = listOf(
+        MapQuiz(4501, "Białowieski Park Narodowy", "Wskaż Białowieski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Białowieski PN leży na granicy z Białorusią, chroni ostatni fragment lasu pierwotnego.")),
+        MapQuiz(4502, "Biebrzański Park Narodowy", "Wskaż Biebrzański Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("To największy polski park narodowy, obejmuje dolinę rzeki Biebrzy.")),
+        MapQuiz(4503, "Wigierski Park Narodowy", "Wskaż Wigierski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Park chroni jezioro Wigry oraz liczne mniejsze jeziora (suchary).")),
+        MapQuiz(4504, "Park Narodowy Ujście Warty", "Wskaż Park Narodowy Ujście Warty", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Park chroni tereny podmokłe u ujścia rzeki Warty do Odry.")),
+        MapQuiz(4505, "Karkonoski Park Narodowy", "Wskaż Karkonoski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Obejmuje najwyższe pasmo Sudetów – Karkonosze ze Śnieżką.")),
+        MapQuiz(4506, "Kampinoski Park Narodowy", "Wskaż Kampinoski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Leży tuż obok Warszawy, chroni Puszczę Kampinoską.")),
+        MapQuiz(4507, "Park Narodowy Gór Stołowych", "Wskaż Park Narodowy Gór Stołowych", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Słynie z formacji skalnych, takich jak Szczeliniec Wielki.")),
+        MapQuiz(4508, "Gorczański Park Narodowy", "Wskaż Gorczański Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni pasmo Gorców w Beskidach Zachodnich.")),
+        MapQuiz(4509, "Pieniński Park Narodowy", "Wskaż Pieniński Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Słynie z przełomu Dunajca i szczytu Trzy Korony.")),
+        MapQuiz(4510, "Roztoczański Park Narodowy", "Wskaż Roztoczański Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Położony na Roztoczu Środkowym, chroni m.in. konika polskiego.")),
+        MapQuiz(4511, "Tatrzański Park Narodowy", "Wskaż Tatrzański Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni najwyższe polskie góry – Tatry.")),
+        MapQuiz(4512, "Słowiński Park Narodowy", "Wskaż Słowiński Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Słynie z ruchomych wydm nad Morzem Bałtyckim.")),
+        MapQuiz(4513, "Park Narodowy Bory Tucholskie", "Wskaż Park Narodowy Bory Tucholskie", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni jeden z największych kompleksów borów sosnowych w Polsce.")),
+        MapQuiz(4514, "Świętokrzyski Park Narodowy", "Wskaż Świętokrzyski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni najwyższe pasmo Gór Świętokrzyskich z gołoborzami.")),
+        MapQuiz(4515, "Woliński Park Narodowy", "Wskaż Woliński Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Leży na wyspie Wolin, słynie z klifowego wybrzeża.")),
+        MapQuiz(4516, "Drawieński Park Narodowy", "Wskaż Drawieński Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Obejmuje dolinę rzeki Drawy i Puszczę Drawską.")),
+        MapQuiz(4517, "Bieszczadzki Park Narodowy", "Wskaż Bieszczadzki Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni najwyższe partie polskich Bieszczadów z połoninami.")),
+        MapQuiz(4518, "Ojcowski Park Narodowy", "Wskaż Ojcowski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("To najmniejszy polski park narodowy, słynie z Maczugi Herkulesa.")),
+        MapQuiz(4519, "Magurski Park Narodowy", "Wskaż Magurski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Położony w Beskidzie Niskim, chroni m.in. krasowe Diable Kamienie.")),
+        MapQuiz(4520, "Poleski Park Narodowy", "Wskaż Poleski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Obejmuje liczne torfowiska i bagna na Polesiu Lubelskim.")),
+        MapQuiz(4521, "Wielkopolski Park Narodowy", "Wskaż Wielkopolski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni krajobraz polodowcowy w pobliżu Poznania.")),
+        MapQuiz(4522, "Babiogórski Park Narodowy", "Wskaż Babiogórski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Obejmuje masyw Babiej Góry, najwyższego szczytu Beskidów.")),
+        MapQuiz(4523, "Narwiański Park Narodowy", "Wskaż Narwiański Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni dolinę „polskiej Amazonii” – wielokorytowej rzeki Narwi."))
+    )
+
     /**
      * Static questions for Lesson 3-1: "Wzory kwasów" (Acid Formulas).
      *
@@ -576,6 +630,7 @@ object QuestionBank {
         "geo_4_2" to geo_4_2,
         "geo_4_3" to geo_4_3,
         "geo_4_4" to geo_4_4,
+        "geo_4_5" to geo_4_5,
         "chemia_3_1" to chemia_3_1,
         "chemia_3_2" to chemia_3_2,
     )
