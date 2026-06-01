@@ -1,6 +1,7 @@
 package prz.rutedu.app.geo
 
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -22,11 +23,15 @@ import rutedu.composeapp.generated.resources.Res
  *                 in the current quiz logic but kept for potential future features.
  * @property rings Outer contour rings in geographic coordinates (longitude, latitude pairs).
  *                 Each ring has already been simplified by [simplify].
+ * @property selectable When `false`, the feature is drawn but excluded from tap hit-testing
+ *                      (e.g. a country outline behind national parks). Set via GeoJSON
+ *                      `"rutedu_selectable"` or inferred for country borders.
  */
 data class CountryFeature(
     val name: String,
     val iso2: String,
-    val rings: List<List<LonLat>>
+    val rings: List<List<LonLat>>,
+    val selectable: Boolean = true,
 )
 
 /**
@@ -84,6 +89,25 @@ private fun parseRing(ringArray: kotlinx.serialization.json.JsonArray): List<Lon
 }
 
 /**
+ * Derives [CountryFeature.selectable] from GeoJSON `properties`.
+ *
+ * Reads `"rutedu_selectable"` when present; otherwise treats country borders
+ * (`boundary=administrative`, `admin_level=2`) as non-selectable.
+ */
+private fun JsonObject.isFeatureSelectable(): Boolean {
+    this["rutedu_selectable"]?.jsonPrimitive?.let { prim ->
+        return when (prim.content.lowercase()) {
+            "false", "0", "no" -> false
+            else -> true
+        }
+    }
+    val boundary = this["boundary"]?.jsonPrimitive?.content
+    val adminLevel = this["admin_level"]?.jsonPrimitive?.content
+    if (boundary == "administrative" && adminLevel == "2") return false
+    return true
+}
+
+/**
  * Loads and parses a GeoJSON asset from the specified [path], returning a list of
  * [CountryFeature] objects ready for rendering and hit-testing.
  *
@@ -97,7 +121,11 @@ private fun parseRing(ringArray: kotlinx.serialization.json.JsonArray): List<Lon
  *
  * Features with no valid rings after simplification are excluded from the result.
  *
- * @param path The resource path to the GeoJSON file (e.g., `"files/countries.geojson"`).
+ * Each feature receives [CountryFeature.selectable] from [isFeatureSelectable]. Optional
+ * GeoJSON property `"rutedu_selectable": false` marks background polygons that are drawn
+ * but excluded from tap hit-testing.
+ *
+ * @param path The resource path to the GeoJSON file (e.g., `"files/polish_national_parks.geojson"`).
  * @return A list of [CountryFeature] objects parsed from the specified file.
  */
 @OptIn(ExperimentalResourceApi::class)
@@ -116,7 +144,8 @@ suspend fun loadGeoJson(path: String): List<CountryFeature> {
             val props = featureObj["properties"]?.jsonObject ?: continue
 
             // Try multiple common property names for the name/key
-            val name = props["name"]?.jsonPrimitive?.content
+            val name = props["name:pl"]?.jsonPrimitive?.content
+                ?: props["name"]?.jsonPrimitive?.content
                 ?: props["JPT_NAZWA_"]?.jsonPrimitive?.content
                 ?: props["NAME"]?.jsonPrimitive?.content
                 ?: props["VARNAME_1"]?.jsonPrimitive?.content
@@ -148,11 +177,12 @@ suspend fun loadGeoJson(path: String): List<CountryFeature> {
             }
 
             if (rings.isNotEmpty()) {
-                result.add(CountryFeature(name, iso2, rings))
+                result.add(CountryFeature(name, iso2, rings, props.isFeatureSelectable()))
             }
         }
     } catch (e: Exception) {
         println("Error loading GeoJSON from $path: ${e.message}")
+        e.printStackTrace()
     }
 
     if (result.isNotEmpty()) {
