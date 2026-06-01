@@ -1074,6 +1074,15 @@ object SubjectRepository {
                             isLocked = false,
                             color = Color(0xFF29DE32),
                             icon = Icons.Default.Landscape
+                        ),
+                        Lesson(
+                            id = "geografia_stolice_woj",
+                            name = "Stolice województw",
+                            description = "Wskaż stolice na mapie Polski",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFF47B20),
+                            icon = Icons.Default.Explore
                         )
                     )
                 )

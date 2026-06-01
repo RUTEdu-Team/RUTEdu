@@ -348,6 +348,33 @@ object QuestionBank {
     )
 
     /**
+     * Static questions for Lesson: "Stolice województw" (Province Capitals).
+     *
+     * Asks students to identify Polish province capitals on the map.
+     * Question ids start at 4601 to avoid overlap with national-park ids (4501–4523).
+     */
+    private val geografia_stolice_woj: List<Question> = listOf(
+        Question.PointMapQuiz(4601, listOf("Wrocław"), "Zaznacz na mapie Wrocław", MapRegion.POLAND, hint = Hint("Wrocław jest stolicą województwa dolnośląskiego.")),
+        Question.PointMapQuiz(4602, listOf("Bydgoszcz"), "Zaznacz na mapie Bydgoszcz", MapRegion.POLAND, hint = Hint("Bydgoszcz jest jedną z dwóch stolic województwa kujawsko-pomorskiego.")),
+        Question.PointMapQuiz(4603, listOf("Toruń"), "Zaznacz na mapie Toruń", MapRegion.POLAND, hint = Hint("Toruń jest jedną z dwóch stolic województwa kujawsko-pomorskiego.")),
+        Question.PointMapQuiz(4604, listOf("Lublin"), "Zaznacz na mapie Lublin", MapRegion.POLAND, hint = Hint("Lublin jest stolicą województwa lubelskiego.")),
+        Question.PointMapQuiz(4605, listOf("Gorzów Wielkopolski"), "Zaznacz na mapie Gorzów Wielkopolski", MapRegion.POLAND, hint = Hint("Gorzów Wielkopolski jest jedną z dwóch stolic województwa lubuskiego.")),
+        Question.PointMapQuiz(4606, listOf("Zielona Góra"), "Zaznacz na mapie Zielona Góra", MapRegion.POLAND, hint = Hint("Zielona Góra jest jedną z dwóch stolic województwa lubuskiego.")),
+        Question.PointMapQuiz(4607, listOf("Łódź"), "Zaznacz na mapie Łódź", MapRegion.POLAND, hint = Hint("Łódź jest stolicą województwa łódzkiego.")),
+        Question.PointMapQuiz(4608, listOf("Kraków"), "Zaznacz na mapie Kraków", MapRegion.POLAND, hint = Hint("Kraków jest stolicą województwa małopolskiego.")),
+        Question.PointMapQuiz(4609, listOf("Warszawa"), "Zaznacz na mapie Warszawę", MapRegion.POLAND, hint = Hint("Warszawa jest stolicą województwa mazowieckiego (oraz całego kraju).")),
+        Question.PointMapQuiz(4610, listOf("Opole"), "Zaznacz na mapie Opole", MapRegion.POLAND, hint = Hint("Opole jest stolicą województwa opolskiego.")),
+        Question.PointMapQuiz(4611, listOf("Rzeszów"), "Zaznacz na mapie Rzeszów", MapRegion.POLAND, hint = Hint("Rzeszów jest stolicą województwa podkarpackiego.")),
+        Question.PointMapQuiz(4612, listOf("Białystok"), "Zaznacz na mapie Białystok", MapRegion.POLAND, hint = Hint("Białystok jest stolicą województwa podlaskiego.")),
+        Question.PointMapQuiz(4613, listOf("Gdańsk"), "Zaznacz na mapie Gdańsk", MapRegion.POLAND, hint = Hint("Gdańsk jest stolicą województwa pomorskiego.")),
+        Question.PointMapQuiz(4614, listOf("Katowice"), "Zaznacz na mapie Katowice", MapRegion.POLAND, hint = Hint("Katowice są stolicą województwa śląskiego.")),
+        Question.PointMapQuiz(4615, listOf("Kielce"), "Zaznacz na mapie Kielce", MapRegion.POLAND, hint = Hint("Kielce są stolicą województwa świętokrzyskiego.")),
+        Question.PointMapQuiz(4616, listOf("Olsztyn"), "Zaznacz na mapie Olsztyn", MapRegion.POLAND, hint = Hint("Olsztyn jest stolicą województwa warmińsko-mazurskiego.")),
+        Question.PointMapQuiz(4617, listOf("Poznań"), "Zaznacz na mapie Poznań", MapRegion.POLAND, hint = Hint("Poznań jest stolicą województwa wielkopolskiego.")),
+        Question.PointMapQuiz(4618, listOf("Szczecin"), "Zaznacz na mapie Szczecin", MapRegion.POLAND, hint = Hint("Szczecin jest stolicą województwa zachodniopomorskiego.")),
+    )
+
+    /**
      * Static questions for Lesson 3-1: "Wzory kwasów" (Acid Formulas).
      *
      * Covers identifying names and chemical formulas for binary and oxyacids.
@@ -631,6 +658,7 @@ object QuestionBank {
         "geo_4_3" to geo_4_3,
         "geo_4_4" to geo_4_4,
         "geo_4_5" to geo_4_5,
+        "geografia_stolice_woj" to geografia_stolice_woj,
         "chemia_3_1" to chemia_3_1,
         "chemia_3_2" to chemia_3_2,
     )
