@@ -997,7 +997,7 @@ object SubjectRepository {
                             name = "Ukształtowanie terenu",
                             description = "Góry, niziny, wyżyny",
                             progress = 0.0f,
-                            isLocked = false,
+                            isLocked = true,
                             color = Color(0xFF3DBD7D),
                             icon = Icons.Default.Landscape
                         )
@@ -1017,7 +1017,7 @@ object SubjectRepository {
                     name = "Ludność świata",
                     description = "Demografia i migracje",
                     progress = 0.0f,
-                    isLocked = false,
+                    isLocked = true,
                     color = Color(0xFFF47B20),
                     icon = Icons.Default.Public
                 ),
