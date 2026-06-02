@@ -213,7 +213,7 @@ private fun hitTest(tap: Offset, country: ScreenCountry): Boolean =
  * Interactive map quiz where the student taps a country to answer the question.
  *
  * ## Data flow
- * 1. GeoJSON country data is loaded once from [loadCountries] and cached globally.
+ * 1. GeoJSON country data is loaded once from [prz.rutedu.app.geo.loadGeoJson] and cached globally.
  * 2. On each render (and whenever `canvasSize` changes), [buildScreenCountries] reprojects
  *    only the countries near [Question.MapQuiz.region] into canvas coordinates.
  * 3. When the user taps the canvas, the raw tap coordinate is **un-transformed** (reversing the

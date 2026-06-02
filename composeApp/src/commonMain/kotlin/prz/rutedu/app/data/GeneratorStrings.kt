@@ -10,7 +10,7 @@ import rutedu.composeapp.generated.resources.Res
  * Static quiz questions (lessons stored in the SQLite database via [QuestionBank]) already
  * carry their localised text inside the bundled JSON assets.  Dynamic generators
  * ([AlgebraQuestionGenerator], [ChemistryQuestionGenerator]) build [prz.rutedu.app.models.Question]
- * objects at runtime and therefore cannot use Compose resource strings — they need their own
+ * objects at runtime and therefore cannot use Compose resource strings - they need their own
  * language-keyed lookup tables.
  *
  * ## File layout
@@ -18,6 +18,7 @@ import rutedu.composeapp.generated.resources.Res
  * ```
  * files/algebra/strings_<lang>.json  – texts for [AlgebraQuestionGenerator]
  * files/chem/strings_<lang>.json     – texts for [ChemistryQuestionGenerator]
+ * files/math/strings_<lang>.json     – texts for [MathQuestionGenerator]
  * ```
  *
  * Both files are flat `Map<String, String>` JSON objects.  When a key is absent from the
@@ -27,7 +28,7 @@ import rutedu.composeapp.generated.resources.Res
  * ## Adding a new language
  *
  * 1. Create `files/algebra/strings_<code>.json` and `files/chem/strings_<code>.json`.
- * 2. Call [load] with the new language code — no other changes required.
+ * 2. Call [load] with the new language code - no other changes required.
  *
  * The files are automatically included in the app binary as Compose multiplatform resources.
  */
@@ -35,13 +36,15 @@ object GeneratorStrings {
 
     private var algebraMap: Map<String, String> = emptyMap()
     private var chemMap:    Map<String, String> = emptyMap()
+    private var mathMap:    Map<String, String> = emptyMap()
     private var algebraEn:  Map<String, String> = emptyMap()
     private var chemEn:     Map<String, String> = emptyMap()
+    private var mathEn:     Map<String, String> = emptyMap()
 
     private var loadedLang: String = ""
 
     /**
-     * Loads algebra and chemistry string tables for [lang].
+     * Loads algebra, chemistry, and math string tables for [lang].
      *
      * English values serve as the base; language-specific entries override them, so any
      * key missing from `strings_<lang>.json` automatically falls back to English.
@@ -58,8 +61,10 @@ object GeneratorStrings {
         val format = Json { ignoreUnknownKeys = true }
         if (algebraEn.isEmpty()) algebraEn = readFile(format, "algebra", "en")
         if (chemEn.isEmpty())    chemEn    = readFile(format, "chem",    "en")
+        if (mathEn.isEmpty())    mathEn    = readFile(format, "math",    "en")
         algebraMap = if (lang == "en") algebraEn else algebraEn + readFile(format, "algebra", lang)
         chemMap    = if (lang == "en") chemEn    else chemEn    + readFile(format, "chem",    lang)
+        mathMap    = if (lang == "en") mathEn    else mathEn    + readFile(format, "math",    lang)
         loadedLang = lang
     }
 
@@ -68,6 +73,9 @@ object GeneratorStrings {
 
     /** Returns the chemistry generator string for [key]; falls back to the raw key when not found. */
     fun chem(key: String): String = chemMap[key] ?: key
+
+    /** Returns the math generator string for [key]; falls back to the raw key when not found. */
+    fun math(key: String): String = mathMap[key] ?: key
 
     @OptIn(ExperimentalResourceApi::class)
     private suspend fun readFile(format: Json, subject: String, lang: String): Map<String, String> =

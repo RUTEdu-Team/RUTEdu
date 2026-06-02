@@ -159,7 +159,7 @@ object QuestionBank {
      *
      * Falls back to `"en"` when [languageCode] is not present in [SUPPORTED_QUESTION_LANGS]. Call this:
      * - Once synchronously during the first composition (to avoid UI flashes).
-     * - Again inside `LaunchedEffect` whenever [customAppLocale] changes.
+     * - Again inside `LaunchedEffect` whenever [prz.rutedu.app.locale.customAppLocale] changes.
      *
      * @param driver       Platform-specific SQLite driver.
      * @param languageCode Two-letter ISO 639-1 code; must be in [SUPPORTED_QUESTION_LANGS].
