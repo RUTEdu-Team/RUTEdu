@@ -1,0 +1,933 @@
+[
+    {
+        "lessonId": "geo_1_1",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "Poland",
+                "questionText": "Where is Poland?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Polónia está localizada na Europa Central, no Mar Báltico.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Europa Central e Oriental",
+                        "A sul do Mar Báltico"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Germany",
+                "questionText": "Where is Germany?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Alemanha está localizada no Centro-Oeste da Europa.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "A oeste da Polónia",
+                        "O maior país da Europa Ocidental"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "France",
+                "questionText": "Where is France?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A França está localizada na Europa Ocidental.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "A oeste da Alemanha",
+                        "Do Canal da Mancha ao Mar Mediterrâneo"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Italy",
+                "questionText": "Where is Italy?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Itália é uma península em forma de bota.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Sul da Europa",
+                        "A Península Apenina estende-se pelo Mar Mediterrâneo"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Spain",
+                "questionText": "Where is Spain?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Espanha está localizada na Península Ibérica.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Extremo sudoeste da Europa",
+                        "Faz fronteira com a França e Portugal"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Ukraine",
+                "questionText": "Where is Ukraine?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Ucrânia é o maior país localizado inteiramente na Europa.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Europa de Leste",
+                        "A sul da Bielorrússia, a leste da Polónia"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Sweden",
+                "questionText": "Where is Sweden?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Suécia está localizada na Península Escandinava.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Norte da Europa — Escandinávia",
+                        "Parte oriental da Península Escandinava"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Norway",
+                "questionText": "Where is Norway?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Noruega fica ao longo da costa ocidental da Escandinávia.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Parte ocidental da Península Escandinava",
+                        "Longa linha de costa ao longo do Oceano Atlântico"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Romania",
+                "questionText": "Where is Romania?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Roménia está localizada nos Balcãs.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Sudeste da Europa",
+                        "Faz fronteira com a Ucrânia, Bulgária e Sérvia"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Greece",
+                "questionText": "Where is Greece?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Grécia está localizada no sul dos Balcãs.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Sul da Europa",
+                        "Muitas ilhas no Mar Egeu"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_1",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "Germany",
+                "questionText": "Mark Germany — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Alemanha faz fronteira com a Polónia a oeste.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Olhe para o oeste da Polónia",
+                        "Nos mares Báltico e do Norte"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Czechia",
+                "questionText": "Mark Czechia — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Chéquia faz fronteira com a Polónia a sudoeste.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Olhe para o sul da Polónia",
+                        "Sem acesso ao mar — no meio da Europa"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "Slovakia",
+                "questionText": "Mark Slovakia — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Eslováquia faz fronteira com a Polónia a sul.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "A sul da Polónia, a leste da Chéquia",
+                        "Um pequeno país na Europa Central"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Ukraine",
+                "questionText": "Mark Ukraine — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Ucrânia faz fronteira com a Polónia a leste.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "A leste da Polónia",
+                        "Um grande país — o maior totalmente na Europa"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Belarus",
+                "questionText": "Mark Belarus — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Bielorrússia faz fronteira com a Polónia a nordeste.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "A nordeste da Polónia",
+                        "A sul da Lituânia"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Lithuania",
+                "questionText": "Mark Lithuania — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Lituânia faz fronteira com a Polónia a norte.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "A norte da Polónia",
+                        "Um dos três estados bálticos"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Russia",
+                "questionText": "Mark Russia (Kaliningrad Oblast) — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Rússia faz fronteira com a Polónia através do Oblast de Kaliningrado.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Procure o enclave no Mar Báltico",
+                        "Oblast russo isolado da Rússia, entre a Polónia e a Lituânia"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_2",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "China",
+                "questionText": "Where is China?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A China é o maior país da Ásia em população.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Ásia Oriental",
+                        "Vizinho da Mongólia, Rússia, Índia e Vietname"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Japan",
+                "questionText": "Where is Japan?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "O Japão é um arquipélago de ilhas na costa oriental da Ásia.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Extremo Oriente — ilhas no Oceano Pacífico",
+                        "A leste da Coreia e da China"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "India",
+                "questionText": "Where is India?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Índia está localizada na Península da Coreia.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Sul da Ásia",
+                        "Uma grande península que se estende pelo Oceano Índico"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "South Korea",
+                "questionText": "Where is South Korea?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Coreia do Sul está localizada na Península da Coreia.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Ásia Oriental",
+                        "Parte sul da Península da Coreia"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Mongolia",
+                "questionText": "Where is Mongolia?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Mongólia fica entre a China e a Rússia.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Ásia Central/Oriental",
+                        "Um grande país rodeado pela China a sul e pela Rússia a norte"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Kazakhstan",
+                "questionText": "Where is Kazakhstan?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "O Cazaquistão é o maior país da Ásia Central.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Ásia Central",
+                        "A sul da Rússia, a norte do Mar Cáspio"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Iran",
+                "questionText": "Where is Iran?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "O Irão está localizado no Médio Oriente.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Ásia Ocidental — Médio Oriente",
+                        "Entre o Iraque e o Afeganistão, no Golfo Pérsico"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Saudi Arabia",
+                "questionText": "Where is Saudi Arabia?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Arábia Saudita ocupa a maior parte da Península Arábica.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Península Arábica",
+                        "Um grande país no centro do Médio Oriente"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Vietnam",
+                "questionText": "Where is Vietnam?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "O Vietname está localizado no Sudeste Asiático.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Península da Indochina",
+                        "País longo e estreito ao longo do Mar da China Meridional"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Thailand",
+                "questionText": "Where is Thailand?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "A Tailândia está localizada no Sudeste Asiático.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Sudeste Asiático",
+                        "A sul do Laos, a oeste do Vietname"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_3",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "France",
+                "questionText": "Indicate the country whose capital is Paris",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Paris é a capital da França.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "A França está localizada na Europa Ocidental",
+                        "Faz fronteira com a Alemanha, Bélgica e Espanha"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Germany",
+                "questionText": "Indicate the country whose capital is Berlin",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Berlim é a capital da Alemanha.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "A Alemanha está localizada na Europa Central",
+                        "Vizinho da Polónia a oeste"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "Italy",
+                "questionText": "Indicate the country whose capital is Rome",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Roma é a capital da Itália.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "A Itália é uma península em forma de bota",
+                        "Mar Mediterrâneo — Sul da Europa"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Spain",
+                "questionText": "Indicate the country whose capital is Madrid",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Madrid é a capital de Espanha.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Península Ibérica — Sudoeste da Europa",
+                        "Vizinho de França e Portugal"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "United Kingdom",
+                "questionText": "Indicate the country whose capital is London",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Londres é a capital do Reino Unido.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Ilhas Britânicas — Noroeste da Europa",
+                        "Separado da França pelo Canal da Mancha"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Czechia",
+                "questionText": "Indicate the country whose capital is Prague",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Praga é a capital da Chéquia.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Europa Central sem acesso ao mar",
+                        "Vizinho da Polónia ao sul"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Hungary",
+                "questionText": "Indicate the country whose capital is Budapest",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Budapeste é a capital da Hungria.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Europa Central",
+                        "A sul da Chéquia e da Eslováquia"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Austria",
+                "questionText": "Indicate the country whose capital is Vienna",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Viena é a capital da Áustria.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Europa Central — Alpes",
+                        "Vizinho da Alemanha, Chéquia, Hungria e Itália"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Sweden",
+                "questionText": "Indicate the country whose capital is Stockholm",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Estocolmo é a capital da Suécia.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Península Escandinava — Norte da Europa",
+                        "Parte oriental da Escandinávia"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Greece",
+                "questionText": "Indicate the country whose capital is Athens",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Atenas é a capital da Grécia.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Południe Bałkanów",
+                        "Muitas ilhas no Mar Egeu"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_4",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 4401,
+                "countryKey": "małopolskie",
+                "questionText": "Indicate Lesser Poland Voivodeship (małopolskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "A Pequena Polónia (Małopolskie) fica no sul da Polónia, com a sua capital em Cracóvia.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4402,
+                "countryKey": "mazowieckie",
+                "questionText": "Indicate Masovian Voivodeship (mazowieckie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "A Mazóvia (Mazowieckie) é a maior voivodia, localizada na parte centro-leste, com a sua capital em Varsóvia.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4403,
+                "countryKey": "pomorskie",
+                "questionText": "Indicate Pomeranian Voivodeship (pomorskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Pomerânia (Pomorskie) fica no Mar Báltico, com a sua capital em Gdańsk.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4404,
+                "countryKey": "śląskie",
+                "questionText": "Indicate Silesian Voivodeship (śląskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "A Silésia (Śląskie) fica no sul, é a mais populosa, com a sua capital em Katowice.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4405,
+                "countryKey": "wielkopolskie",
+                "questionText": "Indicate Greater Poland Voivodeship (wielkopolskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "A Grande Polónia (Wielkopolskie) fica na parte ocidental do país, com a sua capital em Poznań.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4406,
+                "countryKey": "dolnośląskie",
+                "questionText": "Indicate Lower Silesian Voivodeship (dolnośląskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "A Baixa Silésia (Dolnośląskie) fica no sudoeste, com a sua capital em Wrocław.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4407,
+                "countryKey": "podkarpackie",
+                "questionText": "Indicate Subcarpathian Voivodeship (podkarpackie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Subcarpácia (Podkarpackie) fica no sudeste, com a sua capital em Rzeszów.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4408,
+                "countryKey": "zachodniopomorskie",
+                "questionText": "Indicate West Pomeranian Voivodeship (zachodniopomorskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "A Pomerânia Ocidental (Zachodniopomorskie) fica no noroeste, junto ao Báltico, com a sua capital em Szczecin.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4409,
+                "countryKey": "lubelskie",
+                "questionText": "Indicate Lublin Voivodeship (lubelskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Lublin (Lubelskie) fica no leste da Polónia, com a sua capital em Lublin.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4410,
+                "countryKey": "warmińsko-mazurskie",
+                "questionText": "Indicate Warmian-Masurian Voivodeship (warmińsko-mazurskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "A Vármia-Masúria (Warmińsko-mazurskie) é a terra dos mil lagos no norte, com a sua capital em Olsztyn.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4411,
+                "countryKey": "podlaskie",
+                "questionText": "Indicate Podlaskie Voivodeship (podlaskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Podláquia (Podlaskie) fica no nordeste, com a sua capital em Białystok.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4412,
+                "countryKey": "łódzkie",
+                "questionText": "Indicate Łódź Voivodeship (łódzkie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "A voivodia de Łódź (Łódzkie) fica no próprio centro da Polónia, com a sua capital em Łódź.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4413,
+                "countryKey": "kujawsko-pomorskie",
+                "questionText": "Indicate Kuyavian-Pomeranian Voivodeship (kujawsko-pomorskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "A Cujávia-Pomerânia (Kujawsko-pomorskie) fica na parte norte do centro, com as suas capitais em Bydgoszcz e Toruń.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4414,
+                "countryKey": "opolskie",
+                "questionText": "Indicate Opole Voivodeship (opolskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Opole (Opolskie) é a menor voivodia, localizada no sudoeste, com a sua capital em Opole.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4415,
+                "countryKey": "lubuskie",
+                "questionText": "Indicate Lubusz Voivodeship (lubuskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Lubúsquia (Lubuskie) fica no oeste, na fronteira com a Alemanha, com as suas capitais em Gorzów Wlkp. e Zielona Góra.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4416,
+                "countryKey": "świętokrzyskie",
+                "questionText": "Indicate Świętokrzyskie Voivodeship (świętokrzyskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "A voivodia de Santa Cruz (Świętokrzyskie) fica no centro-sul da Polónia, com a sua capital em Kielce.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,933 @@
+[
+    {
+        "lessonId": "geo_1_1",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "Poland",
+                "questionText": "Where is Poland?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Poljska se nalazi u Srednjoj Evropi, na Baltičkom moru.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Srednja i istočna Evropa",
+                        "Južno od Baltičkog mora"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Germany",
+                "questionText": "Where is Germany?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Nemačka se nalazi u srednjoj zapadnoj Evropi.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Zapadno od Poljske",
+                        "Najveća država u zapadnoj Evropi"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "France",
+                "questionText": "Where is France?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Francuska se nalazi u zapadnoj Evropi.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Zapadno od Nemačke",
+                        "Od Lamanša do Sredozemnog mora"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Italy",
+                "questionText": "Where is Italy?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Italija je poluostrvo u obliku čizme.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Južna Evropa",
+                        "Apeninsko poluostrvo se proteže u Sredozemno more"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Spain",
+                "questionText": "Where is Spain?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Španija se nalazi na Pirenejskom poluostrvu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Krajnji jugozapad Evrope",
+                        "Graniči se sa Francuskom i Portugalijom"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Ukraine",
+                "questionText": "Where is Ukraine?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Ukrajina je najveća država koja se u potpunosti nalazi u Evropi.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Istočna Evropa",
+                        "Južno od Belorusije, istočno od Poljske"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Sweden",
+                "questionText": "Where is Sweden?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Švedska se nalazi na Skandinavskom poluostrvu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Severna Evropa — Skandinavija",
+                        "Istočni deo Skandinavskog poluostrva"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Norway",
+                "questionText": "Where is Norway?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Norveška leži duž zapadne obale Skandinavije.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Zapadni deo Skandinavskog poluostrva",
+                        "Duga obala duž Atlantskog okeana"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Romania",
+                "questionText": "Where is Romania?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Rumunija se nalazi na Balkanu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Jugoistočna Evropa",
+                        "Graniči se sa Ukrajinom, Bugarskom i Srbijom"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Greece",
+                "questionText": "Where is Greece?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Grčka se nalazi na jugu Balkana.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Južna Evropa",
+                        "Mnogo ostrva u Egejskom moru"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_1",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "Germany",
+                "questionText": "Mark Germany — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Nemačka se graniči sa Poljskom na zapadu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Pogledajte zapadno od Poljske",
+                        "Na Baltičkom i Severnom moru"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Czechia",
+                "questionText": "Mark Czechia — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Češka se graniči sa Poljskom na jugozapadu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Pogledajte južno od Poljske",
+                        "Bez izlaza na more — u sredini Evrope"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "Slovakia",
+                "questionText": "Mark Slovakia — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Slovačka se graniči sa Poljskom na jugu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Južno od Poljske, istočno od Češke",
+                        "Mala država u Srednjoj Evropi"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Ukraine",
+                "questionText": "Mark Ukraine — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Ukrajina se graniči sa Poljskom na istoku.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Istočno od Poljske",
+                        "Velika država — najveća koja je u potpunosti u Evropi"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Belarus",
+                "questionText": "Mark Belarus — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Belorusija se graniči sa Poljskom na severoistoku.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Severoistočno od Poljske",
+                        "Južno od Litvanije"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Lithuania",
+                "questionText": "Mark Lithuania — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Litvanija se graniči sa Poljskom na severu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Severno od Poljske",
+                        "Jedna od tri baltičke države"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Russia",
+                "questionText": "Mark Russia (Kaliningrad Oblast) — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Rusija se graniči sa Poljskom preko Kalinjingradske oblasti.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Potražite eksklavu na Baltičkom moru",
+                        "Ruska oblast odsečena od Rusije, između Poljske i Litvanije"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_2",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "China",
+                "questionText": "Where is China?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Kina je najveća država u Aziji po broju stanovnika.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Istočna Azija",
+                        "Sused Mongolije, Rusije, Indije i Vijetnama"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Japan",
+                "questionText": "Where is Japan?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Japan je ostrvski arhipelag na istočnoj obali Azije.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Daleki istok — ostrva u Tihom okeanu",
+                        "Istočno od Koreje i Kine"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "India",
+                "questionText": "Where is India?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Indija se nalazi na Korejskom poluostrvu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Južna Azija",
+                        "Veliko poluostrvo koje se proteže u Indijski okean"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "South Korea",
+                "questionText": "Where is South Korea?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Južna Koreja se nalazi na Korejskom poluostrvu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Istočna Azija",
+                        "Južni deo Korejskog poluostrva"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Mongolia",
+                "questionText": "Where is Mongolia?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Mongolija leži između Kine i Rusije.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Srednja/Istočna Azija",
+                        "Velika država okružena Kinom na jugu i Rusijom na severu"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Kazakhstan",
+                "questionText": "Where is Kazakhstan?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Kazahstan je najveća država u Srednjoj Aziji.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Srednja Azija",
+                        "Južno od Rusije, severno od Kaspijskog jezera"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Iran",
+                "questionText": "Where is Iran?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Iran se nalazi na Bliskom istoku.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Zapadna Azija — Bliski istok",
+                        "Između Iraka i Avganistana, na Persijskom zalivu"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Saudi Arabia",
+                "questionText": "Where is Saudi Arabia?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Saudijska Arabija zauzima veći deo Arabijskog poluostrva.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Arabijsko poluostrvo",
+                        "Velika država u centru Bliskog istoka"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Vietnam",
+                "questionText": "Where is Vietnam?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Vijetnam se nalazi u Jugoistočnoj Aziji.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Indokinesko poluostrvo",
+                        "Duga, uska država duž Južnokineskog mora"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Thailand",
+                "questionText": "Where is Thailand?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Tajland se nalazi u Jugoistočnoj Aziji.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Jugoistočna Azija",
+                        "Južno od Laosa, zapadno od Vijetnama"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_3",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "France",
+                "questionText": "Indicate the country whose capital is Paris",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Pariz je glavni grad Francuske.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Francuska se nalazi u zapadnoj Evropi",
+                        "Graniči se sa Nemačkom, Belgijom i Španijom"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Germany",
+                "questionText": "Indicate the country whose capital is Berlin",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Berlin je glavni grad Nemačke.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Nemačka se nalazi u Srednjoj Evropi",
+                        "Sused Poljske na zapadu"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "Italy",
+                "questionText": "Indicate the country whose capital is Rome",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Rim je glavni grad Italije.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Italija je poluostrvo u obliku čizme",
+                        "Sredozemno more — Južna Evropa"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Spain",
+                "questionText": "Indicate the country whose capital is Madrid",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Madrid je glavni grad Španije.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Pirenejsko poluostrvo — jugozapadna Evropa",
+                        "Sused Francuske i Portugalije"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "United Kingdom",
+                "questionText": "Indicate the country whose capital is London",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "London je glavni grad Ujedinjenog Kraljevstva.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Britanska ostrva — severozapadna Evropa",
+                        "Odvojeno od Francuske Lamanšem"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Czechia",
+                "questionText": "Indicate the country whose capital is Prague",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Prag je glavni grad Češke.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Kontinentalna Srednja Evropa",
+                        "Sused Poljske na jugu"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Hungary",
+                "questionText": "Indicate the country whose capital is Budapest",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Budimpešta je glavni grad Mađarske.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Srednja Evropa",
+                        "Južno od Češke i Slovačke"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Austria",
+                "questionText": "Indicate the country whose capital is Vienna",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Beč je glavni grad Austrije.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Srednja Evropa — Alpi",
+                        "Sused Nemačke, Češke, Mađarske i Italije"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Sweden",
+                "questionText": "Indicate the country whose capital is Stockholm",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Stokholm je glavni grad Švedske.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Skandinavsko poluostrvo — Severna Evropa",
+                        "Istočni deo Skandinavije"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Greece",
+                "questionText": "Indicate the country whose capital is Athens",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Atina je glavni grad Grčke.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Południe Bałkanów",
+                        "Mnogo ostrva u Egejskom moru"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_4",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 4401,
+                "countryKey": "małopolskie",
+                "questionText": "Indicate Lesser Poland Voivodeship (małopolskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Maloopoljsko vojvodstvo leži na jugu Poljske, sa glavnim gradom u Krakovu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4402,
+                "countryKey": "mazowieckie",
+                "questionText": "Indicate Masovian Voivodeship (mazowieckie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Mazovsko vojvodstvo je najveće vojvodstvo, smešteno u istočno-centralnom delu, sa glavnim gradom u Varšavi.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4403,
+                "countryKey": "pomorskie",
+                "questionText": "Indicate Pomeranian Voivodeship (pomorskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Pomorsko vojvodstvo leži na Baltičkom moru, sa glavnim gradom u Gdanjsku.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4404,
+                "countryKey": "śląskie",
+                "questionText": "Indicate Silesian Voivodeship (śląskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Šlesko vojvodstvo leži na jugu, najnaseljenije je, sa glavnim gradom u Katovicama.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4405,
+                "countryKey": "wielkopolskie",
+                "questionText": "Indicate Greater Poland Voivodeship (wielkopolskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Velikopoljsko vojvodstvo leži u zapadnom delu zemlje, sa glavnim gradom u Poznanju.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4406,
+                "countryKey": "dolnośląskie",
+                "questionText": "Indicate Lower Silesian Voivodeship (dolnośląskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Donjošlesko vojvodstvo leži na jugozapadu, sa glavnim gradom u Vroclavu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4407,
+                "countryKey": "podkarpackie",
+                "questionText": "Indicate Subcarpathian Voivodeship (podkarpackie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Potkarpatsko vojvodstvo leži na jugoistoku, sa glavnim gradom u Žešovu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4408,
+                "countryKey": "zachodniopomorskie",
+                "questionText": "Indicate West Pomeranian Voivodeship (zachodniopomorskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Zapadnopomorsko vojvodstvo leži na severozapadu, na Baltiku, sa glavnim gradom u Ščećinu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4409,
+                "countryKey": "lubelskie",
+                "questionText": "Indicate Lublin Voivodeship (lubelskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Lublinsko vojvodstvo leži na istoku Poljske, sa glavnim gradom u Lublinu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4410,
+                "countryKey": "warmińsko-mazurskie",
+                "questionText": "Indicate Warmian-Masurian Voivodeship (warmińsko-mazurskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Varminsko-mazursko vojvodstvo je zemlja hiljadu jezera na severu, sa glavnim gradom u Olštinu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4411,
+                "countryKey": "podlaskie",
+                "questionText": "Indicate Podlaskie Voivodeship (podlaskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Podlasko vojvodstvo leži na severoistoku, sa glavnim gradom u Bjalistoku.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4412,
+                "countryKey": "łódzkie",
+                "questionText": "Indicate Łódź Voivodeship (łódzkie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Lodzko vojvodstvo leži u samom centru Poljske, sa glavnim gradom u Lođu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4413,
+                "countryKey": "kujawsko-pomorskie",
+                "questionText": "Indicate Kuyavian-Pomeranian Voivodeship (kujawsko-pomorskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Kujavsko-pomorsko vojvodstvo leži u severnom delu centra, sa glavnim gradovima u Bidgošču i Torunju.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4414,
+                "countryKey": "opolskie",
+                "questionText": "Indicate Opole Voivodeship (opolskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Opoljsko vojvodstvo je najmanje vojvodstvo, smešteno na jugozapadu, sa glavnim gradom u Opolu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4415,
+                "countryKey": "lubuskie",
+                "questionText": "Indicate Lubusz Voivodeship (lubuskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Lubuško vojvodstvo leži na zapadu, na granici sa Nemačkom, sa glavnim gradovima u Gožovu Velikopoljskom i Zelenoj Gori.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4416,
+                "countryKey": "świętokrzyskie",
+                "questionText": "Indicate Świętokrzyskie Voivodeship (świętokrzyskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Svetokriško vojvodstvo leži u južno-centralnoj Poljskoj, sa glavnim gradom u Kjelcu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    }
+]

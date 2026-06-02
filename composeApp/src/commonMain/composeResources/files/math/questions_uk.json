@@ -1,0 +1,4437 @@
+[
+    {
+        "lessonId": "mat_1_1",
+        "questions": [
+            {
+                "type": "FindAnswer",
+                "id": 0,
+                "operand1": 3,
+                "operand2": 5,
+                "operator": "ADD",
+                "hint": {
+                    "mainText": "Додавання — це рахунок уперед.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "У вас є 3",
+                        "Ви додаєте 5 кроків",
+                        "Результат: 8"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 1,
+                "operand1": 9,
+                "operand2": 4,
+                "result": 13,
+                "correctOperator": "ADD",
+                "hint": {
+                    "mainText": "Результат більший за обидва числа — це додавання.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "9 + 4 = 13 ✓",
+                        "9 − 4 = 5 ✗"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 2,
+                "operand1": 12,
+                "operand2": 4,
+                "operator": "SUBTRACT",
+                "hint": {
+                    "mainText": "Віднімання — це рахунок у зворотному напрямку.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "У вас є 12",
+                        "Ви робите крок назад на 4",
+                        "Результат: 8"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 3,
+                "operand1": 15,
+                "operand2": 7,
+                "result": 8,
+                "correctOperator": "SUBTRACT",
+                "hint": {
+                    "mainText": "Результат менший за перше число — це віднімання.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "15 − 7 = 8 ✓",
+                        "15 + 7 = 22 ✗"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 4,
+                "operand1": 6,
+                "operand2": 8,
+                "operator": "ADD",
+                "hint": {
+                    "mainText": "Розкладіть 8 на 4 + 4, щоб було легше рахувати.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "6 + 4 = 10",
+                        "10 + 4 = 14"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 5,
+                "operand1": 20,
+                "operand2": 5,
+                "result": 15,
+                "correctOperator": "SUBTRACT",
+                "hint": {
+                    "mainText": "Результат 15 менший за 20.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "20 − 5 = 15 ✓",
+                        "20 + 5 = 25 ✗"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 6,
+                "operand1": 17,
+                "operand2": 9,
+                "operator": "SUBTRACT",
+                "hint": {
+                    "mainText": "Розкладіть віднімання: 17 − 9 = 17 − 10 + 1.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "17 − 10 = 7",
+                        "7 + 1 = 8"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 7,
+                "operand1": 8,
+                "operand2": 6,
+                "result": 14,
+                "correctOperator": "ADD",
+                "hint": {
+                    "mainText": "Результат 14 більший за обидва числа.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "8 + 6 = 14 ✓",
+                        "8 − 6 = 2 ✗"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 8,
+                "operand1": 25,
+                "operand2": 13,
+                "operator": "ADD",
+                "hint": {
+                    "mainText": "Додайте десятки та одиниці окремо.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "20 + 10 = 30",
+                        "5 + 3 = 8",
+                        "30 + 8 = 38"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 9,
+                "operand1": 30,
+                "operand2": 12,
+                "result": 18,
+                "correctOperator": "SUBTRACT",
+                "hint": {
+                    "mainText": "Результат 18 менший за 30.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "30 − 12 = 18 ✓",
+                        "30 + 12 = 42 ✗"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 10,
+                "operand1": 100,
+                "operand2": 37,
+                "operator": "SUBTRACT",
+                "hint": {
+                    "mainText": "Віднімайте десятки та одиниці послідовно.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "100 − 30 = 70",
+                        "70 − 7 = 63"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 11,
+                "operand1": 44,
+                "operand2": 56,
+                "result": 100,
+                "correctOperator": "ADD",
+                "hint": {
+                    "mainText": "44 + 56 дає кругле число 100.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "4 + 6 = 10 (одиниці)",
+                        "40 + 50 = 90 (десятки)",
+                        "90 + 10 = 100 ✓"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "mat_1_2",
+        "questions": [
+            {
+                "type": "FindAnswer",
+                "id": 0,
+                "operand1": 7,
+                "operand2": 8,
+                "operator": "MULTIPLY",
+                "hint": {
+                    "mainText": "7 × 8 — це результат, який варто запам'ятати.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "7 × 4 = 28",
+                        "28 × 2 = 56"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 1,
+                "operand1": 5,
+                "operand2": 4,
+                "result": 20,
+                "correctOperator": "MULTIPLY",
+                "hint": {
+                    "mainText": "Результат 20 = 5 помножити на 4.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "5 × 4 = 20 ✓",
+                        "5 + 4 = 9 ✗",
+                        "20 ÷ 4 = 5 ✓"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 2,
+                "operand1": 36,
+                "operand2": 6,
+                "operator": "DIVIDE",
+                "hint": {
+                    "mainText": "Ділення — це дія, обернена до множення.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "6 × 6 = 36",
+                        "So 36 ÷ 6 = 6"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 3,
+                "operand1": 24,
+                "operand2": 4,
+                "result": 6,
+                "correctOperator": "DIVIDE",
+                "hint": {
+                    "mainText": "Перевірка: 4 × 6 = 24.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "24 ÷ 4 = 6 ✓",
+                        "24 × 4 = 96 ✗"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 4,
+                "operand1": 9,
+                "operand2": 9,
+                "operator": "MULTIPLY",
+                "hint": {
+                    "mainText": "9 × 9 — один із найважливіших результатів для запам'ятовування.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "9 × 10 = 90",
+                        "90 − 9 = 81"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 5,
+                "operand1": 6,
+                "operand2": 7,
+                "result": 42,
+                "correctOperator": "MULTIPLY",
+                "hint": {
+                    "mainText": "6 × 7 = 42 — варто знати напам'ять.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "6 × 7 = 42 ✓",
+                        "6 + 7 = 13 ✗"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 6,
+                "operand1": 56,
+                "operand2": 8,
+                "operator": "DIVIDE",
+                "hint": {
+                    "mainText": "Пригадайте таблицю множення на 8.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "8 × 7 = 56",
+                        "So 56 ÷ 8 = 7"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 7,
+                "operand1": 48,
+                "operand2": 6,
+                "result": 8,
+                "correctOperator": "DIVIDE",
+                "hint": {
+                    "mainText": "Перевірка: 6 × 8 = 48.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "48 ÷ 6 = 8 ✓",
+                        "6 × 8 = 48 ✓"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 8,
+                "operand1": 12,
+                "operand2": 11,
+                "operator": "MULTIPLY",
+                "hint": {
+                    "mainText": "Множення на 11: додайте цифри.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "12 × 10 = 120",
+                        "12 × 1 = 12",
+                        "120 + 12 = 132"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 9,
+                "operand1": 3,
+                "operand2": 8,
+                "result": 24,
+                "correctOperator": "MULTIPLY",
+                "hint": {
+                    "mainText": "3 × 8 = 24.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3 × 8 = 24 ✓",
+                        "3 + 8 = 11 ✗"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 10,
+                "operand1": 81,
+                "operand2": 9,
+                "operator": "DIVIDE",
+                "hint": {
+                    "mainText": "Ділення — це дія, обернена до множення.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "9 × 9 = 81",
+                        "So 81 ÷ 9 = 9"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 11,
+                "operand1": 72,
+                "operand2": 8,
+                "result": 9,
+                "correctOperator": "DIVIDE",
+                "hint": {
+                    "mainText": "Перевірка: 8 × 9 = 72.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "72 ÷ 8 = 9 ✓",
+                        "8 × 9 = 72 ✓"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "mat_1_3",
+        "questions": [
+            {
+                "type": "FindAnswer",
+                "id": 0,
+                "operand1": 2,
+                "operand2": 2,
+                "operator": "POWER",
+                "hint": {
+                    "mainText": "2 у степені 2 — це 2 × 2.",
+                    "boldPart": null,
+                    "sectionTitle": "ВИЗНАЧЕННЯ ПІДНЕСЕННЯ ДО СТЕПЕНЯ",
+                    "items": [
+                        "a^n = a × a × ... × a (n разів)",
+                        "2^2 = 2 × 2"
+                    ],
+                    "steps": [
+                        "2 × 2 = 4"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 1,
+                "operand1": 3,
+                "operand2": 2,
+                "operator": "POWER",
+                "hint": {
+                    "mainText": "3 у степені 2 — це 3 × 3.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3 × 3 = 9"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 2,
+                "operand1": 2,
+                "operand2": 3,
+                "operator": "POWER",
+                "hint": {
+                    "mainText": "2 у степені 3 — це 2 × 2 × 2.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "2 × 2 = 4",
+                        "4 × 2 = 8"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 3,
+                "operand1": 2,
+                "operand2": 3,
+                "result": 8,
+                "correctOperator": "POWER",
+                "hint": {
+                    "mainText": "2 ^ 3 означає 2, помножене на себе 3 рази.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "2 × 2 = 4",
+                        "4 × 2 = 8 ✓"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 4,
+                "operand1": 4,
+                "operand2": 2,
+                "operator": "POWER",
+                "hint": {
+                    "mainText": "4 у степені 2 — це 4 × 4.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "4 × 4 = 16"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 5,
+                "operand1": 5,
+                "operand2": 2,
+                "operator": "POWER",
+                "hint": {
+                    "mainText": "5 у степені 2 — це 5 × 5.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "5 × 5 = 25"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 6,
+                "operand1": 2,
+                "operand2": 4,
+                "operator": "POWER",
+                "hint": {
+                    "mainText": "2 у степені 4 — це 2 × 2 × 2 × 2.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "2 × 2 = 4",
+                        "4 × 2 = 8",
+                        "8 × 2 = 16"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 7,
+                "operand1": 3,
+                "operand2": 3,
+                "result": 27,
+                "correctOperator": "POWER",
+                "hint": {
+                    "mainText": "3 ^ 3 означає 3, помножене на себе 3 рази.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3 × 3 = 9",
+                        "9 × 3 = 27 ✓"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 8,
+                "operand1": 10,
+                "operand2": 2,
+                "operator": "POWER",
+                "hint": {
+                    "mainText": "10 у степені 2 — це 10 × 10.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "10 × 10 = 100"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 9,
+                "operand1": 3,
+                "operand2": 4,
+                "operator": "POWER",
+                "hint": {
+                    "mainText": "3 у степені 4 — це 3 × 3 × 3 × 3.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3 × 3 = 9",
+                        "9 × 3 = 27",
+                        "27 × 3 = 81"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "mat_2_1",
+        "questions": [
+            {
+                "type": "SelectFromList",
+                "id": 0,
+                "prompt": "Який із наступних виразів є одночленом?",
+                "options": [
+                    "3x + 2",
+                    "5x²y",
+                    "x + y + z",
+                    "a² + b"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Одночлен — це алгебраїчний вираз, який є добутком чисел і змінних.",
+                    "boldPart": "добуток чисел і змінних",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3x+2 — сума, не добуток ✗",
+                        "5x²y — добуток: 5·x²·y ✓",
+                        "x+y+z — сума ✗",
+                        "a²+b — сума ✗"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 1,
+                "prompt": "Скільки доданків має многочлен 3x² − 2x + 1?",
+                "options": [
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Доданки многочлена розділені знаками + або −.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3x² — доданок 1",
+                        "−2x — доданок 2",
+                        "+1 — доданок 3",
+                        "Всього: 3 доданки"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 2,
+                "prompt": "Які вирази є одночленами? (виберіть усі)",
+                "options": [
+                    "7a³b",
+                    "2x − 3",
+                    "−4xy²",
+                    "m + n"
+                ],
+                "correctIndices": [
+                    0,
+                    2
+                ],
+                "multiSelect": true,
+                "hint": {
+                    "mainText": "Одночлен не може містити додавання чи віднімання.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "7a³b ✓ — тільки добуток",
+                        "2x−3 ✗ — сума",
+                        "−4xy² ✓ — тільки добуток",
+                        "m+n ✗ — сума"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3,
+                "prompt": "Який із наступних виразів є многочленом другого степеня?",
+                "options": [
+                    "5x³ + 1",
+                    "3x² − x + 4",
+                    "7x",
+                    "2"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Степінь многочлена = найбільший показник степеня змінної.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "5x³ → степінь 3 ✗",
+                        "3x² → степінь 2 ✓",
+                        "7x → степінь 1 ✗",
+                        "2 → степінь 0 ✗"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 4,
+                "prompt": "Додайте подібні доданки: 4x + 3x = ?",
+                "options": [
+                    "7x²",
+                    "7x",
+                    "12x",
+                    "7"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Подібні доданки — це ті, що мають однакову буквену частину; ми додаємо їхні коефіцієнти.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "4x + 3x = (4+3)x = 7x"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 5,
+                "prompt": "Які вирази є подібними доданками до 2x²? (виберіть усі)",
+                "options": [
+                    "3x²",
+                    "2x",
+                    "−5x²",
+                    "x² + 1"
+                ],
+                "correctIndices": [
+                    0,
+                    2
+                ],
+                "multiSelect": true,
+                "hint": {
+                    "mainText": "Подібні доданки мають однакову буквену частину.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3x² ✓ — буквена частина x²",
+                        "2x ✗ — буквена частина x",
+                        "−5x² ✓ — буквена частина x²",
+                        "x²+1 ✗ — це многочлен"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 6,
+                "prompt": "Спростіть: 5a − 2a + a = ?",
+                "options": [
+                    "4a",
+                    "3a",
+                    "8a",
+                    "2a"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Відніміть та додайте коефіцієнти біля a.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "5a − 2a = 3a",
+                        "3a + a = 4a"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 7,
+                "prompt": "Який доданок є вільним членом у виразі x² + 3x − 7?",
+                "options": [
+                    "x²",
+                    "3x",
+                    "−7",
+                    "3"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Вільний член не містить змінної.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "−7 не має x → це вільний член ✓"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 8,
+                "prompt": "Який із наступних виразів є многочленом? (виберіть усі)",
+                "options": [
+                    "x² + 2x + 1",
+                    "3/x",
+                    "4x³ − x",
+                    "√x + 1"
+                ],
+                "correctIndices": [
+                    0,
+                    2
+                ],
+                "multiSelect": true,
+                "hint": {
+                    "mainText": "Многочлен не може мати змінну в знаменнику або під знаком кореня.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "x²+2x+1 ✓",
+                        "3/x ✗ — змінна у знаменнику",
+                        "4x³−x ✓",
+                        "√x ✗ — під знаком кореня"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 9,
+                "prompt": "Помножте одночлени: 3x · 4x = ?",
+                "options": [
+                    "12x",
+                    "12x²",
+                    "7x²",
+                    "7x"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Ми множимо числа на числа, а степені — на степені.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3·4 = 12",
+                        "x·x = x²",
+                        "Результат: 12x²"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "mat_2_2",
+        "questions": [
+            {
+                "type": "SelectFromList",
+                "id": 0,
+                "prompt": "Як розкладається (a + b)²?",
+                "options": [
+                    "a² + b²",
+                    "a² + 2ab + b²",
+                    "a² − 2ab + b²",
+                    "2a + 2b"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "(a+b)² = a·a + 2·a·b + b·b",
+                    "boldPart": null,
+                    "sectionTitle": "ФОРМУЛИ СКОРОЧЕНОГО МНОЖЕННЯ",
+                    "items": [
+                        "(a+b)² = a² + 2ab + b²",
+                        "(a−b)² = a² − 2ab + b²",
+                        "(a+b)(a−b) = a² − b²"
+                    ],
+                    "steps": [
+                        "(a+b)² = (a+b)(a+b)",
+                        "= a² + ab + ab + b²",
+                        "= a² + 2ab + b²"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 1,
+                "prompt": "Як розкладається (a − b)²?",
+                "options": [
+                    "a² − b²",
+                    "a² + 2ab + b²",
+                    "a² − 2ab + b²",
+                    "a − b"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "(a−b)² = a·a − 2·a·b + b·b",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "(a−b)² = (a−b)(a−b)",
+                        "= a² − ab − ab + b²",
+                        "= a² − 2ab + b²"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 2,
+                "prompt": "Як розкладається (a + b)(a − b)?",
+                "options": [
+                    "a² + b²",
+                    "a² − b²",
+                    "a² − 2ab + b²",
+                    "2ab"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Це формула різниці квадратів.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "(a+b)(a−b) = a² − ab + ab − b²",
+                        "= a² − b²"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3,
+                "prompt": "Розкрийте дужки (x + 3)²",
+                "options": [
+                    "x² + 9",
+                    "x² + 6x + 9",
+                    "x² − 6x + 9",
+                    "x² + 3x + 9"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Підставте a=x, b=3 у формулу (a+b)².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "(x+3)² = x² + 2·x·3 + 3²",
+                        "= x² + 6x + 9"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 4,
+                "prompt": "Розкрийте дужки (x − 5)²",
+                "options": [
+                    "x² − 25",
+                    "x² − 10x + 25",
+                    "x² + 10x + 25",
+                    "x² − 10x − 25"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Підставте a=x, b=5 у формулу (a−b)².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "(x−5)² = x² − 2·x·5 + 5²",
+                        "= x² − 10x + 25"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 5,
+                "prompt": "Обчисліть (2x + 3)²",
+                "options": [
+                    "4x² + 9",
+                    "4x² + 12x + 9",
+                    "4x² − 12x + 9",
+                    "2x² + 12x + 9"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Підставте a=2x, b=3.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "(2x)² = 4x²",
+                        "2·(2x)·3 = 12x",
+                        "3² = 9",
+                        "Результат: 4x² + 12x + 9"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 6,
+                "prompt": "Обчисліть (x + 4)(x − 4)",
+                "options": [
+                    "x² + 16",
+                    "x² − 16",
+                    "x² − 8x + 16",
+                    "x² + 8x − 16"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Це формула (a+b)(a−b) = a² − b².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "a=x, b=4",
+                        "x² − 4² = x² − 16"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 7,
+                "prompt": "Які формули скороченого множення є правильними? (виберіть усі)",
+                "options": [
+                    "(a+b)² = a² + 2ab + b²",
+                    "(a+b)² = a² + b²",
+                    "(a−b)² = a² − 2ab + b²",
+                    "(a+b)(a−b) = a² − b²"
+                ],
+                "correctIndices": [
+                    0,
+                    2,
+                    3
+                ],
+                "multiSelect": true,
+                "hint": {
+                    "mainText": "Запам'ятайте три основні формули скороченого множення.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [
+                        "(a+b)² = a² + 2ab + b²  ✓",
+                        "(a−b)² = a² − 2ab + b²  ✓",
+                        "(a+b)(a−b) = a² − b²  ✓"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 8,
+                "prompt": "Розкрийте дужки (3 − x)²",
+                "options": [
+                    "9 − x²",
+                    "9 − 6x + x²",
+                    "9 + 6x + x²",
+                    "9 − 3x + x²"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Підставте a=3, b=x у формулу (a−b)².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3² = 9",
+                        "2·3·x = 6x",
+                        "x² = x²",
+                        "Результат: 9 − 6x + x²"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 9,
+                "prompt": "Яке значення дорівнює (10 + 1)²?",
+                "options": [
+                    "101",
+                    "100 + 1",
+                    "100 + 20 + 1",
+                    "10² + 1²"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Використовуйте формулу (a+b)² з a=10, b=1.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "10² = 100",
+                        "2·10·1 = 20",
+                        "1² = 1",
+                        "Всього: 121"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "mat_3_1",
+        "questions": [
+            {
+                "type": "FindAnswer",
+                "id": 0,
+                "operand1": 5,
+                "operand2": 3,
+                "operator": "ADD",
+                "hint": {
+                    "mainText": "Додайте обидва числа.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "5 + 3 = 8"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 1,
+                "operand1": 9,
+                "operand2": 2,
+                "operator": "SUBTRACT",
+                "hint": {
+                    "mainText": "Відніміть.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "9 − 2 = 7"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 2,
+                "operand1": 4,
+                "operand2": 3,
+                "result": 12,
+                "correctOperator": "MULTIPLY",
+                "hint": {
+                    "mainText": "4 × 3 = 12.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "4 × 3 = 12 ✓"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 3,
+                "operand1": 8,
+                "operand2": 4,
+                "operator": "DIVIDE",
+                "hint": {
+                    "mainText": "8 ÷ 4 = 2.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "4 × 2 = 8",
+                        "So 8 ÷ 4 = 2"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 4,
+                "operand1": 6,
+                "operand2": 7,
+                "operator": "ADD",
+                "hint": {
+                    "mainText": "6 + 7 = 13.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "6 + 7 = 13"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 5,
+                "operand1": 10,
+                "operand2": 5,
+                "result": 5,
+                "correctOperator": "DIVIDE",
+                "hint": {
+                    "mainText": "10 ÷ 5 = 2.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "10 ÷ 5 = 2 ✓",
+                        "5 × 2 = 10 ✓"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 6,
+                "operand1": 15,
+                "operand2": 8,
+                "operator": "SUBTRACT",
+                "hint": {
+                    "mainText": "15 − 8 = 7.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "15 − 8 = 7"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 7,
+                "operand1": 3,
+                "operand2": 9,
+                "operator": "MULTIPLY",
+                "hint": {
+                    "mainText": "3 × 9 = 27.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3 × 9 = 27"
+                    ]
+                }
+            },
+            {
+                "type": "FindOperator",
+                "id": 8,
+                "operand1": 11,
+                "operand2": 4,
+                "result": 15,
+                "correctOperator": "ADD",
+                "hint": {
+                    "mainText": "11 + 4 = 15.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "11 + 4 = 15 ✓"
+                    ]
+                }
+            },
+            {
+                "type": "FindAnswer",
+                "id": 9,
+                "operand1": 20,
+                "operand2": 4,
+                "operator": "DIVIDE",
+                "hint": {
+                    "mainText": "20 ÷ 4 = 5.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "4 × 5 = 20",
+                        "So 20 ÷ 4 = 5"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "mat_4_1",
+        "questions": [
+            {
+                "type": "GraphSelectFromList",
+                "id": 0,
+                "prompt": "Given the function f(x) = x².\nWhat is the value of f(3)?",
+                "shapes": [
+                    {
+                        "type": "FunctionPlot",
+                        "formula": "x^2",
+                        "color": "#ff4a80f0",
+                        "label": null,
+                        "strokeWidth": 2.5,
+                        "samples": 300
+                    },
+                    {
+                        "type": "PointMark",
+                        "pt": {
+                            "x": 3.0,
+                            "y": 9.0
+                        },
+                        "label": "f(3) = ?",
+                        "color": "#ff4a80f0",
+                        "radiusDp": 4.0
+                    }
+                ],
+                "viewport": {
+                    "xMin": -4.0,
+                    "xMax": 4.0,
+                    "yMin": -1.0,
+                    "yMax": 10.0,
+                    "showGrid": true,
+                    "showAxes": true,
+                    "gridStep": 1.0
+                },
+                "options": [
+                    "6",
+                    "7",
+                    "8",
+                    "9"
+                ],
+                "correctIndices": [
+                    3
+                ],
+                "hint": {
+                    "mainText": "f(3) = 3² = 3 × 3.",
+                    "boldPart": "3²",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "f(3) = 3² = 9"
+                    ]
+                }
+            },
+            {
+                "type": "GraphSelectFromList",
+                "id": 1,
+                "prompt": "Given the function f(x) = x² − 2.\nWhat is the value of f(0)?",
+                "shapes": [
+                    {
+                        "type": "FunctionPlot",
+                        "formula": "x^2 - 2",
+                        "color": "#ff4a80f0",
+                        "label": null,
+                        "strokeWidth": 2.5,
+                        "samples": 300
+                    },
+                    {
+                        "type": "PointMark",
+                        "pt": {
+                            "x": 0.0,
+                            "y": -2.0
+                        },
+                        "label": "f(0) = ?",
+                        "color": "#ff4a80f0",
+                        "radiusDp": 4.0
+                    }
+                ],
+                "viewport": {
+                    "xMin": -4.0,
+                    "xMax": 4.0,
+                    "yMin": -3.0,
+                    "yMax": 8.0,
+                    "showGrid": true,
+                    "showAxes": true,
+                    "gridStep": 1.0
+                },
+                "options": [
+                    "−3",
+                    "−2",
+                    "−1",
+                    "0"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "hint": {
+                    "mainText": "f(0) = 0² − 2.",
+                    "boldPart": "0²",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "f(0) = 0 − 2 = −2"
+                    ]
+                }
+            },
+            {
+                "type": "GraphSelectFromList",
+                "id": 2,
+                "prompt": "Given the function f(x) = −x².\nFor which value of x does the function reach its maximum?",
+                "shapes": [
+                    {
+                        "type": "FunctionPlot",
+                        "formula": "-x^2",
+                        "color": "#ff4a80f0",
+                        "label": null,
+                        "strokeWidth": 2.5,
+                        "samples": 300
+                    }
+                ],
+                "viewport": {
+                    "xMin": -4.0,
+                    "xMax": 4.0,
+                    "yMin": -10.0,
+                    "yMax": 2.0,
+                    "showGrid": true,
+                    "showAxes": true,
+                    "gridStep": 1.0
+                },
+                "options": [
+                    "x = −1",
+                    "x = 0",
+                    "x = 1",
+                    "немає максимуму"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "hint": {
+                    "mainText": "Парабола, гілки якої спрямовані вниз — вершина є максимумом.",
+                    "boldPart": "вершина",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Вершина f(x) = −x² розташована в точці (0, 0)",
+                        "Максимум при x = 0, f(0) = 0"
+                    ]
+                }
+            },
+            {
+                "type": "GraphSelectFromList",
+                "id": 3,
+                "prompt": "Given the function f(x) = x² + 1.\nWhat is the minimum value of this function?",
+                "shapes": [
+                    {
+                        "type": "FunctionPlot",
+                        "formula": "x^2 + 1",
+                        "color": "#ff4a80f0",
+                        "label": null,
+                        "strokeWidth": 2.5,
+                        "samples": 300
+                    }
+                ],
+                "viewport": {
+                    "xMin": -4.0,
+                    "xMax": 4.0,
+                    "yMin": -1.0,
+                    "yMax": 9.0,
+                    "showGrid": true,
+                    "showAxes": true,
+                    "gridStep": 1.0
+                },
+                "options": [
+                    "0",
+                    "1",
+                    "2",
+                    "−1"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "hint": {
+                    "mainText": "Вершина параболи y = x² + 1 зміщена вгору на 1.",
+                    "boldPart": "зміщений вгору на 1",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Мінімум у вершині (0, 1)",
+                        "f(0) = 0² + 1 = 1"
+                    ]
+                }
+            },
+            {
+                "type": "GraphSelectFromList",
+                "id": 4,
+                "prompt": "Given the function f(x) = (x − 2)².\nWhat is the value of f(2)?",
+                "shapes": [
+                    {
+                        "type": "FunctionPlot",
+                        "formula": "(x - 2)^2",
+                        "color": "#ff4a80f0",
+                        "label": null,
+                        "strokeWidth": 2.5,
+                        "samples": 300
+                    },
+                    {
+                        "type": "PointMark",
+                        "pt": {
+                            "x": 2.0,
+                            "y": 0.0
+                        },
+                        "label": "f(2) = ?",
+                        "color": "#ff4a80f0",
+                        "radiusDp": 4.0
+                    }
+                ],
+                "viewport": {
+                    "xMin": -1.0,
+                    "xMax": 5.0,
+                    "yMin": -1.0,
+                    "yMax": 8.0,
+                    "showGrid": true,
+                    "showAxes": true,
+                    "gridStep": 1.0
+                },
+                "options": [
+                    "0",
+                    "1",
+                    "2",
+                    "4"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "hint": {
+                    "mainText": "f(2) = (2 − 2)² = 0² = 0.",
+                    "boldPart": "(2 − 2)²",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "f(2) = (2 − 2)²",
+                        "= 0² = 0"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 5,
+                "prompt": "Given the function f(x) = x².\nWhat is the value of f(4)?",
+                "shapes": [
+                    {
+                        "type": "FunctionPlot",
+                        "formula": "x^2",
+                        "color": "#ff4a80f0",
+                        "label": null,
+                        "strokeWidth": 2.5,
+                        "samples": 300
+                    },
+                    {
+                        "type": "Segment",
+                        "from": {
+                            "x": 4.0,
+                            "y": 0.0
+                        },
+                        "to": {
+                            "x": 4.0,
+                            "y": 16.0
+                        },
+                        "color": "#ff4a80f0",
+                        "dashed": true,
+                        "strokeWidth": 2.0
+                    },
+                    {
+                        "type": "PointMark",
+                        "pt": {
+                            "x": 4.0,
+                            "y": 16.0
+                        },
+                        "label": "f(4)=?",
+                        "color": "#ff4a80f0",
+                        "radiusDp": 4.0
+                    }
+                ],
+                "viewport": {
+                    "xMin": -1.0,
+                    "xMax": 5.0,
+                    "yMin": -1.0,
+                    "yMax": 18.0,
+                    "showGrid": true,
+                    "showAxes": true,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 16,
+                "unit": "",
+                "inlineHint": "f(x) = x²  →  f(4) = 4²",
+                "hint": {
+                    "mainText": "f(4) = 4² = 4 × 4.",
+                    "boldPart": "4²",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "f(4) = 4 × 4 = 16"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 6,
+                "prompt": "Given the function f(x) = x² − 3.\nWhat is the value of f(2)?",
+                "shapes": [
+                    {
+                        "type": "FunctionPlot",
+                        "formula": "x^2 - 3",
+                        "color": "#ff4a80f0",
+                        "label": null,
+                        "strokeWidth": 2.5,
+                        "samples": 300
+                    },
+                    {
+                        "type": "PointMark",
+                        "pt": {
+                            "x": 2.0,
+                            "y": 1.0
+                        },
+                        "label": "f(2)=?",
+                        "color": "#ff4a80f0",
+                        "radiusDp": 4.0
+                    }
+                ],
+                "viewport": {
+                    "xMin": -4.0,
+                    "xMax": 4.0,
+                    "yMin": -4.0,
+                    "yMax": 6.0,
+                    "showGrid": true,
+                    "showAxes": true,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 1,
+                "unit": "",
+                "inlineHint": "f(2) = 2² − 3",
+                "hint": {
+                    "mainText": "f(2) = 2² − 3.",
+                    "boldPart": "2²",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "2² = 4",
+                        "4 − 3 = 1"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 7,
+                "prompt": "Given the function f(x) = 2x².\nWhat is the value of f(2)?",
+                "shapes": [
+                    {
+                        "type": "FunctionPlot",
+                        "formula": "2*x^2",
+                        "color": "#ff4a80f0",
+                        "label": null,
+                        "strokeWidth": 2.5,
+                        "samples": 300
+                    },
+                    {
+                        "type": "PointMark",
+                        "pt": {
+                            "x": 2.0,
+                            "y": 8.0
+                        },
+                        "label": "f(2)=?",
+                        "color": "#ff4a80f0",
+                        "radiusDp": 4.0
+                    }
+                ],
+                "viewport": {
+                    "xMin": -3.0,
+                    "xMax": 3.0,
+                    "yMin": -1.0,
+                    "yMax": 10.0,
+                    "showGrid": true,
+                    "showAxes": true,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 8,
+                "unit": "",
+                "inlineHint": "f(2) = 2 · 2²",
+                "hint": {
+                    "mainText": "f(2) = 2 · 2² = 2 · 4.",
+                    "boldPart": "2 · 2²",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "2² = 4",
+                        "2 × 4 = 8"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "mat_5_1",
+        "questions": [
+            {
+                "type": "GraphTypeAnswer",
+                "id": 0,
+                "prompt": "Обчисліть міру невідомого кута трикутника, позначеного знаком \"?\".",
+                "shapes": [
+                    {
+                        "type": "Triangle",
+                        "a": {
+                            "x": -2.1511210646037853,
+                            "y": -1.4164499003669055
+                        },
+                        "b": {
+                            "x": 1.8488789353962147,
+                            "y": -1.4164499003669055
+                        },
+                        "c": {
+                            "x": 0.3022421292075701,
+                            "y": 2.832899800733811
+                        },
+                        "color": "#ff4a80f0",
+                        "showAngleArcs": true,
+                        "labelA": "60°",
+                        "labelB": "70°",
+                        "labelC": "?",
+                        "labelAB": null,
+                        "labelBC": null,
+                        "labelCA": null
+                    }
+                ],
+                "viewport": {
+                    "xMin": -3.3511210646037854,
+                    "xMax": 3.048878935396215,
+                    "yMin": -2.6164499003669057,
+                    "yMax": 4.032899800733811,
+                    "showGrid": false,
+                    "showAxes": false,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 50,
+                "unit": "°",
+                "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+                "hint": {
+                    "mainText": "Сума кутів = 180°.",
+                    "boldPart": "180°",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "180° − 60° − 70° = 50°"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 1,
+                "prompt": "Обчисліть міру невідомого кута трикутника, позначеного знаком \"?\".",
+                "shapes": [
+                    {
+                        "type": "Triangle",
+                        "a": {
+                            "x": -2.6666666666666665,
+                            "y": -1.3333333333333333
+                        },
+                        "b": {
+                            "x": 1.3333333333333335,
+                            "y": -1.3333333333333333
+                        },
+                        "c": {
+                            "x": 1.3333333333333344,
+                            "y": 2.666666666666667
+                        },
+                        "color": "#ff4a80f0",
+                        "showAngleArcs": true,
+                        "labelA": "45°",
+                        "labelB": "90°",
+                        "labelC": "?",
+                        "labelAB": null,
+                        "labelBC": null,
+                        "labelCA": null
+                    }
+                ],
+                "viewport": {
+                    "xMin": -3.8666666666666663,
+                    "xMax": 2.533333333333334,
+                    "yMin": -2.533333333333333,
+                    "yMax": 3.866666666666667,
+                    "showGrid": false,
+                    "showAxes": false,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 45,
+                "unit": "°",
+                "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+                "hint": {
+                    "mainText": "Прямокутний трикутник має один кут 90°.",
+                    "boldPart": "90°",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "180° − 45° − 90° = 45°"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 2,
+                "prompt": "Обчисліть міру невідомого кута трикутника, позначеного знаком \"?\".",
+                "shapes": [
+                    {
+                        "type": "Triangle",
+                        "a": {
+                            "x": -2.3333333333333335,
+                            "y": -0.5773502691896256
+                        },
+                        "b": {
+                            "x": 1.6666666666666665,
+                            "y": -0.5773502691896256
+                        },
+                        "c": {
+                            "x": 0.6666666666666665,
+                            "y": 1.1547005383792515
+                        },
+                        "color": "#ff4a80f0",
+                        "showAngleArcs": true,
+                        "labelA": "30°",
+                        "labelB": "60°",
+                        "labelC": "?",
+                        "labelAB": null,
+                        "labelBC": null,
+                        "labelCA": null
+                    }
+                ],
+                "viewport": {
+                    "xMin": -3.533333333333333,
+                    "xMax": 2.8666666666666663,
+                    "yMin": -1.7773502691896255,
+                    "yMax": 2.3547005383792516,
+                    "showGrid": false,
+                    "showAxes": false,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 90,
+                "unit": "°",
+                "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+                "hint": {
+                    "mainText": "Якщо результат становить 90°, то трикутник є прямокутним.",
+                    "boldPart": "90°",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "180° − 30° − 60° = 90°"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 3,
+                "prompt": "Обчисліть міру невідомого кута трикутника, позначеного знаком \"?\".",
+                "shapes": [
+                    {
+                        "type": "Triangle",
+                        "a": {
+                            "x": -2.13367442949372,
+                            "y": -1.1430055411952558
+                        },
+                        "b": {
+                            "x": 1.8663255705062798,
+                            "y": -1.1430055411952558
+                        },
+                        "c": {
+                            "x": 0.2673488589874413,
+                            "y": 2.2860110823905115
+                        },
+                        "color": "#ff4a80f0",
+                        "showAngleArcs": true,
+                        "labelA": "55°",
+                        "labelB": "65°",
+                        "labelC": "?",
+                        "labelAB": null,
+                        "labelBC": null,
+                        "labelCA": null
+                    }
+                ],
+                "viewport": {
+                    "xMin": -3.33367442949372,
+                    "xMax": 3.0663255705062795,
+                    "yMin": -2.3430055411952555,
+                    "yMax": 3.4860110823905117,
+                    "showGrid": false,
+                    "showAxes": false,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 60,
+                "unit": "°",
+                "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+                "hint": {
+                    "mainText": "Сума кутів = 180°.",
+                    "boldPart": "180°",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "180° − 55° − 65° = 60°"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 4,
+                "prompt": "Обчисліть міру невідомого кута трикутника, позначеного знаком \"?\".",
+                "shapes": [
+                    {
+                        "type": "Triangle",
+                        "a": {
+                            "x": -1.5051818673542938,
+                            "y": -0.9746014667210291
+                        },
+                        "b": {
+                            "x": 2.4948181326457064,
+                            "y": -0.9746014667210291
+                        },
+                        "c": {
+                            "x": -0.9896362652914119,
+                            "y": 1.949202933442058
+                        },
+                        "color": "#ff4a80f0",
+                        "showAngleArcs": true,
+                        "labelA": "80°",
+                        "labelB": "40°",
+                        "labelC": "?",
+                        "labelAB": null,
+                        "labelBC": null,
+                        "labelCA": null
+                    }
+                ],
+                "viewport": {
+                    "xMin": -2.705181867354294,
+                    "xMax": 3.6948181326457066,
+                    "yMin": -2.174601466721029,
+                    "yMax": 3.1492029334420577,
+                    "showGrid": false,
+                    "showAxes": false,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 60,
+                "unit": "°",
+                "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+                "hint": {
+                    "mainText": "Сума кутів = 180°.",
+                    "boldPart": "180°",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "180° − 80° − 40° = 60°"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 5,
+                "prompt": "Обчисліть міру невідомого кута трикутника, позначеного знаком \"?\".",
+                "shapes": [
+                    {
+                        "type": "Triangle",
+                        "a": {
+                            "x": -2.0601535096350663,
+                            "y": -0.8661905562775472
+                        },
+                        "b": {
+                            "x": 1.9398464903649337,
+                            "y": -0.8661905562775472
+                        },
+                        "c": {
+                            "x": 0.12030701927013254,
+                            "y": 1.7323811125550943
+                        },
+                        "color": "#ff4a80f0",
+                        "showAngleArcs": true,
+                        "labelA": "50°",
+                        "labelB": "55°",
+                        "labelC": "?",
+                        "labelAB": null,
+                        "labelBC": null,
+                        "labelCA": null
+                    }
+                ],
+                "viewport": {
+                    "xMin": -3.2601535096350664,
+                    "xMax": 3.139846490364934,
+                    "yMin": -2.0661905562775473,
+                    "yMax": 2.9323811125550945,
+                    "showGrid": false,
+                    "showAxes": false,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 75,
+                "unit": "°",
+                "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+                "hint": {
+                    "mainText": "Сума кутів = 180°.",
+                    "boldPart": "180°",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "180° − 50° − 55° = 75°"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 6,
+                "prompt": "Обчисліть міру невідомого кута трикутника, позначеного знаком \"?\".",
+                "shapes": [
+                    {
+                        "type": "Triangle",
+                        "a": {
+                            "x": -2.0,
+                            "y": -1.1547005383792515
+                        },
+                        "b": {
+                            "x": 2.0,
+                            "y": -1.1547005383792515
+                        },
+                        "c": {
+                            "x": 4.440892098500626e-16,
+                            "y": 2.309401076758503
+                        },
+                        "color": "#ff4a80f0",
+                        "showAngleArcs": true,
+                        "labelA": "60°",
+                        "labelB": "60°",
+                        "labelC": "?",
+                        "labelAB": null,
+                        "labelBC": null,
+                        "labelCA": null
+                    }
+                ],
+                "viewport": {
+                    "xMin": -3.2,
+                    "xMax": 3.2,
+                    "yMin": -2.3547005383792516,
+                    "yMax": 3.509401076758503,
+                    "showGrid": false,
+                    "showAxes": false,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 60,
+                "unit": "°",
+                "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+                "hint": {
+                    "mainText": "Рівносторонній трикутник — усі кути дорівнюють 60°.",
+                    "boldPart": "60°",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "180° ÷ 3 = 60°"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 7,
+                "prompt": "Обчисліть міру невідомого кута трикутника, позначеного знаком \"?\".",
+                "shapes": [
+                    {
+                        "type": "Triangle",
+                        "a": {
+                            "x": -0.8773064755657751,
+                            "y": -1.2529234943812113
+                        },
+                        "b": {
+                            "x": 3.122693524434225,
+                            "y": -1.2529234943812113
+                        },
+                        "c": {
+                            "x": -2.2453870488684498,
+                            "y": 2.505846988762422
+                        },
+                        "color": "#ff4a80f0",
+                        "showAngleArcs": true,
+                        "labelA": "110°",
+                        "labelB": "35°",
+                        "labelC": "?",
+                        "labelAB": null,
+                        "labelBC": null,
+                        "labelCA": null
+                    }
+                ],
+                "viewport": {
+                    "xMin": -3.44538704886845,
+                    "xMax": 4.322693524434225,
+                    "yMin": -2.4529234943812113,
+                    "yMax": 3.7058469887624224,
+                    "showGrid": false,
+                    "showAxes": false,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 35,
+                "unit": "°",
+                "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+                "hint": {
+                    "mainText": "Тупий кут (>90°) також може бути в трикутнику.",
+                    "boldPart": ">90°",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "180° − 110° − 35° = 35°"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 8,
+                "prompt": "Обчисліть міру невідомого кута трикутника, позначеного знаком \"?\".",
+                "shapes": [
+                    {
+                        "type": "Triangle",
+                        "a": {
+                            "x": -0.0804098389521221,
+                            "y": -1.4931760756744998
+                        },
+                        "b": {
+                            "x": 3.919590161047878,
+                            "y": -1.4931760756744998
+                        },
+                        "c": {
+                            "x": -3.8391803220957557,
+                            "y": 2.986352151349
+                        },
+                        "color": "#ff4a80f0",
+                        "showAngleArcs": true,
+                        "labelA": "130°",
+                        "labelB": "30°",
+                        "labelC": "?",
+                        "labelAB": null,
+                        "labelBC": null,
+                        "labelCA": null
+                    }
+                ],
+                "viewport": {
+                    "xMin": -5.039180322095755,
+                    "xMax": 5.119590161047878,
+                    "yMin": -2.6931760756745,
+                    "yMax": 4.186352151349,
+                    "showGrid": false,
+                    "showAxes": false,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 20,
+                "unit": "°",
+                "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+                "hint": {
+                    "mainText": "Сума кутів = 180°.",
+                    "boldPart": "180°",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "180° − 130° − 30° = 20°"
+                    ]
+                }
+            },
+            {
+                "type": "GraphTypeAnswer",
+                "id": 9,
+                "prompt": "Обчисліть міру невідомого кута трикутника, позначеного знаком \"?\".",
+                "shapes": [
+                    {
+                        "type": "Triangle",
+                        "a": {
+                            "x": -2.0,
+                            "y": -1.831651612969748
+                        },
+                        "b": {
+                            "x": 2.0,
+                            "y": -1.831651612969748
+                        },
+                        "c": {
+                            "x": 4.440892098500626e-16,
+                            "y": 3.6633032259394964
+                        },
+                        "color": "#ff4a80f0",
+                        "showAngleArcs": true,
+                        "labelA": "70°",
+                        "labelB": "70°",
+                        "labelC": "?",
+                        "labelAB": null,
+                        "labelBC": null,
+                        "labelCA": null
+                    }
+                ],
+                "viewport": {
+                    "xMin": -3.2,
+                    "xMax": 3.2,
+                    "yMin": -3.031651612969748,
+                    "yMax": 4.863303225939497,
+                    "showGrid": false,
+                    "showAxes": false,
+                    "gridStep": 1.0
+                },
+                "correctAnswer": 40,
+                "unit": "°",
+                "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+                "hint": {
+                    "mainText": "Рівнобедрений трикутник — два кути рівні.",
+                    "boldPart": "два кути рівні",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "180° − 70° − 70° = 40°"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "algebra_1_1",
+        "questions": [
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 0,
+                "prompt": "Розкрийте дужки та спростіть: x*(x + 2)",
+                "correctExpr": "x^2+2*x",
+                "displayCorrect": "x² + 2x",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Ми множимо кожен доданок у дужках на x.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "x*(x+2)",
+                        "= x*x + x*2",
+                        "= x² + 2x"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 1,
+                "prompt": "Розкрийте дужки та спростіть: (x + 1)*(x + 1)",
+                "correctExpr": "x^2+2*x+1",
+                "displayCorrect": "x² + 2x + 1",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Це формула скороченого множення: (a+b)² = a²+2ab+b².",
+                    "boldPart": null,
+                    "sectionTitle": "ФОРМУЛИ СКОРОЧЕНОГО МНОЖЕННЯ",
+                    "items": [
+                        "(a+b)² = a² + 2ab + b²"
+                    ],
+                    "steps": [
+                        "(x+1)² = x² + 2·x·1 + 1²",
+                        "= x² + 2x + 1"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 2,
+                "prompt": "Розкрийте дужки та спростіть: (x + 3)*(x - 3)",
+                "correctExpr": "x^2-9",
+                "displayCorrect": "x² - 9",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Це формула скороченого множення: (a+b)(a-b) = a²-b².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "(x+3)(x-3) = x² - 3²",
+                        "= x² - 9"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 3,
+                "prompt": "Розкрийте дужки та спростіть: 2*x*(x + 4)",
+                "correctExpr": "2*x^2+8*x",
+                "displayCorrect": "2x² + 8x",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Ми множимо 2x на кожен доданок.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "2x*(x+4)",
+                        "= 2x*x + 2x*4",
+                        "= 2x² + 8x"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 4,
+                "prompt": "Розкрийте дужки та спростіть: (x + 2)*(x + 3)",
+                "correctExpr": "x^2+5*x+6",
+                "displayCorrect": "x² + 5x + 6",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Ми перемножуємо кожну пару доданків навхрест.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "(x+2)(x+3)",
+                        "= x²+3x+2x+6",
+                        "= x² + 5x + 6"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 5,
+                "prompt": "Розкрийте дужки та спростіть: (x - 4)*(x + 4)",
+                "correctExpr": "x^2-16",
+                "displayCorrect": "x² - 16",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Формула (a+b)(a-b) = a²-b².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "(x-4)(x+4) = x² - 4²",
+                        "= x² - 16"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 6,
+                "prompt": "Розкрийте дужки та спростіть: (x - 2)²",
+                "correctExpr": "x^2-4*x+4",
+                "displayCorrect": "x² - 4x + 4",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Формула (a-b)² = a²-2ab+b².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "(x-2)² = x² - 2·x·2 + 2²",
+                        "= x² - 4x + 4"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 7,
+                "prompt": "Розкрийте дужки та спростіть: 3*x*(2*x - 1)",
+                "correctExpr": "6*x^2-3*x",
+                "displayCorrect": "6x² - 3x",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Ми множимо 3x на кожен доданок.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "3x*(2x-1)",
+                        "= 3x*2x - 3x*1",
+                        "= 6x² - 3x"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 8,
+                "prompt": "Розкрийте дужки та спростіть: (2*x + 1)²",
+                "correctExpr": "4*x^2+4*x+1",
+                "displayCorrect": "4x² + 4x + 1",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Формула (a+b)² = a²+2ab+b², де a=2x, b=1.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "(2x)² = 4x²",
+                        "2*(2x)*1 = 4x",
+                        "1² = 1",
+                        "Результат: 4x²+4x+1"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 9,
+                "prompt": "Розкрийте дужки та спростіть: (x + 5)*(x - 2)",
+                "correctExpr": "x^2+3*x-10",
+                "displayCorrect": "x² + 3x - 10",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Ми перемножуємо кожну пару навхрест.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "x*x + x*(-2) + 5*x + 5*(-2)",
+                        "= x² - 2x + 5x - 10",
+                        "= x² + 3x - 10"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 100,
+                "prompt": "Чому дорівнює значення x*(x+2)?",
+                "options": [
+                    "x²+2x",
+                    "x²+2",
+                    "2x+2",
+                    "x²-2x"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Ми множимо x на кожен доданок: x*x + x*2 = x²+2x.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 101,
+                "prompt": "Чому дорівнює значення (x+1)²?",
+                "options": [
+                    "x²+2x+1",
+                    "x²+1",
+                    "x²-2x+1",
+                    "2x+1"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "(a+b)² = a²+2ab+b².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 102,
+                "prompt": "Чому дорівнює значення (x+3)(x-3)?",
+                "options": [
+                    "x²-9",
+                    "x²+9",
+                    "x²-3",
+                    "x²+6x-9"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "(a+b)(a-b) = a²-b².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 103,
+                "prompt": "Чому дорівнює значення 2x*(x+4)?",
+                "options": [
+                    "2x²+8x",
+                    "2x+8",
+                    "x²+8x",
+                    "2x²+4"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 104,
+                "prompt": "Чому дорівнює значення (x+2)(x+3)?",
+                "options": [
+                    "x²+5x+6",
+                    "x²+6x+5",
+                    "x²+5x+5",
+                    "x²+6"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 105,
+                "prompt": "Чому дорівнює значення (x-4)(x+4)?",
+                "options": [
+                    "x²-16",
+                    "x²+16",
+                    "x²-8x-16",
+                    "x²-8"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "(a-b)(a+b) = a²-b².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 106,
+                "prompt": "Чому дорівнює значення (x-2)²?",
+                "options": [
+                    "x²-4x+4",
+                    "x²+4x+4",
+                    "x²-4",
+                    "x²-2x+4"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 107,
+                "prompt": "Чому дорівнює значення 3x*(2x-1)?",
+                "options": [
+                    "6x²-3x",
+                    "6x-3x",
+                    "6x²-1",
+                    "5x²-3x"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 108,
+                "prompt": "Чому дорівнює значення (2x+1)²?",
+                "options": [
+                    "4x²+4x+1",
+                    "2x²+4x+1",
+                    "4x²+1",
+                    "4x²+2x+1"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 109,
+                "prompt": "Чому дорівнює значення (x+5)(x-2)?",
+                "options": [
+                    "x²+3x-10",
+                    "x²-3x-10",
+                    "x²+3x+10",
+                    "x²-10"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "algebra_1_2",
+        "questions": [
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 0,
+                "prompt": "Обчисліть похідну f(x) = x²",
+                "correctExpr": "2*x",
+                "displayCorrect": "2x",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "d/dx(x²) = 2·x²⁻¹ = 2x",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "f(x) = x²",
+                        "n=2, so f'(x) = 2·x^(2-1)",
+                        "= 2x"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 1,
+                "prompt": "Обчисліть похідну f(x) = x³",
+                "correctExpr": "3*x^2",
+                "displayCorrect": "3x²",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "d/dx(x³) = 3x²",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "n=3, so f'(x) = 3·x^(3-1)",
+                        "= 3x²"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 2,
+                "prompt": "Обчисліть похідну f(x) = 3*x²",
+                "correctExpr": "6*x",
+                "displayCorrect": "6x",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Сталий множник 3 залишається, ми диференціюємо x².",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "f'(x) = 3·d/dx(x²)",
+                        "= 3·2x",
+                        "= 6x"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 3,
+                "prompt": "Обчисліть похідну f(x) = 2*x³",
+                "correctExpr": "6*x^2",
+                "displayCorrect": "6x²",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Сталий множник 2 залишається, ми диференціюємо x³.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "f'(x) = 2·3x²",
+                        "= 6x²"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 4,
+                "prompt": "Обчисліть похідну f(x) = x² + 2*x",
+                "correctExpr": "2*x+2",
+                "displayCorrect": "2x + 2",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Ми диференціюємо кожен доданок окремо.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "d/dx(x²) = 2x",
+                        "d/dx(2x) = 2",
+                        "f'(x) = 2x + 2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 5,
+                "prompt": "Обчисліть похідну f(x) = 3*x² + 4*x",
+                "correctExpr": "6*x+4",
+                "displayCorrect": "6x + 4",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Правило: d/dx(xⁿ) = n·xⁿ⁻¹",
+                    "boldPart": "d/dx(xⁿ) = n·xⁿ⁻¹",
+                    "sectionTitle": "ПРАВИЛА ДИФЕРЕНЦІЮВАННЯ",
+                    "items": [
+                        "d/dx(xⁿ) = n·xⁿ⁻¹",
+                        "d/dx(c·f(x)) = c·f'(x)",
+                        "d/dx(f(x)+g(x)) = f'(x)+g'(x)",
+                        "d/dx(стала) = 0"
+                    ],
+                    "steps": [
+                        "d/dx(3x²) = 6x",
+                        "d/dx(4x) = 4",
+                        "f'(x) = 6x + 4"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 6,
+                "prompt": "Обчисліть похідну f(x) = x² - 5",
+                "correctExpr": "2*x",
+                "displayCorrect": "2x",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Похідна сталої (-5) дорівнює 0.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "d/dx(x²) = 2x",
+                        "d/dx(-5) = 0",
+                        "f'(x) = 2x"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 7,
+                "prompt": "Обчисліть похідну f(x) = 4*x² + 2*x + 1",
+                "correctExpr": "8*x+2",
+                "displayCorrect": "8x + 2",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Правило: d/dx(xⁿ) = n·xⁿ⁻¹",
+                    "boldPart": "d/dx(xⁿ) = n·xⁿ⁻¹",
+                    "sectionTitle": "ПРАВИЛА ДИФЕРЕНЦІЮВАННЯ",
+                    "items": [
+                        "d/dx(xⁿ) = n·xⁿ⁻¹",
+                        "d/dx(c·f(x)) = c·f'(x)",
+                        "d/dx(f(x)+g(x)) = f'(x)+g'(x)",
+                        "d/dx(стала) = 0"
+                    ],
+                    "steps": [
+                        "d/dx(4x²)=8x",
+                        "d/dx(2x)=2",
+                        "d/dx(1)=0",
+                        "f'(x)=8x+2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 8,
+                "prompt": "Обчисліть похідну f(x) = x³ + x²",
+                "correctExpr": "3*x^2+2*x",
+                "displayCorrect": "3x² + 2x",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Правило: d/dx(xⁿ) = n·xⁿ⁻¹",
+                    "boldPart": "d/dx(xⁿ) = n·xⁿ⁻¹",
+                    "sectionTitle": "ПРАВИЛА ДИФЕРЕНЦІЮВАННЯ",
+                    "items": [
+                        "d/dx(xⁿ) = n·xⁿ⁻¹",
+                        "d/dx(c·f(x)) = c·f'(x)",
+                        "d/dx(f(x)+g(x)) = f'(x)+g'(x)",
+                        "d/dx(стала) = 0"
+                    ],
+                    "steps": [
+                        "d/dx(x³)=3x²",
+                        "d/dx(x²)=2x",
+                        "f'(x)=3x²+2x"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 9,
+                "prompt": "Обчисліть похідну f(x) = 2*x³ + 3*x",
+                "correctExpr": "6*x^2+3",
+                "displayCorrect": "6x² + 3",
+                "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+                "hint": {
+                    "mainText": "Правило: d/dx(xⁿ) = n·xⁿ⁻¹",
+                    "boldPart": "d/dx(xⁿ) = n·xⁿ⁻¹",
+                    "sectionTitle": "ПРАВИЛА ДИФЕРЕНЦІЮВАННЯ",
+                    "items": [
+                        "d/dx(xⁿ) = n·xⁿ⁻¹",
+                        "d/dx(c·f(x)) = c·f'(x)",
+                        "d/dx(f(x)+g(x)) = f'(x)+g'(x)",
+                        "d/dx(стала) = 0"
+                    ],
+                    "steps": [
+                        "d/dx(2x³)=6x²",
+                        "d/dx(3x)=3",
+                        "f'(x)=6x²+3"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 100,
+                "prompt": "Яка похідна f(x) = x²?",
+                "options": [
+                    "2x",
+                    "x",
+                    "2",
+                    "x²"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "d/dx(xⁿ) = n·xⁿ⁻¹, więc d/dx(x²) = 2x.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 101,
+                "prompt": "Яка похідна f(x) = x³?",
+                "options": [
+                    "3x²",
+                    "x²",
+                    "3x",
+                    "3"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 102,
+                "prompt": "Яка похідна f(x) = 3x²?",
+                "options": [
+                    "6x",
+                    "3x",
+                    "6x²",
+                    "6"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Множник 3 залишається: 3·2x = 6x.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 103,
+                "prompt": "Яка похідна f(x) = x²+2x?",
+                "options": [
+                    "2x+2",
+                    "2x+1",
+                    "x+2",
+                    "2x²+2"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 104,
+                "prompt": "Яка похідна f(x) = 3x²+4x?",
+                "options": [
+                    "6x+4",
+                    "3x+4",
+                    "6x+3",
+                    "6x²+4"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 105,
+                "prompt": "Яка похідна f(x) = x²-5?",
+                "options": [
+                    "2x",
+                    "2x-5",
+                    "2x-0",
+                    "x"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Похідна сталої дорівнює 0.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 106,
+                "prompt": "Яка похідна f(x) = 4x²+2x+1?",
+                "options": [
+                    "8x+2",
+                    "4x+2",
+                    "8x+2x",
+                    "8x"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 107,
+                "prompt": "Яка похідна f(x) = x³+x²?",
+                "options": [
+                    "3x²+2x",
+                    "x²+x",
+                    "3x+2x",
+                    "3x²"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 108,
+                "prompt": "Яка похідна f(x) = 2x³+3x?",
+                "options": [
+                    "6x²+3",
+                    "6x+3",
+                    "2x²+3",
+                    "6x²"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 109,
+                "prompt": "Яка похідна f(x) = 5x²?",
+                "options": [
+                    "10x",
+                    "5x",
+                    "10x²",
+                    "5"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "algebra_1_3",
+        "questions": [
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 0,
+                "prompt": "Обчисліть невизначений інтеграл: ∫2x dx",
+                "correctExpr": "x^2",
+                "displayCorrect": "x²",
+                "inlineHint": "Enter the result without the constant of integration C",
+                "hint": {
+                    "mainText": "∫2x dx = 2·x²/2 = x²",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "∫2x dx = 2·∫x dx",
+                        "= 2·x²/2",
+                        "= x²"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 1,
+                "prompt": "Обчисліть невизначений інтеграл: ∫3x² dx",
+                "correctExpr": "x^3",
+                "displayCorrect": "x³",
+                "inlineHint": "Enter the result without the constant of integration C",
+                "hint": {
+                    "mainText": "∫3x² dx = 3·x³/3 = x³",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "∫3x² dx = 3·x³/3",
+                        "= x³"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 2,
+                "prompt": "Обчисліть невизначений інтеграл: ∫x dx",
+                "correctExpr": "x^2/2",
+                "displayCorrect": "x²/2",
+                "inlineHint": "Enter the result without the constant of integration C",
+                "hint": {
+                    "mainText": "Правило: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "sectionTitle": "ПРАВИЛА ІНТЕГРУВАННЯ",
+                    "items": [
+                        "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                        "∫c·f(x) dx = c·∫f(x) dx",
+                        "∫(f+g) dx = ∫f dx + ∫g dx"
+                    ],
+                    "steps": [
+                        "∫x dx = x^(1+1)/(1+1)",
+                        "= x²/2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 3,
+                "prompt": "Обчисліть невизначений інтеграл: ∫4x³ dx",
+                "correctExpr": "x^4",
+                "displayCorrect": "x⁴",
+                "inlineHint": "Enter the result without the constant of integration C",
+                "hint": {
+                    "mainText": "∫4x³ dx = 4·x⁴/4 = x⁴",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "4·x^(3+1)/(3+1)",
+                        "= 4·x⁴/4",
+                        "= x⁴"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 4,
+                "prompt": "Обчисліть невизначений інтеграл: ∫(2x + 3) dx",
+                "correctExpr": "x^2+3*x",
+                "displayCorrect": "x² + 3x",
+                "inlineHint": "Enter the result without the constant of integration C",
+                "hint": {
+                    "mainText": "Правило: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "sectionTitle": "ПРАВИЛА ІНТЕГРУВАННЯ",
+                    "items": [
+                        "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                        "∫c·f(x) dx = c·∫f(x) dx",
+                        "∫(f+g) dx = ∫f dx + ∫g dx"
+                    ],
+                    "steps": [
+                        "∫2x dx = x²",
+                        "∫3 dx = 3x",
+                        "Результат: x²+3x"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 5,
+                "prompt": "Обчисліть невизначений інтеграл: ∫(6x² + 2x) dx",
+                "correctExpr": "2*x^3+x^2",
+                "displayCorrect": "2x³ + x²",
+                "inlineHint": "Enter the result without the constant of integration C",
+                "hint": {
+                    "mainText": "Правило: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "sectionTitle": "ПРАВИЛА ІНТЕГРУВАННЯ",
+                    "items": [
+                        "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                        "∫c·f(x) dx = c·∫f(x) dx",
+                        "∫(f+g) dx = ∫f dx + ∫g dx"
+                    ],
+                    "steps": [
+                        "∫6x² dx = 6·x³/3 = 2x³",
+                        "∫2x dx = x²",
+                        "Результат: 2x³+x²"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 6,
+                "prompt": "Обчисліть невизначений інтеграл: ∫5 dx",
+                "correctExpr": "5*x",
+                "displayCorrect": "5x",
+                "inlineHint": "Enter the result without the constant of integration C",
+                "hint": {
+                    "mainText": "∫стала dx = стала·x",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "∫5 dx = 5x"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 7,
+                "prompt": "Обчисліть невизначений інтеграл: ∫(x² + 1) dx",
+                "correctExpr": "x^3/3+x",
+                "displayCorrect": "x³/3 + x",
+                "inlineHint": "Enter the result without the constant of integration C",
+                "hint": {
+                    "mainText": "Правило: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "sectionTitle": "ПРАВИЛА ІНТЕГРУВАННЯ",
+                    "items": [
+                        "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                        "∫c·f(x) dx = c·∫f(x) dx",
+                        "∫(f+g) dx = ∫f dx + ∫g dx"
+                    ],
+                    "steps": [
+                        "∫x² dx = x³/3",
+                        "∫1 dx = x",
+                        "Результат: x³/3+x"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 8,
+                "prompt": "Обчисліть невизначений інтеграл: ∫(3x² - 2x) dx",
+                "correctExpr": "x^3-x^2",
+                "displayCorrect": "x³ - x²",
+                "inlineHint": "Enter the result without the constant of integration C",
+                "hint": {
+                    "mainText": "Правило: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "sectionTitle": "ПРАВИЛА ІНТЕГРУВАННЯ",
+                    "items": [
+                        "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                        "∫c·f(x) dx = c·∫f(x) dx",
+                        "∫(f+g) dx = ∫f dx + ∫g dx"
+                    ],
+                    "steps": [
+                        "∫3x² dx = x³",
+                        "∫2x dx = x²",
+                        "Результат: x³-x²"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 9,
+                "prompt": "Обчисліть невизначений інтеграл: ∫(4x + 6) dx",
+                "correctExpr": "2*x^2+6*x",
+                "displayCorrect": "2x² + 6x",
+                "inlineHint": "Enter the result without the constant of integration C",
+                "hint": {
+                    "mainText": "Правило: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                    "sectionTitle": "ПРАВИЛА ІНТЕГРУВАННЯ",
+                    "items": [
+                        "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+                        "∫c·f(x) dx = c·∫f(x) dx",
+                        "∫(f+g) dx = ∫f dx + ∫g dx"
+                    ],
+                    "steps": [
+                        "∫4x dx = 2x²",
+                        "∫6 dx = 6x",
+                        "Результат: 2x²+6x"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 100,
+                "prompt": "Чому дорівнює інтеграл ∫2x dx?",
+                "options": [
+                    "x²",
+                    "x²/2",
+                    "2x²",
+                    "x"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 101,
+                "prompt": "Чому дорівнює інтеграл ∫3x² dx?",
+                "options": [
+                    "x³",
+                    "x²",
+                    "3x³",
+                    "x³/3"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 102,
+                "prompt": "Чому дорівнює інтеграл ∫x dx?",
+                "options": [
+                    "x²/2",
+                    "x²",
+                    "2x",
+                    "x/2"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 103,
+                "prompt": "Чому дорівнює інтеграл ∫4x³ dx?",
+                "options": [
+                    "x⁴",
+                    "4x⁴",
+                    "x³",
+                    "x⁴/4"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 104,
+                "prompt": "Чому дорівнює інтеграл ∫(2x+3) dx?",
+                "options": [
+                    "x²+3x",
+                    "x²+3",
+                    "2x²+3x",
+                    "x+3x"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 105,
+                "prompt": "Чому дорівнює інтеграл ∫5 dx?",
+                "options": [
+                    "5x",
+                    "5",
+                    "x/5",
+                    "5x²"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 106,
+                "prompt": "Чому дорівнює інтеграл ∫(x²+1) dx?",
+                "options": [
+                    "x³/3+x",
+                    "x³+x",
+                    "x²/2+x",
+                    "x³/3+1"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 107,
+                "prompt": "Чому дорівнює інтеграл ∫(3x²-2x) dx?",
+                "options": [
+                    "x³-x²",
+                    "3x³-x²",
+                    "x³-2x²",
+                    "x²-x"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 108,
+                "prompt": "Чому дорівнює інтеграл ∫(4x+6) dx?",
+                "options": [
+                    "2x²+6x",
+                    "4x²+6x",
+                    "2x+6",
+                    "4x²+6"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 109,
+                "prompt": "Чому дорівнює інтеграл ∫6x² dx?",
+                "options": [
+                    "2x³",
+                    "6x³",
+                    "x³",
+                    "6x²/2"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "algebra_2_1",
+        "questions": [
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 0,
+                "prompt": "Розв'яжіть рівняння: 2x + 4 = 0",
+                "correctExpr": "-2",
+                "displayCorrect": "x = -2",
+                "inlineHint": "Enter only the number (e.g. -2)",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "2x = -4",
+                        "x = -4/2",
+                        "x = -2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 1,
+                "prompt": "Розв'яжіть рівняння: 3x - 6 = 0",
+                "correctExpr": "2",
+                "displayCorrect": "x = 2",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "3x = 6",
+                        "x = 6/3",
+                        "x = 2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 2,
+                "prompt": "Розв'яжіть рівняння: x + 5 = 10",
+                "correctExpr": "5",
+                "displayCorrect": "x = 5",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "x = 10-5",
+                        "x = 5"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 3,
+                "prompt": "Розв'яжіть рівняння: 4x = 12",
+                "correctExpr": "3",
+                "displayCorrect": "x = 3",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "x = 12/4",
+                        "x = 3"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 4,
+                "prompt": "Розв'яжіть рівняння: 2x - 8 = 0",
+                "correctExpr": "4",
+                "displayCorrect": "x = 4",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "2x = 8",
+                        "x = 4"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 5,
+                "prompt": "Розв'яжіть рівняння: 5x + 10 = 0",
+                "correctExpr": "-2",
+                "displayCorrect": "x = -2",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "5x = -10",
+                        "x = -10/5",
+                        "x = -2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 6,
+                "prompt": "Розв'яжіть рівняння: 3x + 9 = 0",
+                "correctExpr": "-3",
+                "displayCorrect": "x = -3",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "3x = -9",
+                        "x = -3"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 7,
+                "prompt": "Розв'яжіть рівняння: x - 7 = 3",
+                "correctExpr": "10",
+                "displayCorrect": "x = 10",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "x = 3+7",
+                        "x = 10"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 8,
+                "prompt": "Розв'яжіть рівняння: 6x = 18",
+                "correctExpr": "3",
+                "displayCorrect": "x = 3",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "x = 18/6",
+                        "x = 3"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 9,
+                "prompt": "Розв'яжіть рівняння: 2x + 6 = 14",
+                "correctExpr": "4",
+                "displayCorrect": "x = 4",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "2x = 14-6 = 8",
+                        "x = 4"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 10,
+                "prompt": "Розв'яжіть рівняння: 7x - 14 = 0",
+                "correctExpr": "2",
+                "displayCorrect": "x = 2",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "7x = 14",
+                        "x = 2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 11,
+                "prompt": "Розв'яжіть рівняння: x + 3 = -1",
+                "correctExpr": "-4",
+                "displayCorrect": "x = -4",
+                "inlineHint": "Enter only the number",
+                "hint": {
+                    "mainText": "Ми переносимо доданки з x ліворуч, а числа — праворуч.",
+                    "boldPart": null,
+                    "sectionTitle": "МЕТОД РОЗВ'ЯЗАННЯ",
+                    "items": [
+                        "1. Перенесіть доданки з x в ліву частину",
+                        "2. Перенесіть константи в праву частину",
+                        "3. Поділіть обидві частини на коефіцієнт біля x"
+                    ],
+                    "steps": [
+                        "x = -1-3",
+                        "x = -4"
+                    ]
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 100,
+                "prompt": "Розв'яжіть: 2x + 4 = 0",
+                "options": [
+                    "x = -2",
+                    "x = 2",
+                    "x = -4",
+                    "x = 4"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 101,
+                "prompt": "Розв'яжіть: 3x - 6 = 0",
+                "options": [
+                    "x = 2",
+                    "x = -2",
+                    "x = 6",
+                    "x = 3"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 102,
+                "prompt": "Розв'яжіть: x + 5 = 10",
+                "options": [
+                    "x = 5",
+                    "x = 15",
+                    "x = -5",
+                    "x = 10"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 103,
+                "prompt": "Розв'яжіть: 4x = 12",
+                "options": [
+                    "x = 3",
+                    "x = 4",
+                    "x = 8",
+                    "x = 12"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 104,
+                "prompt": "Розв'яжіть: 5x + 10 = 0",
+                "options": [
+                    "x = -2",
+                    "x = 2",
+                    "x = -10",
+                    "x = 10"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 105,
+                "prompt": "Розв'яжіть: 6x = 18",
+                "options": [
+                    "x = 3",
+                    "x = 6",
+                    "x = 12",
+                    "x = 2"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 106,
+                "prompt": "Розв'яжіть: x - 7 = 3",
+                "options": [
+                    "x = 10",
+                    "x = -4",
+                    "x = 4",
+                    "x = 7"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 107,
+                "prompt": "Розв'яжіть: 2x + 6 = 14",
+                "options": [
+                    "x = 4",
+                    "x = 10",
+                    "x = 3",
+                    "x = 7"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 108,
+                "prompt": "Розв'яжіть: 3x + 9 = 0",
+                "options": [
+                    "x = -3",
+                    "x = 3",
+                    "x = -9",
+                    "x = 9"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 109,
+                "prompt": "Розв'яжіть: 7x - 14 = 0",
+                "options": [
+                    "x = 2",
+                    "x = -2",
+                    "x = 7",
+                    "x = 14"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "algebra_2_2",
+        "questions": [
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 0,
+                "prompt": "Розв'яжіть: x² - 5x + 6 = 0  (введіть менший корінь)",
+                "correctExpr": "2",
+                "displayCorrect": "x₁ = 2",
+                "inlineHint": "Enter the smaller root",
+                "hint": {
+                    "mainText": "x² + bx + c = 0. Дискримінант = b²-4c. Корені: (-b±√Δ)/2",
+                    "boldPart": "Дискримінант (дельта) = b²-4c",
+                    "sectionTitle": "ФОРМУЛИ",
+                    "items": [
+                        "Δ = b² - 4ac",
+                        "x₁ = (-b - √Δ) / 2a",
+                        "x₂ = (-b + √Δ) / 2a",
+                        "Якщо Δ=0, один розв'язок: x = -b/2a"
+                    ],
+                    "steps": [
+                        "Δ=25-24=1",
+                        "x₁=(5-1)/2=2",
+                        "x₂=(5+1)/2=3"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 1,
+                "prompt": "Розв'яжіть: x² - 5x + 6 = 0  (введіть більший корінь)",
+                "correctExpr": "3",
+                "displayCorrect": "x₂ = 3",
+                "inlineHint": "Enter the larger root",
+                "hint": {
+                    "mainText": "x² + bx + c = 0. Дискримінант = b²-4c. Корені: (-b±√Δ)/2",
+                    "boldPart": "Дискримінант (дельта) = b²-4c",
+                    "sectionTitle": "ФОРМУЛИ",
+                    "items": [
+                        "Δ = b² - 4ac",
+                        "x₁ = (-b - √Δ) / 2a",
+                        "x₂ = (-b + √Δ) / 2a",
+                        "Якщо Δ=0, один розв'язок: x = -b/2a"
+                    ],
+                    "steps": [
+                        "Δ=1",
+                        "x₁=2, x₂=3"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 2,
+                "prompt": "Розв'яжіть: x² + x - 6 = 0  (введіть менший корінь)",
+                "correctExpr": "-3",
+                "displayCorrect": "x₁ = -3",
+                "inlineHint": "Enter the smaller root",
+                "hint": {
+                    "mainText": "x² + bx + c = 0. Дискримінант = b²-4c. Корені: (-b±√Δ)/2",
+                    "boldPart": "Дискримінант (дельта) = b²-4c",
+                    "sectionTitle": "ФОРМУЛИ",
+                    "items": [
+                        "Δ = b² - 4ac",
+                        "x₁ = (-b - √Δ) / 2a",
+                        "x₂ = (-b + √Δ) / 2a",
+                        "Якщо Δ=0, один розв'язок: x = -b/2a"
+                    ],
+                    "steps": [
+                        "Δ=1+24=25",
+                        "x₁=(-1-5)/2=-3",
+                        "x₂=(-1+5)/2=2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 3,
+                "prompt": "Розв'яжіть: x² + x - 6 = 0  (введіть більший корінь)",
+                "correctExpr": "2",
+                "displayCorrect": "x₂ = 2",
+                "inlineHint": "Enter the larger root",
+                "hint": {
+                    "mainText": "x² + bx + c = 0. Дискримінант = b²-4c. Корені: (-b±√Δ)/2",
+                    "boldPart": "Дискримінант (дельта) = b²-4c",
+                    "sectionTitle": "ФОРМУЛИ",
+                    "items": [
+                        "Δ = b² - 4ac",
+                        "x₁ = (-b - √Δ) / 2a",
+                        "x₂ = (-b + √Δ) / 2a",
+                        "Якщо Δ=0, один розв'язок: x = -b/2a"
+                    ],
+                    "steps": [
+                        "x₁=-3, x₂=2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 4,
+                "prompt": "Розв'яжіть: x² - 4 = 0  (введіть менший корінь)",
+                "correctExpr": "-2",
+                "displayCorrect": "x₁ = -2",
+                "inlineHint": "Enter the smaller root",
+                "hint": {
+                    "mainText": "x²=4, so x=±2",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "x²=4",
+                        "x₁=-2, x₂=2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 5,
+                "prompt": "Розв'яжіть: x² - 4 = 0  (введіть більший корінь)",
+                "correctExpr": "2",
+                "displayCorrect": "x₂ = 2",
+                "inlineHint": "Enter the larger root",
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 6,
+                "prompt": "Розв'яжіть: x² - 3x + 2 = 0  (введіть менший корінь)",
+                "correctExpr": "1",
+                "displayCorrect": "x₁ = 1",
+                "inlineHint": "Enter the smaller root",
+                "hint": {
+                    "mainText": "x² + bx + c = 0. Дискримінант = b²-4c. Корені: (-b±√Δ)/2",
+                    "boldPart": "Дискримінант (дельта) = b²-4c",
+                    "sectionTitle": "ФОРМУЛИ",
+                    "items": [
+                        "Δ = b² - 4ac",
+                        "x₁ = (-b - √Δ) / 2a",
+                        "x₂ = (-b + √Δ) / 2a",
+                        "Якщо Δ=0, один розв'язок: x = -b/2a"
+                    ],
+                    "steps": [
+                        "Δ=9-8=1",
+                        "x₁=(3-1)/2=1",
+                        "x₂=2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 7,
+                "prompt": "Розв'яжіть: x² - 3x + 2 = 0  (введіть більший корінь)",
+                "correctExpr": "2",
+                "displayCorrect": "x₂ = 2",
+                "inlineHint": "Enter the larger root",
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 8,
+                "prompt": "Розв'яжіть: x² + 2x - 8 = 0  (введіть менший корінь)",
+                "correctExpr": "-4",
+                "displayCorrect": "x₁ = -4",
+                "inlineHint": "Enter the smaller root",
+                "hint": {
+                    "mainText": "x² + bx + c = 0. Дискримінант = b²-4c. Корені: (-b±√Δ)/2",
+                    "boldPart": "Дискримінант (дельта) = b²-4c",
+                    "sectionTitle": "ФОРМУЛИ",
+                    "items": [
+                        "Δ = b² - 4ac",
+                        "x₁ = (-b - √Δ) / 2a",
+                        "x₂ = (-b + √Δ) / 2a",
+                        "Якщо Δ=0, один розв'язок: x = -b/2a"
+                    ],
+                    "steps": [
+                        "Δ=4+32=36",
+                        "x₁=(-2-6)/2=-4",
+                        "x₂=2"
+                    ]
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 9,
+                "prompt": "Розв'яжіть: x² + 2x - 8 = 0  (введіть більший корінь)",
+                "correctExpr": "2",
+                "displayCorrect": "x₂ = 2",
+                "inlineHint": "Enter the larger root",
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 10,
+                "prompt": "Розв'яжіть: x² - 9 = 0  (введіть менший корінь)",
+                "correctExpr": "-3",
+                "displayCorrect": "x₁ = -3",
+                "inlineHint": "Enter the smaller root",
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "ExpressionTypeAnswer",
+                "id": 11,
+                "prompt": "Розв'яжіть: x² - 9 = 0  (введіть більший корінь)",
+                "correctExpr": "3",
+                "displayCorrect": "x₂ = 3",
+                "inlineHint": "Enter the larger root",
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 100,
+                "prompt": "Корені рівняння x² - 5x + 6 = 0:",
+                "options": [
+                    "x=2 та x=3",
+                    "x=-2 та x=-3",
+                    "x=1 та x=6",
+                    "x=-1 та x=6"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "x² + bx + c = 0. Дискримінант = b²-4c. Корені: (-b±√Δ)/2",
+                    "boldPart": "Дискримінант (дельта) = b²-4c",
+                    "sectionTitle": "ФОРМУЛИ",
+                    "items": [
+                        "Δ = b² - 4ac",
+                        "x₁ = (-b - √Δ) / 2a",
+                        "x₂ = (-b + √Δ) / 2a",
+                        "Якщо Δ=0, один розв'язок: x = -b/2a"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 101,
+                "prompt": "Корені рівняння x² + x - 6 = 0:",
+                "options": [
+                    "x=-3 та x=2",
+                    "x=3 та x=-2",
+                    "x=-1 та x=6",
+                    "x=1 та x=-6"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 102,
+                "prompt": "Корені рівняння x² - 4 = 0:",
+                "options": [
+                    "x=-2 та x=2",
+                    "x=2 та x=2",
+                    "x=-4 та x=4",
+                    "x=1 та x=4"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 103,
+                "prompt": "Корені рівняння x² - 3x + 2 = 0:",
+                "options": [
+                    "x=1 та x=2",
+                    "x=-1 та x=-2",
+                    "x=1 та x=3",
+                    "x=2 та x=3"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 104,
+                "prompt": "Корені рівняння x² + 2x - 8 = 0:",
+                "options": [
+                    "x=-4 та x=2",
+                    "x=4 та x=-2",
+                    "x=-4 та x=-2",
+                    "x=4 та x=2"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 105,
+                "prompt": "Корені рівняння x² - 9 = 0:",
+                "options": [
+                    "x=-3 та x=3",
+                    "x=3 та x=3",
+                    "x=-9 та x=9",
+                    "x=1 та x=9"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 106,
+                "prompt": "Корені рівняння x² + 4x + 4 = 0:",
+                "options": [
+                    "x=-2 (подвійний корінь)",
+                    "x=2 та x=-2",
+                    "x=2 (подвійний корінь)",
+                    "x=-4 та x=-1"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Δ=0 → один подвійний корінь: x = -b/2a",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 107,
+                "prompt": "Скільки коренів має рівняння x² + 1 = 0?",
+                "options": [
+                    "0 (немає дійсних коренів)",
+                    "1",
+                    "2",
+                    "безліч"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Δ = 0 - 4·1 = -4 < 0 → немає дійсних коренів.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    }
+]

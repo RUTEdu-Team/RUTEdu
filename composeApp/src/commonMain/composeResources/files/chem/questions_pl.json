@@ -1,0 +1,515 @@
+[
+    {
+        "lessonId": "chemia_3_1",
+        "questions": [
+            {
+                "type": "SelectFromList",
+                "id": 3101,
+                "prompt": "Wzór kwasu chlorowodorowego (solnego)",
+                "options": [
+                    "HCl",
+                    "H₂S",
+                    "HF",
+                    "HBr"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kwas chlorowodorowy to kwas beztlenowy. Składa się z wodoru i chloru.",
+                    "boldPart": "HCl",
+                    "sectionTitle": "Kwasy beztlenowe",
+                    "items": [
+                        "HCl – chlorowodorowy",
+                        "H₂S – siarkowodorowy",
+                        "HF – fluorowodorowy",
+                        "HBr – bromowodorowy"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3102,
+                "prompt": "Wzór kwasu siarkowodorowego",
+                "options": [
+                    "H₂SO₄",
+                    "H₂S",
+                    "H₂SO₃",
+                    "HCl"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kwas siarkowodorowy to H₂S – beztlenowy kwas znany z zapachu zgniłych jaj.",
+                    "boldPart": "H₂S",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3103,
+                "prompt": "Wzór kwasu fluorowodorowego",
+                "options": [
+                    "HBr",
+                    "HCl",
+                    "HF",
+                    "H₂S"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kwas fluorowodorowy (HF) używany jest do trawienia szkła.",
+                    "boldPart": "HF",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3104,
+                "prompt": "Wzór kwasu bromowodorowego",
+                "options": [
+                    "HF",
+                    "HCl",
+                    "H₂S",
+                    "HBr"
+                ],
+                "correctIndices": [
+                    3
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kwas bromowodorowy to HBr – beztlenowy kwas podobny do HCl.",
+                    "boldPart": "HBr",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3105,
+                "prompt": "Wzór kwasu siarkowego(VI)",
+                "options": [
+                    "H₂SO₃",
+                    "HNO₃",
+                    "H₂SO₄",
+                    "H₃PO₄"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kwas siarkowy(VI) – H₂SO₄ – najważniejszy kwas przemysłowy, silnie żrący.",
+                    "boldPart": "H₂SO₄",
+                    "sectionTitle": "Kwasy tlenowe siarki",
+                    "items": [
+                        "H₂SO₄ – siarkowy(VI), siarka na +6",
+                        "H₂SO₃ – siarkowy(IV), siarka na +4"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3106,
+                "prompt": "Wzór kwasu azotowego(V)",
+                "options": [
+                    "H₂SO₄",
+                    "HNO₃",
+                    "H₃PO₄",
+                    "H₂CO₃"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kwas azotowy(V) to HNO₃. Używany do produkcji nawozów i materiałów wybuchowych.",
+                    "boldPart": "HNO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3107,
+                "prompt": "Wzór kwasu węglowego",
+                "options": [
+                    "H₂SO₄",
+                    "H₃PO₄",
+                    "HNO₃",
+                    "H₂CO₃"
+                ],
+                "correctIndices": [
+                    3
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kwas węglowy H₂CO₃ to słaby kwas, powstaje gdy CO₂ rozpuszcza się w wodzie.",
+                    "boldPart": "H₂CO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3108,
+                "prompt": "Wzór kwasu fosforowego(V) (ortofosforowego)",
+                "options": [
+                    "H₃PO₄",
+                    "H₂SO₄",
+                    "H₂CO₃",
+                    "HNO₃"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kwas fosforowy(V) to H₃PO₄. Składnik nawozów i napojów cola.",
+                    "boldPart": "H₃PO₄",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3109,
+                "prompt": "Wzór kwasu siarkowego(IV)",
+                "options": [
+                    "H₂SO₄",
+                    "H₂SO₃",
+                    "HNO₃",
+                    "H₃PO₄"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kwas siarkowy(IV) to H₂SO₃. Powstaje przy spalaniu siarki – przyczyna kwaśnych deszczy.",
+                    "boldPart": "H₂SO₃",
+                    "sectionTitle": "Kwasy tlenowe siarki",
+                    "items": [
+                        "H₂SO₄ – siarkowy(VI), siarka na +6",
+                        "H₂SO₃ – siarkowy(IV), siarka na +4"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3110,
+                "prompt": "Kwas o wzorze H₂SO₄ to…",
+                "options": [
+                    "kwas azotowy(V)",
+                    "kwas węglowy",
+                    "kwas siarkowy(VI)",
+                    "kwas fosforowy(V)"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "H₂SO₄ to kwas siarkowy(VI). Liczba (VI) oznacza stopień utlenienia siarki.",
+                    "boldPart": "kwas siarkowy(VI)",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "chemia_3_2",
+        "questions": [
+            {
+                "type": "EquationBalance",
+                "id": 3201,
+                "instruction": "Zbilansuj równanie reakcji",
+                "subInstruction": "Dobierz odpowiednie współczynniki stechiometryczne",
+                "reactants": [
+                    {
+                        "formula": "H₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "Cl₂",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "HCl",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "H₂ + Cl₂ → 2HCl. Po lewej: 2H i 2Cl. Po prawej: w 2 cząsteczkach HCl też 2H i 2Cl.",
+                    "boldPart": "2HCl",
+                    "sectionTitle": "Krok po kroku",
+                    "items": [],
+                    "steps": [
+                        "Policz atomy H po lewej: 1×H₂ = 2 atomy H",
+                        "Policz atomy Cl po lewej: 1×Cl₂ = 2 atomy Cl",
+                        "Po prawej HCl ma 1H i 1Cl → potrzeba 2×HCl"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3202,
+                "instruction": "Zbilansuj równanie reakcji",
+                "subInstruction": "Dobierz odpowiednie współczynniki stechiometryczne",
+                "reactants": [
+                    {
+                        "formula": "H₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    },
+                    {
+                        "formula": "O₂",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "2H₂ + O₂ → 2H₂O. Klasyczna reakcja syntezy wody.",
+                    "boldPart": "2H₂O",
+                    "sectionTitle": "Krok po kroku",
+                    "items": [],
+                    "steps": [
+                        "Po prawej 2 cząsteczki H₂O = 4H i 2O",
+                        "4H po lewej to 2×H₂",
+                        "2O po lewej to 1×O₂"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3203,
+                "instruction": "Uzupełnij równanie otrzymywania kwasu",
+                "subInstruction": "Kwas siarkowy(VI) powstaje z SO₃ i wody",
+                "reactants": [
+                    {
+                        "formula": "SO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂SO₄",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "SO₃ + H₂O → H₂SO₄. Wszystkie współczynniki wynoszą 1.",
+                    "boldPart": "H₂SO₄",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3204,
+                "instruction": "Uzupełnij równanie otrzymywania kwasu",
+                "subInstruction": "Kwas siarkowy(IV) powstaje z SO₂ i wody",
+                "reactants": [
+                    {
+                        "formula": "SO₂",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂SO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "SO₂ + H₂O → H₂SO₃. Kwas siarkowy(IV) odpowiada za kwaśne deszcze.",
+                    "boldPart": "H₂SO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3205,
+                "instruction": "Uzupełnij równanie otrzymywania kwasu",
+                "subInstruction": "Kwas węglowy powstaje z CO₂ i wody",
+                "reactants": [
+                    {
+                        "formula": "CO₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂CO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "CO₂ + H₂O → H₂CO₃. Tak powstaje kwas węglowy w napojach gazowanych.",
+                    "boldPart": "H₂CO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3206,
+                "instruction": "Zbilansuj równanie reakcji",
+                "subInstruction": "Kwas azotowy(V) z N₂O₅ i wody",
+                "reactants": [
+                    {
+                        "formula": "N₂O₅",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "HNO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "N₂O₅ + H₂O → 2HNO₃. Jedna cząsteczka N₂O₅ zawiera 2 atomy N → 2 cząsteczki HNO₃.",
+                    "boldPart": "2HNO₃",
+                    "sectionTitle": "Krok po kroku",
+                    "items": [],
+                    "steps": [
+                        "N₂O₅ ma 2 atomy azotu",
+                        "Każda cząsteczka HNO₃ ma 1 atom azotu",
+                        "Potrzeba 2×HNO₃ aby zbilansować azot"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3207,
+                "instruction": "Zbilansuj równanie reakcji",
+                "subInstruction": "Kwas fosforowy(V) z P₂O₅ i wody",
+                "reactants": [
+                    {
+                        "formula": "P₂O₅",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 3
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₃PO₄",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "P₂O₅ + 3H₂O → 2H₃PO₄. Dwa atomy P → 2 cząsteczki H₃PO₄, a to wymaga 3 cząsteczek wody.",
+                    "boldPart": "2H₃PO₄",
+                    "sectionTitle": "Krok po kroku",
+                    "items": [],
+                    "steps": [
+                        "P₂O₅ ma 2 atomy P → potrzeba 2×H₃PO₄",
+                        "2×H₃PO₄ ma 6 atomów H → potrzeba 3×H₂O",
+                        "Sprawdź O: P₂O₅(5) + 3H₂O(3) = 8 = 2×H₃PO₄(8) ✓"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3208,
+                "instruction": "Zbilansuj równanie reakcji",
+                "subInstruction": "Reakcja syntezy kwasu siarkowodorowego",
+                "reactants": [
+                    {
+                        "formula": "H₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "S",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂S",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "H₂ + S → H₂S. Wszystkie współczynniki wynoszą 1.",
+                    "boldPart": "H₂S",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    }
+]

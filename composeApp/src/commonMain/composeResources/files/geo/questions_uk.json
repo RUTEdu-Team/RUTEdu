@@ -1,0 +1,933 @@
+[
+    {
+        "lessonId": "geo_1_1",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "Poland",
+                "questionText": "Where is Poland?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Польща розташована в Центральній Європі, на Балтійському морі.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Центрально-Східна Європа",
+                        "На південь від Балтійського моря"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Germany",
+                "questionText": "Where is Germany?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Німеччина розташована в Центрально-Західній Європі.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "На захід від Польщі",
+                        "Найбільша країна в Західній Європі"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "France",
+                "questionText": "Where is France?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Франція розташована в Західній Європі.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "На захід від Німеччини",
+                        "Від Ла-Маншу до Середземного моря"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Italy",
+                "questionText": "Where is Italy?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Італія — це півострів у формі чобота.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Південна Європа",
+                        "Апеннінський півострів вдається в Середземне море"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Spain",
+                "questionText": "Where is Spain?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Іспанія розташована на Піренейському півострові.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Kрайній південний захід Європи",
+                        "Межує з Францією та Португалією"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Ukraine",
+                "questionText": "Where is Ukraine?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Україна — найбільша країна, яка повністю розташована в Європі.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Східна Європа",
+                        "На південь від Білорусі, на схід від Польщі"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Sweden",
+                "questionText": "Where is Sweden?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Швеція розташована на Скандинавському півострові.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Північна Європа — Скандинавія",
+                        "Східна частина Скандинавського півострова"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Norway",
+                "questionText": "Where is Norway?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Норвегія розташована вздовж західного убережжя Скандинавії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Західна частина Скандинавського півострова",
+                        "Довга берегова лінія вздовж Атлантичного океану"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Romania",
+                "questionText": "Where is Romania?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Румунія розташована на Балканах.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Південно-Східна Європа",
+                        "Межує з Україною, Болгарією та Сербією"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Greece",
+                "questionText": "Where is Greece?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Греція розташована на півдні Балкан.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Південна Європа",
+                        "Багато островів в Егейському морі"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_1",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "Germany",
+                "questionText": "Mark Germany — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Німеччина межує з Польщею на заході.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Дивіться на захід від Польщі",
+                        "На Балтійському та Північному морях"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Czechia",
+                "questionText": "Mark Czechia — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Чехія межує з Польщею на південному заході.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Дивіться на південь від Польщі",
+                        "Затиснута сушею — посередині Європи"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "Slovakia",
+                "questionText": "Mark Slovakia — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Словаччина межує з Польщею на півдні.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "На південь від Польщі, на схід від Чехії",
+                        "Маленька країна в Центральній Європі"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Ukraine",
+                "questionText": "Mark Ukraine — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Україна межує з Польщею на сході.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "На схід від Польщі",
+                        "Велика країна — найбільша повністю в Європі"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Belarus",
+                "questionText": "Mark Belarus — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Білорусь межує з Польщею на північному сході.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "На північний схід від Польщі",
+                        "На південь від Литви"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Lithuania",
+                "questionText": "Mark Lithuania — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Литва межує з Польщею на півночі.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "На північ від Польщі",
+                        "Одна з трьох країн Балтії"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Russia",
+                "questionText": "Mark Russia (Kaliningrad Oblast) — Poland's neighbor",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Росія межує з Польщею через Калінінградську область.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Шукайте ексклав на Балтійському морі",
+                        "Російська область, відрізана від Росії, між Польщею та Литвою"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_2",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "China",
+                "questionText": "Where is China?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Китай — найбільша за населенням країна в Азії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Східна Азія",
+                        "Сусід Монголії, Росії, Індії та В'єтнаму"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Japan",
+                "questionText": "Where is Japan?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Японія — це острівний архіпелаг біля східного узбережжя Азії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Далекий Схід — острови в Тихому океані",
+                        "На схід від Кореї та Китаю"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "India",
+                "questionText": "Where is India?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Індія розташована на Корейському півострові.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Південна Азія",
+                        "Великий півострів, що вдається в Індійський океан"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "South Korea",
+                "questionText": "Where is South Korea?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Південна Корея розташована на Корейському півострові.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Східна Азія",
+                        "Південна частина Корейського півострова"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Mongolia",
+                "questionText": "Where is Mongolia?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Монголія лежить між Китаєм та Росією.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Центральна/Східна Азія",
+                        "Велика країна, оточена Китаєм на півдні та Росією на півночі"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Kazakhstan",
+                "questionText": "Where is Kazakhstan?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Казахстан — найбільша країна в Центральній Азії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Центральна Азія",
+                        "На південь від Росії, на північ від Каспійського моря"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Iran",
+                "questionText": "Where is Iran?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Іран розташований на Близькому Сході.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Західна Азія — Близький Схід",
+                        "Між Іраком та Афганістаном, на Перській затоці"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Saudi Arabia",
+                "questionText": "Where is Saudi Arabia?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Саудівська Аравія займає більшу частину Аравійського півострова.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Аравійський півострів",
+                        "Велика країна в центрі Близького Сходу"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Vietnam",
+                "questionText": "Where is Vietnam?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "В'єтнам розташований у Південно-Східній Азії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Індокитайський півострів",
+                        "Довга, вузька країна вздовж Південнокитайського моря"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Thailand",
+                "questionText": "Where is Thailand?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Таїланд розташований у Південно-Східній Азії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Південно-Східна Азія",
+                        "На південь від Лаосу, на захід від В'єтнаму"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_3",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "France",
+                "questionText": "Indicate the country whose capital is Paris",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Париж — столиця Франції.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Франція розташована в Західній Європі",
+                        "Межує з Німеччиною, Бельгією та Іспанією"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Germany",
+                "questionText": "Indicate the country whose capital is Berlin",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Берлін — столиця Німеччини.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Німеччина розташована в Центральній Європі",
+                        "Сусід Польщі на заході"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "Italy",
+                "questionText": "Indicate the country whose capital is Rome",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Рим — столиця Італії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Італія — це півострів у формі чобота",
+                        "Середземне море — Південна Європа"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Spain",
+                "questionText": "Indicate the country whose capital is Madrid",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Мадрид — столиця Іспанії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Піренейський півострів — Південно-Західна Європа",
+                        "Сусід Франції та Португалії"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "United Kingdom",
+                "questionText": "Indicate the country whose capital is London",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Лондон — столиця Великої Британії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Британські острови — Північно-Західна Європа",
+                        "Відокремлена від Франції протокою Ла-Манш"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Czechia",
+                "questionText": "Indicate the country whose capital is Prague",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Прага — столиця Чехії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Затиснута сушею Центральна Європа",
+                        "Сусід Польщі на півдні"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Hungary",
+                "questionText": "Indicate the country whose capital is Budapest",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Будапешт — столиця Угорщини.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Центральна Європа",
+                        "На південь від Чехії та Словаччини"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Austria",
+                "questionText": "Indicate the country whose capital is Vienna",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Відень — столиця Австрії.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Центральна Європа — Альпи",
+                        "Сусід Німеччини, Чехії, Угорщини та Італії"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Sweden",
+                "questionText": "Indicate the country whose capital is Stockholm",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Стокгольм — столиця Швеції.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Скандинавський півострів — Північна Європа",
+                        "Східна частина Скандинавії"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Greece",
+                "questionText": "Indicate the country whose capital is Athens",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Афіни — столиця Греції.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Południe Bałkanów",
+                        "Багато островів в Егейському морі"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_4",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 4401,
+                "countryKey": "małopolskie",
+                "questionText": "Indicate Lesser Poland Voivodeship (małopolskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Малопольське воєводство розташоване на півдні Польщі, з адміністративним центром у Кракові.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4402,
+                "countryKey": "mazowieckie",
+                "questionText": "Indicate Masovian Voivodeship (mazowieckie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Мазовецьке воєводство — найбільше воєводство, розташоване в центрально-східній частині, з адміністративним центром у Варшаві.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4403,
+                "countryKey": "pomorskie",
+                "questionText": "Indicate Pomeranian Voivodeship (pomorskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Поморське воєводство розташоване на Балтійському морі, з адміністративним центром у Гданську.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4404,
+                "countryKey": "śląskie",
+                "questionText": "Indicate Silesian Voivodeship (śląskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Сілезьке воєводство розташоване на півдні, є найбільш густонаселеним, з адміністративним центром у Катовиці.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4405,
+                "countryKey": "wielkopolskie",
+                "questionText": "Indicate Greater Poland Voivodeship (wielkopolskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Великопольське воєводство розташоване в західній частині країни, з адміністративним центром у Познані.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4406,
+                "countryKey": "dolnośląskie",
+                "questionText": "Indicate Lower Silesian Voivodeship (dolnośląskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Нижньосилезьке воєводство розташоване на південному заході, з адміністративним центром у Вроцлаві.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4407,
+                "countryKey": "podkarpackie",
+                "questionText": "Indicate Subcarpathian Voivodeship (podkarpackie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Підкарпатське воєводство розташоване на південному сході, з адміністративним центром у Жешуві.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4408,
+                "countryKey": "zachodniopomorskie",
+                "questionText": "Indicate West Pomeranian Voivodeship (zachodniopomorskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Західнопоморське воєводство розташоване на північному заході, на Балтійському морі, з адміністративним центром у Щецині.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4409,
+                "countryKey": "lubelskie",
+                "questionText": "Indicate Lublin Voivodeship (lubelskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Люблінське воєводство розташоване на сході Польщі, з адміністративним центром у Любліні.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4410,
+                "countryKey": "warmińsko-mazurskie",
+                "questionText": "Indicate Warmian-Masurian Voivodeship (warmińsko-mazurskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Вармінсько-Мазурське воєводство — це край тисячі озер на півночі, з адміністративним центром в Ольштині.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4411,
+                "countryKey": "podlaskie",
+                "questionText": "Indicate Podlaskie Voivodeship (podlaskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Підляське воєводство розташоване на північному сході, з адміністративним центром у Білостоці.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4412,
+                "countryKey": "łódzkie",
+                "questionText": "Indicate Łódź Voivodeship (łódzkie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Лодзинське воєводство розташоване в самому центрі Польщі, з адміністративним центром у Лодзі.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4413,
+                "countryKey": "kujawsko-pomorskie",
+                "questionText": "Indicate Kuyavian-Pomeranian Voivodeship (kujawsko-pomorskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Куявсько-Поморське воєводство розташоване в північній частині центру, з адміністративними центрами в Бидгощі та Торуні.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4414,
+                "countryKey": "opolskie",
+                "questionText": "Indicate Opole Voivodeship (opolskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Опольське воєводство — найменше воєводство, розташоване на південному заході, з адміністративним центром в Ополе.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4415,
+                "countryKey": "lubuskie",
+                "questionText": "Indicate Lubusz Voivodeship (lubuskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Любуське воєводство розташоване на заході, на кордоні з Німеччиною, з адміністративними центрами в Гожуві-Велькопольському та Зеленій Гурі.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4416,
+                "countryKey": "świętokrzyskie",
+                "questionText": "Indicate Świętokrzyskie Voivodeship (świętokrzyskie)",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Свентокшиське воєводство розташоване в південно-центральній Польщі, з адміністративним центром у Кельці.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    }
+]

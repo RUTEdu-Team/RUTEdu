@@ -1,0 +1,515 @@
+[
+    {
+        "lessonId": "chemia_3_1",
+        "questions": [
+            {
+                "type": "SelectFromList",
+                "id": 3101,
+                "prompt": "Vzorec kyseliny chlorovodíkovej",
+                "options": [
+                    "HCl",
+                    "H₂S",
+                    "HF",
+                    "HBr"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kyselina chlorovodíková je bezkyslíkatá kyselina. Skladá sa z vodíka a chlóru.",
+                    "boldPart": "Kyselina chlorovodíková",
+                    "sectionTitle": "Bezkyslíkaté kyseliny",
+                    "items": [
+                        "HCl – chlorovodíková",
+                        "H₂S – sírovodíková",
+                        "HF – fluorovodíková",
+                        "HBr – bromovodíková"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3102,
+                "prompt": "Vzorec kyseliny sírovodíkovej",
+                "options": [
+                    "H₂SO₄",
+                    "H₂S",
+                    "H₂SO₃",
+                    "HCl"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kyselina sírovodíková je H₂S – bezkyslíkatá kyselina známa svojím zápachom po skazených vajciach.",
+                    "boldPart": "H₂S",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3103,
+                "prompt": "Vzorec kyseliny fluorovodíkovej",
+                "options": [
+                    "HBr",
+                    "HCl",
+                    "HF",
+                    "H₂S"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kyselina fluorovodíková (HF) sa používa na leptanie skla.",
+                    "boldPart": "HF",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3104,
+                "prompt": "Vzorec kyseliny bromovodíkovej",
+                "options": [
+                    "HF",
+                    "HCl",
+                    "H₂S",
+                    "HBr"
+                ],
+                "correctIndices": [
+                    3
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kyselina bromovodíková je HBr – bezkyslíkatá kyselina podobná HCl.",
+                    "boldPart": "HBr",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3105,
+                "prompt": "Vzorec kyseliny sírovej",
+                "options": [
+                    "H₂SO₃",
+                    "HNO₃",
+                    "H₂SO₄",
+                    "H₃PO₄"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kyselina sírová – H₂SO₄ – najdôležitejšia priemyselná kyselina, vysoko korozívna.",
+                    "boldPart": "H₂SO₄",
+                    "sectionTitle": "Kyslíkaté kyseliny síry",
+                    "items": [
+                        "H₂SO₄ – sírová, síra v +6",
+                        "H₂SO₃ – siričitá, síra v +4"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3106,
+                "prompt": "Vzorec kyseliny dusičnej",
+                "options": [
+                    "H₂SO₄",
+                    "HNO₃",
+                    "H₃PO₄",
+                    "H₂CO₃"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kyselina dusičná je HNO₃. Používa sa na výrobu hnojív a výbušnín.",
+                    "boldPart": "HNO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3107,
+                "prompt": "Vzorec kyseliny uhličitej",
+                "options": [
+                    "H₂SO₄",
+                    "H₃PO₄",
+                    "HNO₃",
+                    "H₂CO₃"
+                ],
+                "correctIndices": [
+                    3
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kyselina uhličitá H₂CO₃ je slabá kyselina, ktorá vzniká pri rozpúšťaní CO₂ vo vode.",
+                    "boldPart": "H₂CO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3108,
+                "prompt": "Vzorec kyseliny fosforečnej (ortofosforečnej)",
+                "options": [
+                    "H₃PO₄",
+                    "H₂SO₄",
+                    "H₂CO₃",
+                    "HNO₃"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kyselina fosforečná je H₃PO₄. Zložka v hnojivách a kolových nápojoch.",
+                    "boldPart": "H₃PO₄",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3109,
+                "prompt": "Vzorec kyseliny siričitej",
+                "options": [
+                    "H₂SO₄",
+                    "H₂SO₃",
+                    "HNO₃",
+                    "H₃PO₄"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Kyselina siričitá je H₂SO₃. Vzniká pri spaľovaní síry – príčina kyslých dažďov.",
+                    "boldPart": "H₂SO₃",
+                    "sectionTitle": "Kyslíkaté kyseliny síry",
+                    "items": [
+                        "H₂SO₄ – sírová, síra v +6",
+                        "H₂SO₃ – siričitá, síra v +4"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3110,
+                "prompt": "Kyselina so vzorcom H₂SO₄ je...",
+                "options": [
+                    "kyselina dusičná",
+                    "kyselina uhličitá",
+                    "kyselina sírová",
+                    "kyselina fosforečná"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "H₂SO₄ je kyselina sírová. Číslo (VI) predstavuje oxidačný stav síry.",
+                    "boldPart": "kyselina sírová",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "chemia_3_2",
+        "questions": [
+            {
+                "type": "EquationBalance",
+                "id": 3201,
+                "instruction": "Balance the chemical equation",
+                "subInstruction": "Select the correct stoichiometric coefficients",
+                "reactants": [
+                    {
+                        "formula": "H₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "Cl₂",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "HCl",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "H₂ + Cl₂ → 2HCl. Vľavo: 2H a 2Cl. Vpravo: 2H a 2Cl v 2 molekulách HCl.",
+                    "boldPart": "2HCl",
+                    "sectionTitle": "Krok za krokom",
+                    "items": [],
+                    "steps": [
+                        "Spočítajte atómy H naľavo: 1×H₂ = 2 atómy H",
+                        "Spočítajte atómy Cl naľavo: 1×Cl₂ = 2 atómy Cl",
+                        "Vpravo má HCl 1H a 1Cl → potrebujeme 2×HCl"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3202,
+                "instruction": "Balance the chemical equation",
+                "subInstruction": "Select the correct stoichiometric coefficients",
+                "reactants": [
+                    {
+                        "formula": "H₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    },
+                    {
+                        "formula": "O₂",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "2H₂ + O₂ → 2H₂O. Klasická reakcia syntézy vody.",
+                    "boldPart": "2H₂O",
+                    "sectionTitle": "Krok za krokom",
+                    "items": [],
+                    "steps": [
+                        "Vpravo, 2 molekuly H₂O = 4H a 2O",
+                        "4H naľavo je 2×H₂",
+                        "2O naľavo je 1×O₂"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3203,
+                "instruction": "Complete the acid preparation equation",
+                "subInstruction": "Sulfuric(VI) acid is formed from SO₃ and water",
+                "reactants": [
+                    {
+                        "formula": "SO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂SO₄",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "SO₃ + H₂O → H₂SO₄. Všetky koeficienty sú 1.",
+                    "boldPart": "H₂SO₄",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3204,
+                "instruction": "Complete the acid preparation equation",
+                "subInstruction": "Sulfurous(IV) acid is formed from SO₂ and water",
+                "reactants": [
+                    {
+                        "formula": "SO₂",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂SO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "SO₂ + H₂O → H₂SO₃. Kyselina siričitá je zodpovedná za kyslé dažde.",
+                    "boldPart": "H₂SO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3205,
+                "instruction": "Complete the acid preparation equation",
+                "subInstruction": "Carbonic acid is formed from CO₂ and water",
+                "reactants": [
+                    {
+                        "formula": "CO₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂CO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "CO₂ + H₂O → H₂CO₃. Takto vzniká kyselina uhličitá v sýtených nápojoch.",
+                    "boldPart": "H₂CO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3206,
+                "instruction": "Balance the chemical equation",
+                "subInstruction": "Nitric(V) acid from N₂O₅ and water",
+                "reactants": [
+                    {
+                        "formula": "N₂O₅",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "HNO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "N₂O₅ + H₂O → 2HNO₃. Jedna molekula N₂O₅ obsahuje 2 atómy N → 2 molekuly HNO₃.",
+                    "boldPart": "2HNO₃",
+                    "sectionTitle": "Krok za krokom",
+                    "items": [],
+                    "steps": [
+                        "N₂O₅ má 2 atómy dusíka",
+                        "Každá molekula HNO₃ má 1 atóm dusíka",
+                        "Na vyváženie dusíka potrebujeme 2×HNO₃"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3207,
+                "instruction": "Balance the chemical equation",
+                "subInstruction": "Phosphoric(V) acid from P₂O₅ and water",
+                "reactants": [
+                    {
+                        "formula": "P₂O₅",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 3
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₃PO₄",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "P₂O₅ + 3H₂O → 2H₃PO₄. Dva atómy P → 2 molekuly H₃PO₄, čo vyžaduje 3 molekuly vody.",
+                    "boldPart": "2H₃PO₄",
+                    "sectionTitle": "Krok za krokom",
+                    "items": [],
+                    "steps": [
+                        "P₂O₅ má 2 atómy P → potrebujeme 2×H₃PO₄",
+                        "2×H₃PO₄ má 6 atómov H → potrebujeme 3×H₂O",
+                        "Kontrola O: P₂O₅(5) + 3H₂O(3) = 8 = 2×H₃PO₄(8) ✓"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3208,
+                "instruction": "Balance the chemical equation",
+                "subInstruction": "Hydrosulfuric acid synthesis reaction",
+                "reactants": [
+                    {
+                        "formula": "H₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "S",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂S",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "H₂ + S → H₂S. Všetky koeficienty sú 1.",
+                    "boldPart": "H₂S",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,515 @@
+[
+    {
+        "lessonId": "chemia_3_1",
+        "questions": [
+            {
+                "type": "SelectFromList",
+                "id": 3101,
+                "prompt": "Formula hlorovodonične kiseline",
+                "options": [
+                    "HCl",
+                    "H₂S",
+                    "HF",
+                    "HBr"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Hlorovodonična kiselina je bezkiseonična kiselina. Sastoji se od vodonika i hlora.",
+                    "boldPart": "Hlorovodonična kiselina",
+                    "sectionTitle": "Bezkiseonične kiseline",
+                    "items": [
+                        "HCl – hlorovodonična",
+                        "H₂S – sumporvodonična",
+                        "HF – fluorovodonična",
+                        "HBr – bromovodonična"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3102,
+                "prompt": "Formula sumporvodonične kiseline",
+                "options": [
+                    "H₂SO₄",
+                    "H₂S",
+                    "H₂SO₃",
+                    "HCl"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Sumporvodonična kiselina je H₂S – bezkiseonična kiselina poznata po mirisu na pokvarena jaja.",
+                    "boldPart": "H₂S",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3103,
+                "prompt": "Formula fluorovodonične kiseline",
+                "options": [
+                    "HBr",
+                    "HCl",
+                    "HF",
+                    "H₂S"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Fluorovodonična kiselina (HF) se koristi za nagrizanje stakla.",
+                    "boldPart": "HF",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3104,
+                "prompt": "Formula bromovodonične kiseline",
+                "options": [
+                    "HF",
+                    "HCl",
+                    "H₂S",
+                    "HBr"
+                ],
+                "correctIndices": [
+                    3
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Bromovodonična kiselina je HBr – bezkiseonična kiselina slična HCl.",
+                    "boldPart": "HBr",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3105,
+                "prompt": "Formula sumporne(VI) kiseline",
+                "options": [
+                    "H₂SO₃",
+                    "HNO₃",
+                    "H₂SO₄",
+                    "H₃PO₄"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Sumporna(VI) kiselina – H₂SO₄ – najvažnija industrijska kiselina, veoma korozivna.",
+                    "boldPart": "H₂SO₄",
+                    "sectionTitle": "Kiseonične kiseline sumpora",
+                    "items": [
+                        "H₂SO₄ – sumporna(VI), sumpor na +6",
+                        "H₂SO₃ – sumporaste(IV), sumpor na +4"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3106,
+                "prompt": "Formula azotne(V) kiseline",
+                "options": [
+                    "H₂SO₄",
+                    "HNO₃",
+                    "H₃PO₄",
+                    "H₂CO₃"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Azotna(V) kiselina je HNO₃. Koristi se za proizvodnju đubriva i eksploziva.",
+                    "boldPart": "HNO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3107,
+                "prompt": "Formula ugljene kiseline",
+                "options": [
+                    "H₂SO₄",
+                    "H₃PO₄",
+                    "HNO₃",
+                    "H₂CO₃"
+                ],
+                "correctIndices": [
+                    3
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Ugljena kiselina H₂CO₃ je slaba kiselina, koja nastaje kada se CO₂ rastvori u vodi.",
+                    "boldPart": "H₂CO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3108,
+                "prompt": "Formula fosforne(V) (ortofosforne) kiseline",
+                "options": [
+                    "H₃PO₄",
+                    "H₂SO₄",
+                    "H₂CO₃",
+                    "HNO₃"
+                ],
+                "correctIndices": [
+                    0
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Fosforna(V) kiselina je H₃PO₄. Sastojak u đubrivima i kola pićima.",
+                    "boldPart": "H₃PO₄",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3109,
+                "prompt": "Formula sumporaste(IV) kiseline",
+                "options": [
+                    "H₂SO₄",
+                    "H₂SO₃",
+                    "HNO₃",
+                    "H₃PO₄"
+                ],
+                "correctIndices": [
+                    1
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "Sumporaste(IV) kiselina je H₂SO₃. Nastaje pri sagorevanju sumpora – uzrok kiselih kiša.",
+                    "boldPart": "H₂SO₃",
+                    "sectionTitle": "Kiseonične kiseline sumpora",
+                    "items": [
+                        "H₂SO₄ – sumporna(VI), sumpor na +6",
+                        "H₂SO₃ – sumporaste(IV), sumpor na +4"
+                    ],
+                    "steps": []
+                }
+            },
+            {
+                "type": "SelectFromList",
+                "id": 3110,
+                "prompt": "Kiselina sa formulom H₂SO₄ je...",
+                "options": [
+                    "azotna(V) kiselina",
+                    "ugljena kiselina",
+                    "sumporna(VI) kiselina",
+                    "fosforna(V) kiselina"
+                ],
+                "correctIndices": [
+                    2
+                ],
+                "multiSelect": false,
+                "hint": {
+                    "mainText": "H₂SO₄ je sumporna(VI) kiselina. Broj (VI) predstavlja oksidaciono stanje sumpora.",
+                    "boldPart": "sumporna(VI) kiselina",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "chemia_3_2",
+        "questions": [
+            {
+                "type": "EquationBalance",
+                "id": 3201,
+                "instruction": "Balance the chemical equation",
+                "subInstruction": "Select the correct stoichiometric coefficients",
+                "reactants": [
+                    {
+                        "formula": "H₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "Cl₂",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "HCl",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "H₂ + Cl₂ → 2HCl. Levo: 2H i 2Cl. Desno: 2H i 2Cl u 2 molekula HCl.",
+                    "boldPart": "2HCl",
+                    "sectionTitle": "Korak po korak",
+                    "items": [],
+                    "steps": [
+                        "Izbroj atome H na levoj strani: 1×H₂ = 2 atoma H",
+                        "Izbroj atome Cl na levoj strani: 1×Cl₂ = 2 atoma Cl",
+                        "Na desnoj strani, HCl ima 1H i 1Cl → potrebno nam je 2×HCl"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3202,
+                "instruction": "Balance the chemical equation",
+                "subInstruction": "Select the correct stoichiometric coefficients",
+                "reactants": [
+                    {
+                        "formula": "H₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    },
+                    {
+                        "formula": "O₂",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "2H₂ + O₂ → 2H₂O. Klasična reakcija sinteze vode.",
+                    "boldPart": "2H₂O",
+                    "sectionTitle": "Korak po korak",
+                    "items": [],
+                    "steps": [
+                        "Na desnoj strani, 2 molekula H₂O = 4H i 2O",
+                        "4H na levoj strani je 2×H₂",
+                        "2O na levoj strani je 1×O₂"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3203,
+                "instruction": "Complete the acid preparation equation",
+                "subInstruction": "Sulfuric(VI) acid is formed from SO₃ and water",
+                "reactants": [
+                    {
+                        "formula": "SO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂SO₄",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "SO₃ + H₂O → H₂SO₄. Svi koeficijenti su 1.",
+                    "boldPart": "H₂SO₄",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3204,
+                "instruction": "Complete the acid preparation equation",
+                "subInstruction": "Sulfurous(IV) acid is formed from SO₂ and water",
+                "reactants": [
+                    {
+                        "formula": "SO₂",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂SO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "SO₂ + H₂O → H₂SO₃. Sumporasta(IV) kiselina je odgovorna za kisele kiše.",
+                    "boldPart": "H₂SO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3205,
+                "instruction": "Complete the acid preparation equation",
+                "subInstruction": "Carbonic acid is formed from CO₂ and water",
+                "reactants": [
+                    {
+                        "formula": "CO₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂CO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "CO₂ + H₂O → H₂CO₃. Ovako se ugljena kiselina stvara u gaziranim pićima.",
+                    "boldPart": "H₂CO₃",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3206,
+                "instruction": "Balance the chemical equation",
+                "subInstruction": "Nitric(V) acid from N₂O₅ and water",
+                "reactants": [
+                    {
+                        "formula": "N₂O₅",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "HNO₃",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "N₂O₅ + H₂O → 2HNO₃. Jedan molekul N₂O₅ sadrži 2 atoma N → 2 molekula HNO₃.",
+                    "boldPart": "2HNO₃",
+                    "sectionTitle": "Korak po korak",
+                    "items": [],
+                    "steps": [
+                        "N₂O₅ ima 2 atoma azota",
+                        "Svaki molekul HNO₃ ima 1 atom azota",
+                        "Potrebno nam je 2×HNO₃ da izjednačimo azot"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3207,
+                "instruction": "Balance the chemical equation",
+                "subInstruction": "Phosphoric(V) acid from P₂O₅ and water",
+                "reactants": [
+                    {
+                        "formula": "P₂O₅",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    },
+                    {
+                        "formula": "H₂O",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 3
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₃PO₄",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 2
+                    }
+                ],
+                "hint": {
+                    "mainText": "P₂O₅ + 3H₂O → 2H₃PO₄. Dva atoma P → 2 molekula H₃PO₄, za šta su potrebna 3 molekula vode.",
+                    "boldPart": "2H₃PO₄",
+                    "sectionTitle": "Korak po korak",
+                    "items": [],
+                    "steps": [
+                        "P₂O₅ ima 2 atoma P → potrebno nam je 2×H₃PO₄",
+                        "2×H₃PO₄ ima 6 H atoma → potrebno nam je 3×H₂O",
+                        "Provera O: P₂O₅(5) + 3H₂O(3) = 8 = 2×H₃PO₄(8) ✓"
+                    ]
+                }
+            },
+            {
+                "type": "EquationBalance",
+                "id": 3208,
+                "instruction": "Balance the chemical equation",
+                "subInstruction": "Hydrosulfuric acid synthesis reaction",
+                "reactants": [
+                    {
+                        "formula": "H₂",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    },
+                    {
+                        "formula": "S",
+                        "fixedCoefficient": 1,
+                        "correctCoefficient": null
+                    }
+                ],
+                "products": [
+                    {
+                        "formula": "H₂S",
+                        "fixedCoefficient": null,
+                        "correctCoefficient": 1
+                    }
+                ],
+                "hint": {
+                    "mainText": "H₂ + S → H₂S. Svi koeficijenti su 1.",
+                    "boldPart": "H₂S",
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    }
+]

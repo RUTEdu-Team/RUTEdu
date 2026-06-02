@@ -1,0 +1,933 @@
+[
+    {
+        "lessonId": "geo_1_1",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "Poland",
+                "questionText": "Gdzie leży Polska?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Polska leży w środkowej Europie, nad Morzem Bałtyckim.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Centrum-wschodnia Europa",
+                        "Na południe od Morza Bałtyckiego"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Germany",
+                "questionText": "Gdzie leżą Niemcy?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Niemcy leżą w środkowej Europie Zachodniej.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Na zachód od Polski",
+                        "Największy kraj Europy Zachodniej"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "France",
+                "questionText": "Gdzie leży Francja?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Francja leży w zachodniej Europie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Na zachód od Niemiec",
+                        "Od La Manche po Morze Śródziemne"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Italy",
+                "questionText": "Gdzie leżą Włochy?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Włochy to półwysep w kształcie buta.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Południe Europy",
+                        "Półwysep Apeniński wchodzi do Morza Śródziemnego"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Spain",
+                "questionText": "Gdzie leży Hiszpania?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Hiszpania leży na Półwyspie Iberyjskim.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Skrajny południe-zachód Europy",
+                        "Sąsiaduje z Francją i Portugalią"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Ukraine",
+                "questionText": "Gdzie leży Ukraina?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Ukraina to największy kraj w całości leżący w Europie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Wschodnia Europa",
+                        "Na południe od Białorusi, na wschód od Polski"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Sweden",
+                "questionText": "Gdzie leży Szwecja?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Szwecja leży na Półwyspie Skandynawskim.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Północna Europa — Skandynawia",
+                        "Wschodnia część Półwyspu Skandynawskiego"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Norway",
+                "questionText": "Gdzie leży Norwegia?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Norwegia leży wzdłuż zachodniego wybrzeża Skandynawii.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Zachodnia część Półwyspu Skandynawskiego",
+                        "Długa linia brzegowa nad Atlantykiem"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Romania",
+                "questionText": "Gdzie leży Rumunia?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Rumunia leży na Bałkanach.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Południowo-wschodnia Europa",
+                        "Sąsiaduje z Ukrainą, Bułgarią i Serbią"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Greece",
+                "questionText": "Gdzie leży Grecja?",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Grecja leży na południu Bałkanów.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Południe Europy",
+                        "Dużo wysp na Morzu Egejskim"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_1",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "Germany",
+                "questionText": "Zaznacz Niemcy — sąsiada Polski",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Niemcy graniczą z Polską na zachodzie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Szukaj na zachód od Polski",
+                        "Nad Morzem Bałtyckim i Północnym"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Czechia",
+                "questionText": "Zaznacz Czechy — sąsiada Polski",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Czechy graniczą z Polską na południe-zachodzie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Szukaj na południe od Polski",
+                        "Bez dostępu do morza — w środku Europy"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "Slovakia",
+                "questionText": "Zaznacz Słowację — sąsiada Polski",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Słowacja graniczy z Polską na południu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Na południe od Polski, na wschód od Czech",
+                        "Mały kraj w środkowej Europie"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Ukraine",
+                "questionText": "Zaznacz Ukrainę — sąsiada Polski",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Ukraina graniczy z Polską na wschodzie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Na wschód od Polski",
+                        "Duży kraj — największy w całości w Europie"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Belarus",
+                "questionText": "Zaznacz Białoruś — sąsiada Polski",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Białoruś graniczy z Polską na północnym-wschodzie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Północny-wschód od Polski",
+                        "Na południe od Litwy"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Lithuania",
+                "questionText": "Zaznacz Litwę — sąsiada Polski",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Litwa graniczy z Polską na północy.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Na północ od Polski",
+                        "Jedno z trzech państw bałtyckich"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Russia",
+                "questionText": "Zaznacz Rosję (obwód kaliningradzki) — sąsiada Polski",
+                "region": "CENTRAL_EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Rosja graniczy z Polską przez obwód kaliningradzki.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Szukaj enklawy nad Morzem Bałtyckim",
+                        "Rosyjski obwód odcięty od Rosji, między Polską a Litwą"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_2",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "China",
+                "questionText": "Gdzie leżą Chiny?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Chiny to największy kraj Azji pod względem populacji.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Wschód Azji",
+                        "Sąsiad Mongolii, Rosji, Indii i Wietnamu"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Japan",
+                "questionText": "Gdzie leży Japonia?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Japonia to archipelag wysp na wschodnim wybrzeżu Azji.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Daleki Wschód — wyspy na Oceanie Spokojnym",
+                        "Na wschód od Korei i Chin"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "India",
+                "questionText": "Gdzie leżą Indie?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Indie leżą na Półwyspie Indyjskim.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Azja Południowa",
+                        "Wielki półwysep wchodzący do Oceanu Indyjskiego"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "South Korea",
+                "questionText": "Gdzie leży Korea Południowa?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Korea Południowa leży na Półwyspie Koreańskim.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Azja Wschodnia",
+                        "Południowa część Półwyspu Koreańskiego"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "Mongolia",
+                "questionText": "Gdzie leży Mongolia?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Mongolia leży między Chinami a Rosją.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Azja Środkowa/Wschodnia",
+                        "Duży kraj otoczony Chinami od południa i Rosją od północy"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Kazakhstan",
+                "questionText": "Gdzie leży Kazachstan?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Kazachstan to największy kraj Azji Środkowej.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Azja Środkowa",
+                        "Na południe od Rosji, na północ od Morza Kaspijskiego"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Iran",
+                "questionText": "Gdzie leży Iran?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Iran leży na Bliskim Wschodzie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Azja Zachodnia — Bliski Wschód",
+                        "Między Irakiem a Afganistanem, nad Zatoką Perską"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Saudi Arabia",
+                "questionText": "Gdzie leży Arabia Saudyjska?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Arabia Saudyjska zajmuje większość Półwyspu Arabskiego.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Półwysep Arabski",
+                        "Duży kraj w centrum Bliskiego Wschodu"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Vietnam",
+                "questionText": "Gdzie leży Wietnam?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Wietnam leży w Azji Południowo-Wschodniej.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Półwysep Indochiński",
+                        "Długi, wąski kraj wzdłuż Morza Południowochińskiego"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Thailand",
+                "questionText": "Gdzie leży Tajlandia?",
+                "region": "ASIA",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Tajlandia leży w Azji Południowo-Wschodniej.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Azja Południowo-Wschodnia",
+                        "Na południe od Laosu, na zachód od Wietnamu"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_3",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 0,
+                "countryKey": "France",
+                "questionText": "Wskaż kraj, którego stolicą jest Paryż",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Paryż to stolica Francji.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Francja leży w zachodniej Europie",
+                        "Graniczy z Niemcami, Belgią i Hiszpanią"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 1,
+                "countryKey": "Germany",
+                "questionText": "Wskaż kraj, którego stolicą jest Berlin",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Berlin to stolica Niemiec.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Niemcy leżą w środkowej Europie",
+                        "Sąsiad Polski na zachodzie"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 2,
+                "countryKey": "Italy",
+                "questionText": "Wskaż kraj, którego stolicą jest Rzym",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Rzym to stolica Włoch.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Włochy to półwysep w kształcie buta",
+                        "Morze Śródziemne — południe Europy"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 3,
+                "countryKey": "Spain",
+                "questionText": "Wskaż kraj, którego stolicą jest Madryt",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Madryt to stolica Hiszpanii.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Półwysep Iberyjski — południe-zachód Europy",
+                        "Sąsiad Francji i Portugalii"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4,
+                "countryKey": "United Kingdom",
+                "questionText": "Wskaż kraj, którego stolicą jest Londyn",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Londyn to stolica Zjednoczonego Królestwa.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Wyspy Brytyjskie — północny-zachód Europy",
+                        "Oddzielony od Francji Kanałem La Manche"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 5,
+                "countryKey": "Czechia",
+                "questionText": "Wskaż kraj, którego stolicą jest Praga",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Praga to stolica Czech.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Środkowa Europa bez dostępu do morza",
+                        "Sąsiad Polski na południu"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 6,
+                "countryKey": "Hungary",
+                "questionText": "Wskaż kraj, którego stolicą jest Budapeszt",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Budapeszt to stolica Węgier.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Środkowa Europa",
+                        "Na południe od Czech i Słowacji"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 7,
+                "countryKey": "Austria",
+                "questionText": "Wskaż kraj, którego stolicą jest Wiedeń",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Wiedeń to stolica Austrii.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Środkowa Europa — Alpy",
+                        "Sąsiad Niemiec, Czech, Węgier i Włoch"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 8,
+                "countryKey": "Sweden",
+                "questionText": "Wskaż kraj, którego stolicą jest Sztokholm",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Sztokholm to stolica Szwecji.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Półwysep Skandynawski — północna Europa",
+                        "Wschodnia część Skandynawii"
+                    ]
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 9,
+                "countryKey": "Greece",
+                "questionText": "Wskaż kraj, którego stolicą są Ateny",
+                "region": "EUROPE",
+                "mapFile": "files/countries.geojson",
+                "hint": {
+                    "mainText": "Ateny to stolica Grecji.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": [
+                        "Południe Bałkanów",
+                        "Wiele wysp na Morzu Egejskim"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "lessonId": "geo_4_4",
+        "questions": [
+            {
+                "type": "MapQuiz",
+                "id": 4401,
+                "countryKey": "małopolskie",
+                "questionText": "Wskaż województwo małopolskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Małopolskie leży na południu Polski, ze stolicą w Krakowie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4402,
+                "countryKey": "mazowieckie",
+                "questionText": "Wskaż województwo mazowieckie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Mazowieckie to największe województwo, leży w centrum-wschodzie, ze stolicą w Warszawie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4403,
+                "countryKey": "pomorskie",
+                "questionText": "Wskaż województwo pomorskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Pomorskie leży nad Morzem Bałtyckim, ze stolicą w Gdańsku.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4404,
+                "countryKey": "śląskie",
+                "questionText": "Wskaż województwo śląskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Śląskie leży na południu, jest najbardziej zaludnione, ze stolicą w Katowicach.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4405,
+                "countryKey": "wielkopolskie",
+                "questionText": "Wskaż województwo wielkopolskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Wielkopolskie leży w zachodniej części kraju, ze stolicą w Poznaniu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4406,
+                "countryKey": "dolnośląskie",
+                "questionText": "Wskaż województwo dolnośląskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Dolnośląskie leży na południowym zachodzie, ze stolicą we Wrocławiu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4407,
+                "countryKey": "podkarpackie",
+                "questionText": "Wskaż województwo podkarpackie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Podkarpackie leży na południowym wschodzie, ze stolicą w Rzeszowie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4408,
+                "countryKey": "zachodniopomorskie",
+                "questionText": "Wskaż województwo zachodniopomorskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Zachodniopomorskie leży na północnym zachodzie, nad Bałtykiem, ze stolicą w Szczecinie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4409,
+                "countryKey": "lubelskie",
+                "questionText": "Wskaż województwo lubelskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Lubelskie leży na wschodzie Polski, ze stolicą w Lublinie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4410,
+                "countryKey": "warmińsko-mazurskie",
+                "questionText": "Wskaż województwo warmińsko-mazurskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Warmińsko-mazurskie to kraina tysiąca jezior na północy, ze stolicą w Olsztynie.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4411,
+                "countryKey": "podlaskie",
+                "questionText": "Wskaż województwo podlaskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Podlaskie leży na północnym wschodzie, ze stolicą w Białymstoku.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4412,
+                "countryKey": "łódzkie",
+                "questionText": "Wskaż województwo łódzkie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Łódzkie leży w samym centrum Polski, ze stolicą w Łodzi.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4413,
+                "countryKey": "kujawsko-pomorskie",
+                "questionText": "Wskaż województwo kujawsko-pomorskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Kujawsko-pomorskie leży w północnej części centrum, ze stolicami w Bydgoszczy i Toruniu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4414,
+                "countryKey": "opolskie",
+                "questionText": "Wskaż województwo opolskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Opolskie to najmniejsze województwo, leży na południowym zachodzie, ze stolicą w Opolu.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4415,
+                "countryKey": "lubuskie",
+                "questionText": "Wskaż województwo lubuskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Lubuskie leży na zachodzie, przy granicy z Niemcami, ze stolicami w Gorzowie Wlkp. i Zielonej Górze.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            },
+            {
+                "type": "MapQuiz",
+                "id": 4416,
+                "countryKey": "świętokrzyskie",
+                "questionText": "Wskaż województwo świętokrzyskie",
+                "region": "POLAND",
+                "mapFile": "files/polish_provinces.geojson",
+                "hint": {
+                    "mainText": "Świętokrzyskie leży w południowo-środkowej Polsce, ze stolicą w Kielcach.",
+                    "boldPart": null,
+                    "sectionTitle": null,
+                    "items": [],
+                    "steps": []
+                }
+            }
+        ]
+    }
+]
