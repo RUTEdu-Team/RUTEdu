@@ -422,8 +422,13 @@ internal fun MapQuizContent(
             }
             Button(
                 onClick = {
-                    if (selectedCountry == question.countryKey) onCorrect()
-                    else onWrong()
+                    if (selectedCountry == question.countryKey) {
+                        isWrong = false
+                        onCorrect()
+                    } else {
+                        isWrong = true
+                        onWrong()
+                    }
                 },
                 modifier = Modifier.weight(1f).height(52.dp),
                 shape = RoundedCornerShape(26.dp),
