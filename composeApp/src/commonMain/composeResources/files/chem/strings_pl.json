@@ -27,7 +27,6 @@
   "cat.pH.acidic": "kwasowy",
   "cat.pH.neutral": "obojętny",
   "cat.pH.basic": "zasadowy",
-
   "prompt.acid.formula_to_name": "Kwas o wzorze %s to:",
   "prompt.acid.name_to_formula": "Wzór %s to:",
   "prompt.acid.name_type": "%s (%s) jest kwasem:",
@@ -77,7 +76,6 @@
   "prompt.pt.period3_nonmetals": "Znajdź miejsca niemetali 3. okresu",
   "prompt.pt.period4_p_block": "Znajdź miejsca pierwiastków 4. okresu — blok p",
   "prompt.pt.period4_5_ends": "Uzupełnij koniec i początek okresu 4 i 5",
-
   "instr.balance_acid_synth": "Zbilansuj reakcję syntezy kwasu",
   "instr.balance_acid_prep": "Uzupełnij reakcję otrzymywania kwasu",
   "instr.balance_metal_acid": "Zbilansuj reakcję metalu z kwasem",
@@ -96,19 +94,16 @@
   "instr.balance_lime_slaking": "Uzupełnij reakcję gaszenia wapna",
   "instr.balance_water_synth": "Zbilansuj reakcję syntezy wody",
   "instr.balance_equation": "Zbilansuj równanie reakcji",
-
   "subinstr.methane": "Metan — główny składnik gazu ziemnego",
   "subinstr.peroxide": "Rozkład wody utlenionej (katalizator: MnO₂)",
   "subinstr.mercury_oxide": "Historyczna reakcja Lavoisiera — rozkład tlenku rtęci(II)",
   "subinstr.limestone": "Ważna reakcja przemysłowa — produkcja wapna palonego",
   "subinstr.baso4": "Siarczan baru wytrąca się jako biały osad",
   "subinstr.lime": "Wapno palone + woda → wapno gaszone",
-
   "section.salt_names": "Nazewnictwo soli",
   "section.oxide_types": "Typy tlenków",
   "section.base_solubility": "Rozpuszczalność zasad",
   "section.acid_type": "Rodzaje kwasów",
-
   "hint.acid_type": "Kwasy beztlenowe nie zawierają tlenu (HX, H₂X). Kwasy tlenowe zawierają tlen (np. HNO₃, H₂SO₄).",
   "hint.dissoc_acid": "Kwasy dysocjują oddając jon H⁺.",
   "hint.dissoc_base": "Zasady dysocjują oddając jon OH⁻.",
@@ -133,7 +128,6 @@
   "hint.elem_period": "%s leży w %s. okresie układu.",
   "hint.read_from_card": "Odczytaj masę atomową z karty pierwiastka",
   "hint.count_row": "Policz wiersz od góry tabeli — to numer okresu",
-
   "item.salt.chlorides": "Chlorki — od HCl (kwas chlorowodorowy)",
   "item.salt.sulfates": "Siarczany(VI) — od H₂SO₄",
   "item.salt.nitrates": "Azotany(V) — od HNO₃",
@@ -146,7 +140,6 @@
   "item.base.sol1": "NaOH, KOH, LiOH — gr. 1",
   "item.base.sol2": "Ca(OH)₂, Ba(OH)₂ — gr. 2",
   "item.base.insol": "Inne wodorotlenki — trudno rozpuszczalne",
-
   "step.pH.acidic": "pH < 7 → odczyn kwasowy",
   "step.pH.neutral": "pH = 7 → odczyn obojętny",
   "step.pH.basic": "pH > 7 → odczyn zasadowy",
@@ -156,7 +149,6 @@
   "step.electrons_eq_Z": "Elektronów = %s",
   "step.protons_eq_Z": "Protonów = %s",
   "step.count_period": "Policz wiersz od góry tabeli — to numer okresu",
-
   "acid.HF.name": "kwas fluorowodorowy",
   "acid.HF.hint": "HF – fluorowodorowy, trawiący szkło.",
   "acid.HCl.name": "kwas chlorowodorowy",
@@ -189,7 +181,6 @@
   "acid.HClO.hint": "HClO – chlorowy(I), chlor na +1. Słaby kwas, właściwości odkażające.",
   "acid.H3BO3.name": "kwas borowy",
   "acid.H3BO3.hint": "H₃BO₃ – borowy. Stosowany w okulistyce jako środek dezynfekcyjny.",
-
   "base.NaOH.name": "wodorotlenek sodu",
   "base.KOH.name": "wodorotlenek potasu",
   "base.LiOH.name": "wodorotlenek litu",
@@ -203,7 +194,6 @@
   "base.ZnOH2.name": "wodorotlenek cynku",
   "base.MnOH2.name": "wodorotlenek manganu(II)",
   "base.NiOH2.name": "wodorotlenek niklu(II)",
-
   "salt.NaCl.name": "chlorek sodu",
   "salt.NaCl.acid": "kwas chlorowodorowy",
   "salt.KCl.name": "chlorek potasu",
@@ -250,7 +240,6 @@
   "salt.Na3PO4.acid": "kwas fosforowy(V)",
   "salt.Ca3PO42.name": "fosforan(V) wapnia",
   "salt.Ca3PO42.acid": "kwas fosforowy(V)",
-
   "oxide.Na2O.name": "tlenek sodu",
   "oxide.K2O.name": "tlenek potasu",
   "oxide.CaO.name": "tlenek wapnia",
@@ -270,7 +259,6 @@
   "oxide.NO.name": "tlenek azotu(II)",
   "oxide.ZnO.name": "tlenek cynku",
   "oxide.Al2O3.name": "tlenek glinu",
-
   "hc.CH4.name": "metan",
   "hc.C2H6.name": "etan",
   "hc.C3H8.name": "propan",
@@ -284,7 +272,6 @@
   "hc.C2H2.name": "etyn",
   "hc.C3H4.name": "propyn",
   "hc.C4H6.name": "butyn",
-
   "org.CH3OH.name": "metanol",
   "org.C2H5OH.name": "etanol",
   "org.C3H7OH.name": "propanol",
@@ -297,7 +284,6 @@
   "org.C2H5NH2.name": "etyloamina",
   "org.HCOOCH3.name": "mrówczan metylu",
   "org.CH3COOC2H5.name": "octan etylu",
-
   "dissoc.HCl.name": "kwas solny",
   "dissoc.HCl.ions": "H⁺ i Cl⁻",
   "dissoc.HBr.name": "kwas bromowodorowy",
@@ -328,7 +314,6 @@
   "dissoc.K2SO4.ions": "2K⁺ i SO₄²⁻",
   "dissoc.Na2CO3.name": "węglan sodu",
   "dissoc.Na2CO3.ions": "2Na⁺ i CO₃²⁻",
-
   "mol.H2O.name": "woda",
   "mol.CO2.name": "dwutlenek węgla",
   "mol.NaCl.name": "chlorek sodu",
@@ -349,7 +334,6 @@
   "mol.CO.name": "tlenek węgla(II)",
   "mol.HF.name": "kwas fluorowodorowy",
   "mol.HBr.name": "kwas bromowodorowy",
-
   "pH.lemon_juice": "Sok cytrynowy (pH ≈ 2)",
   "pH.vinegar": "Ocet (pH ≈ 3)",
   "pH.coffee": "Kawa (pH ≈ 5)",

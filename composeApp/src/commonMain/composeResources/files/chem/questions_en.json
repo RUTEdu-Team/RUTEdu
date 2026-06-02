@@ -1,515 +1,515 @@
 [
-    {
-        "lessonId": "chemia_3_1",
-        "questions": [
-            {
-                "type": "SelectFromList",
-                "id": 3101,
-                "prompt": "Formula of hydrochloric acid",
-                "options": [
-                    "HCl",
-                    "H₂S",
-                    "HF",
-                    "HBr"
-                ],
-                "correctIndices": [
-                    0
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Hydrochloric acid is a hydrohalic acid. It consists of hydrogen and chlorine.",
-                    "boldPart": "Hydrochloric acid",
-                    "sectionTitle": "Binary acids",
-                    "items": [
-                        "HCl – hydrochloric",
-                        "H₂S – hydrosulfuric",
-                        "HF – hydrofluoric",
-                        "HBr – hydrobromic"
-                    ],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3102,
-                "prompt": "Formula of hydrosulfuric acid",
-                "options": [
-                    "H₂SO₄",
-                    "H₂S",
-                    "H₂SO₃",
-                    "HCl"
-                ],
-                "correctIndices": [
-                    1
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Hydrosulfuric acid is H₂S – a hydrohalic acid known for its rotten egg odor.",
-                    "boldPart": "H₂S",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3103,
-                "prompt": "Formula of hydrofluoric acid",
-                "options": [
-                    "HBr",
-                    "HCl",
-                    "HF",
-                    "H₂S"
-                ],
-                "correctIndices": [
-                    2
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Hydrofluoric acid (HF) is used for glass etching.",
-                    "boldPart": "HF",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3104,
-                "prompt": "Formula of hydrobromic acid",
-                "options": [
-                    "HF",
-                    "HCl",
-                    "H₂S",
-                    "HBr"
-                ],
-                "correctIndices": [
-                    3
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Hydrobromic acid is HBr – a hydrohalic acid similar to HCl.",
-                    "boldPart": "HBr",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3105,
-                "prompt": "Formula of sulfuric(VI) acid",
-                "options": [
-                    "H₂SO₃",
-                    "HNO₃",
-                    "H₂SO₄",
-                    "H₃PO₄"
-                ],
-                "correctIndices": [
-                    2
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Sulfuric(VI) acid – H₂SO₄ – the most important industrial acid, highly corrosive.",
-                    "boldPart": "H₂SO₄",
-                    "sectionTitle": "Oxyacids of sulfur",
-                    "items": [
-                        "H₂SO₄ – sulfuric(VI), sulfur at +6",
-                        "H₂SO₃ – sulfurous(IV), sulfur at +4"
-                    ],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3106,
-                "prompt": "Formula of nitric(V) acid",
-                "options": [
-                    "H₂SO₄",
-                    "HNO₃",
-                    "H₃PO₄",
-                    "H₂CO₃"
-                ],
-                "correctIndices": [
-                    1
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Nitric(V) acid is HNO₃. Used for the production of fertilizers and explosives.",
-                    "boldPart": "HNO₃",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3107,
-                "prompt": "Formula of carbonic acid",
-                "options": [
-                    "H₂SO₄",
-                    "H₃PO₄",
-                    "HNO₃",
-                    "H₂CO₃"
-                ],
-                "correctIndices": [
-                    3
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Carbonic acid H₂CO₃ is a weak acid, formed when CO₂ dissolves in water.",
-                    "boldPart": "H₂CO₃",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3108,
-                "prompt": "Formula of phosphoric(V) (orthophosphoric) acid",
-                "options": [
-                    "H₃PO₄",
-                    "H₂SO₄",
-                    "H₂CO₃",
-                    "HNO₃"
-                ],
-                "correctIndices": [
-                    0
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Phosphoric(V) acid is H₃PO₄. An ingredient in fertilizers and cola drinks.",
-                    "boldPart": "H₃PO₄",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3109,
-                "prompt": "Formula of sulfurous(IV) acid",
-                "options": [
-                    "H₂SO₄",
-                    "H₂SO₃",
-                    "HNO₃",
-                    "H₃PO₄"
-                ],
-                "correctIndices": [
-                    1
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Sulfurous(IV) acid is H₂SO₃. Formed during the combustion of sulfur – a cause of acid rain.",
-                    "boldPart": "H₂SO₃",
-                    "sectionTitle": "Oxyacids of sulfur",
-                    "items": [
-                        "H₂SO₄ – sulfuric(VI), sulfur at +6",
-                        "H₂SO₃ – sulfurous(IV), sulfur at +4"
-                    ],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3110,
-                "prompt": "The acid with the formula H₂SO₄ is...",
-                "options": [
-                    "nitric(V) acid",
-                    "carbonic acid",
-                    "sulfuric(VI) acid",
-                    "phosphoric(V) acid"
-                ],
-                "correctIndices": [
-                    2
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "H₂SO₄ is sulfuric(VI) acid. The number (VI) represents the oxidation state of sulfur.",
-                    "boldPart": "sulfuric(VI) acid",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            }
-        ]
-    },
-    {
-        "lessonId": "chemia_3_2",
-        "questions": [
-            {
-                "type": "EquationBalance",
-                "id": 3201,
-                "instruction": "Balance the chemical equation",
-                "subInstruction": "Select the correct stoichiometric coefficients",
-                "reactants": [
-                    {
-                        "formula": "H₂",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    },
-                    {
-                        "formula": "Cl₂",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "HCl",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 2
-                    }
-                ],
-                "hint": {
-                    "mainText": "H₂ + Cl₂ → 2HCl. Left: 2H and 2Cl. Right: 2H and 2Cl in 2 molecules of HCl.",
-                    "boldPart": "2HCl",
-                    "sectionTitle": "Step by step",
-                    "items": [],
-                    "steps": [
-                        "Count H atoms on the left: 1×H₂ = 2 H atoms",
-                        "Count Cl atoms on the left: 1×Cl₂ = 2 Cl atoms",
-                        "On the right, HCl has 1H and 1Cl → we need 2×HCl"
-                    ]
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3202,
-                "instruction": "Balance the chemical equation",
-                "subInstruction": "Select the correct stoichiometric coefficients",
-                "reactants": [
-                    {
-                        "formula": "H₂",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 2
-                    },
-                    {
-                        "formula": "O₂",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 2
-                    }
-                ],
-                "hint": {
-                    "mainText": "2H₂ + O₂ → 2H₂O. Classic water synthesis reaction.",
-                    "boldPart": "2H₂O",
-                    "sectionTitle": "Step by step",
-                    "items": [],
-                    "steps": [
-                        "On the right, 2 molecules of H₂O = 4H and 2O",
-                        "4H on the left is 2×H₂",
-                        "2O on the left is 1×O₂"
-                    ]
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3203,
-                "instruction": "Complete the acid preparation equation",
-                "subInstruction": "Sulfuric(VI) acid is formed from SO₃ and water",
-                "reactants": [
-                    {
-                        "formula": "SO₃",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    },
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₂SO₄",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    }
-                ],
-                "hint": {
-                    "mainText": "SO₃ + H₂O → H₂SO₄. All coefficients are 1.",
-                    "boldPart": "H₂SO₄",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3204,
-                "instruction": "Complete the acid preparation equation",
-                "subInstruction": "Sulfurous(IV) acid is formed from SO₂ and water",
-                "reactants": [
-                    {
-                        "formula": "SO₂",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    },
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₂SO₃",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    }
-                ],
-                "hint": {
-                    "mainText": "SO₂ + H₂O → H₂SO₃. Sulfurous(IV) acid is responsible for acid rain.",
-                    "boldPart": "H₂SO₃",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3205,
-                "instruction": "Complete the acid preparation equation",
-                "subInstruction": "Carbonic acid is formed from CO₂ and water",
-                "reactants": [
-                    {
-                        "formula": "CO₂",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    },
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₂CO₃",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    }
-                ],
-                "hint": {
-                    "mainText": "CO₂ + H₂O → H₂CO₃. This is how carbonic acid is formed in carbonated beverages.",
-                    "boldPart": "H₂CO₃",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3206,
-                "instruction": "Balance the chemical equation",
-                "subInstruction": "Nitric(V) acid from N₂O₅ and water",
-                "reactants": [
-                    {
-                        "formula": "N₂O₅",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    },
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "HNO₃",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 2
-                    }
-                ],
-                "hint": {
-                    "mainText": "N₂O₅ + H₂O → 2HNO₃. One N₂O₅ molecule contains 2 N atoms → 2 HNO₃ molecules.",
-                    "boldPart": "2HNO₃",
-                    "sectionTitle": "Step by step",
-                    "items": [],
-                    "steps": [
-                        "N₂O₅ has 2 nitrogen atoms",
-                        "Each HNO₃ molecule has 1 nitrogen atom",
-                        "We need 2×HNO₃ to balance nitrogen"
-                    ]
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3207,
-                "instruction": "Balance the chemical equation",
-                "subInstruction": "Phosphoric(V) acid from P₂O₅ and water",
-                "reactants": [
-                    {
-                        "formula": "P₂O₅",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    },
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 3
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₃PO₄",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 2
-                    }
-                ],
-                "hint": {
-                    "mainText": "P₂O₅ + 3H₂O → 2H₃PO₄. Two P atoms → 2 H₃PO₄ molecules, which requires 3 water molecules.",
-                    "boldPart": "2H₃PO₄",
-                    "sectionTitle": "Step by step",
-                    "items": [],
-                    "steps": [
-                        "P₂O₅ has 2 P atoms → we need 2×H₃PO₄",
-                        "2×H₃PO₄ has 6 H atoms → we need 3×H₂O",
-                        "Check O: P₂O₅(5) + 3H₂O(3) = 8 = 2×H₃PO₄(8) ✓"
-                    ]
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3208,
-                "instruction": "Balance the chemical equation",
-                "subInstruction": "Hydrosulfuric acid synthesis reaction",
-                "reactants": [
-                    {
-                        "formula": "H₂",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    },
-                    {
-                        "formula": "S",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₂S",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    }
-                ],
-                "hint": {
-                    "mainText": "H₂ + S → H₂S. All coefficients are 1.",
-                    "boldPart": "H₂S",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            }
-        ]
-    }
+  {
+    "lessonId": "chemia_3_1",
+    "questions": [
+      {
+        "type": "SelectFromList",
+        "id": 3101,
+        "prompt": "Formula of hydrochloric acid",
+        "options": [
+          "HCl",
+          "H₂S",
+          "HF",
+          "HBr"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Hydrochloric acid is a hydrohalic acid. It consists of hydrogen and chlorine.",
+          "boldPart": "Hydrochloric acid",
+          "sectionTitle": "Binary acids",
+          "items": [
+            "HCl – hydrochloric",
+            "H₂S – hydrosulfuric",
+            "HF – hydrofluoric",
+            "HBr – hydrobromic"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3102,
+        "prompt": "Formula of hydrosulfuric acid",
+        "options": [
+          "H₂SO₄",
+          "H₂S",
+          "H₂SO₃",
+          "HCl"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Hydrosulfuric acid is H₂S – a hydrohalic acid known for its rotten egg odor.",
+          "boldPart": "H₂S",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3103,
+        "prompt": "Formula of hydrofluoric acid",
+        "options": [
+          "HBr",
+          "HCl",
+          "HF",
+          "H₂S"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Hydrofluoric acid (HF) is used for glass etching.",
+          "boldPart": "HF",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3104,
+        "prompt": "Formula of hydrobromic acid",
+        "options": [
+          "HF",
+          "HCl",
+          "H₂S",
+          "HBr"
+        ],
+        "correctIndices": [
+          3
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Hydrobromic acid is HBr – a hydrohalic acid similar to HCl.",
+          "boldPart": "HBr",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3105,
+        "prompt": "Formula of sulfuric(VI) acid",
+        "options": [
+          "H₂SO₃",
+          "HNO₃",
+          "H₂SO₄",
+          "H₃PO₄"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Sulfuric(VI) acid – H₂SO₄ – the most important industrial acid, highly corrosive.",
+          "boldPart": "H₂SO₄",
+          "sectionTitle": "Oxyacids of sulfur",
+          "items": [
+            "H₂SO₄ – sulfuric(VI), sulfur at +6",
+            "H₂SO₃ – sulfurous(IV), sulfur at +4"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3106,
+        "prompt": "Formula of nitric(V) acid",
+        "options": [
+          "H₂SO₄",
+          "HNO₃",
+          "H₃PO₄",
+          "H₂CO₃"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Nitric(V) acid is HNO₃. Used for the production of fertilizers and explosives.",
+          "boldPart": "HNO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3107,
+        "prompt": "Formula of carbonic acid",
+        "options": [
+          "H₂SO₄",
+          "H₃PO₄",
+          "HNO₃",
+          "H₂CO₃"
+        ],
+        "correctIndices": [
+          3
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Carbonic acid H₂CO₃ is a weak acid, formed when CO₂ dissolves in water.",
+          "boldPart": "H₂CO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3108,
+        "prompt": "Formula of phosphoric(V) (orthophosphoric) acid",
+        "options": [
+          "H₃PO₄",
+          "H₂SO₄",
+          "H₂CO₃",
+          "HNO₃"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Phosphoric(V) acid is H₃PO₄. An ingredient in fertilizers and cola drinks.",
+          "boldPart": "H₃PO₄",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3109,
+        "prompt": "Formula of sulfurous(IV) acid",
+        "options": [
+          "H₂SO₄",
+          "H₂SO₃",
+          "HNO₃",
+          "H₃PO₄"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Sulfurous(IV) acid is H₂SO₃. Formed during the combustion of sulfur – a cause of acid rain.",
+          "boldPart": "H₂SO₃",
+          "sectionTitle": "Oxyacids of sulfur",
+          "items": [
+            "H₂SO₄ – sulfuric(VI), sulfur at +6",
+            "H₂SO₃ – sulfurous(IV), sulfur at +4"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3110,
+        "prompt": "The acid with the formula H₂SO₄ is...",
+        "options": [
+          "nitric(V) acid",
+          "carbonic acid",
+          "sulfuric(VI) acid",
+          "phosphoric(V) acid"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "H₂SO₄ is sulfuric(VI) acid. The number (VI) represents the oxidation state of sulfur.",
+          "boldPart": "sulfuric(VI) acid",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "chemia_3_2",
+    "questions": [
+      {
+        "type": "EquationBalance",
+        "id": 3201,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Select the correct stoichiometric coefficients",
+        "reactants": [
+          {
+            "formula": "H₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "Cl₂",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "HCl",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "H₂ + Cl₂ → 2HCl. Left: 2H and 2Cl. Right: 2H and 2Cl in 2 molecules of HCl.",
+          "boldPart": "2HCl",
+          "sectionTitle": "Step by step",
+          "items": [],
+          "steps": [
+            "Count H atoms on the left: 1×H₂ = 2 H atoms",
+            "Count Cl atoms on the left: 1×Cl₂ = 2 Cl atoms",
+            "On the right, HCl has 1H and 1Cl → we need 2×HCl"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3202,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Select the correct stoichiometric coefficients",
+        "reactants": [
+          {
+            "formula": "H₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          },
+          {
+            "formula": "O₂",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "2H₂ + O₂ → 2H₂O. Classic water synthesis reaction.",
+          "boldPart": "2H₂O",
+          "sectionTitle": "Step by step",
+          "items": [],
+          "steps": [
+            "On the right, 2 molecules of H₂O = 4H and 2O",
+            "4H on the left is 2×H₂",
+            "2O on the left is 1×O₂"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3203,
+        "instruction": "Complete the acid preparation equation",
+        "subInstruction": "Sulfuric(VI) acid is formed from SO₃ and water",
+        "reactants": [
+          {
+            "formula": "SO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂SO₄",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "SO₃ + H₂O → H₂SO₄. All coefficients are 1.",
+          "boldPart": "H₂SO₄",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3204,
+        "instruction": "Complete the acid preparation equation",
+        "subInstruction": "Sulfurous(IV) acid is formed from SO₂ and water",
+        "reactants": [
+          {
+            "formula": "SO₂",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂SO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "SO₂ + H₂O → H₂SO₃. Sulfurous(IV) acid is responsible for acid rain.",
+          "boldPart": "H₂SO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3205,
+        "instruction": "Complete the acid preparation equation",
+        "subInstruction": "Carbonic acid is formed from CO₂ and water",
+        "reactants": [
+          {
+            "formula": "CO₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂CO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "CO₂ + H₂O → H₂CO₃. This is how carbonic acid is formed in carbonated beverages.",
+          "boldPart": "H₂CO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3206,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Nitric(V) acid from N₂O₅ and water",
+        "reactants": [
+          {
+            "formula": "N₂O₅",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "HNO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "N₂O₅ + H₂O → 2HNO₃. One N₂O₅ molecule contains 2 N atoms → 2 HNO₃ molecules.",
+          "boldPart": "2HNO₃",
+          "sectionTitle": "Step by step",
+          "items": [],
+          "steps": [
+            "N₂O₅ has 2 nitrogen atoms",
+            "Each HNO₃ molecule has 1 nitrogen atom",
+            "We need 2×HNO₃ to balance nitrogen"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3207,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Phosphoric(V) acid from P₂O₅ and water",
+        "reactants": [
+          {
+            "formula": "P₂O₅",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": null,
+            "correctCoefficient": 3
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₃PO₄",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "P₂O₅ + 3H₂O → 2H₃PO₄. Two P atoms → 2 H₃PO₄ molecules, which requires 3 water molecules.",
+          "boldPart": "2H₃PO₄",
+          "sectionTitle": "Step by step",
+          "items": [],
+          "steps": [
+            "P₂O₅ has 2 P atoms → we need 2×H₃PO₄",
+            "2×H₃PO₄ has 6 H atoms → we need 3×H₂O",
+            "Check O: P₂O₅(5) + 3H₂O(3) = 8 = 2×H₃PO₄(8) ✓"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3208,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Hydrosulfuric acid synthesis reaction",
+        "reactants": [
+          {
+            "formula": "H₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "S",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂S",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "H₂ + S → H₂S. All coefficients are 1.",
+          "boldPart": "H₂S",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  }
 ]

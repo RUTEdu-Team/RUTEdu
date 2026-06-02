@@ -11,7 +11,6 @@
   "fmt.ios_how_many_roots": "How many roots does %s have?",
   "fmt.ios_roots_pair": "x=%s and x=%s",
   "fmt.ios_root_double": "x=%s (double)",
-
   "hint.multiply_each_by_x": "We multiply each term of the parenthesis by x.",
   "hint.short_mult_sq_sum": "This is a short multiplication formula: (a+b)² = a²+2ab+b².",
   "hint.short_mult_diff_sq": "This is a short multiplication formula: (a+b)(a-b) = a²-b².",
@@ -35,23 +34,19 @@
   "hint.quad_simple": "x²=4, so x=±2",
   "hint.quad_delta_zero": "Δ=0 → one double root: x = -b/2a",
   "hint.quad_no_real": "Δ = 0 - 4·1 = -4 < 0 → no real roots.",
-
   "section.short_mult": "SHORT MULTIPLICATION FORMULAS",
   "section.differentiation": "DIFFERENTIATION RULES",
   "section.integration": "INTEGRATION RULES",
   "section.solving_method": "SOLVING METHOD",
   "section.formulas": "FORMULAS",
-
   "item.derivative_constant": "d/dx(constant) = 0",
   "item.linear_step1": "1. Move terms with x to the left side",
   "item.linear_step2": "2. Move constants to the right side",
   "item.linear_step3": "3. Divide both sides by the coefficient of x",
   "item.delta_zero": "If Δ=0, one solution: x = -b/2a",
-
   "step.result": "Result:",
   "step.n2_so": "n=2, so f'(x) = 2·x^(2-1)",
   "step.n3_so": "n=3, so f'(x) = 3·x^(3-1)",
-
   "input.type_number": "Type only the number",
   "input.type_number_ex": "Type only the number (e.g. -2)",
   "input.smaller_root": "Type the smaller root",
@@ -59,7 +54,6 @@
   "input.no_constant": "Provide the result without the integration constant C",
   "input.smaller_root_paren": "provide the smaller root",
   "input.larger_root_paren": "provide the larger root",
-
   "word.and": "and",
   "word.double": "double",
   "word.no_real_roots": "0 (no real roots)",

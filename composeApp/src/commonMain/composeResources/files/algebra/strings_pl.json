@@ -11,7 +11,6 @@
   "fmt.ios_how_many_roots": "Ile pierwiastków ma %s?",
   "fmt.ios_roots_pair": "x=%s i x=%s",
   "fmt.ios_root_double": "x=%s (podwójny)",
-
   "hint.multiply_each_by_x": "Mnożymy każdy składnik nawiasu przez x.",
   "hint.short_mult_sq_sum": "To wzór skróconego mnożenia: (a+b)² = a²+2ab+b².",
   "hint.short_mult_diff_sq": "To wzór skróconego mnożenia: (a+b)(a-b) = a²-b².",
@@ -35,23 +34,19 @@
   "hint.quad_simple": "x²=4, więc x=±2",
   "hint.quad_delta_zero": "Δ=0 → jeden pierwiastek podwójny: x = -b/2a",
   "hint.quad_no_real": "Δ = 0 - 4·1 = -4 < 0 → brak pierwiastków rzeczywistych.",
-
   "section.short_mult": "WZORY SKRÓCONEGO MNOŻENIA",
   "section.differentiation": "REGUŁY RÓŻNICZKOWANIA",
   "section.integration": "REGUŁY CAŁKOWANIA",
   "section.solving_method": "METODA ROZWIĄZYWANIA",
   "section.formulas": "WZORY",
-
   "item.derivative_constant": "d/dx(stała) = 0",
   "item.linear_step1": "1. Przenieś wyrazy z x na lewą stronę",
   "item.linear_step2": "2. Przenieś stałe na prawą stronę",
   "item.linear_step3": "3. Podziel obie strony przez współczynnik przy x",
   "item.delta_zero": "Jeśli Δ=0, jedno rozwiązanie: x = -b/2a",
-
   "step.result": "Wynik:",
   "step.n2_so": "n=2, więc f'(x) = 2·x^(2-1)",
   "step.n3_so": "n=3, więc f'(x) = 3·x^(3-1)",
-
   "input.type_number": "Wpisz samą liczbę",
   "input.type_number_ex": "Wpisz samą liczbę (np. -2)",
   "input.smaller_root": "Wpisz mniejszy pierwiastek",
@@ -59,7 +54,6 @@
   "input.no_constant": "Podaj wynik bez stałej całkowania C",
   "input.smaller_root_paren": "podaj mniejszy pierwiastek",
   "input.larger_root_paren": "podaj większy pierwiastek",
-
   "word.and": "i",
   "word.double": "podwójny",
   "word.no_real_roots": "0 (brak rzeczywistych)",

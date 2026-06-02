@@ -1,515 +1,515 @@
 [
-    {
-        "lessonId": "chemia_3_1",
-        "questions": [
-            {
-                "type": "SelectFromList",
-                "id": 3101,
-                "prompt": "Formel der Salzsäure",
-                "options": [
-                    "HCl",
-                    "H₂S",
-                    "HF",
-                    "HBr"
-                ],
-                "correctIndices": [
-                    0
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Salzsäure ist eine Halogenwasserstoffsäure. Sie besteht aus Wasserstoff und Chlor.",
-                    "boldPart": "Salzsäure",
-                    "sectionTitle": "Binäre Säuren",
-                    "items": [
-                        "HCl – Salzsäure",
-                        "H₂S – Schwefelwasserstoffsäure",
-                        "HF – Flusssäure",
-                        "HBr – Bromwasserstoffsäure"
-                    ],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3102,
-                "prompt": "Formel der Schwefelwasserstoffsäure",
-                "options": [
-                    "H₂SO₄",
-                    "H₂S",
-                    "H₂SO₃",
-                    "HCl"
-                ],
-                "correctIndices": [
-                    1
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Schwefelwasserstoffsäure ist H₂S – eine binäre Säure, die für ihren Geruch nach faulen Eiern bekannt ist.",
-                    "boldPart": "H₂S",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3103,
-                "prompt": "Formel der Flusssäure",
-                "options": [
-                    "HBr",
-                    "HCl",
-                    "HF",
-                    "H₂S"
-                ],
-                "correctIndices": [
-                    2
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Flusssäure (HF) wird zum Glasätzen verwendet.",
-                    "boldPart": "HF",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3104,
-                "prompt": "Formel der Bromwasserstoffsäure",
-                "options": [
-                    "HF",
-                    "HCl",
-                    "H₂S",
-                    "HBr"
-                ],
-                "correctIndices": [
-                    3
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Bromwasserstoffsäure ist HBr – eine Halogenwasserstoffsäure ähnlich wie HCl.",
-                    "boldPart": "HBr",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3105,
-                "prompt": "Formel der Schwefelsäure",
-                "options": [
-                    "H₂SO₃",
-                    "HNO₃",
-                    "H₂SO₄",
-                    "H₃PO₄"
-                ],
-                "correctIndices": [
-                    2
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Schwefelsäure – H₂SO₄ – die wichtigste Industriesäure, stark ätzend.",
-                    "boldPart": "H₂SO₄",
-                    "sectionTitle": "Sauerstoffsäuren des Schwefels",
-                    "items": [
-                        "H₂SO₄ – Schwefelsäure(VI), Schwefel bei +6",
-                        "H₂SO₃ – schweflige Säure(IV), Schwefel bei +4"
-                    ],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3106,
-                "prompt": "Formel der Salpetersäure",
-                "options": [
-                    "H₂SO₄",
-                    "HNO₃",
-                    "H₃PO₄",
-                    "H₂CO₃"
-                ],
-                "correctIndices": [
-                    1
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Salpetersäure ist HNO₃. Wird für die Herstellung von Düngemitteln und Sprengstoffen verwendet.",
-                    "boldPart": "HNO₃",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3107,
-                "prompt": "Formel der Kohlensäure",
-                "options": [
-                    "H₂SO₄",
-                    "H₃PO₄",
-                    "HNO₃",
-                    "H₂CO₃"
-                ],
-                "correctIndices": [
-                    3
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Kohlensäure H₂CO₃ ist eine schwache Säure, die entsteht, wenn sich CO₂ in Wasser löst.",
-                    "boldPart": "H₂CO₃",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3108,
-                "prompt": "Formel der Phosphorsäure (Orthophosphorsäure)",
-                "options": [
-                    "H₃PO₄",
-                    "H₂SO₄",
-                    "H₂CO₃",
-                    "HNO₃"
-                ],
-                "correctIndices": [
-                    0
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Phosphorsäure ist H₃PO₄. Ein Inhaltsstoff in Düngemitteln und Cola-Getränken.",
-                    "boldPart": "H₃PO₄",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3109,
-                "prompt": "Formel der schwefligen Säure",
-                "options": [
-                    "H₂SO₄",
-                    "H₂SO₃",
-                    "HNO₃",
-                    "H₃PO₄"
-                ],
-                "correctIndices": [
-                    1
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "Schweflige Säure ist H₂SO₃. Entsteht bei der Verbrennung von Schwefel – eine Ursache für sauren Regen.",
-                    "boldPart": "H₂SO₃",
-                    "sectionTitle": "Sauerstoffsäuren des Schwefels",
-                    "items": [
-                        "H₂SO₄ – Schwefelsäure(VI), Schwefel bei +6",
-                        "H₂SO₃ – schweflige Säure(IV), Schwefel bei +4"
-                    ],
-                    "steps": []
-                }
-            },
-            {
-                "type": "SelectFromList",
-                "id": 3110,
-                "prompt": "Die Säure mit der Formel H₂SO₄ ist...",
-                "options": [
-                    "Salpetersäure",
-                    "Kohlensäure",
-                    "Schwefelsäure",
-                    "Phosphorsäure"
-                ],
-                "correctIndices": [
-                    2
-                ],
-                "multiSelect": false,
-                "hint": {
-                    "mainText": "H₂SO₄ ist Schwefelsäure(VI). Die Zahl (VI) stellt die Oxidationsstufe von Schwefel dar.",
-                    "boldPart": "Schwefelsäure",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            }
-        ]
-    },
-    {
-        "lessonId": "chemia_3_2",
-        "questions": [
-            {
-                "type": "EquationBalance",
-                "id": 3201,
-                "instruction": "Balance the chemical equation",
-                "subInstruction": "Select the correct stoichiometric coefficients",
-                "reactants": [
-                    {
-                        "formula": "H₂",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    },
-                    {
-                        "formula": "Cl₂",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "HCl",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 2
-                    }
-                ],
-                "hint": {
-                    "mainText": "H₂ + Cl₂ → 2HCl. Links: 2H und 2Cl. Rechts: 2H und 2Cl in 2 Molekülen HCl.",
-                    "boldPart": "2HCl",
-                    "sectionTitle": "Schritt für Schritt",
-                    "items": [],
-                    "steps": [
-                        "Zählen Sie die H-Atome auf der linken Seite: 1×H₂ = 2 H-Atome",
-                        "Zählen Sie die Cl-Atome auf der linken Seite: 1×Cl₂ = 2 Cl-Atome",
-                        "Rechts hat HCl 1H und 1Cl → wir brauchen 2×HCl"
-                    ]
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3202,
-                "instruction": "Balance the chemical equation",
-                "subInstruction": "Select the correct stoichiometric coefficients",
-                "reactants": [
-                    {
-                        "formula": "H₂",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 2
-                    },
-                    {
-                        "formula": "O₂",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 2
-                    }
-                ],
-                "hint": {
-                    "mainText": "2H₂ + O₂ → 2H₂O. Klassische Wassersynthesereaktion.",
-                    "boldPart": "2H₂O",
-                    "sectionTitle": "Schritt für Schritt",
-                    "items": [],
-                    "steps": [
-                        "Rechts: 2 Moleküle H₂O = 4H und 2O",
-                        "4H auf der linken Seite ist 2×H₂",
-                        "2O auf der linken Seite ist 1×O₂"
-                    ]
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3203,
-                "instruction": "Complete the acid preparation equation",
-                "subInstruction": "Sulfuric(VI) acid is formed from SO₃ and water",
-                "reactants": [
-                    {
-                        "formula": "SO₃",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    },
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₂SO₄",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    }
-                ],
-                "hint": {
-                    "mainText": "SO₃ + H₂O → H₂SO₄. Alle Koeffizienten sind 1.",
-                    "boldPart": "H₂SO₄",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3204,
-                "instruction": "Complete the acid preparation equation",
-                "subInstruction": "Sulfurous(IV) acid is formed from SO₂ and water",
-                "reactants": [
-                    {
-                        "formula": "SO₂",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    },
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₂SO₃",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    }
-                ],
-                "hint": {
-                    "mainText": "SO₂ + H₂O → H₂SO₃. Schweflige Säure ist für sauren Regen verantwortlich.",
-                    "boldPart": "H₂SO₃",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3205,
-                "instruction": "Complete the acid preparation equation",
-                "subInstruction": "Carbonic acid is formed from CO₂ and water",
-                "reactants": [
-                    {
-                        "formula": "CO₂",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    },
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₂CO₃",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    }
-                ],
-                "hint": {
-                    "mainText": "CO₂ + H₂O → H₂CO₃. So entsteht Kohlensäure in kohlensäurehaltigen Getränken.",
-                    "boldPart": "H₂CO₃",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3206,
-                "instruction": "Balance the chemical equation",
-                "subInstruction": "Nitric(V) acid from N₂O₅ and water",
-                "reactants": [
-                    {
-                        "formula": "N₂O₅",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    },
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "HNO₃",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 2
-                    }
-                ],
-                "hint": {
-                    "mainText": "N₂O₅ + H₂O → 2HNO₃. Ein N₂O₅-Molekül enthält 2 N-Atome → 2 HNO₃-Moleküle.",
-                    "boldPart": "2HNO₃",
-                    "sectionTitle": "Schritt für Schritt",
-                    "items": [],
-                    "steps": [
-                        "N₂O₅ hat 2 Stickstoffatome",
-                        "Jedes HNO₃-Molekül hat 1 Stickstoffatom",
-                        "Wir brauchen 2×HNO₃, um den Stickstoff auszugleichen"
-                    ]
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3207,
-                "instruction": "Balance the chemical equation",
-                "subInstruction": "Phosphoric(V) acid from P₂O₅ and water",
-                "reactants": [
-                    {
-                        "formula": "P₂O₅",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    },
-                    {
-                        "formula": "H₂O",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 3
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₃PO₄",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 2
-                    }
-                ],
-                "hint": {
-                    "mainText": "P₂O₅ + 3H₂O → 2H₃PO₄. Zwei P-Atome → 2 H₃PO₄-Moleküle, was 3 Wassermoleküle erfordert.",
-                    "boldPart": "2H₃PO₄",
-                    "sectionTitle": "Schritt für Schritt",
-                    "items": [],
-                    "steps": [
-                        "P₂O₅ hat 2 P-Atome → wir brauchen 2×H₃PO₄",
-                        "2×H₃PO₄ hat 6 H-Atome → wir brauchen 3×H₂O",
-                        "O überprüfen: P₂O₅(5) + 3H₂O(3) = 8 = 2×H₃PO₄(8) ✓"
-                    ]
-                }
-            },
-            {
-                "type": "EquationBalance",
-                "id": 3208,
-                "instruction": "Balance the chemical equation",
-                "subInstruction": "Hydrosulfuric acid synthesis reaction",
-                "reactants": [
-                    {
-                        "formula": "H₂",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    },
-                    {
-                        "formula": "S",
-                        "fixedCoefficient": 1,
-                        "correctCoefficient": null
-                    }
-                ],
-                "products": [
-                    {
-                        "formula": "H₂S",
-                        "fixedCoefficient": null,
-                        "correctCoefficient": 1
-                    }
-                ],
-                "hint": {
-                    "mainText": "H₂ + S → H₂S. Alle Koeffizienten sind 1.",
-                    "boldPart": "H₂S",
-                    "sectionTitle": null,
-                    "items": [],
-                    "steps": []
-                }
-            }
-        ]
-    }
+  {
+    "lessonId": "chemia_3_1",
+    "questions": [
+      {
+        "type": "SelectFromList",
+        "id": 3101,
+        "prompt": "Formel der Salzsäure",
+        "options": [
+          "HCl",
+          "H₂S",
+          "HF",
+          "HBr"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Salzsäure ist eine Halogenwasserstoffsäure. Sie besteht aus Wasserstoff und Chlor.",
+          "boldPart": "Salzsäure",
+          "sectionTitle": "Binäre Säuren",
+          "items": [
+            "HCl – Salzsäure",
+            "H₂S – Schwefelwasserstoffsäure",
+            "HF – Flusssäure",
+            "HBr – Bromwasserstoffsäure"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3102,
+        "prompt": "Formel der Schwefelwasserstoffsäure",
+        "options": [
+          "H₂SO₄",
+          "H₂S",
+          "H₂SO₃",
+          "HCl"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Schwefelwasserstoffsäure ist H₂S – eine binäre Säure, die für ihren Geruch nach faulen Eiern bekannt ist.",
+          "boldPart": "H₂S",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3103,
+        "prompt": "Formel der Flusssäure",
+        "options": [
+          "HBr",
+          "HCl",
+          "HF",
+          "H₂S"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Flusssäure (HF) wird zum Glasätzen verwendet.",
+          "boldPart": "HF",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3104,
+        "prompt": "Formel der Bromwasserstoffsäure",
+        "options": [
+          "HF",
+          "HCl",
+          "H₂S",
+          "HBr"
+        ],
+        "correctIndices": [
+          3
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Bromwasserstoffsäure ist HBr – eine Halogenwasserstoffsäure ähnlich wie HCl.",
+          "boldPart": "HBr",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3105,
+        "prompt": "Formel der Schwefelsäure",
+        "options": [
+          "H₂SO₃",
+          "HNO₃",
+          "H₂SO₄",
+          "H₃PO₄"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Schwefelsäure – H₂SO₄ – die wichtigste Industriesäure, stark ätzend.",
+          "boldPart": "H₂SO₄",
+          "sectionTitle": "Sauerstoffsäuren des Schwefels",
+          "items": [
+            "H₂SO₄ – Schwefelsäure(VI), Schwefel bei +6",
+            "H₂SO₃ – schweflige Säure(IV), Schwefel bei +4"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3106,
+        "prompt": "Formel der Salpetersäure",
+        "options": [
+          "H₂SO₄",
+          "HNO₃",
+          "H₃PO₄",
+          "H₂CO₃"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Salpetersäure ist HNO₃. Wird für die Herstellung von Düngemitteln und Sprengstoffen verwendet.",
+          "boldPart": "HNO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3107,
+        "prompt": "Formel der Kohlensäure",
+        "options": [
+          "H₂SO₄",
+          "H₃PO₄",
+          "HNO₃",
+          "H₂CO₃"
+        ],
+        "correctIndices": [
+          3
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Kohlensäure H₂CO₃ ist eine schwache Säure, die entsteht, wenn sich CO₂ in Wasser löst.",
+          "boldPart": "H₂CO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3108,
+        "prompt": "Formel der Phosphorsäure (Orthophosphorsäure)",
+        "options": [
+          "H₃PO₄",
+          "H₂SO₄",
+          "H₂CO₃",
+          "HNO₃"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Phosphorsäure ist H₃PO₄. Ein Inhaltsstoff in Düngemitteln und Cola-Getränken.",
+          "boldPart": "H₃PO₄",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3109,
+        "prompt": "Formel der schwefligen Säure",
+        "options": [
+          "H₂SO₄",
+          "H₂SO₃",
+          "HNO₃",
+          "H₃PO₄"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Schweflige Säure ist H₂SO₃. Entsteht bei der Verbrennung von Schwefel – eine Ursache für sauren Regen.",
+          "boldPart": "H₂SO₃",
+          "sectionTitle": "Sauerstoffsäuren des Schwefels",
+          "items": [
+            "H₂SO₄ – Schwefelsäure(VI), Schwefel bei +6",
+            "H₂SO₃ – schweflige Säure(IV), Schwefel bei +4"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3110,
+        "prompt": "Die Säure mit der Formel H₂SO₄ ist...",
+        "options": [
+          "Salpetersäure",
+          "Kohlensäure",
+          "Schwefelsäure",
+          "Phosphorsäure"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "H₂SO₄ ist Schwefelsäure(VI). Die Zahl (VI) stellt die Oxidationsstufe von Schwefel dar.",
+          "boldPart": "Schwefelsäure",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "chemia_3_2",
+    "questions": [
+      {
+        "type": "EquationBalance",
+        "id": 3201,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Select the correct stoichiometric coefficients",
+        "reactants": [
+          {
+            "formula": "H₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "Cl₂",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "HCl",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "H₂ + Cl₂ → 2HCl. Links: 2H und 2Cl. Rechts: 2H und 2Cl in 2 Molekülen HCl.",
+          "boldPart": "2HCl",
+          "sectionTitle": "Schritt für Schritt",
+          "items": [],
+          "steps": [
+            "Zählen Sie die H-Atome auf der linken Seite: 1×H₂ = 2 H-Atome",
+            "Zählen Sie die Cl-Atome auf der linken Seite: 1×Cl₂ = 2 Cl-Atome",
+            "Rechts hat HCl 1H und 1Cl → wir brauchen 2×HCl"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3202,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Select the correct stoichiometric coefficients",
+        "reactants": [
+          {
+            "formula": "H₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          },
+          {
+            "formula": "O₂",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "2H₂ + O₂ → 2H₂O. Klassische Wassersynthesereaktion.",
+          "boldPart": "2H₂O",
+          "sectionTitle": "Schritt für Schritt",
+          "items": [],
+          "steps": [
+            "Rechts: 2 Moleküle H₂O = 4H und 2O",
+            "4H auf der linken Seite ist 2×H₂",
+            "2O auf der linken Seite ist 1×O₂"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3203,
+        "instruction": "Complete the acid preparation equation",
+        "subInstruction": "Sulfuric(VI) acid is formed from SO₃ and water",
+        "reactants": [
+          {
+            "formula": "SO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂SO₄",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "SO₃ + H₂O → H₂SO₄. Alle Koeffizienten sind 1.",
+          "boldPart": "H₂SO₄",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3204,
+        "instruction": "Complete the acid preparation equation",
+        "subInstruction": "Sulfurous(IV) acid is formed from SO₂ and water",
+        "reactants": [
+          {
+            "formula": "SO₂",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂SO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "SO₂ + H₂O → H₂SO₃. Schweflige Säure ist für sauren Regen verantwortlich.",
+          "boldPart": "H₂SO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3205,
+        "instruction": "Complete the acid preparation equation",
+        "subInstruction": "Carbonic acid is formed from CO₂ and water",
+        "reactants": [
+          {
+            "formula": "CO₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂CO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "CO₂ + H₂O → H₂CO₃. So entsteht Kohlensäure in kohlensäurehaltigen Getränken.",
+          "boldPart": "H₂CO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3206,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Nitric(V) acid from N₂O₅ and water",
+        "reactants": [
+          {
+            "formula": "N₂O₅",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "HNO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "N₂O₅ + H₂O → 2HNO₃. Ein N₂O₅-Molekül enthält 2 N-Atome → 2 HNO₃-Moleküle.",
+          "boldPart": "2HNO₃",
+          "sectionTitle": "Schritt für Schritt",
+          "items": [],
+          "steps": [
+            "N₂O₅ hat 2 Stickstoffatome",
+            "Jedes HNO₃-Molekül hat 1 Stickstoffatom",
+            "Wir brauchen 2×HNO₃, um den Stickstoff auszugleichen"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3207,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Phosphoric(V) acid from P₂O₅ and water",
+        "reactants": [
+          {
+            "formula": "P₂O₅",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": null,
+            "correctCoefficient": 3
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₃PO₄",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "P₂O₅ + 3H₂O → 2H₃PO₄. Zwei P-Atome → 2 H₃PO₄-Moleküle, was 3 Wassermoleküle erfordert.",
+          "boldPart": "2H₃PO₄",
+          "sectionTitle": "Schritt für Schritt",
+          "items": [],
+          "steps": [
+            "P₂O₅ hat 2 P-Atome → wir brauchen 2×H₃PO₄",
+            "2×H₃PO₄ hat 6 H-Atome → wir brauchen 3×H₂O",
+            "O überprüfen: P₂O₅(5) + 3H₂O(3) = 8 = 2×H₃PO₄(8) ✓"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3208,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Hydrosulfuric acid synthesis reaction",
+        "reactants": [
+          {
+            "formula": "H₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "S",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂S",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "H₂ + S → H₂S. Alle Koeffizienten sind 1.",
+          "boldPart": "H₂S",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  }
 ]

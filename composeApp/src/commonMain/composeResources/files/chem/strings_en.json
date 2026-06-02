@@ -27,7 +27,6 @@
   "cat.pH.acidic": "acidic",
   "cat.pH.neutral": "neutral",
   "cat.pH.basic": "basic",
-
   "prompt.acid.formula_to_name": "The acid with the formula %s is:",
   "prompt.acid.name_to_formula": "The formula of %s is:",
   "prompt.acid.name_type": "%s (%s) is a:",
@@ -77,7 +76,6 @@
   "prompt.pt.period3_nonmetals": "Find the positions of period 3 nonmetals",
   "prompt.pt.period4_p_block": "Find the positions of period 4 p-block elements",
   "prompt.pt.period4_5_ends": "Complete the ends and beginnings of periods 4 and 5",
-
   "instr.balance_acid_synth": "Balance the acid synthesis reaction",
   "instr.balance_acid_prep": "Complete the acid preparation reaction",
   "instr.balance_metal_acid": "Balance the metal-acid reaction",
@@ -96,19 +94,16 @@
   "instr.balance_lime_slaking": "Complete the lime slaking reaction",
   "instr.balance_water_synth": "Balance the water synthesis reaction",
   "instr.balance_equation": "Balance the reaction equation",
-
   "subinstr.methane": "Methane — the main component of natural gas",
   "subinstr.peroxide": "Decomposition of hydrogen peroxide (catalyst: MnO₂)",
   "subinstr.mercury_oxide": "Lavoisier's historic reaction — decomposition of mercury(II) oxide",
   "subinstr.limestone": "Important industrial reaction — production of quicklime",
   "subinstr.baso4": "Barium sulfate precipitates as a white solid",
   "subinstr.lime": "Quicklime + water → slaked lime",
-
   "section.salt_names": "Salt Nomenclature",
   "section.oxide_types": "Oxide Types",
   "section.base_solubility": "Base Solubility",
   "section.acid_type": "Acid Types",
-
   "hint.acid_type": "Binary acids do not contain oxygen (HX, H₂X). Oxyacids contain oxygen (e.g. HNO₃, H₂SO₄).",
   "hint.dissoc_acid": "Acids dissociate by releasing H⁺ ions.",
   "hint.dissoc_base": "Bases dissociate by releasing OH⁻ ions.",
@@ -133,7 +128,6 @@
   "hint.elem_period": "%s is in period %s of the periodic table.",
   "hint.read_from_card": "Read the atomic mass from the element card",
   "hint.count_row": "Count the row from the top of the table — that is the period number",
-
   "item.salt.chlorides": "Chlorides — from HCl (hydrochloric acid)",
   "item.salt.sulfates": "Sulfates(VI) — from H₂SO₄",
   "item.salt.nitrates": "Nitrates(V) — from HNO₃",
@@ -146,7 +140,6 @@
   "item.base.sol1": "NaOH, KOH, LiOH — group 1",
   "item.base.sol2": "Ca(OH)₂, Ba(OH)₂ — group 2",
   "item.base.insol": "Other hydroxides — sparingly soluble",
-
   "step.pH.acidic": "pH < 7 → acidic reaction",
   "step.pH.neutral": "pH = 7 → neutral reaction",
   "step.pH.basic": "pH > 7 → basic reaction",
@@ -156,7 +149,6 @@
   "step.electrons_eq_Z": "Electrons = %s",
   "step.protons_eq_Z": "Protons = %s",
   "step.count_period": "Count the row from the top of the table — that is the period number",
-
   "acid.HF.name": "hydrofluoric acid",
   "acid.HF.hint": "HF – hydrofluoric, etches glass.",
   "acid.HCl.name": "hydrochloric acid",
@@ -189,7 +181,6 @@
   "acid.HClO.hint": "HClO – hypochlorous(I), chlorine at +1. Weak acid, disinfecting properties.",
   "acid.H3BO3.name": "boric acid",
   "acid.H3BO3.hint": "H₃BO₃ – boric. Used in ophthalmology as a disinfectant.",
-
   "base.NaOH.name": "sodium hydroxide",
   "base.KOH.name": "potassium hydroxide",
   "base.LiOH.name": "lithium hydroxide",
@@ -203,7 +194,6 @@
   "base.ZnOH2.name": "zinc hydroxide",
   "base.MnOH2.name": "manganese(II) hydroxide",
   "base.NiOH2.name": "nickel(II) hydroxide",
-
   "salt.NaCl.name": "sodium chloride",
   "salt.NaCl.acid": "hydrochloric acid",
   "salt.KCl.name": "potassium chloride",
@@ -250,7 +240,6 @@
   "salt.Na3PO4.acid": "phosphoric(V) acid",
   "salt.Ca3PO42.name": "calcium phosphate(V)",
   "salt.Ca3PO42.acid": "phosphoric(V) acid",
-
   "oxide.Na2O.name": "sodium oxide",
   "oxide.K2O.name": "potassium oxide",
   "oxide.CaO.name": "calcium oxide",
@@ -270,7 +259,6 @@
   "oxide.NO.name": "nitrogen monoxide",
   "oxide.ZnO.name": "zinc oxide",
   "oxide.Al2O3.name": "aluminium oxide",
-
   "hc.CH4.name": "methane",
   "hc.C2H6.name": "ethane",
   "hc.C3H8.name": "propane",
@@ -284,7 +272,6 @@
   "hc.C2H2.name": "ethyne",
   "hc.C3H4.name": "propyne",
   "hc.C4H6.name": "butyne",
-
   "org.CH3OH.name": "methanol",
   "org.C2H5OH.name": "ethanol",
   "org.C3H7OH.name": "propanol",
@@ -297,7 +284,6 @@
   "org.C2H5NH2.name": "ethylamine",
   "org.HCOOCH3.name": "methyl formate",
   "org.CH3COOC2H5.name": "ethyl acetate",
-
   "dissoc.HCl.name": "hydrochloric acid",
   "dissoc.HCl.ions": "H⁺ and Cl⁻",
   "dissoc.HBr.name": "hydrobromic acid",
@@ -328,7 +314,6 @@
   "dissoc.K2SO4.ions": "2K⁺ and SO₄²⁻",
   "dissoc.Na2CO3.name": "sodium carbonate",
   "dissoc.Na2CO3.ions": "2Na⁺ and CO₃²⁻",
-
   "mol.H2O.name": "water",
   "mol.CO2.name": "carbon dioxide",
   "mol.NaCl.name": "sodium chloride",
@@ -349,7 +334,6 @@
   "mol.CO.name": "carbon monoxide",
   "mol.HF.name": "hydrofluoric acid",
   "mol.HBr.name": "hydrobromic acid",
-
   "pH.lemon_juice": "Lemon juice (pH ≈ 2)",
   "pH.vinegar": "Vinegar (pH ≈ 3)",
   "pH.coffee": "Coffee (pH ≈ 5)",
