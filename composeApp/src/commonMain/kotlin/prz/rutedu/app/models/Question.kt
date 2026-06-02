@@ -283,9 +283,9 @@ sealed class Question(open val id: Int) {
      * Rendered by [prz.rutedu.app.screens.MapQuizContent]. Selection is verified by exact
      * match of the tapped feature name against [countryKey].
      *
-     * @property countryKey    Feature `"name"` from GeoJSON (e.g. `"Poland"`, `"Karkonoski Park Narodowy"`).
-     *                         Must match a selectable feature in [mapFile] — see [CountryFeature.selectable]
-     *                         in [prz.rutedu.app.geo.loadGeoJson].
+      * @property countryKey    Feature name parsed from GeoJSON properties (see name parsing in
+      *                         [prz.rutedu.app.geo.loadGeoJson], which may prefer fields like "name:pl").
+      *                         Must match a selectable feature in [mapFile] — see [CountryFeature.selectable].
      * @property questionText  Prompt shown above the map (typically Polish).
      * @property region        Visible map window. Use [MapRegion.POLAND] for Polish provinces/parks.
      * @property mapFile       Compose resource path to GeoJSON under `composeResources/files/`
