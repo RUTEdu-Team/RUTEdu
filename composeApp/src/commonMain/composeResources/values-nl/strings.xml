@@ -56,7 +56,7 @@
     <string name="menu_settings">Instellingen</string>
     <string name="menu_pvp">Gevecht</string>
     <string name="menu_leaderboard">Ranglijst</string>
-    
+
     <!-- Player Selection Screen -->
     <string name="no_players_yet">Nog geen spelers!</string>
     <string name="create_first_player">Maak je eerste speler om te beginnen</string>
@@ -66,7 +66,7 @@
     <string name="error_creating_player">Fout bij aanmaken speler</string>
     <string name="high_score_games">Hoogste Score: %1$d | Spellen: %2$d</string>
     <string name="star">Ster</string>
-    
+
     <!-- Game Screen -->
     <string name="question_counter">Vraag %1$d / %2$d</string>
     <string name="game_over">🎉 Spel Voorbij! 🎉</string>
@@ -77,7 +77,7 @@
     <string name="score_saved">Score opgeslagen voor %1$s!</string>
     <string name="play_again">Opnieuw Spelen</string>
     <string name="check">CONTROLEREN ✓</string>
-    
+
     <!-- PvP Battle Screen -->
     <string name="back_to_menu">Terug naar Menu</string>
     <string name="player_wins">%1$s Wint! 🏆</string>
@@ -89,7 +89,7 @@
     <string name="correct">✓ Correct!</string>
     <string name="wrong">✗ Fout</string>
     <string name="answer_submitted">✓ Antwoord Verzonden</string>
-    
+
     <!-- Unit conversion -->
     <string name="unit_hours">uren</string>
     <string name="unit_minutes">minuten</string>
@@ -393,7 +393,144 @@
     <string name="lesson_desc_chemia_4_2">Ionen van zuren, basen en zouten in oplossing</string>
     <string name="lesson_chemia_6_1">Typen Oxiden</string>
     <string name="lesson_desc_chemia_6_1">Formules, naamgeving en classificatie van oxiden</string>
-<string name="settings_lang_pl">Polski</string><string name="settings_lang_pl_desc">Poolse taal</string><string name="settings_lang_en">English</string><string name="settings_lang_en_desc">Engelse taal</string><string name="settings_lang_cs">Čeština</string><string name="settings_lang_cs_desc">Tsjechische taal</string><string name="settings_lang_de">Deutsch</string><string name="settings_lang_de_desc">Duitse taal</string><string name="settings_lang_el">Ελληνικά</string><string name="settings_lang_el_desc">Griekse taal</string><string name="settings_lang_es">Español</string><string name="settings_lang_es_desc">Spaanse taal</string><string name="settings_lang_fr">Français</string><string name="settings_lang_fr_desc">Franse taal</string><string name="settings_lang_hu">Magyar</string><string name="settings_lang_hu_desc">Hongaarse taal</string><string name="settings_lang_it">Italiano</string><string name="settings_lang_it_desc">Italiaanse taal</string><string name="settings_lang_nl">Nederlands</string><string name="settings_lang_nl_desc">Nederlandse taal</string><string name="settings_lang_pt">Português</string><string name="settings_lang_pt_desc">Portugese taal</string><string name="settings_lang_sk">Slovenčina</string><string name="settings_lang_sk_desc">Slowaakse taal</string><string name="settings_lang_uk">Українська</string><string name="settings_lang_uk_desc">Oekraïense taal</string><string name="settings_lang_bg">Български</string><string name="settings_lang_bg_desc">Bulgaarse taal</string><string name="settings_lang_hr">Hrvatski</string><string name="settings_lang_hr_desc">Kroatische taal</string><string name="settings_lang_sr">Српски</string><string name="settings_lang_sr_desc">Servische taal</string><string name="settings_lang_sv">Svenska</string><string name="settings_lang_sv_desc">Zweedse taal</string><string name="settings_lang_da">Dansk</string><string name="settings_lang_da_desc">Deense taal</string><string name="settings_lang_no">Norsk</string><string name="settings_lang_no_desc">Noorse taal</string><string name="settings_lang_is">Íslenska</string><string name="settings_lang_is_desc">IJslandse taal</string><string name="settings_lang_fi">Suomi</string><string name="settings_lang_fi_desc">Finse taal</string><string name="settings_lang_et">Eesti</string><string name="settings_lang_et_desc">Estse taal</string><string name="settings_lang_lv">Latviešu</string><string name="settings_lang_lv_desc">Letse taal</string><string name="settings_lang_lt">Lietuvių</string><string name="settings_lang_lt_desc">Litouwse taal</string><string name="settings_lang_ro">Română</string><string name="settings_lang_ro_desc">Roemeense taal</string><string name="settings_lang_sl">Slovenščina</string><string name="settings_lang_sl_desc">Sloveense taal</string><string name="settings_lang_ga">Gaeilge</string><string name="settings_lang_ga_desc">Ierse taal</string><string name="settings_lang_mt">Malti</string><string name="settings_lang_mt_desc">Maltese taal</string><string name="topic_mat_6">Breuken</string><string name="topic_mat_7">Percentages</string><string name="topic_mat_8">Proporties en schaal</string><string name="topic_mat_9">Ruimtelijke meetkunde</string><string name="topic_mat_10">Coördinatenstelsel</string><string name="topic_mat_11">Statistiek en waarschijnlijkheid</string><string name="topic_mat_12">Ganze getallen</string><string name="topic_desc_mat_6">Bewerkingen op gewone en decimale breuken en hun toepassingen</string><string name="topic_desc_mat_7">Percentageberekeningen en hun toepassing in het dagelijks leven</string><string name="topic_desc_mat_8">Proportionele relaties en werken met schaal en kaarten</string><string name="topic_desc_mat_9">Ruimtelijke figuren, eigenschappen en berekening van inhoud en oppervlakte</string><string name="topic_desc_mat_10">Punten, grafieken en analytische meetkunde op een vlak</string><string name="topic_desc_mat_11">Gemiddelde, mediaan, grafieken en waarschijnlijkheid</string><string name="topic_desc_mat_12">Positieve en negatieve getallen en bewerkingen</string><string name="lesson_mat_3_3">Lineaire ongelijkheden</string><string name="lesson_desc_mat_3_3">Substitutie- en eliminatiemethode</string><string name="lesson_mat_4_2">Kwadratische functie</string><string name="lesson_desc_mat_4_2">Grafiek van kwadratische functie (parabool) en basiseigenschappen</string><string name="lesson_mat_4_3">Grafieken lezen</string><string name="lesson_desc_mat_4_3">Interpretatie van grafieken: waarden, nulpunten en intervallen</string><string name="lesson_mat_4_4">Eigenschappen van functies</string><string name="lesson_desc_mat_4_4">Domein, bereik, monotoniciteit en nulpunten van een functie</string><string name="lesson_mat_5_2">Vierhoeken</string><string name="lesson_desc_mat_5_2">Eigenschappen van rechthoek, vierkant, parallellogram en trapezium</string><string name="lesson_mat_5_3">Cirkels en schijven</string><string name="lesson_desc_mat_5_3">Elementen van een cirkel: straal, diameter, koorde en eigenschappen</string><string name="lesson_mat_5_4">Oppervlakte en omtrek van figuren</string><string name="lesson_desc_mat_5_4">Oppervlakte en omtrek van geometrische basisfiguren berekenen</string><string name="lesson_mat_5_5">Stelling van Pythagoras</string><string name="lesson_desc_mat_5_5">Relatie a² + b² = c² in een rechthoekige driehoek</string><string name="lesson_mat_6_1">Breuken omrekenen</string><string name="lesson_desc_mat_6_1">Gewone en decimale breuken converteren</string><string name="lesson_mat_6_2">Bewerkingen met breuken</string><string name="lesson_desc_mat_6_2">Optellen, aftrekken, vermenigvuldigen en delen van breuken</string><string name="lesson_mat_6_3">Breuken vergelijken</string><string name="lesson_desc_mat_6_3">Vergelijken van waarden van gewone en decimale breuken</string><string name="lesson_mat_6_4">Decimale breuken</string><string name="lesson_desc_mat_6_4">Bewerkingen op decimale getallen en hun toepassingen</string><string name="lesson_mat_7_1">Percentage van een getal</string><string name="lesson_desc_mat_7_1">Het percentage van een gegeven getal berekenen</string><string name="lesson_mat_7_2">Kortingen en toeslagen</string><string name="lesson_desc_mat_7_2">Procentuele veranderingen in prijzen en waarden</string><string name="lesson_mat_7_3">Verhaalsommen</string><string name="lesson_desc_mat_7_3">Toepassing van percentages in praktische problemen</string><string name="lesson_mat_8_1">Proporties</string><string name="lesson_desc_mat_8_1">Directe en omgekeerde evenredigheid oplossen</string><string name="lesson_mat_8_2">Schaal</string><string name="lesson_desc_mat_8_2">Schaal lezen en toepassen op kaarten en plannen</string><string name="lesson_mat_8_3">Kaart en afstanden</string><string name="lesson_desc_mat_8_3">Echte afstanden berekenen op een kaart</string><string name="lesson_mat_9_1">Prisma\'s</string><string name="lesson_desc_mat_9_1">Eigenschappen en elementen van prisma\'s</string><string name="lesson_mat_9_2">Piramides</string><string name="lesson_desc_mat_9_2">Eigenschappen en elementen van piramides</string><string name="lesson_mat_9_3">Omwentelingslichamen</string><string name="lesson_desc_mat_9_3">Cilinder, kegel en bol en hun eigenschappen</string><string name="lesson_mat_9_4">Oppervlakte van ruimtelijke figuren</string><string name="lesson_desc_mat_9_4">Buitenoppervlakte van ruimtelijke figuren berekenen</string><string name="lesson_mat_9_5">Inhoud van ruimtelijke figuren</string><string name="lesson_desc_mat_9_5">Inhoud van geometrische ruimtelijke figuren berekenen</string><string name="lesson_mat_10_1">Coördinatenstelsel</string><string name="lesson_desc_mat_10_1">Inleiding tot de X- en Y-as</string><string name="lesson_mat_10_2">Punten aflezen</string><string name="lesson_desc_mat_10_2">Coördinaten van punten in het vlak</string><string name="lesson_mat_10_3">Figuren tekenen</string><string name="lesson_desc_mat_10_3">Lijnen en figuren tekenen in een coördinatenstelsel</string><string name="lesson_mat_10_4">Afstand tussen punten</string><string name="lesson_desc_mat_10_4">Afstand tussen punten berekenen</string><string name="lesson_mat_11_1">Rekenkundig gemiddelde</string><string name="lesson_desc_mat_11_1">Het rekenkundig gemiddelde van gegevens berekenen</string><string name="lesson_mat_11_2">Mediaan en modus</string><string name="lesson_desc_mat_11_2">Mediaan en modus bepalen in datasets</string><string name="lesson_mat_11_3">Grafieken en diagrammen</string><string name="lesson_desc_mat_11_3">Lezen en maken van grafieken en diagrammen</string><string name="lesson_mat_11_4">Kans op eenvoudige gebeurtenissen</string><string name="lesson_desc_mat_11_4">De kans op eenvoudige willekeurige gebeurtenissen berekenen</string><string name="lesson_mat_12_1">Positieve en negatieve getallen</string><string name="lesson_desc_mat_12_1">Inleiding tot gehele getallen</string><string name="lesson_mat_12_2">Optellen en aftrekken</string><string name="lesson_desc_mat_12_2">Bewerkingen op gehele getallen</string><string name="lesson_mat_12_3">Vermenigvuldigen en delen</string><string name="lesson_desc_mat_12_3">Bewerkingen op gehele getallen</string>
+    <string name="settings_lang_pl">Polski</string>
+    <string name="settings_lang_pl_desc">Poolse taal</string>
+    <string name="settings_lang_en">English</string>
+    <string name="settings_lang_en_desc">Engelse taal</string>
+    <string name="settings_lang_cs">Čeština</string>
+    <string name="settings_lang_cs_desc">Tsjechische taal</string>
+    <string name="settings_lang_de">Deutsch</string>
+    <string name="settings_lang_de_desc">Duitse taal</string>
+    <string name="settings_lang_el">Ελληνικά</string>
+    <string name="settings_lang_el_desc">Griekse taal</string>
+    <string name="settings_lang_es">Español</string>
+    <string name="settings_lang_es_desc">Spaanse taal</string>
+    <string name="settings_lang_fr">Français</string>
+    <string name="settings_lang_fr_desc">Franse taal</string>
+    <string name="settings_lang_hu">Magyar</string>
+    <string name="settings_lang_hu_desc">Hongaarse taal</string>
+    <string name="settings_lang_it">Italiano</string>
+    <string name="settings_lang_it_desc">Italiaanse taal</string>
+    <string name="settings_lang_nl">Nederlands</string>
+    <string name="settings_lang_nl_desc">Nederlandse taal</string>
+    <string name="settings_lang_pt">Português</string>
+    <string name="settings_lang_pt_desc">Portugese taal</string>
+    <string name="settings_lang_sk">Slovenčina</string>
+    <string name="settings_lang_sk_desc">Slowaakse taal</string>
+    <string name="settings_lang_uk">Українська</string>
+    <string name="settings_lang_uk_desc">Oekraïense taal</string>
+    <string name="settings_lang_bg">Български</string>
+    <string name="settings_lang_bg_desc">Bulgaarse taal</string>
+    <string name="settings_lang_hr">Hrvatski</string>
+    <string name="settings_lang_hr_desc">Kroatische taal</string>
+    <string name="settings_lang_sr">Српски</string>
+    <string name="settings_lang_sr_desc">Servische taal</string>
+    <string name="settings_lang_sv">Svenska</string>
+    <string name="settings_lang_sv_desc">Zweedse taal</string>
+    <string name="settings_lang_da">Dansk</string>
+    <string name="settings_lang_da_desc">Deense taal</string>
+    <string name="settings_lang_no">Norsk</string>
+    <string name="settings_lang_no_desc">Noorse taal</string>
+    <string name="settings_lang_is">Íslenska</string>
+    <string name="settings_lang_is_desc">IJslandse taal</string>
+    <string name="settings_lang_fi">Suomi</string>
+    <string name="settings_lang_fi_desc">Finse taal</string>
+    <string name="settings_lang_et">Eesti</string>
+    <string name="settings_lang_et_desc">Estse taal</string>
+    <string name="settings_lang_lv">Latviešu</string>
+    <string name="settings_lang_lv_desc">Letse taal</string>
+    <string name="settings_lang_lt">Lietuvių</string>
+    <string name="settings_lang_lt_desc">Litouwse taal</string>
+    <string name="settings_lang_ro">Română</string>
+    <string name="settings_lang_ro_desc">Roemeense taal</string>
+    <string name="settings_lang_sl">Slovenščina</string>
+    <string name="settings_lang_sl_desc">Sloveense taal</string>
+    <string name="settings_lang_ga">Gaeilge</string>
+    <string name="settings_lang_ga_desc">Ierse taal</string>
+    <string name="settings_lang_mt">Malti</string>
+    <string name="settings_lang_mt_desc">Maltese taal</string>
+    <string name="topic_mat_6">Breuken</string>
+    <string name="topic_mat_7">Percentages</string>
+    <string name="topic_mat_8">Proporties en schaal</string>
+    <string name="topic_mat_9">Ruimtelijke meetkunde</string>
+    <string name="topic_mat_10">Coördinatenstelsel</string>
+    <string name="topic_mat_11">Statistiek en waarschijnlijkheid</string>
+    <string name="topic_mat_12">Ganze getallen</string>
+    <string name="topic_desc_mat_6">Bewerkingen op gewone en decimale breuken en hun toepassingen</string>
+    <string name="topic_desc_mat_7">Percentageberekeningen en hun toepassing in het dagelijks leven</string>
+    <string name="topic_desc_mat_8">Proportionele relaties en werken met schaal en kaarten</string>
+    <string name="topic_desc_mat_9">Ruimtelijke figuren, eigenschappen en berekening van inhoud en oppervlakte</string>
+    <string name="topic_desc_mat_10">Punten, grafieken en analytische meetkunde op een vlak</string>
+    <string name="topic_desc_mat_11">Gemiddelde, mediaan, grafieken en waarschijnlijkheid</string>
+    <string name="topic_desc_mat_12">Positieve en negatieve getallen en bewerkingen</string>
+    <string name="lesson_mat_3_3">Lineaire ongelijkheden</string>
+    <string name="lesson_desc_mat_3_3">Substitutie- en eliminatiemethode</string>
+    <string name="lesson_mat_4_2">Kwadratische functie</string>
+    <string name="lesson_desc_mat_4_2">Grafiek van kwadratische functie (parabool) en basiseigenschappen</string>
+    <string name="lesson_mat_4_3">Grafieken lezen</string>
+    <string name="lesson_desc_mat_4_3">Interpretatie van grafieken: waarden, nulpunten en intervallen</string>
+    <string name="lesson_mat_4_4">Eigenschappen van functies</string>
+    <string name="lesson_desc_mat_4_4">Domein, bereik, monotoniciteit en nulpunten van een functie</string>
+    <string name="lesson_mat_5_2">Vierhoeken</string>
+    <string name="lesson_desc_mat_5_2">Eigenschappen van rechthoek, vierkant, parallellogram en trapezium</string>
+    <string name="lesson_mat_5_3">Cirkels en schijven</string>
+    <string name="lesson_desc_mat_5_3">Elementen van een cirkel: straal, diameter, koorde en eigenschappen</string>
+    <string name="lesson_mat_5_4">Oppervlakte en omtrek van figuren</string>
+    <string name="lesson_desc_mat_5_4">Oppervlakte en omtrek van geometrische basisfiguren berekenen</string>
+    <string name="lesson_mat_5_5">Stelling van Pythagoras</string>
+    <string name="lesson_desc_mat_5_5">Relatie a² + b² = c² in een rechthoekige driehoek</string>
+    <string name="lesson_mat_6_1">Breuken omrekenen</string>
+    <string name="lesson_desc_mat_6_1">Gewone en decimale breuken converteren</string>
+    <string name="lesson_mat_6_2">Bewerkingen met breuken</string>
+    <string name="lesson_desc_mat_6_2">Optellen, aftrekken, vermenigvuldigen en delen van breuken</string>
+    <string name="lesson_mat_6_3">Breuken vergelijken</string>
+    <string name="lesson_desc_mat_6_3">Vergelijken van waarden van gewone en decimale breuken</string>
+    <string name="lesson_mat_6_4">Decimale breuken</string>
+    <string name="lesson_desc_mat_6_4">Bewerkingen op decimale getallen en hun toepassingen</string>
+    <string name="lesson_mat_7_1">Percentage van een getal</string>
+    <string name="lesson_desc_mat_7_1">Het percentage van een gegeven getal berekenen</string>
+    <string name="lesson_mat_7_2">Kortingen en toeslagen</string>
+    <string name="lesson_desc_mat_7_2">Procentuele veranderingen in prijzen en waarden</string>
+    <string name="lesson_mat_7_3">Verhaalsommen</string>
+    <string name="lesson_desc_mat_7_3">Toepassing van percentages in praktische problemen</string>
+    <string name="lesson_mat_8_1">Proporties</string>
+    <string name="lesson_desc_mat_8_1">Directe en omgekeerde evenredigheid oplossen</string>
+    <string name="lesson_mat_8_2">Schaal</string>
+    <string name="lesson_desc_mat_8_2">Schaal lezen en toepassen op kaarten en plannen</string>
+    <string name="lesson_mat_8_3">Kaart en afstanden</string>
+    <string name="lesson_desc_mat_8_3">Echte afstanden berekenen op een kaart</string>
+    <string name="lesson_mat_9_1">Prisma\'s</string>
+    <string name="lesson_desc_mat_9_1">Eigenschappen en elementen van prisma\'s</string>
+    <string name="lesson_mat_9_2">Piramides</string>
+    <string name="lesson_desc_mat_9_2">Eigenschappen en elementen van piramides</string>
+    <string name="lesson_mat_9_3">Omwentelingslichamen</string>
+    <string name="lesson_desc_mat_9_3">Cilinder, kegel en bol en hun eigenschappen</string>
+    <string name="lesson_mat_9_4">Oppervlakte van ruimtelijke figuren</string>
+    <string name="lesson_desc_mat_9_4">Buitenoppervlakte van ruimtelijke figuren berekenen</string>
+    <string name="lesson_mat_9_5">Inhoud van ruimtelijke figuren</string>
+    <string name="lesson_desc_mat_9_5">Inhoud van geometrische ruimtelijke figuren berekenen</string>
+    <string name="lesson_mat_10_1">Coördinatenstelsel</string>
+    <string name="lesson_desc_mat_10_1">Inleiding tot de X- en Y-as</string>
+    <string name="lesson_mat_10_2">Punten aflezen</string>
+    <string name="lesson_desc_mat_10_2">Coördinaten van punten in het vlak</string>
+    <string name="lesson_mat_10_3">Figuren tekenen</string>
+    <string name="lesson_desc_mat_10_3">Lijnen en figuren tekenen in een coördinatenstelsel</string>
+    <string name="lesson_mat_10_4">Afstand tussen punten</string>
+    <string name="lesson_desc_mat_10_4">Afstand tussen punten berekenen</string>
+    <string name="lesson_mat_11_1">Rekenkundig gemiddelde</string>
+    <string name="lesson_desc_mat_11_1">Het rekenkundig gemiddelde van gegevens berekenen</string>
+    <string name="lesson_mat_11_2">Mediaan en modus</string>
+    <string name="lesson_desc_mat_11_2">Mediaan en modus bepalen in datasets</string>
+    <string name="lesson_mat_11_3">Grafieken en diagrammen</string>
+    <string name="lesson_desc_mat_11_3">Lezen en maken van grafieken en diagrammen</string>
+    <string name="lesson_mat_11_4">Kans op eenvoudige gebeurtenissen</string>
+    <string name="lesson_desc_mat_11_4">De kans op eenvoudige willekeurige gebeurtenissen berekenen</string>
+    <string name="lesson_mat_12_1">Positieve en negatieve getallen</string>
+    <string name="lesson_desc_mat_12_1">Inleiding tot gehele getallen</string>
+    <string name="lesson_mat_12_2">Optellen en aftrekken</string>
+    <string name="lesson_desc_mat_12_2">Bewerkingen op gehele getallen</string>
+    <string name="lesson_mat_12_3">Vermenigvuldigen en delen</string>
+    <string name="lesson_desc_mat_12_3">Bewerkingen op gehele getallen</string>
 
     <!-- Database corruption / error screen -->
     <string name="database_error_title">Databasefout</string>
