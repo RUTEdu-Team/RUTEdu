@@ -48,9 +48,13 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.jetbrains.compose.resources.stringResource
 import prz.rutedu.app.math.MathEngine
 import prz.rutedu.app.models.Question
 import prz.rutedu.app.theme.isAppInDarkTheme
+import rutedu.composeapp.generated.resources.Res
+import rutedu.composeapp.generated.resources.placeholder_factorize
+import rutedu.composeapp.generated.resources.your_answer
 
 
 /**
@@ -135,7 +139,7 @@ internal fun FactorizationContent(
         Spacer(Modifier.height(24.dp))
 
         Text(
-            text = "Twoja odpowiedź",
+            text = stringResource(Res.string.your_answer),
             fontSize = 14.sp,
             fontWeight = FontWeight.SemiBold,
             color = MaterialTheme.colorScheme.onBackground,
@@ -175,7 +179,7 @@ internal fun FactorizationContent(
                 },
                 placeholder = {
                     Text(
-                        "np. (x+2)(x-3)",
+                        stringResource(Res.string.placeholder_factorize),
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 },
