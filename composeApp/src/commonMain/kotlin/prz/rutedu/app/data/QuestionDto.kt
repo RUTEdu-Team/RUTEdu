@@ -11,18 +11,40 @@ import prz.rutedu.app.models.MapRegion
 import prz.rutedu.app.models.MathOperator
 import prz.rutedu.app.models.Question
 
+/**
+ * Data transfer object wrapping a list of questions for a specific lesson.
+ *
+ * @property lessonId The lesson identifier (e.g. "mat_1_1").
+ * @property questions The list of questions belonging to the lesson.
+ */
 @Serializable
 data class LessonQuestionsDto(
     val lessonId: String,
     val questions: List<QuestionDto>
 )
 
+/**
+ * Abstract base class for all serializable quiz question data transfer objects.
+ *
+ * @property id The unique identifier of the question.
+ */
 @Serializable
 sealed class QuestionDto {
     abstract val id: Int
+
+    /** Converts the DTO into its corresponding domain model. */
     abstract fun toModel(): Question
 }
 
+/**
+ * Serializable DTO representing a localized hint layout for quiz questions.
+ *
+ * @property mainText The primary hint text.
+ * @property boldPart Optional subtitle or highlighted text.
+ * @property sectionTitle Optional header for the formulas or rules section.
+ * @property items List of bullet points or rules.
+ * @property steps List of step-by-step solution instructions.
+ */
 @Serializable
 data class HintDto(
     val mainText: String,
@@ -31,18 +53,37 @@ data class HintDto(
     val items: List<String> = emptyList(),
     val steps: List<String> = emptyList()
 ) {
+    /** Converts this DTO into a domain [Hint] model. */
     fun toModel() = Hint(mainText, boldPart, sectionTitle, items, steps)
 }
 
+/** Converts a [Hint] domain model into its corresponding [HintDto]. */
 fun Hint.toDto() = HintDto(mainText, boldPart, sectionTitle, items, steps)
 
+/**
+ * Serializable DTO representing a pair of integers.
+ *
+ * @property first The first element of the pair.
+ * @property second The second element of the pair.
+ */
 @Serializable
 data class IntPairDto(val first: Int, val second: Int) {
+    /** Converts this DTO into a Kotlin [Pair]. */
     fun toPair() = Pair(first, second)
 }
 
+/** Converts a [Pair] of integers into an [IntPairDto]. */
 fun Pair<Int, Int>.toDto() = IntPairDto(first, second)
 
+/**
+ * DTO for a [Question.FindAnswer] question type.
+ *
+ * @property id The unique question identifier.
+ * @property operand1 The first operand.
+ * @property operand2 The second operand.
+ * @property operator The mathematical operator to apply.
+ * @property hint The localized help explanation.
+ */
 @Serializable
 @SerialName("FindAnswer")
 data class FindAnswerDto(
@@ -57,6 +98,16 @@ data class FindAnswerDto(
     )
 }
 
+/**
+ * DTO for a [Question.FindOperator] question type.
+ *
+ * @property id              The unique question identifier.
+ * @property operand1        The first operand.
+ * @property operand2        The second operand.
+ * @property result          The expected result of the operation.
+ * @property correctOperator The string representation of the correct operator.
+ * @property hint            The localized help explanation.
+ */
 @Serializable
 @SerialName("FindOperator")
 data class FindOperatorDto(
@@ -72,6 +123,16 @@ data class FindOperatorDto(
     )
 }
 
+/**
+ * DTO for a [Question.SelectFromList] question type.
+ *
+ * @property id             The unique question identifier.
+ * @property prompt         The localized question text or description.
+ * @property options        The list of multiple-choice options.
+ * @property correctIndices The set of correct indices.
+ * @property multiSelect    Whether multiple options can/must be selected.
+ * @property hint           The localized help explanation.
+ */
 @Serializable
 @SerialName("SelectFromList")
 data class SelectFromListDto(
@@ -87,6 +148,17 @@ data class SelectFromListDto(
     )
 }
 
+/**
+ * DTO for a [Question.TypeAnswer] question type.
+ *
+ * @property id             The unique question identifier.
+ * @property prompt         The localized question text or description.
+ * @property correctAnswer  The correct integer answer.
+ * @property unit           The unit label (e.g. "cm") appended to the answer.
+ * @property triangleAngles Optional pair of angles for visual geometry helper cues.
+ * @property inlineHint     Optional hint displayed inside the text field.
+ * @property hint           The localized help explanation.
+ */
 @Serializable
 @SerialName("TypeAnswer")
 data class TypeAnswerDto(
@@ -103,17 +175,36 @@ data class TypeAnswerDto(
     )
 }
 
+/**
+ * DTO for a [Question.BalanceTerm] used in chemistry equation balancing.
+ *
+ * @property formula            The chemical formula of the molecule.
+ * @property fixedCoefficient   The pre-filled coefficient (if not blank).
+ * @property correctCoefficient The correct coefficient expected from the player.
+ */
 @Serializable
 data class BalanceTermDto(
     val formula: String,
     val fixedCoefficient: Int? = null,
     val correctCoefficient: Int? = null
 ) {
+    /** Converts this DTO into a domain [Question.BalanceTerm] model. */
     fun toModel() = Question.BalanceTerm(formula, fixedCoefficient, correctCoefficient)
 }
 
+/** Converts a [Question.BalanceTerm] domain model into its corresponding [BalanceTermDto]. */
 fun Question.BalanceTerm.toDto() = BalanceTermDto(formula, fixedCoefficient, correctCoefficient)
 
+/**
+ * DTO for a [Question.EquationBalance] question type.
+ *
+ * @property id             The unique question identifier.
+ * @property instruction    The main instruction text.
+ * @property subInstruction The sub-instruction text.
+ * @property reactants      List of reactants on the left-hand side.
+ * @property products       List of products on the right-hand side.
+ * @property hint           The localized help explanation.
+ */
 @Serializable
 @SerialName("EquationBalance")
 data class EquationBalanceDto(
@@ -129,6 +220,16 @@ data class EquationBalanceDto(
     )
 }
 
+/**
+ * DTO for a [Question.ExpressionTypeAnswer] question type.
+ *
+ * @property id             The unique question identifier.
+ * @property prompt         The localized question text or description.
+ * @property correctExpr     The correct algebraic expression.
+ * @property displayCorrect  The stylized string representation of the correct answer.
+ * @property inlineHint      Optional hint displayed inside the text field.
+ * @property hint            The localized help explanation.
+ */
 @Serializable
 @SerialName("ExpressionTypeAnswer")
 data class ExpressionTypeAnswerDto(
@@ -144,6 +245,16 @@ data class ExpressionTypeAnswerDto(
     )
 }
 
+/**
+ * DTO for a [Question.MapQuiz] question type.
+ *
+ * @property id           The unique question identifier.
+ * @property countryKey   The key identifying the target country in the GeoJSON map.
+ * @property questionText The localized question text or description.
+ * @property region       The region/continent the quiz takes place in.
+ * @property mapFile      Path to the GeoJSON map resource.
+ * @property hint         The localized help explanation.
+ */
 @Serializable
 @SerialName("MapQuiz")
 data class MapQuizDto(
@@ -159,6 +270,18 @@ data class MapQuizDto(
     )
 }
 
+/**
+ * DTO for a [Question.GraphTypeAnswer] question type.
+ *
+ * @property id            The unique question identifier.
+ * @property prompt        The localized question text or description.
+ * @property shapes        The list of shapes rendered on the coordinate plane.
+ * @property viewport      The bounds and grid configuration of the canvas viewport.
+ * @property correctAnswer The correct integer answer.
+ * @property unit          The unit label appended to the answer.
+ * @property inlineHint    Optional hint displayed inside the text field.
+ * @property hint          The localized help explanation.
+ */
 @Serializable
 @SerialName("GraphTypeAnswer")
 data class GraphTypeAnswerDto(
@@ -176,6 +299,17 @@ data class GraphTypeAnswerDto(
     )
 }
 
+/**
+ * DTO for a [Question.GraphSelectFromList] question type.
+ *
+ * @property id             The unique question identifier.
+ * @property prompt         The localized question text or description.
+ * @property shapes         The list of shapes rendered on the coordinate plane.
+ * @property viewport      The bounds and grid configuration of the canvas viewport.
+ * @property options        The list of multiple-choice options.
+ * @property correctIndices The set of correct indices.
+ * @property hint           The localized help explanation.
+ */
 @Serializable
 @SerialName("GraphSelectFromList")
 data class GraphSelectFromListDto(
@@ -192,18 +326,43 @@ data class GraphSelectFromListDto(
     )
 }
 
+/**
+ * Abstract base class for all serializable mathematical shape DTOs.
+ */
 @Serializable
 sealed class MathShapeDto {
+    /** Converts this DTO into a domain [MathShape] model. */
     abstract fun toModel(): MathShape
 }
 
+/**
+ * DTO representing a point in 2D space.
+ *
+ * @property x The x-coordinate.
+ * @property y The y-coordinate.
+ */
 @Serializable
 data class PtDto(val x: Double, val y: Double) {
+    /** Converts this DTO into a domain [Pt] model. */
     fun toModel() = Pt(x, y)
 }
 
+/** Converts a [Pt] domain model into its corresponding [PtDto]. */
 fun Pt.toDto() = PtDto(x, y)
 
+/**
+ * DTO representing a [MathViewport] visible area configuration.
+ *
+ * @property xMin     Left edge of the visible area.
+ * @property xMax     Right edge of the visible area.
+ * @property yMin     Bottom edge of the visible area.
+ * @property yMax     Top edge of the visible area.
+ * @property showGrid Whether to render grid lines.
+ * @property showAxes Whether to render coordinate axes and ticks.
+ * @property showXLabels Whether to show labels on the x-axis.
+ * @property showYLabels Whether to show labels on the y-axis.
+ * @property gridStep Distance between grid lines and tick marks.
+ */
 @Serializable
 data class MathViewportDto(
     val xMin: Double = -5.0,
@@ -216,11 +375,28 @@ data class MathViewportDto(
     val showYLabels: Boolean = true,
     val gridStep: Double = 1.0
 ) {
+    /** Converts this DTO into a domain [MathViewport] model. */
     fun toModel() = MathViewport(xMin, xMax, yMin, yMax, showGrid, showAxes, showXLabels, showYLabels, gridStep)
 }
 
+/** Converts a [MathViewport] domain model into its corresponding [MathViewportDto]. */
 fun MathViewport.toDto() = MathViewportDto(xMin, xMax, yMin, yMax, showGrid, showAxes, showXLabels, showYLabels, gridStep)
 
+/**
+ * DTO representing a [MathShape.Triangle].
+ *
+ * @property a              The first vertex.
+ * @property b              The second vertex.
+ * @property c              The third vertex.
+ * @property color          Hex string color of the outline/fill.
+ * @property showAngleArcs  Whether to draw interior angle arcs.
+ * @property labelA         Label for vertex A.
+ * @property labelB         Label for vertex B.
+ * @property labelC         Label for vertex C.
+ * @property labelAB        Label for side AB.
+ * @property labelBC        Label for side BC.
+ * @property labelCA        Label for side CA.
+ */
 @Serializable
 @SerialName("Triangle")
 data class TriangleDto(
@@ -243,6 +419,15 @@ data class TriangleDto(
     )
 }
 
+/**
+ * DTO representing a [MathShape.FunctionPlot].
+ *
+ * @property formula     The mathematical formula expression string (e.g. "x^2").
+ * @property color       Hex string color of the curve.
+ * @property label       Optional label text for the curve.
+ * @property strokeWidth Stroke thickness in dp.
+ * @property samples     Number of evaluation samples.
+ */
 @Serializable
 @SerialName("FunctionPlot")
 data class FunctionPlotDto(
@@ -258,6 +443,16 @@ data class FunctionPlotDto(
     )
 }
 
+/**
+ * DTO representing a [MathShape.Circle].
+ *
+ * @property cx          World x-coordinate of the center.
+ * @property cy          World y-coordinate of the center.
+ * @property r           Radius in world units.
+ * @property color       Hex string color of the outline/fill.
+ * @property filled      Whether the circle is solid-filled.
+ * @property strokeWidth Outline stroke width in dp.
+ */
 @Serializable
 @SerialName("Circle")
 data class CircleDto(
@@ -273,6 +468,17 @@ data class CircleDto(
     )
 }
 
+/**
+ * DTO representing a [MathShape.Rectangle].
+ *
+ * @property x           Left edge world coordinate.
+ * @property y           Bottom edge world coordinate.
+ * @property w           Width in world units.
+ * @property h           Height in world units.
+ * @property color       Hex string color of the outline/fill.
+ * @property filled      Whether the rectangle is solid-filled.
+ * @property strokeWidth Outline stroke width in dp.
+ */
 @Serializable
 @SerialName("Rectangle")
 data class RectangleDto(
@@ -289,6 +495,14 @@ data class RectangleDto(
     )
 }
 
+/**
+ * DTO representing a [MathShape.PointMark].
+ *
+ * @property pt       The point location.
+ * @property label    Optional text label near the point.
+ * @property color    Hex string color of the point.
+ * @property radiusDp Dot radius in dp.
+ */
 @Serializable
 @SerialName("PointMark")
 data class PointMarkDto(
@@ -302,6 +516,15 @@ data class PointMarkDto(
     )
 }
 
+/**
+ * DTO representing a [MathShape.Segment].
+ *
+ * @property from        Start point.
+ * @property to          End point.
+ * @property color       Hex string color of the line.
+ * @property dashed      Whether to render as a dashed line.
+ * @property strokeWidth Width of the line in dp.
+ */
 @Serializable
 @SerialName("Segment")
 data class SegmentDto(
@@ -316,6 +539,14 @@ data class SegmentDto(
     )
 }
 
+/**
+ * DTO representing a [MathShape.TextLabel].
+ *
+ * @property pt     Center coordinate of the text.
+ * @property text   String content to display.
+ * @property color  Hex string color of the text.
+ * @property sizeSp Font size in sp.
+ */
 @Serializable
 @SerialName("TextLabel")
 data class TextLabelDto(
@@ -329,7 +560,10 @@ data class TextLabelDto(
     )
 }
 
-// Helper color parsers
+/**
+ * Parses a hex color string (e.g. "#FF4A80F0" or "#4A80F0") into a Compose [Color].
+ * Falls back to blue if null or malformed.
+ */
 fun parseColor(colorStr: String?): Color {
     if (colorStr == null) return Color(0xFF4A80F0)
     val cleanStr = colorStr.removePrefix("#")
@@ -348,6 +582,9 @@ fun parseColor(colorStr: String?): Color {
     return Color(0xFF4A80F0)
 }
 
+/**
+ * Formats a Compose [Color] into a hex string representation (e.g. "#ffaabbcc").
+ */
 fun Color.toStr(): String {
     val a = (this.alpha * 255f + 0.5f).toInt().coerceIn(0, 255)
     val r = (this.red * 255f + 0.5f).toInt().coerceIn(0, 255)
@@ -360,7 +597,10 @@ fun Color.toStr(): String {
         b.toString(16).padStart(2, '0')
 }
 
-// Function map for quadratic curves
+/**
+ * Returns a mathematical evaluation function (Double to Double) for a given formula string expression.
+ * Used during parsing to recreate plot curve lambdas dynamically.
+ */
 fun getFunctionForFormula(formula: String): (Double) -> Double = when (formula) {
     "x^2" -> { x -> x * x }
     "x^2 - 2" -> { x -> x * x - 2 }
@@ -372,7 +612,9 @@ fun getFunctionForFormula(formula: String): (Double) -> Double = when (formula) 
     else -> throw IllegalArgumentException("Unknown formula: $formula")
 }
 
-// Domain-to-DTO converters (used during generation/seeding)
+/**
+ * Converts a [MathShape] domain model into its corresponding serializable [MathShapeDto] representation.
+ */
 fun MathShape.toDto(): MathShapeDto = when (this) {
     is MathShape.Triangle -> TriangleDto(
         a.toDto(), b.toDto(), c.toDto(),
@@ -388,6 +630,9 @@ fun MathShape.toDto(): MathShapeDto = when (this) {
     is MathShape.PieChart -> throw UnsupportedOperationException("PieChart is not serialisable to a static JSON DTO")
 }
 
+/**
+ * Converts a domain [Question] model into its corresponding serializable [QuestionDto] representation.
+ */
 fun Question.toDto(): QuestionDto = when (this) {
     is Question.FindAnswer -> FindAnswerDto(id, operand1, operand2, operator.name, hint.toDto())
     is Question.FindOperator -> FindOperatorDto(id, operand1, operand2, result, correctOperator.name, hint.toDto())

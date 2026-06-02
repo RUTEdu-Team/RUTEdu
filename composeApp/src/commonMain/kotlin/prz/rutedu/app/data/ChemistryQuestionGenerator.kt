@@ -56,6 +56,14 @@ object ChemistryQuestionGenerator {
 
     private fun s(key: String) = GeneratorStrings.chem(key)
 
+    /**
+     * Generates a list of chemistry questions for the specified [lessonId].
+     *
+     * @param lessonId   The identifier of the chemistry lesson (e.g. `"chemia_1_1"`).
+     * @param seed       The random seed to ensure deterministic question generation.
+     * @param excludeIds The set of question IDs to exclude from the generated list.
+     * @return List of generated chemistry [Question]s.
+     */
     fun generateFor(lessonId: String, seed: Long, excludeIds: Set<Int> = emptySet()): List<Question> {
         val all = when (lessonId) {
             "chemia_1_1" -> chemia_1_1(seed)
@@ -78,6 +86,12 @@ object ChemistryQuestionGenerator {
         return if (excludeIds.isEmpty()) all else all.filter { it.id !in excludeIds }
     }
 
+    /**
+     * Returns the total number of questions available for the specified [lessonId].
+     *
+     * @param lessonId The identifier of the chemistry lesson.
+     * @return The count of generated questions.
+     */
     fun totalFor(lessonId: String): Int = generateFor(lessonId, seed = 0L).size
 
     // -----------------------------------------------------------------------
@@ -166,6 +180,14 @@ object ChemistryQuestionGenerator {
     // 3-1  Acids
     // -----------------------------------------------------------------------
 
+    /**
+     * Represents a chemical acid definition.
+     *
+     * @property formula The chemical formula (e.g. "HCl").
+     * @property nameKey The localization key for the acid's name.
+     * @property typeKey The localization key for the acid type (e.g. binary or oxyacid).
+     * @property hintKey The localization key for the help hint content.
+     */
     private data class AcidEntry(
         val formula: String,
         val nameKey: String,
@@ -460,6 +482,14 @@ object ChemistryQuestionGenerator {
     // 4-2  Dissociation
     // -----------------------------------------------------------------------
 
+    /**
+     * Represents a chemical compound definition for electrolytic dissociation exercises.
+     *
+     * @property formula The chemical formula (e.g. "NaCl").
+     * @property nameKey The localization key for the compound name.
+     * @property ionsKey The localization key for the dissociation equation/ions.
+     * @property typeKey The localization key for the compound type (e.g. acid, base, or salt).
+     */
     private data class DissocEntry(
         val formula: String,
         val nameKey: String,
@@ -517,6 +547,14 @@ object ChemistryQuestionGenerator {
     // 5-1  Hydrocarbons
     // -----------------------------------------------------------------------
 
+    /**
+     * Represents a hydrocarbon definition.
+     *
+     * @property formula The chemical formula of the hydrocarbon.
+     * @property nameKey The localization key for the hydrocarbon's name.
+     * @property cCount The number of carbon atoms in the molecule.
+     * @property typeKey The localization key for the type of hydrocarbon (e.g. alkane, alkene, alkyne).
+     */
     private data class Hydrocarbon(
         val formula: String,
         val nameKey: String,
@@ -576,6 +614,14 @@ object ChemistryQuestionGenerator {
     // 5-2  Organic compounds
     // -----------------------------------------------------------------------
 
+    /**
+     * Represents an organic compound definition.
+     *
+     * @property formula The chemical formula of the organic compound.
+     * @property nameKey The localization key for the compound's name.
+     * @property group The functional group representation (e.g. "-OH").
+     * @property groupNameKey The localization key for the functional group name.
+     */
     private data class OrgCompound(
         val formula: String,
         val nameKey: String,
@@ -629,6 +675,13 @@ object ChemistryQuestionGenerator {
     // 3-3  Bases / hydroxides
     // -----------------------------------------------------------------------
 
+    /**
+     * Represents a chemical base or hydroxide definition.
+     *
+     * @property formula The chemical formula (e.g. "NaOH").
+     * @property nameKey The localization key for the base's name.
+     * @property soluble Indicates whether the base is water-soluble.
+     */
     private data class BaseEntry(val formula: String, val nameKey: String, val soluble: Boolean)
 
     private val hydroxides = listOf(
@@ -710,6 +763,13 @@ object ChemistryQuestionGenerator {
     // 3-4  Salts
     // -----------------------------------------------------------------------
 
+    /**
+     * Represents a chemical salt definition.
+     *
+     * @property formula The chemical formula of the salt (e.g. "NaCl").
+     * @property nameKey The localization key for the salt's name.
+     * @property acidNameKey The localization key for the parent acid's name.
+     */
     private data class SaltEntry(val formula: String, val nameKey: String, val acidNameKey: String)
 
     private val salts = listOf(
@@ -770,6 +830,13 @@ object ChemistryQuestionGenerator {
     // 6-1  Oxides
     // -----------------------------------------------------------------------
 
+    /**
+     * Represents a chemical oxide definition.
+     *
+     * @property formula The chemical formula of the oxide (e.g. "CO₂").
+     * @property nameKey The localization key for the oxide's name.
+     * @property typeKey The localization key for the oxide's classification type (e.g. basic, acidic, neutral, or amphoteric).
+     */
     private data class OxideEntry(val formula: String, val nameKey: String, val typeKey: String)
 
     private val oxides = listOf(

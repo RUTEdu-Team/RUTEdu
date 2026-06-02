@@ -9,17 +9,33 @@ import rutedu.composeapp.generated.resources.*
 import prz.rutedu.app.models.ELEMENTS
 import prz.rutedu.app.data.QuestionBank
 
+/**
+ * Utility to resolve and manage runtime localization resources for procedurally-generated quiz questions.
+ *
+ * Unlike static database questions, generated tasks need dynamic translation tables loaded dynamically
+ * based on the active language code. This singleton handles loading, caching, and querying translation maps.
+ */
 object GeneratorLocalizer {
     private var mathTranslations: Map<String, String> = emptyMap()
     private var chemTranslations: Map<String, String> = emptyMap()
     private var geoTranslations: Map<String, String> = emptyMap()
     private val elementNames = mutableMapOf<Int, String>()
 
+    /**
+     * Initializes the localizer using the current system or application language.
+     */
     @OptIn(ExperimentalResourceApi::class)
     suspend fun initialize() {
         loadForLanguage(getCurrentLanguage())
     }
 
+    /**
+     * Loads the translation tables for the specified language.
+     *
+     * Falls back to English if the requested language is not supported.
+     *
+     * @param lang The two-letter language code (e.g., "pl", "de").
+     */
     @OptIn(ExperimentalResourceApi::class)
     suspend fun loadForLanguage(lang: String) {
         val resolvedLang = if (lang in QuestionBank.SUPPORTED_QUESTION_LANGS) lang else "en"
@@ -64,10 +80,24 @@ object GeneratorLocalizer {
         }
     }
 
+    /**
+     * Translates a given key by looking it up in the loaded subject translations.
+     * Falls back to the raw key if no translation is found.
+     *
+     * @param key The translation key to look up.
+     * @return The localized string, or the key itself if not found.
+     */
     fun t(key: String): String {
         return mathTranslations[key] ?: chemTranslations[key] ?: geoTranslations[key] ?: key
     }
 
+    /**
+     * Translates a given key and replaces named placeholders (e.g. "{name}") with the provided arguments.
+     *
+     * @param key The translation key to look up.
+     * @param args Pairs of placeholder names to their replacement values.
+     * @return The localized and formatted string.
+     */
     fun t(key: String, vararg args: Pair<String, String>): String {
         var text = t(key)
         for ((placeholder, value) in args) {
@@ -76,6 +106,12 @@ object GeneratorLocalizer {
         return text
     }
 
+    /**
+     * Returns the localized name of a chemical element by its atomic number.
+     *
+     * @param atomicNumber The atomic number of the element (1 to 118).
+     * @return The localized element name, or empty string if not found.
+     */
     fun getElementName(atomicNumber: Int): String {
         return elementNames[atomicNumber] ?: ELEMENTS.firstOrNull { it.atomicNumber == atomicNumber }?.name ?: ""
     }

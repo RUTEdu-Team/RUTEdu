@@ -27,6 +27,17 @@ object AlgebraQuestionGenerator {
     private fun t(pl: String, en: String): String =
         if (GeneratorStrings.algebra("word.and") == "i") pl else en
 
+    /**
+     * Generates a list of algebra questions for the specified [lessonId].
+     *
+     * Depending on whether the Math Eclipse engine is available (on Android), it returns
+     * either typed algebraic expression questions or fallback multiple-choice select questions.
+     *
+     * @param lessonId   The identifier of the algebra lesson (e.g. `"algebra_1_1"`).
+     * @param seed       The random seed to ensure deterministic question generation.
+     * @param excludeIds The set of question IDs to exclude from the generated list.
+     * @return List of generated algebra [Question]s.
+     */
     fun generateFor(lessonId: String, seed: Long, excludeIds: Set<Int> = emptySet()): List<Question> {
         val all: List<Question> = if (mathEngineAvailable) {
             when (lessonId) {
@@ -50,6 +61,12 @@ object AlgebraQuestionGenerator {
         return if (excludeIds.isEmpty()) all else all.filter { it.id !in excludeIds }
     }
 
+    /**
+     * Returns the total number of questions available for the specified [lessonId].
+     *
+     * @param lessonId The identifier of the algebra lesson.
+     * @return The count of generated questions.
+     */
     fun totalFor(lessonId: String): Int = generateFor(lessonId, seed = 0L).size
 
     // -- algebra_1_1: Upraszczanie wyrażeń ---------------------------------------------------
