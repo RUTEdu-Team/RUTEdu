@@ -102,7 +102,7 @@ internal fun FindAnswerContent(
             when (question.operator) {
 
                 MathOperator.POWER -> {
-                    EquationText("${question.operand1}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand1}", MaterialTheme.colorScheme.onSurface, eqFontSize)
                     Spacer(Modifier.width(0.dp))
                     EquationText(
                         getTopIndex(question.operand2),
@@ -120,7 +120,7 @@ internal fun FindAnswerContent(
                     Spacer(Modifier.width(0.dp))
                     EquationText("√", accentColor, eqFontSize)
                     Spacer(Modifier.width(0.dp))
-                    EquationText("${question.operand2}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand2}", MaterialTheme.colorScheme.onSurface, eqFontSize)
                 }
 
                 MathOperator.LOG -> {
@@ -132,20 +132,20 @@ internal fun FindAnswerContent(
                         eqFontSize * 0.7f
                     )
                     Spacer(Modifier.width(2.dp))
-                    EquationText("${question.operand2}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand2}", MaterialTheme.colorScheme.onSurface, eqFontSize)
                 }
 
                 else -> {
-                    EquationText("${question.operand1}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand1}", MaterialTheme.colorScheme.onSurface, eqFontSize)
                     Spacer(Modifier.width(8.dp))
                     EquationText(question.operator.symbol, accentColor, eqFontSize)
                     Spacer(Modifier.width(8.dp))
-                    EquationText("${question.operand2}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand2}", MaterialTheme.colorScheme.onSurface, eqFontSize)
                 }
             }
 
             Spacer(Modifier.width(12.dp))
-            EquationText("=", Color(0xFF1A1A1A), eqFontSize)
+            EquationText("=", MaterialTheme.colorScheme.onSurface, eqFontSize)
             Spacer(Modifier.width(12.dp))
             EquationText("?", accentColor, eqFontSize)
         }
