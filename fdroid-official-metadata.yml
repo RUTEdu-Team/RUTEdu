@@ -23,10 +23,14 @@ AutoName: RUTEdu
 RepoType: git
 Repo: https://github.com/RUTEdu-Team/RUTEdu
 
+Binaries: https://github.com/RUTEdu-Team/RUTEdu/releases/download/v%v/RUTEdu-v%v.apk
+
+AllowedAPKSigningKeys: cc2f916fe9ff5dc5191afb5bc3863c69cda68cb403076ac1d256c7b69f87bdff
+
 Builds:
   - versionName: 0.6.0
     versionCode: 600
-    commit: v0.6.0
+    commit: a47704322133044feca989164f43523cd24e328f
     subdir: androidApp
     gradle:
       - yes
