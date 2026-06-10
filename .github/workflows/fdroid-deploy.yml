@@ -32,15 +32,8 @@ jobs:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
         run: echo "$KEYSTORE_BASE64" | base64 --decode > keystore.jks
 
-      - name: Compute version from tag
-        run: |
-          TAG=${GITHUB_REF_NAME#v}
-          MAJOR=$(echo "$TAG" | cut -d. -f1)
-          MINOR=$(echo "$TAG" | cut -d. -f2)
-          PATCH=$(echo "$TAG" | cut -d. -f3)
-          MAJOR=${MAJOR:-0}; MINOR=${MINOR:-0}; PATCH=${PATCH:-0}
-          echo "VERSION_NAME=${TAG}" >> $GITHUB_ENV
-          echo "VERSION_CODE=$(( (MAJOR * 10000) + (MINOR * 100) + PATCH ))" >> $GITHUB_ENV
+      # versionCode/versionName come from androidApp/build.gradle.kts
+      # (hardcoded for F-Droid checkupdates). Bump them there before tagging.
 
       - name: Build signed release APK
         env:

@@ -44,10 +44,12 @@ import prz.rutedu.app.screens.LessonGameScreen
 import prz.rutedu.app.screens.MainScreen
 import prz.rutedu.app.screens.PlayerSelectionScreen
 import prz.rutedu.app.screens.PvPBattleScreen
+import prz.rutedu.app.screens.PvPLessonSelectScreen
 import prz.rutedu.app.screens.SelectionScreen
 import prz.rutedu.app.screens.Settings
 import prz.rutedu.app.screens.SubjectConfigScreen
 import prz.rutedu.app.screens.SubjectDetailScreen
+import prz.rutedu.app.screens.SubjectSelectScreen
 import prz.rutedu.app.screens.TopicDetailScreen
 import prz.rutedu.app.theme.RUTEduTheme
 import prz.rutedu.app.theme.ThemeMode
@@ -68,14 +70,22 @@ import rutedu.composeapp.generated.resources.*
  * @property route The navigation route string used in [NavHost] composable declarations.
  */
 sealed class Screen(val route: String) {
-    /** Home screen - 2-column subject grid with settings shortcut. */
+    /** Home screen - RUTMath-style main menu (ĆWICZENIA / POJEDYNEK / WYNIKI / USTAWIENIA). */
     object Home : Screen("home")
+    /** Subject selection - 2-column subject grid (opened from the ĆWICZENIA menu button). */
+    object Subjects : Screen("subjects")
     /** Game-mode selection after player pick. */
     object Selection : Screen("selection")
     /** Leaderboard player picker before a game session. */
     object PlayerSelection : Screen("player-selection")
-    /** Two-player PvP battle screen. */
-    object PvP : Screen("pvp")
+    /** Lesson picker for the two-player battle (Pojedynek). */
+    object PvPSelect : Screen("pvp-select")
+
+    /** Two-player battle on a chosen lesson. Requires `subjectId` and `lessonId` path arguments. */
+    object PvPBattle : Screen("pvp-battle/{subjectId}/{lessonId}") {
+        /** @return A concrete route string, e.g. `"pvp-battle/chemia/chemia_3_2"`. */
+        fun createRoute(subjectId: String, lessonId: String) = "pvp-battle/$subjectId/$lessonId"
+    }
     /** Language / app settings. */
     object Settings : Screen("settings")
     /** Language settings. */
@@ -150,6 +160,7 @@ var lastVisitedLessonRoute by mutableStateOf<String?>(null)
  */
 private fun showBottomNav(route: String?): Boolean =
     route == Screen.Home.route ||
+        route == Screen.Subjects.route ||
         route == Screen.Nauka.route ||
         route == Screen.Cwiczenia.route ||
         route?.startsWith("subject/") == true ||
@@ -224,15 +235,14 @@ fun App(driver: SqlDriver) {
                             currentRoute = currentRoute,
                             activeColor = activeNavColor,
                             onTabSelected = { tab ->
-                                // NAUKA/ĆWICZENIA tabs restore the last-visited destination instead of
-                                // landing on placeholder screens. Falls back to the placeholder route
-                                // when no subject/lesson has been visited yet in this session.
+                                // NAUKA restores the last-visited subject; ĆWICZENIA always opens the
+                                // subject grid so the user can pick freely (auto-resuming the last
+                                // lesson was confusing - it always jumped back to the same subject).
                                 val destination = when (tab) {
                                     NavTab.NAUKA -> lastVisitedSubjectId
                                         ?.let { Screen.SubjectDetail.createRoute(it) }
                                         ?: Screen.Nauka.route
-                                    NavTab.CWICZENIA -> lastVisitedLessonRoute
-                                        ?: Screen.Cwiczenia.route
+                                    NavTab.CWICZENIA -> Screen.Subjects.route
                                     else -> tab.route
                                 }
                                 // popUpTo HOME (non-inclusive) clears intermediate back-stack entries.
@@ -259,6 +269,13 @@ fun App(driver: SqlDriver) {
                 ) {
                     composable(Screen.Home.route) {
                         MainScreen(
+                            navController = navController,
+                            bottomPadding = effectiveBottomPadding
+                        )
+                    }
+
+                    composable(Screen.Subjects.route) {
+                        SubjectSelectScreen(
                             navController = navController,
                             driver = driver,
                             bottomPadding = effectiveBottomPadding
@@ -363,10 +380,21 @@ fun App(driver: SqlDriver) {
                         )
                     }
 
-                    composable(Screen.PvP.route) {
+                    composable(Screen.PvPSelect.route) {
+                        PvPLessonSelectScreen(
+                            navController = navController,
+                            bottomPadding = effectiveBottomPadding
+                        )
+                    }
+
+                    composable(Screen.PvPBattle.route) { backStackEntry ->
+                        val subjectId = backStackEntry.arguments?.getString("subjectId") ?: return@composable
+                        val lessonId = backStackEntry.arguments?.getString("lessonId") ?: return@composable
                         val player1Text = stringResource(Res.string.player1)
                         val player2Text = stringResource(Res.string.player2)
                         PvPBattleScreen(
+                            subjectId = subjectId,
+                            lessonId = lessonId,
                             navController = navController,
                             player1Name = player1Text,
                             player2Name = player2Text

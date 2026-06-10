@@ -93,7 +93,7 @@ Spela i stridsläget för att se de bästa spelarnas resultat!</string>
     <string name="desc_drag_operator">Dra operatorn som saknas till den tomma rutan</string>
     <string name="hint_step_by_step">Steg för steg:</string>
     <string name="hint_dismiss_button">Uppfattat, tillbaka till uppgiften</string>
-    <string name="weii_description">Fakulteten för elektroteknik, datavetenskap och telekommunikation</string>
+    <string name="weii_description">Fakulteten för elektroteknik och datavetenskap vid Rzeszóws tekniska universitet</string>
     <string name="placeholder_enter_result">Ange resultat...</string>
     <string name="periodic_table_electrons_shells">elektroner i skalen K, L, M, N...</string>
     <string name="select_all_correct_answers">Välj alla rätta svar</string>

@@ -1,0 +1,6 @@
+* Nowe menu główne (Ćwiczenia, Pojedynek, Ustawienia)
+* Pojedynek: gra dla dwóch graczy na jednym telefonie, działa ze wszystkimi lekcjami
+* Lekcje matematyki: ułamki, procenty, geometria, statystyka
+* Poprawki ciemnego motywu (cyfry równań, karty uczelni)
+* Naprawiona ikona aplikacji (adaptive icon)
+* Poprawiona nazwa WEII we wszystkich 29 językach

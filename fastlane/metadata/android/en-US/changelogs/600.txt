@@ -1,0 +1,6 @@
+* New main menu (Exercises, Duel, Settings)
+* Duel: two-player battle on one phone, works with all lessons and subjects
+* Math lessons for grades covering fractions, percentages, geometry, statistics
+* Dark mode fixes (equation digits, institution cards)
+* Fixed launcher icon (adaptive icon)
+* WEII faculty name corrected in all 29 languages

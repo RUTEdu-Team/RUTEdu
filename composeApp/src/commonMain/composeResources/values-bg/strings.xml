@@ -93,7 +93,7 @@
     <string name="desc_drag_operator">Плъзнете липсващия знак в празното поле</string>
     <string name="hint_step_by_step">Стъпка по стъпка:</string>
     <string name="hint_dismiss_button">Разбрах, обратно към задачата</string>
-    <string name="weii_description">Факултет по електротехника, компютърни науки и телекомуникации</string>
+    <string name="weii_description">Факултет по електротехника и информатика на Жешувската политехника</string>
     <string name="placeholder_enter_result">Въведете резултат...</string>
     <string name="periodic_table_electrons_shells">електрони в обвивките K, L, M, N...</string>
     <string name="select_all_correct_answers">Изберете всички правилни отговори</string>

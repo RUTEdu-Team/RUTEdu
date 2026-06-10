@@ -41,16 +41,21 @@ import org.jetbrains.compose.resources.painterResource
  * The icon is loaded from a drawable resource (PNG/SVG via Compose resources) rather than a
  * vector `ImageVector`, because the menu icons are raster assets in the resource bundle.
  *
- * @param iconRes Drawable resource ID for the 36 dp image displayed inside the icon box.
- * @param text    Label rendered to the right of the icon box at 24 sp bold.
- * @param onClick Called when the user taps anywhere on the button row.
+ * @param iconRes         Drawable resource ID for the 36 dp image displayed inside the icon box.
+ * @param text            Label rendered to the right of the icon box at 24 sp bold.
+ * @param onClick         Called when the user taps anywhere on the button row.
+ * @param backgroundColor Base hue for the button. The row background uses it at 70% alpha,
+ *                        the icon box at full opacity. Defaults to the legacy cyan.
  */
 @Composable
-fun MenuButton(iconRes: DrawableResource, text: String, onClick: () -> Unit) {
-    // HSL chosen to produce a vivid cyan that reads as "active/interactive" without conflicting
-    // with any of the subject accent colors (orange, green, blue, red).
-    val buttonBg = Color.hsl(195.82f, 1f, 0.5f).copy(0.70f)
-    val iconBoxBg = Color.hsl(195.82f, 1f, 0.5f)
+fun MenuButton(
+    iconRes: DrawableResource,
+    text: String,
+    backgroundColor: Color = Color.hsl(195.82f, 1f, 0.5f),
+    onClick: () -> Unit
+) {
+    val buttonBg = backgroundColor.copy(0.70f)
+    val iconBoxBg = backgroundColor
     val textColor = MaterialTheme.colorScheme.onPrimary
 
     Row(

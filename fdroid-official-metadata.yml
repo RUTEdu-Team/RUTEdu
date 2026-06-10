@@ -1,3 +1,14 @@
+# Corrected metadata for the fdroiddata MR (gitlab.com/fdroid/fdroiddata MR !38732).
+# Copy this file to metadata/prz.rutedu.app.yml in the fdroiddata fork.
+#
+# Fixes vs the original submission:
+# - subdir: androidApp (the application module; composeApp is a library -> pipeline failed)
+# - removed sudo JDK install (buildserver ships JDK 17) and the prebuild sed
+#   (versionCode/versionName are now hardcoded literals in androidApp/build.gradle.kts)
+# - versionCode matches the real scheme MAJOR*10000+MINOR*100+PATCH (v0.4 APK was 400, not 10000)
+# - no Summary/Description here - F-Droid takes them from fastlane in the app repo
+# - AutoUpdateMode: Version ("Version v%v" is deprecated)
+
 Categories:
   - Education
 
@@ -13,14 +24,14 @@ RepoType: git
 Repo: https://github.com/RUTEdu-Team/RUTEdu
 
 Builds:
-  - versionName: '0.4'
-    versionCode: 400
-    commit: v0.4
+  - versionName: 0.6.0
+    versionCode: 600
+    commit: v0.6.0
     subdir: androidApp
     gradle:
       - release
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9]+\.[0-9]+(\.[0-9]+)?$
-CurrentVersion: '0.4'
-CurrentVersionCode: 400
+CurrentVersion: 0.6.0
+CurrentVersionCode: 600

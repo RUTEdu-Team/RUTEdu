@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -19,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -37,599 +37,396 @@ import rutedu.composeapp.generated.resources.Res
 import rutedu.composeapp.generated.resources.answer_submitted
 import rutedu.composeapp.generated.resources.back_to_menu
 import rutedu.composeapp.generated.resources.battle_game_ended
-import rutedu.composeapp.generated.resources.both_correct
-import rutedu.composeapp.generated.resources.both_wrong
-import rutedu.composeapp.generated.resources.check
 import rutedu.composeapp.generated.resources.correct
 import rutedu.composeapp.generated.resources.its_a_tie
-import rutedu.composeapp.generated.resources.no
+import rutedu.composeapp.generated.resources.lesson_no_questions
 import rutedu.composeapp.generated.resources.play_again
 import rutedu.composeapp.generated.resources.player_wins
 import rutedu.composeapp.generated.resources.round_counter
 import rutedu.composeapp.generated.resources.waiting
 import rutedu.composeapp.generated.resources.wrong
-import rutedu.composeapp.generated.resources.yes
+import prz.rutedu.app.data.QuestionBank
+import prz.rutedu.app.data.SubjectRepository
+import prz.rutedu.app.models.Question
+import kotlin.random.Random
+
+/** Per-round answer state of a single player. */
+private enum class PlayerRoundState { ANSWERING, CORRECT, WRONG }
+
+private val Player1Color = Color(0xFF4CAF50)
+private val Player2Color = Color(0xFF2196F3)
 
 /**
- * A single round question in the two-player PvP battle.
+ * Two-player head-to-head battle on any lesson from the app (Pojedynek).
  *
- * @property question      The arithmetic expression shown to both players (e.g. `"7 + 5"`).
- * @property correctAnswer The expected integer result.
- */
-data class PvPQuestion(
-    val question: String,
-    val correctAnswer: Int
-)
-
-/**
- * Two-player head-to-head arithmetic battle screen.
+ * The screen is split horizontally into two player areas. Player 2's half is rotated 180°
+ * so both players face each other on the same device. Each round, both players get their own
+ * interactive instance of the same [Question] (rendered via the shared [QuestionContent]
+ * dispatcher, so every question type from every subject works). A player's half locks with a
+ * "Waiting..." overlay once they answer; when both have answered, each correct answer scores
+ * a point and the next round starts.
  *
- * The screen is split horizontally into two [PlayerGameArea]s. Player 2's half is rotated 180°
- * so both players face each other on the same device. Each of the 10 rounds shows the same
- * arithmetic question simultaneously; the player who is the only one correct scores a point
- * (both correct -> both score; both wrong -> neither scores).
+ * Rounds are capped at [MAX_ROUNDS]. No solo progress is saved (LessonProgressStore untouched).
  *
+ * @param subjectId     Subject the lesson belongs to (drives the accent color).
+ * @param lessonId      Lesson whose question set is used for the battle.
  * @param navController Navigation controller for the post-game "Back to menu" pop.
  * @param player1Name   Display name for player 1 (green, bottom, normal orientation).
  * @param player2Name   Display name for player 2 (blue, top, rotated 180°).
  */
 @Composable
 fun PvPBattleScreen(
+    subjectId: String,
+    lessonId: String,
     navController: NavController,
     player1Name: String = "Player 1",
     player2Name: String = "Player 2"
 ) {
+    val subject = SubjectRepository.getById(subjectId)
+    val accentColor = subject?.color ?: Color(0xFF4A80F0)
+
+    var seed by remember { mutableStateOf(Random.Default.nextLong()) }
+    val questions = remember(seed) {
+        // Periodic-table questions are filtered out as a safety net - the picker already
+        // excludes such lessons, but generated sets vary with the seed.
+        QuestionBank.questionsFor(lessonId, seed)
+            .filterNot(::isPeriodicTableQuestion)
+            .shuffled(Random(seed))
+            .take(MAX_ROUNDS)
+    }
+    val totalRounds = questions.size
+
+    var roundIndex by remember { mutableStateOf(0) }
     var player1Score by remember { mutableStateOf(0) }
     var player2Score by remember { mutableStateOf(0) }
-    var currentQuestion by remember { mutableStateOf<PvPQuestion?>(null) }
-    var player1Answer by remember { mutableStateOf("") }
-    var player2Answer by remember { mutableStateOf("") }
-    var player1Answered by remember { mutableStateOf(false) }
-    var player2Answered by remember { mutableStateOf(false) }
-    var roundNumber by remember { mutableStateOf(1) }
-    var gameOver by remember { mutableStateOf(false) }
+    var player1State by remember { mutableStateOf(PlayerRoundState.ANSWERING) }
+    var player2State by remember { mutableStateOf(PlayerRoundState.ANSWERING) }
     var showResult by remember { mutableStateOf(false) }
-    var lastRoundWinner by remember { mutableStateOf<Int?>(null) }
-    
-    val totalRounds = 10
-    
-    val gameEndedText = stringResource(Res.string.battle_game_ended)
-    val yesText = stringResource(Res.string.yes)
-    val noText = stringResource(Res.string.no)
-    val playAgainText = stringResource(Res.string.play_again)
-    val backToMenuText = stringResource(Res.string.back_to_menu)
-    val itsATieText = stringResource(Res.string.its_a_tie)
-    val bothCorrectText = stringResource(Res.string.both_correct)
-    val bothWrongText = stringResource(Res.string.both_wrong)
-    val waitingText = stringResource(Res.string.waiting)
-    val correctText = stringResource(Res.string.correct)
-    val wrongText = stringResource(Res.string.wrong)
-    val answerSubmittedText = stringResource(Res.string.answer_submitted)
-    val checkText = stringResource(Res.string.check)
-    
-    fun generateNewQuestion(): PvPQuestion {
-        val a = (1..12).random()
-        val b = (1..12).random()
-        val operators = listOf("+", "-", "×")
-        val operator = operators.random()
-        
-        return when (operator) {
-            "+" -> PvPQuestion("$a + $b", a + b)
-            "-" -> PvPQuestion("$a - $b", a - b)
-            "×" -> PvPQuestion("$a × $b", a * b)
-            else -> PvPQuestion("$a + $b", a + b)
-        }
-    }
-    
-    // Initialize first question
-    LaunchedEffect(Unit) {
-        currentQuestion = generateNewQuestion()
-    }
-    
-    // Check if both players answered
-    LaunchedEffect(player1Answered, player2Answered) {
-        if (player1Answered && player2Answered && currentQuestion != null) {
+    var gameOver by remember { mutableStateOf(false) }
+
+    // Round resolution: when both players answered, score, briefly show results, then advance.
+    LaunchedEffect(player1State, player2State) {
+        if (player1State != PlayerRoundState.ANSWERING && player2State != PlayerRoundState.ANSWERING) {
             showResult = true
-            
-            val p1Correct = player1Answer.toIntOrNull() == currentQuestion!!.correctAnswer
-            val p2Correct = player2Answer.toIntOrNull() == currentQuestion!!.correctAnswer
-            
-            when {
-                p1Correct && !p2Correct -> {
-                    player1Score++
-                    lastRoundWinner = 1
-                }
-                !p1Correct && p2Correct -> {
-                    player2Score++
-                    lastRoundWinner = 2
-                }
-                p1Correct && p2Correct -> {
-                    // Both correct - both get a point
-                    player1Score++
-                    player2Score++
-                    lastRoundWinner = 0
-                }
-                else -> {
-                    lastRoundWinner = -1 // Both wrong
-                }
-            }
-            
+            if (player1State == PlayerRoundState.CORRECT) player1Score++
+            if (player2State == PlayerRoundState.CORRECT) player2Score++
             delay(2000)
-            
-            if (roundNumber >= totalRounds) {
+            if (roundIndex >= totalRounds - 1) {
                 gameOver = true
             } else {
-                roundNumber++
-                currentQuestion = generateNewQuestion()
-                player1Answer = ""
-                player2Answer = ""
-                player1Answered = false
-                player2Answered = false
+                roundIndex++
+                player1State = PlayerRoundState.ANSWERING
+                player2State = PlayerRoundState.ANSWERING
                 showResult = false
-                lastRoundWinner = null
             }
         }
     }
-    
-    if (gameOver) {
-        // Game Over Screen - mimics solo game style
+
+    if (questions.isEmpty()) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.surface)
-                .safeContentPadding()
-                .padding(16.dp),
+                .background(MaterialTheme.colorScheme.background)
+                .safeContentPadding(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "🎉 $gameEndedText 🎉",
-                style = MaterialTheme.typography.headlineLarge,
-                fontWeight = FontWeight.Bold
+                stringResource(Res.string.lesson_no_questions),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontSize = 16.sp
             )
-            
-            Spacer(Modifier.height(24.dp))
-            
-            Text(
-                text = when {
-                    player1Score > player2Score -> stringResource(Res.string.player_wins, player1Name)
-                    player2Score > player1Score -> stringResource(Res.string.player_wins, player2Name)
-                    else -> itsATieText
-                },
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.primary
-            )
-            
-            Spacer(Modifier.height(24.dp))
-            
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(
-                        text = player1Name,
-                        style = MaterialTheme.typography.titleMedium,
-                        color = Color(0xFF4CAF50)
-                    )
-                    Text(
-                        text = "$player1Score",
-                        style = MaterialTheme.typography.displayMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF4CAF50)
-                    )
-                }
-                
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(
-                        text = player2Name,
-                        style = MaterialTheme.typography.titleMedium,
-                        color = Color(0xFF2196F3)
-                    )
-                    Text(
-                        text = "$player2Score",
-                        style = MaterialTheme.typography.displayMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF2196F3)
-                    )
-                }
-            }
-            
-            Spacer(Modifier.height(32.dp))
-            
-            Button(
-                onClick = {
-                    player1Score = 0
-                    player2Score = 0
-                    roundNumber = 1
-                    gameOver = false
-                    player1Answer = ""
-                    player2Answer = ""
-                    player1Answered = false
-                    player2Answered = false
-                    currentQuestion = generateNewQuestion()
-                },
-                modifier = Modifier.fillMaxWidth(0.7f).height(56.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF4CAF50),
-                    contentColor = Color.White
-                )
-            ) {
-                Text(playAgainText, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-            }
-            
-            Spacer(Modifier.height(12.dp))
-            
-            Button(
-                onClick = { navController.popBackStack() },
-                modifier = Modifier.fillMaxWidth(0.7f).height(56.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.secondary
-                )
-            ) {
-                Text(backToMenuText, fontSize = 18.sp)
+            Spacer(Modifier.height(16.dp))
+            Button(onClick = { navController.popBackStack() }) {
+                Text(stringResource(Res.string.back_to_menu))
             }
         }
         return
     }
-    
+
+    if (gameOver) {
+        BattleResultScreen(
+            player1Name = player1Name,
+            player2Name = player2Name,
+            player1Score = player1Score,
+            player2Score = player2Score,
+            onPlayAgain = {
+                seed = Random.Default.nextLong()
+                roundIndex = 0
+                player1Score = 0
+                player2Score = 0
+                player1State = PlayerRoundState.ANSWERING
+                player2State = PlayerRoundState.ANSWERING
+                showResult = false
+                gameOver = false
+            },
+            onBack = { navController.popBackStack() }
+        )
+        return
+    }
+
+    val question = questions[roundIndex]
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .safeContentPadding()
-            .background(MaterialTheme.colorScheme.surface)
+            .background(MaterialTheme.colorScheme.background)
     ) {
-        // Player 2 Area (Top - Rotated 180 degrees)
+        // Player 2 area (top, rotated 180° so the opponent can play face-to-face)
         Box(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
-                .background(Color(0xFF2196F3).copy(alpha = 0.05f))
                 .rotate(180f)
+                .background(Player2Color.copy(alpha = 0.05f))
         ) {
-            PlayerGameArea(
+            PlayerBattleArea(
                 playerName = player2Name,
+                playerColor = Player2Color,
                 score = player2Score,
-                question = currentQuestion?.question ?: "",
-                answer = player2Answer,
-                hasAnswered = player2Answered,
+                roundIndex = roundIndex,
+                totalRounds = totalRounds,
+                question = question,
+                accentColor = accentColor,
+                state = player2State,
                 showResult = showResult,
-                isCorrect = player2Answer.toIntOrNull() == currentQuestion?.correctAnswer,
-                onNumberClick = { if (!player2Answered) player2Answer += it },
-                onDelete = { if (!player2Answered && player2Answer.isNotEmpty()) player2Answer = player2Answer.dropLast(1) },
-                onClear = { if (!player2Answered) player2Answer = "" },
-                onSubmit = { player2Answered = true },
-                playerColor = Color(0xFF2196F3)
+                onAnswered = { correct ->
+                    player2State = if (correct) PlayerRoundState.CORRECT else PlayerRoundState.WRONG
+                }
             )
         }
-        
-        // Divider with round info
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(48.dp)
-                .background(MaterialTheme.colorScheme.surfaceVariant),
-            contentAlignment = Alignment.Center
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "$player2Score",
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF2196F3)
-                )
-                
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(
-                        text = stringResource(Res.string.round_counter, roundNumber, totalRounds),
-                        style = MaterialTheme.typography.titleSmall,
-                        fontWeight = FontWeight.Bold
-                    )
-                    if (showResult && lastRoundWinner != null) {
-                        Text(
-                            text = when (lastRoundWinner) {
-                                1 -> "$player1Name ✓"
-                                2 -> "$player2Name ✓"
-                                0 -> bothCorrectText
-                                else -> bothWrongText
-                            },
-                            style = MaterialTheme.typography.bodySmall,
-                            color = when (lastRoundWinner) {
-                                1 -> Color(0xFF4CAF50)
-                                2 -> Color(0xFF2196F3)
-                                0 -> Color(0xFF4CAF50)
-                                else -> Color(0xFFF44336)
-                            }
-                        )
-                    }
-                }
-                
-                Text(
-                    text = "$player1Score",
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF4CAF50)
-                )
-            }
-        }
-        
-        // Player 1 Area (Bottom - Normal orientation)
+                .height(3.dp)
+                .background(accentColor)
+        )
+
+        // Player 1 area (bottom, normal orientation)
         Box(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
-                .background(Color(0xFF4CAF50).copy(alpha = 0.05f))
+                .background(Player1Color.copy(alpha = 0.05f))
         ) {
-            PlayerGameArea(
+            PlayerBattleArea(
                 playerName = player1Name,
+                playerColor = Player1Color,
                 score = player1Score,
-                question = currentQuestion?.question ?: "",
-                answer = player1Answer,
-                hasAnswered = player1Answered,
+                roundIndex = roundIndex,
+                totalRounds = totalRounds,
+                question = question,
+                accentColor = accentColor,
+                state = player1State,
                 showResult = showResult,
-                isCorrect = player1Answer.toIntOrNull() == currentQuestion?.correctAnswer,
-                onNumberClick = { if (!player1Answered) player1Answer += it },
-                onDelete = { if (!player1Answered && player1Answer.isNotEmpty()) player1Answer = player1Answer.dropLast(1) },
-                onClear = { if (!player1Answered) player1Answer = "" },
-                onSubmit = { player1Answered = true },
-                playerColor = Color(0xFF4CAF50)
+                onAnswered = { correct ->
+                    player1State = if (correct) PlayerRoundState.CORRECT else PlayerRoundState.WRONG
+                }
             )
         }
     }
 }
 
+private const val MAX_ROUNDS = 10
+
 /**
- * One player's half of the [PvPBattleScreen]: name, score, question, answer display, and keypad.
- *
- * Replaces the keypad with a "waiting" label once [hasAnswered] is `true`, then shows
- * correct/wrong feedback when [showResult] flips to `true`.
- *
- * @param playerName    Display name shown at the top.
- * @param score         Current accumulated score for this player.
- * @param question      Arithmetic expression string to solve.
- * @param answer        The answer the player has typed so far.
- * @param hasAnswered   Whether the player has already submitted an answer this round.
- * @param showResult    Whether to reveal the correct/wrong result (after both players answer).
- * @param isCorrect     Whether this player's submitted answer matched the correct answer.
- * @param onNumberClick Called with a digit string when a digit key is tapped.
- * @param onDelete      Called on backspace tap.
- * @param onClear       Called on clear tap.
- * @param onSubmit      Called when the Submit/Check button is tapped.
- * @param playerColor   Accent color for this player's UI elements.
+ * One player's half of the battle screen: a header with name/score/round counter and an
+ * independent [QuestionContent] instance. Once the player answers (or skips - counted as
+ * wrong), the area is covered by a waiting/result overlay until the round resolves.
  */
 @Composable
-fun PlayerGameArea(
+private fun PlayerBattleArea(
     playerName: String,
+    playerColor: Color,
     score: Int,
-    question: String,
-    answer: String,
-    hasAnswered: Boolean,
+    roundIndex: Int,
+    totalRounds: Int,
+    question: Question,
+    accentColor: Color,
+    state: PlayerRoundState,
     showResult: Boolean,
-    isCorrect: Boolean,
-    onNumberClick: (String) -> Unit,
-    onDelete: () -> Unit,
-    onClear: () -> Unit,
-    onSubmit: () -> Unit,
-    playerColor: Color
+    onAnswered: (correct: Boolean) -> Unit
 ) {
-    val waitingText = stringResource(Res.string.waiting)
-    val correctText = stringResource(Res.string.correct)
-    val wrongText = stringResource(Res.string.wrong)
-    val answerSubmittedText = stringResource(Res.string.answer_submitted)
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 8.dp, vertical = 4.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceBetween
-    ) {
-        // Header: Player name and score
+    Column(modifier = Modifier.fillMaxSize()) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(playerColor.copy(alpha = 0.12f))
+                .padding(horizontal = 16.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = playerName,
-                style = MaterialTheme.typography.titleMedium,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
                 color = playerColor,
-                fontWeight = FontWeight.Bold
+                modifier = Modifier.weight(1f)
             )
-            if (hasAnswered && !showResult) {
-                Text(
-                    text = waitingText,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = Color.Gray
+            Text(
+                text = stringResource(Res.string.round_counter, roundIndex + 1, totalRounds),
+                fontSize = 12.sp,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.weight(1f))
+            Text(
+                text = "$score",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                color = playerColor
+            )
+        }
+
+        Box(modifier = Modifier.weight(1f)) {
+            // key() resets the content's internal answer state on every new round.
+            key(roundIndex) {
+                QuestionContent(
+                    question = question,
+                    accentColor = accentColor,
+                    bottomPadding = 0.dp,
+                    onCorrect = { if (state == PlayerRoundState.ANSWERING) onAnswered(true) },
+                    onWrong = { if (state == PlayerRoundState.ANSWERING) onAnswered(false) },
+                    onSkip = { if (state == PlayerRoundState.ANSWERING) onAnswered(false) }
                 )
             }
+
+            if (state != PlayerRoundState.ANSWERING) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.background.copy(alpha = 0.92f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        if (showResult) {
+                            Text(
+                                text = if (state == PlayerRoundState.CORRECT)
+                                    stringResource(Res.string.correct)
+                                else
+                                    stringResource(Res.string.wrong),
+                                fontSize = 26.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = if (state == PlayerRoundState.CORRECT) Player1Color else Color(0xFFE53935)
+                            )
+                        } else {
+                            Text(
+                                text = stringResource(Res.string.answer_submitted),
+                                fontSize = 18.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = playerColor
+                            )
+                            Spacer(Modifier.height(8.dp))
+                            Text(
+                                text = stringResource(Res.string.waiting),
+                                fontSize = 14.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                }
+            }
         }
-        
-        // Question display - similar to solo game
+    }
+}
+
+/** Post-battle results: winner banner, both scores, replay and back-to-menu actions. */
+@Composable
+private fun BattleResultScreen(
+    player1Name: String,
+    player2Name: String,
+    player1Score: Int,
+    player2Score: Int,
+    onPlayAgain: () -> Unit,
+    onBack: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.surface)
+            .safeContentPadding()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
         Text(
-            text = question,
+            text = "🎉 ${stringResource(Res.string.battle_game_ended)} 🎉",
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center
         )
-        
-        // Answer display - similar to solo game
+
+        Spacer(Modifier.height(24.dp))
+
         Text(
-            text = if (answer.isEmpty()) "?" else answer,
-            style = MaterialTheme.typography.displaySmall,
-            fontWeight = FontWeight.Bold,
-            color = when {
-                showResult && isCorrect -> Color(0xFF4CAF50)
-                showResult && !isCorrect -> Color(0xFFF44336)
-                else -> playerColor
-            }
+            text = when {
+                player1Score > player2Score -> stringResource(Res.string.player_wins, player1Name)
+                player2Score > player1Score -> stringResource(Res.string.player_wins, player2Name)
+                else -> stringResource(Res.string.its_a_tie)
+            },
+            style = MaterialTheme.typography.headlineMedium,
+            color = MaterialTheme.colorScheme.primary,
+            textAlign = TextAlign.Center
         )
-        
-        // Result indicator
-        if (showResult) {
-            Text(
-                text = if (isCorrect) correctText else wrongText,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                color = if (isCorrect) Color(0xFF4CAF50) else Color(0xFFF44336)
-            )
-        }
-        
-        // Number pad - full width like solo game
-        if (!hasAnswered) {
-            PvPNumberPad(
-                onNumberClick = onNumberClick,
-                onDelete = onDelete,
-                onClear = onClear,
-                onSubmit = onSubmit,
-                canSubmit = answer.isNotEmpty(),
-                accentColor = playerColor
-            )
-        } else if (!showResult) {
-            Box(
-                modifier = Modifier.weight(1f),
-                contentAlignment = Alignment.Center
-            ) {
+
+        Spacer(Modifier.height(24.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
-                    text = answerSubmittedText,
+                    text = player1Name,
                     style = MaterialTheme.typography.titleMedium,
-                    color = playerColor
+                    color = Player1Color
                 )
-            }
-        }
-    }
-}
-
-/**
- * Compact 5-row numeric keypad for [PlayerGameArea] in the split-screen battle layout.
- *
- * Mirrors [FullScreenNumberPad] but uses 40 dp keys to fit each player's half of the screen.
- *
- * @param onNumberClick Called with a digit string when a digit key is tapped.
- * @param onDelete      Called on backspace (⌫) tap.
- * @param onClear       Called on clear (C) tap.
- * @param onSubmit      Called when the Submit/Check button is tapped.
- * @param canSubmit     Whether the Submit button should be enabled.
- * @param accentColor   Player accent color applied to the Submit button background.
- */
-@Composable
-fun PvPNumberPad(
-    onNumberClick: (String) -> Unit,
-    onDelete: () -> Unit,
-    onClear: () -> Unit,
-    onSubmit: () -> Unit,
-    canSubmit: Boolean,
-    accentColor: Color
-) {
-    val checkText = stringResource(Res.string.check)
-
-    Column(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(2.dp)
-    ) {
-        // Row 1: 1 2 3
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(2.dp)
-        ) {
-            PvPKeyButton("1", Modifier.weight(1f)) { onNumberClick("1") }
-            PvPKeyButton("2", Modifier.weight(1f)) { onNumberClick("2") }
-            PvPKeyButton("3", Modifier.weight(1f)) { onNumberClick("3") }
-        }
-        
-        // Row 2: 4 5 6
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(2.dp)
-        ) {
-            PvPKeyButton("4", Modifier.weight(1f)) { onNumberClick("4") }
-            PvPKeyButton("5", Modifier.weight(1f)) { onNumberClick("5") }
-            PvPKeyButton("6", Modifier.weight(1f)) { onNumberClick("6") }
-        }
-        
-        // Row 3: 7 8 9
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(2.dp)
-        ) {
-            PvPKeyButton("7", Modifier.weight(1f)) { onNumberClick("7") }
-            PvPKeyButton("8", Modifier.weight(1f)) { onNumberClick("8") }
-            PvPKeyButton("9", Modifier.weight(1f)) { onNumberClick("9") }
-        }
-        
-        // Row 4: C 0 ⌫
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(2.dp)
-        ) {
-            PvPKeyButton("C", Modifier.weight(1f), backgroundColor = Color(0xFFFF9800), contentColor = Color.White) { onClear() }
-            PvPKeyButton("0", Modifier.weight(1f)) { onNumberClick("0") }
-            PvPKeyButton("⌫", Modifier.weight(1f), backgroundColor = Color(0xFFF44336), contentColor = Color.White) { onDelete() }
-        }
-        
-        // Row 5: Minus and Submit
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(2.dp)
-        ) {
-            PvPKeyButton("-", Modifier.weight(1f)) { onNumberClick("-") }
-            Button(
-                onClick = onSubmit,
-                enabled = canSubmit,
-                modifier = Modifier
-                    .weight(2f)
-                    .height(40.dp),
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = accentColor,
-                    contentColor = Color.White
-                )
-            ) {
                 Text(
-                    text = checkText,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold
+                    text = "$player1Score",
+                    style = MaterialTheme.typography.displayMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = Player1Color
+                )
+            }
+
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = player2Name,
+                    style = MaterialTheme.typography.titleMedium,
+                    color = Player2Color
+                )
+                Text(
+                    text = "$player2Score",
+                    style = MaterialTheme.typography.displayMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = Player2Color
                 )
             }
         }
-    }
-}
 
-/**
- * A single 40 dp tall key button used inside [PvPNumberPad].
- *
- * @param text            Label shown on the key.
- * @param modifier        Modifier applied to the button (typically `Modifier.weight(1f)`).
- * @param backgroundColor Key background; defaults to `primaryContainer`.
- * @param contentColor    Key text color; defaults to `onPrimaryContainer`.
- * @param onClick         Click handler.
- */
-@Composable
-fun PvPKeyButton(
-    text: String,
-    modifier: Modifier = Modifier,
-    backgroundColor: Color = MaterialTheme.colorScheme.primaryContainer,
-    contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
-    onClick: () -> Unit
-) {
-    Button(
-        onClick = onClick,
-        modifier = modifier.height(40.dp),
-        shape = RoundedCornerShape(8.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = backgroundColor,
-            contentColor = contentColor
-        )
-    ) {
-        Text(
-            text = text,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold
-        )
+        Spacer(Modifier.height(32.dp))
+
+        Button(
+            onClick = onPlayAgain,
+            modifier = Modifier.fillMaxWidth(0.7f).height(56.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Player1Color,
+                contentColor = Color.White
+            )
+        ) {
+            Text(stringResource(Res.string.play_again), fontSize = 18.sp, fontWeight = FontWeight.Bold)
+        }
+
+        Spacer(Modifier.height(12.dp))
+
+        Button(
+            onClick = onBack,
+            modifier = Modifier.fillMaxWidth(0.7f).height(56.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.secondary
+            )
+        ) {
+            Text(stringResource(Res.string.back_to_menu), fontSize = 18.sp)
+        }
     }
 }

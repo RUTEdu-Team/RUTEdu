@@ -14,8 +14,10 @@ android {
         applicationId = "prz.rutedu.app"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = (System.getenv("VERSION_CODE") ?: "1").toInt()
-        versionName = System.getenv("VERSION_NAME") ?: "0.1"
+        // Hardcoded literals (no env lookup) so F-Droid checkupdates can parse them.
+        // Scheme: MAJOR*10000 + MINOR*100 + PATCH; bump both before tagging vX.Y.Z.
+        versionCode = 600
+        versionName = "0.6.0"
     }
     packaging {
         resources {

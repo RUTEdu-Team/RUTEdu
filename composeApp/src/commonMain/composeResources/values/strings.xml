@@ -90,7 +90,7 @@
     <string name="desc_drag_operator">Drag the missing sign into the empty box</string>
     <string name="hint_step_by_step">Step by step:</string>
     <string name="hint_dismiss_button">Got it, back to the task</string>
-    <string name="weii_description">Faculty of Electrical Engineering, Computer Science and Telecommunications</string>
+    <string name="weii_description">Faculty of Electrical and Computer Engineering, Rzeszów University of Technology</string>
     <string name="placeholder_enter_result">Enter result...</string>
     <string name="periodic_table_electrons_shells">electrons in shells K, L, M, N...</string>
     <string name="select_all_correct_answers">Select all correct answers</string>
