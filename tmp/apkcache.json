@@ -44,5 +44,37 @@
     "size": 22918142,
     "apkName": "RUTEdu-v0.4.5.apk",
     "added": 1779523296.124587
+  },
+  "RUTEdu-v0.5.0.apk": {
+    "hash": "786820fb218b2fe4d18379bb3569caa08cc8d15b63b4add7bca4a9e10e0c9972",
+    "hashType": "sha256",
+    "uses-permission": [
+      [
+        "prz.rutedu.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+        null
+      ]
+    ],
+    "uses-permission-sdk-23": [],
+    "features": [],
+    "icons_src": {},
+    "icons": {},
+    "antiFeatures": {},
+    "packageName": "prz.rutedu.app",
+    "versionCode": 600,
+    "name": "RUTEdu",
+    "versionName": "0.6.0",
+    "minSdkVersion": 24,
+    "targetSdkVersion": 37,
+    "nativecode": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "sig": "35ba1dc23397b97b4d3c05265c72db2f",
+    "signer": "cc2f916fe9ff5dc5191afb5bc3863c69cda68cb403076ac1d256c7b69f87bdff",
+    "size": 25630745,
+    "apkName": "RUTEdu-v0.5.0.apk",
+    "added": 1781094779.176767
   }
 }
