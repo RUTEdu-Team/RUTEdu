@@ -46,7 +46,7 @@
     "added": 1779523296.124587
   },
   "RUTEdu-v0.5.0.apk": {
-    "hash": "786820fb218b2fe4d18379bb3569caa08cc8d15b63b4add7bca4a9e10e0c9972",
+    "hash": "83fd9dd3670582020c2f67d7d47dbddd1ba1508162a62ce6f2338089a611a4ab",
     "hashType": "sha256",
     "uses-permission": [
       [
@@ -75,6 +75,6 @@
     "signer": "cc2f916fe9ff5dc5191afb5bc3863c69cda68cb403076ac1d256c7b69f87bdff",
     "size": 25630745,
     "apkName": "RUTEdu-v0.5.0.apk",
-    "added": 1781094779.176767
+    "added": 1781094779.0
   }
 }
