@@ -16,8 +16,12 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         // Hardcoded literals (no env lookup) so F-Droid checkupdates can parse them.
         // Scheme: MAJOR*10000 + MINOR*100 + PATCH; bump both before tagging vX.Y.Z.
-        versionCode = 600
-        versionName = "0.6.0"
+        versionCode = 601
+        versionName = "0.6.1"
+    }
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
     }
     packaging {
         resources {
