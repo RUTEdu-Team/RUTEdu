@@ -10,4 +10,7 @@ Features:
 * Progress tracking and per-subject question configuration
 * 29 European languages, light and dark theme
 
+!! The app has incomplete translations, some sections may appear in Polish !!
+
+
 No ads, no tracking, no internet required.
