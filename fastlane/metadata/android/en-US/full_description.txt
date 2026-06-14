@@ -10,4 +10,4 @@ Features:
 * Progress tracking and per-subject question configuration
 * 29 European languages, light and dark theme
 
-No ads, no tracking, no internet required (except map quiz).
+No ads, no tracking, no internet required.

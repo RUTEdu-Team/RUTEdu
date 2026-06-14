@@ -10,4 +10,4 @@ Funkcje:
 * Śledzenie postępów i konfiguracja liczby pytań per przedmiot
 * 29 europejskich języków, jasny i ciemny motyw
 
-Brak reklam, brak śledzenia, nie wymaga internetu (oprócz quizu z mapą).
+Brak reklam, brak śledzenia, nie wymaga internetu.
