@@ -1,11 +1,13 @@
 RUTEdu to interaktywna aplikacja edukacyjna dla uczniów szkół średnich, tworzona na Politechnice Rzeszowskiej.
 
 Funkcje:
+* Lekcje matematyki: algebra, równania, ułamki, procenty, geometria, statystyka
 * Interaktywny układ okresowy wszystkich 118 pierwiastków
 * Quizy z chemii z automatycznym generatorem pytań
 * Równoważenie równań chemicznych z klawiaturą numeryczną
 * Quiz geograficzny z interaktywną mapą (kliknij kraj)
-* Tryb multiplayer przez WiFi (1v1 i turniej)
-* Śledzenie postępów dla każdego gracza
+* Pojedynek: gra dla dwóch graczy na jednym telefonie, działa z każdą lekcją
+* Śledzenie postępów i konfiguracja liczby pytań per przedmiot
+* 29 europejskich języków, jasny i ciemny motyw
 
-Brak reklam, brak śledzenia, nie wymaga internetu (oprócz quizu z mapą).
+Brak reklam, brak śledzenia, nie wymaga internetu.

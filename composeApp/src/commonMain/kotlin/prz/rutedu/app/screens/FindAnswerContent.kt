@@ -93,6 +93,8 @@ internal fun FindAnswerContent(
 
         // Scale down font when operands are 3+ digits to prevent row overflow on small screens.
         val eqFontSize = if (maxOf("${question.operand1}".length, "${question.operand2}".length) >= 3) 34.sp else 48.sp
+        // Theme-aware color for the equation digits (charcoal in light, light in dark mode).
+        val numberColor = MaterialTheme.colorScheme.onBackground
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
@@ -102,7 +104,7 @@ internal fun FindAnswerContent(
             when (question.operator) {
 
                 MathOperator.POWER -> {
-                    EquationText("${question.operand1}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand1}", numberColor, eqFontSize)
                     Spacer(Modifier.width(0.dp))
                     EquationText(
                         getTopIndex(question.operand2),
@@ -120,7 +122,7 @@ internal fun FindAnswerContent(
                     Spacer(Modifier.width(0.dp))
                     EquationText("√", accentColor, eqFontSize)
                     Spacer(Modifier.width(0.dp))
-                    EquationText("${question.operand2}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand2}", numberColor, eqFontSize)
                 }
 
                 MathOperator.LOG -> {
@@ -132,20 +134,20 @@ internal fun FindAnswerContent(
                         eqFontSize * 0.7f
                     )
                     Spacer(Modifier.width(2.dp))
-                    EquationText("${question.operand2}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand2}", numberColor, eqFontSize)
                 }
 
                 else -> {
-                    EquationText("${question.operand1}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand1}", numberColor, eqFontSize)
                     Spacer(Modifier.width(8.dp))
                     EquationText(question.operator.symbol, accentColor, eqFontSize)
                     Spacer(Modifier.width(8.dp))
-                    EquationText("${question.operand2}", Color(0xFF1A1A1A), eqFontSize)
+                    EquationText("${question.operand2}", numberColor, eqFontSize)
                 }
             }
 
             Spacer(Modifier.width(12.dp))
-            EquationText("=", Color(0xFF1A1A1A), eqFontSize)
+            EquationText("=", numberColor, eqFontSize)
             Spacer(Modifier.width(12.dp))
             EquationText("?", accentColor, eqFontSize)
         }

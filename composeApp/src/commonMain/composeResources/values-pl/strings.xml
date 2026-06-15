@@ -89,7 +89,7 @@
     <string name="desc_drag_operator">Przeciągnij brakujący znak w puste pole</string>
     <string name="hint_step_by_step">Krok po kroku:</string>
     <string name="hint_dismiss_button">Rozumiem, wracam do zadania</string>
-    <string name="weii_description">Wydział Elektrotechniki, Informatyki i Telekomunikacji</string>
+    <string name="weii_description">Wydział Elektrotechniki i Informatyki Politechniki Rzeszowskiej</string>
     <string name="placeholder_enter_result">Wpisz wynik...</string>
     <string name="periodic_table_electrons_shells">elektrony w powłokach K, L, M, N…</string>
     <string name="select_all_correct_answers">Zaznacz wszystkie poprawne odpowiedzi</string>

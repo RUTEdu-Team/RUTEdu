@@ -69,6 +69,7 @@ fun BottomNavBar(
     // This keeps the indicator in sync even when navigating via the system back button.
     val activeTab: NavTab = when {
         currentRoute == NavTab.CWICZENIA.route ||
+            currentRoute == "subjects" ||
             currentRoute?.startsWith("lesson/") == true -> NavTab.CWICZENIA
         currentRoute == NavTab.NAUKA.route ||
             currentRoute?.startsWith("subject/") == true ||

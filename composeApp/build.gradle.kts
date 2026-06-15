@@ -32,6 +32,8 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = false
+            // Silences the "Cannot infer a bundle ID" linker warning.
+            binaryOption("bundleId", "prz.rutedu.app.ComposeApp")
         }
     }
 

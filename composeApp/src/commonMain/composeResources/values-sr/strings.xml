@@ -93,7 +93,7 @@
     <string name="desc_drag_operator">Превуци недостајући знак у празан оквир</string>
     <string name="hint_step_by_step">Корак по корак:</string>
     <string name="hint_dismiss_button">Схватам, назад на задатак</string>
-    <string name="weii_description">Факултет електротехнике, рачунарства и телекомуникација</string>
+    <string name="weii_description">Факултет електротехнике и информатике Политехнике у Жешову</string>
     <string name="placeholder_enter_result">Унесите резултат...</string>
     <string name="periodic_table_electrons_shells">електрони у љускама K, L, M, N...</string>
     <string name="select_all_correct_answers">Одаберите све тачне одговоре</string>

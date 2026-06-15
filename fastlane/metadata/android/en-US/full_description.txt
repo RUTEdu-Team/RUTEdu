@@ -1,11 +1,16 @@
 RUTEdu is an interactive educational app for high school students, developed at PRZ (Rzeszów University of Technology).
 
 Features:
+* Math lessons: algebra, equations, fractions, percentages, geometry, statistics
 * Interactive periodic table of all 118 elements
 * Chemistry quizzes with automatic question generator
 * Chemical equation balancing with number keypad
 * Geography quiz with interactive map (click-a-country)
-* Local multiplayer mode over WiFi (1v1 and tournament)
-* Progress tracking per player profile
+* Duel: two-player battle on one phone, works with every lesson
+* Progress tracking and per-subject question configuration
+* 29 European languages, light and dark theme
 
-No ads, no tracking, no internet required (except map quiz).
+!! The app has incomplete translations, some sections may appear in Polish !!
+
+
+No ads, no tracking, no internet required.

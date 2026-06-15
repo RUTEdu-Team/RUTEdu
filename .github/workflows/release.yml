@@ -27,15 +27,8 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Compute version from tag
-        run: |
-          TAG=${GITHUB_REF_NAME#v}
-          MAJOR=$(echo "$TAG" | cut -d. -f1)
-          MINOR=$(echo "$TAG" | cut -d. -f2)
-          PATCH=$(echo "$TAG" | cut -d. -f3)
-          MAJOR=${MAJOR:-0}; MINOR=${MINOR:-0}; PATCH=${PATCH:-0}
-          echo "VERSION_NAME=${TAG}" >> $GITHUB_ENV
-          echo "VERSION_CODE=$(( (MAJOR * 10000) + (MINOR * 100) + PATCH ))" >> $GITHUB_ENV
+      # versionCode/versionName are hardcoded in androidApp/build.gradle.kts
+      # (required for F-Droid checkupdates). Bump them there before tagging.
 
       # ── Signing (optional) ─────────────────────────────────────────────────
       # Set these secrets in GitHub → Settings → Secrets → Actions:
