@@ -661,6 +661,9 @@ object SubjectRepository {
          * - Ciągi i granice
          * - Kombinatoryka i prawdopodobieństwo
          * - Pochodne i optymalizacja
+         * - Logarytmy
+         * - Wartość bezwzględna
+         * - Stereometria
          */
         Subject(
             id = "matematyka_rozszerzona",
