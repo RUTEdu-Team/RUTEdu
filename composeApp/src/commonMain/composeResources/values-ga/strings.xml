@@ -378,6 +378,10 @@ Imir sa mhód catha chun scóir na n-imreoirí is fearr a fheiceáil!</string>
     <string name="lesson_desc_geo_4_3">Léirigh the tír de réir ainm a príomhchathrach</string>
     <string name="lesson_geo_4_4">Cúigí na Polainne</string>
     <string name="lesson_desc_geo_4_4">Marcáil cúigí ar léarscáil na Polainne</string>
+    <string name="lesson_geo_4_5">Páirceanna Náisiúnta na Polainne</string>
+    <string name="lesson_desc_geo_4_5">Marcáil na páirceanna náisiúnta ar léarscáil na Polainne</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Sloinn Ailgéabracha</string>
     <string name="topic_desc_mat_2">Céannachtaí ailgéabracha agus fachtóiriú</string>
     <string name="topic_mat_3">Cothromóidí &amp; Éagothroime</string>

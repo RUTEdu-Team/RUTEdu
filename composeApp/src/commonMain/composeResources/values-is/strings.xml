@@ -378,6 +378,10 @@ Spilaðu í bardagaham til að sjá árangur bestu leikmanna!</string>
     <string name="lesson_desc_geo_4_3">Bentu á landið út frá nafni höfuðborgarinnar</string>
     <string name="lesson_geo_4_4">Héruð Póllands</string>
     <string name="lesson_desc_geo_4_4">Merktu héruðin á korti af Póllandi</string>
+    <string name="lesson_geo_4_5">Þjóðgarðar Póllands</string>
+    <string name="lesson_desc_geo_4_5">Merktu þjóðgarðana á korti af Póllandi</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Algebrulegar stæður</string>
     <string name="topic_desc_mat_2">Algebrulegar reglur og þáttun</string>
     <string name="topic_mat_3">Jöfnur &amp; Ójöfnur</string>

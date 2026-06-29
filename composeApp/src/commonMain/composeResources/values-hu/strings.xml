@@ -359,6 +359,10 @@
     <string name="lesson_desc_geo_4_3">Határozd meg az országot a fővárosa alapján</string>
     <string name="lesson_geo_4_4">Lengyelország vajdaságai</string>
     <string name="lesson_desc_geo_4_4">Jelöld be a vajdaságokat Lengyelország térképén</string>
+    <string name="lesson_geo_4_5">Lengyel nemzeti parkok</string>
+    <string name="lesson_desc_geo_4_5">Jelöld be a nemzeti parkokat Lengyelország térképén</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Algebrai kifejezések</string>
     <string name="topic_desc_mat_2">Nevezetes azonosságok és szorzattá alakítás</string>
     <string name="topic_mat_3">Egyenletek és egyenlőtlenségek</string>

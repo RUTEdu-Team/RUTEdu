@@ -375,6 +375,10 @@
     <string name="lesson_desc_geo_4_3">Point out the country by its capital name</string>
     <string name="lesson_geo_4_4">Voivodeships of Poland</string>
     <string name="lesson_desc_geo_4_4">Mark voivodeships on the map of Poland</string>
+    <string name="lesson_geo_4_5">Polish National Parks</string>
+    <string name="lesson_desc_geo_4_5">Identify and point out Polish national parks on the map</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Algebraic Expressions</string>
     <string name="topic_desc_mat_2">Algebraic identities and factoring</string>
     <string name="topic_mat_3">Equations &amp; Inequalities</string>

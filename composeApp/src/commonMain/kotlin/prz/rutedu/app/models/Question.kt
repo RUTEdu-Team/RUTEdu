@@ -334,22 +334,19 @@ sealed class Question(open val id: Int) {
     ) : Question(id)
 
     /**
-     * The student taps a country on an interactive, zoomable world map.
+     * The student taps a region on an interactive, zoomable map loaded from GeoJSON.
      *
-     * The map is loaded from a GeoJSON asset and rendered on a `Canvas`. The student
-     * can pinch-to-zoom and pan the map before selecting a country. The check is done
-     * by name matching against [countryKey] (English, exactly as stored in the GeoJSON).
+     * Rendered by [prz.rutedu.app.screens.MapQuizContent]. Selection is verified by exact
+     * match of the tapped feature name against [countryKey].
      *
-     * Rendered by `MapQuizContent`.
-     *
-     * @property countryKey    The country's English name as it appears in the GeoJSON `"name"`
-     *                         property (e.g. `"Poland"`, `"South Korea"`). This is the
-     *                         authoritative identifier used for hit-testing.
-     * @property questionText  Full grammatically correct question in Polish
-     *                         (e.g. `"Gdzie leży Polska?"`).
-     * @property region        Which portion of the world map to display. Defaults to [MapRegion.EUROPE].
-     * @property mapFile       File path to the geojson file for the desired game.
-     *                         (e.g. `"files/countries.geojson"`)
+      * @property countryKey    Feature name parsed from GeoJSON properties (see name parsing in
+      *                         [prz.rutedu.app.geo.loadGeoJson], which may prefer fields like "name:pl").
+      *                         Must match a selectable feature in [mapFile] — see [CountryFeature.selectable].
+     * @property questionText  Prompt shown above the map (typically Polish).
+     * @property region        Visible map window. Use [MapRegion.POLAND] for Polish provinces/parks.
+     * @property mapFile       Compose resource path to GeoJSON under `composeResources/files/`
+     *                         (e.g. `"files/countries.geojson"`, `"files/polish_provinces.geojson"`,
+     *                         `"files/polish_national_parks.geojson"`).
      * @property hint          Full hint shown in the bottom sheet.
      */
     data class MapQuiz(
@@ -358,6 +355,30 @@ sealed class Question(open val id: Int) {
         val questionText: String,
         val region: MapRegion = MapRegion.EUROPE,
         val mapFile: String = "files/countries.geojson",
+        val hint: Hint = Hint("")
+    ) : Question(id)
+
+    /**
+     * The student taps a specific point (e.g. a province capital) on an interactive map.
+     *
+     * Similar to [MapQuiz], but the target is a point instead of a polygon. Used for
+     * province capitals where some provinces may have two capitals.
+     *
+     * Rendered by [prz.rutedu.app.screens.PointMapQuizContent].
+     *
+     * @property targetNames   List of names of the correct point(s). For provinces with
+     *                         two capitals, both are included.
+     * @property questionText  Full question in Polish (e.g. `"Zaznacz na mapie Kraków"`).
+     * @property region        Map viewport region.
+     * @property mapFile       Path to GeoJSON containing both points and background polygons.
+     * @property hint          Full hint shown in the bottom sheet.
+     */
+    data class PointMapQuiz(
+        override val id: Int,
+        val targetNames: List<String>,
+        val questionText: String,
+        val region: MapRegion = MapRegion.POLAND,
+        val mapFile: String = "files/polish_provinces_and_capitals.geojson",
         val hint: Hint = Hint("")
     ) : Question(id)
 

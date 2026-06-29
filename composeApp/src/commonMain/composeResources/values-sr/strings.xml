@@ -378,6 +378,10 @@
     <string name="lesson_desc_geo_4_3">Означите државу према називу њеног главног града</string>
     <string name="lesson_geo_4_4">Пољска војводства</string>
     <string name="lesson_desc_geo_4_4">Означите војводства на карти Пољске</string>
+    <string name="lesson_geo_4_5">Национални паркови Пољске</string>
+    <string name="lesson_desc_geo_4_5">Означите националне паркове на карти Пољске</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Алгебарски изрази</string>
     <string name="topic_desc_mat_2">Алгебарски идентитети и растављање на факторе</string>
     <string name="topic_mat_3">Једначине и неједначине</string>

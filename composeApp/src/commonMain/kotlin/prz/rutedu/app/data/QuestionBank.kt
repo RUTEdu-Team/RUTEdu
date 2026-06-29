@@ -1,238 +1,665 @@
 package prz.rutedu.app.data
 
-import app.cash.sqldelight.db.SqlDriver
-import kotlinx.serialization.json.Json
-import org.jetbrains.compose.resources.ExperimentalResourceApi
-import rutedu.composeapp.generated.resources.Res
-import prz.rutedu.app.Database
+import prz.rutedu.app.data.QuestionBank.banks
+import prz.rutedu.app.math.MathShape
+import prz.rutedu.app.math.Pt
+import prz.rutedu.app.math.TriangleBuilder
+import prz.rutedu.app.models.Hint
+import prz.rutedu.app.models.MapRegion
+import prz.rutedu.app.models.MathOperator
+import prz.rutedu.app.models.MathOperator.ADD
+import prz.rutedu.app.models.MathOperator.DIVIDE
+import prz.rutedu.app.models.MathOperator.MULTIPLY
+import prz.rutedu.app.models.MathOperator.POWER
+import prz.rutedu.app.models.MathOperator.SUBTRACT
+import prz.rutedu.app.models.MathOperator.ROOT
+import prz.rutedu.app.models.MathOperator.LOG
 import prz.rutedu.app.models.Question
-import prz.rutedu.app.locale.getCurrentLanguage
-import prz.rutedu.app.math.mathEngineAvailable
+import prz.rutedu.app.models.Question.BalanceTerm
+import prz.rutedu.app.models.Question.EquationBalance
+import prz.rutedu.app.models.Question.FindAnswer
+import prz.rutedu.app.models.Question.FindOperator
+import prz.rutedu.app.models.Question.GraphSelectFromList
+import prz.rutedu.app.models.Question.GraphTypeAnswer
+import prz.rutedu.app.models.Question.MapQuiz
+import prz.rutedu.app.models.Question.SelectFromList
+import prz.rutedu.app.models.Question.Factorization
+import prz.rutedu.app.models.Question.LinearEquation
+import prz.rutedu.app.models.Question.SystemOfEquations
+import prz.rutedu.app.models.Equation
 
 /**
- * Central registry of all quiz questions.
+ * Central registry of all static (hardcoded) quiz questions.
  *
- * Questions are persisted in the SQLite database partitioned by subject and loaded into
- * the in-memory [cachedQuestions] map on demand. The database is seeded on first launch
- * from bundled JSON assets organised as:
+ * Questions for non-chemistry lessons are stored as private `List<Question>` fields and
+ * registered in the [banks] map at the bottom of this file. Chemistry lessons are routed
+ * to [ChemistryQuestionGenerator] which creates questions dynamically from a random seed.
  *
- * ```
- * files/math/questions_<lang>.json   – mat_* and algebra_* lessons
- * files/geo/questions_<lang>.json    – geo_* lessons
- * files/chem/questions_<lang>.json   – chemia_3_1 and chemia_3_2
- * ```
+ * ## How to add questions for a new lesson
  *
- * where `<lang>` is one of the codes in [SUPPORTED_QUESTION_LANGS].
+ * 1. Declare a new private `val` (e.g. `private val mat_6_1: List<Question> = listOf(...)`).
+ * 2. Populate it with [Question] instances. Each question's `id` must be unique within
+ *    the list (sequential integers from 0 work well).
+ * 3. Register it in [banks]: `"mat_6_1" to mat_6_1`.
+ * 4. Make sure the lesson exists in [SubjectRepository] with the same id.
  *
- * ## Adding a new question language
- *
- * 1. Create the three asset files (`files/math/questions_<code>.json`, etc.) with translated content.
- * 2. Add the language code to [SUPPORTED_QUESTION_LANGS].
- * 3. Bump [SEED_VERSION] to force re-seeding on next launch.
- *
- * A lightweight versioning mechanism (`questions_db_version` in `appSettings`) ensures that
- * the database is automatically re-seeded whenever the bundled JSON content or [SEED_VERSION] changes.
- *
- * Chemistry lessons that are **not** in [staticLessons] (i.e. anything other than
- * `chemia_3_1` and `chemia_3_2`) are generated dynamically by [ChemistryQuestionGenerator].
+ * For chemistry lessons, implement a generator function in [ChemistryQuestionGenerator]
+ * instead of adding a static list here.
  */
 object QuestionBank {
 
     /**
-     * Two-letter ISO 639-1 language codes for which question translations are bundled as JSON assets.
-     *
-     * Adding a new language requires:
-     * 1. Providing the three per-subject JSON files (`files/math/questions_<code>.json`, etc.).
-     * 2. Adding the code here.
-     * 3. Bumping [SEED_VERSION] so the database is re-seeded with the new data.
-     */
-    val SUPPORTED_QUESTION_LANGS = listOf(
-        "pl", "en", "cs", "de", "el", "es", "fr", "hu", "it", "nl",
-        "pt", "sk", "uk", "bg", "hr", "sr", "sv", "da", "no", "is",
-        "fi", "et", "lv", "lt", "ro", "sl", "ga", "mt"
-    )
-
-    /**
-     * Increment whenever the bundled JSON question assets change content or new languages are added.
-     * A version mismatch causes the stored questions to be fully cleared and re-seeded on next launch.
-     */
-    private const val SEED_VERSION = "4"
-
-    /**
-     * Lesson identifiers whose questions are stored in the database.
-     *
-     * All other lesson IDs are routed to the appropriate generator:
-     * - `chemia_*` → [ChemistryQuestionGenerator]
-     * - `mat_*` (outside this list) → [MathQuestionGenerator]
-     * - `algebra_*` (outside this list) → [AlgebraQuestionGenerator]
-     */
-    val staticLessons = listOf(
-        "mat_1_1", "mat_1_2", "mat_1_3", "mat_2_1", "mat_2_2",
-        "mat_3_1", "mat_4_1", "mat_5_1",
-        "geo_1_1", "geo_4_1", "geo_4_2", "geo_4_3", "geo_4_4",
-        "chemia_3_1", "chemia_3_2",
-        "algebra_1_1", "algebra_1_2", "algebra_1_3", "algebra_2_1", "algebra_2_2"
-    )
-
-    /**
-     * Maps each lesson in [staticLessons] to its subject bucket.
-     *
-     * The bucket name matches the sub-directory of the bundled JSON assets and the
-     * `subject` column in the `storedQuestion` table.
-     */
-    private fun subjectForLesson(lessonId: String): String = when {
-        lessonId.startsWith("mat_") || lessonId.startsWith("algebra_") -> "math"
-        lessonId.startsWith("geo_") -> "geo"
-        lessonId.startsWith("chemia_") -> "chem"
-        else -> "unknown"
-    }
-
-    private var cachedQuestions: Map<String, List<Question>> = emptyMap()
-
-    /**
-     * Seeds the question database if the bundled JSON content has changed since the last seed.
-     *
-     * The seeding version is stored in `appSettings` under the key `questions_db_version`.
-     * When the stored value differs from [SEED_VERSION] the database is cleared and
-     * re-populated from the per-subject asset files for every code in [SUPPORTED_QUESTION_LANGS].
-     *
-     * This method is safe to call on every app launch; it is a no-op when already up-to-date.
-     *
-     * @param driver The platform-specific SQLite driver.
-     */
-    @OptIn(ExperimentalResourceApi::class)
-    suspend fun seedDatabaseIfNeeded(driver: SqlDriver) {
-        val db = Database(driver)
-
-        val dbVersion = try {
-            db.databaseQueries.getSetting("questions_db_version").executeAsOneOrNull()
-        } catch (_: Exception) {
-            null
-        }
-
-        if (dbVersion == SEED_VERSION) return
-
-        db.transaction {
-            try {
-                db.databaseQueries.clearStoredQuestions()
-            } catch (_: Exception) {}
-
-            for (subject in listOf("math", "geo", "chem")) {
-                for (lang in SUPPORTED_QUESTION_LANGS) {
-                    seedSubject(db, subject, lang)
-                }
-            }
-
-            db.databaseQueries.upsertSetting("questions_db_version", SEED_VERSION)
-        }
-    }
-
-    @OptIn(ExperimentalResourceApi::class)
-    private suspend fun seedSubject(db: Database, subject: String, lang: String) {
-        try {
-            val bytes = Res.readBytes("files/$subject/questions_$lang.json")
-            val jsonText = bytes.decodeToString()
-            val format = Json { ignoreUnknownKeys = true }
-            val lessonsList = format.decodeFromString<List<LessonQuestionsDto>>(jsonText)
-
-            for (lessonQuestions in lessonsList) {
-                for (qDto in lessonQuestions.questions) {
-                    val qJson = format.encodeToString(QuestionDto.serializer(), qDto)
-                    db.databaseQueries.upsertQuestion(
-                        lesson_id = lessonQuestions.lessonId,
-                        question_id = qDto.id.toLong(),
-                        language = lang,
-                        subject = subject,
-                        type = qDto::class.simpleName ?: "Unknown",
-                        data_json = qJson
-                    )
-                }
-            }
-        } catch (e: Exception) {
-            // Do not print stack trace for missing translation files
-        }
-    }
-
-    /**
-     * Loads questions for all lessons in [staticLessons] from the database into the
-     * in-memory cache for the given [languageCode].
-     *
-     * Falls back to `"en"` when [languageCode] is not present in [SUPPORTED_QUESTION_LANGS]. Call this:
-     * - Once synchronously during the first composition (to avoid UI flashes).
-     * - Again inside `LaunchedEffect` whenever [prz.rutedu.app.locale.customAppLocale] changes.
-     *
-     * @param driver       Platform-specific SQLite driver.
-     * @param languageCode Two-letter ISO 639-1 code; must be in [SUPPORTED_QUESTION_LANGS].
-     */
-    fun loadQuestions(driver: SqlDriver, languageCode: String) {
-        val db = Database(driver)
-        val lang = if (languageCode in SUPPORTED_QUESTION_LANGS) languageCode else "en"
-
-        val newCache = mutableMapOf<String, List<Question>>()
-        val format = Json { ignoreUnknownKeys = true }
-
-        for (lessonId in staticLessons) {
-            var dbRows = db.databaseQueries.getQuestionsForLesson(lessonId, lang).executeAsList()
-            if (dbRows.isEmpty() && lang != "en") {
-                dbRows = db.databaseQueries.getQuestionsForLesson(lessonId, "en").executeAsList()
-            }
-            val models = dbRows.mapNotNull { row ->
-                try {
-                    format.decodeFromString<QuestionDto>(row.data_json).toModel()
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    null
-                }
-            }
-            newCache[lessonId] = models
-        }
-        cachedQuestions = newCache
-    }
-
-    /**
-     * Returns the ordered list of questions for [lessonId].
+     * Returns the ordered list of questions for the given lesson.
      *
      * Routing:
-     * - Lessons in [staticLessons] are served from [cachedQuestions] (populated by [loadQuestions]).
-     *   `algebra_*` lessons additionally filter by platform capability ([mathEngineAvailable]).
-     * - `chemia_*` lessons not in [staticLessons] are delegated to [ChemistryQuestionGenerator].
-     * - All other IDs are delegated to [MathQuestionGenerator] or [AlgebraQuestionGenerator].
+     * - Lesson IDs starting with `"chemia_"` are delegated to [ChemistryQuestionGenerator],
+     *   which shuffles and filters the pool using [seed] and [excludeIds].
+     * - All other IDs look up the static list in [banks]. The [seed] and [excludeIds]
+     *   parameters are **ignored** for static banks.
      *
-     * @param lessonId   Lesson identifier (e.g. `"mat_1_1"`, `"geo_4_1"`, `"chemia_3_2"`).
-     * @param seed       Random seed for shuffling / procedural generation.
-     * @param excludeIds Question IDs to omit (already-answered questions in a session).
-     * @return Ordered list of questions to present, or an empty list when unrecognised.
+     * @param lessonId   The lesson identifier (e.g. `"mat_1_1"`, `"chemia_3_1"`).
+     * @param seed       Random seed for chemistry lesson generation. Ignored for static banks.
+     * @param excludeIds Set of question IDs to omit (previously answered chemistry questions).
+     *                   Ignored for static banks.
+     * @return Ordered list of questions to present, or an empty list if [lessonId] is not registered.
      */
-    fun questionsFor(lessonId: String, seed: Long = 0L, excludeIds: Set<Int> = emptySet()): List<Question> {
-        val rawQuestions = when {
-            lessonId in staticLessons -> {
-                val cached = cachedQuestions[lessonId] ?: emptyList()
-                val platformFiltered = if (lessonId.startsWith("algebra_")) {
-                    if (mathEngineAvailable) {
-                        cached.filterIsInstance<Question.ExpressionTypeAnswer>()
-                    } else {
-                        cached.filterIsInstance<Question.SelectFromList>()
-                    }
-                } else {
-                    cached
-                }
-                val shuffled = if (seed != 0L) {
-                    platformFiltered.shuffled(kotlin.random.Random(seed))
-                } else {
-                    platformFiltered
-                }
-                if (excludeIds.isEmpty()) shuffled else shuffled.filter { it.id !in excludeIds }
-            }
+    fun questionsFor(lessonId: String, seed: Long = 0L, excludeIds: Set<Int> = emptySet()): List<Question> =
+        when {
             lessonId.startsWith("chemia_") ->
                 ChemistryQuestionGenerator.generateFor(lessonId, seed, excludeIds)
             lessonId.startsWith("algebra_") ->
                 AlgebraQuestionGenerator.generateFor(lessonId, seed, excludeIds)
-            lessonId.startsWith("mat_") ->
+            lessonId.startsWith("mat_1_") || lessonId.startsWith("mat_2_") || 
+            lessonId.startsWith("mat_3_") || lessonId.startsWith("mat_4_") || 
+            lessonId.startsWith("mat_5_") || lessonId.startsWith("mat_6_") ||
+            lessonId.startsWith("mat_7_") || lessonId.startsWith("mat_8_") ||
+            lessonId.startsWith("mat_9_") || lessonId.startsWith("mat_10_") ||
+            lessonId.startsWith("mat_11_") || lessonId.startsWith("mat_12_") ->
                 MathQuestionGenerator.questionsFor(lessonId, seed, excludeIds)
+            lessonId.startsWith("chemia_3_1") || lessonId.startsWith("chemia_3_2") ->
+                banks[lessonId] ?: emptyList()
             else ->
-                emptyList()
+                banks[lessonId] ?: emptyList()
         }
 
-        return rawQuestions
-    }
+    /**
+     * Static questions for Lesson 3-1: "Wzory kwasów" (Acid Formulas).
+     *
+     * Generates simple linear equations to solve for variable x using elementary arithmetic.
+     */
+    private val genericMath: List<Question> = listOf(
+        FindAnswer(0, 5, 3, ADD,
+            Hint("Dodaj obie liczby.", steps = listOf("5 + 3 = 8"))),
+        FindAnswer(1, 9, 2, SUBTRACT,
+            Hint("Odejmij.", steps = listOf("9 − 2 = 7"))),
+        FindOperator(2, 4, 3, 12, MULTIPLY,
+            Hint("4 × 3 = 12.", steps = listOf("4 × 3 = 12 ✓"))),
+        FindAnswer(3, 8, 4, DIVIDE,
+            Hint("8 ÷ 4 = 2.", steps = listOf("4 × 2 = 8", "Więc 8 ÷ 4 = 2"))),
+        FindAnswer(4, 6, 7, ADD,
+            Hint("6 + 7 = 13.", steps = listOf("6 + 7 = 13"))),
+        FindOperator(5, 10, 5, 5, DIVIDE,
+            Hint("10 ÷ 5 = 2.", steps = listOf("10 ÷ 5 = 2 ✓", "5 × 2 = 10 ✓"))),
+        FindAnswer(6, 15, 8, SUBTRACT,
+            Hint("15 − 8 = 7.", steps = listOf("15 − 8 = 7"))),
+        FindAnswer(7, 3, 9, MULTIPLY,
+            Hint("3 × 9 = 27.", steps = listOf("3 × 9 = 27"))),
+        FindOperator(8, 11, 4, 15, ADD,
+            Hint("11 + 4 = 15.", steps = listOf("11 + 4 = 15 ✓"))),
+        FindAnswer(9, 20, 4, DIVIDE,
+            Hint("20 ÷ 4 = 5.", steps = listOf("4 × 5 = 20", "Więc 20 ÷ 4 = 5")))
+    )
+
+    /**
+     * Static questions for Lesson 1-1: "Lądy i oceany świata" (Lands & Oceans).
+     *
+     * Presents interactive world map quizzes where students locate various European countries.
+     */
+    private val geo_1_1: List<Question> = listOf(
+        MapQuiz(0, "Poland", "Gdzie leży Polska?", MapRegion.EUROPE,
+            hint = Hint("Polska leży w środkowej Europie, nad Morzem Bałtyckim.",
+                steps = listOf("Centrum-wschodnia Europa", "Na południe od Morza Bałtyckiego"))),
+        MapQuiz(1, "Germany", "Gdzie leżą Niemcy?", MapRegion.EUROPE,
+            hint = Hint("Niemcy leżą w środkowej Europie Zachodniej.",
+                steps = listOf("Na zachód od Polski", "Największy kraj Europy Zachodniej"))),
+        MapQuiz(2, "France", "Gdzie leży Francja?", MapRegion.EUROPE,
+            hint = Hint("Francja leży w zachodniej Europie.",
+                steps = listOf("Na zachód od Niemiec", "Od La Manche po Morze Śródziemne"))),
+        MapQuiz(3, "Italy", "Gdzie leżą Włochy?", MapRegion.EUROPE,
+            hint = Hint("Włochy to półwysep w kształcie buta.",
+                steps = listOf("Południe Europy", "Półwysep Apeniński wchodzi do Morza Śródziemnego"))),
+        MapQuiz(4, "Spain", "Gdzie leży Hiszpania?", MapRegion.EUROPE,
+            hint = Hint("Hiszpania leży na Półwyspie Iberyjskim.",
+                steps = listOf("Skrajny południe-zachód Europy", "Sąsiaduje z Francją i Portugalią"))),
+        MapQuiz(5, "Ukraine", "Gdzie leży Ukraina?", MapRegion.EUROPE,
+            hint = Hint("Ukraina to największy kraj w całości leżący w Europie.",
+                steps = listOf("Wschodnia Europa", "Na południe od Białorusi, na wschód od Polski"))),
+        MapQuiz(6, "Sweden", "Gdzie leży Szwecja?", MapRegion.EUROPE,
+            hint = Hint("Szwecja leży na Półwyspie Skandynawskim.",
+                steps = listOf("Północna Europa — Skandynawia", "Wschodnia część Półwyspu Skandynawskiego"))),
+        MapQuiz(7, "Norway", "Gdzie leży Norwegia?", MapRegion.EUROPE,
+            hint = Hint("Norwegia leży wzdłuż zachodniego wybrzeża Skandynawii.",
+                steps = listOf("Zachodnia część Półwyspu Skandynawskiego", "Długa linia brzegowa nad Atlantykiem"))),
+        MapQuiz(8, "Romania", "Gdzie leży Rumunia?", MapRegion.EUROPE,
+            hint = Hint("Rumunia leży na Bałkanach.",
+                steps = listOf("Południowo-wschodnia Europa", "Sąsiaduje z Ukrainą, Bułgarią i Serbią"))),
+        MapQuiz(9, "Greece", "Gdzie leży Grecja?", MapRegion.EUROPE,
+            hint = Hint("Grecja leży na południu Bałkanów.",
+                steps = listOf("Południe Europy", "Dużo wysp na Morzu Egejskim")))
+    )
+
+    /**
+     * Static questions for Lesson 4-1: "Sąsiedzi Polski" (Poland's Neighbors).
+     *
+     * Quizzes students on pinpointing the 7 neighboring countries of Poland on a regional map.
+     */
+    private val geo_4_1: List<Question> = listOf(
+        MapQuiz(0, "Germany", "Zaznacz Niemcy — sąsiada Polski", MapRegion.CENTRAL_EUROPE,
+            hint = Hint("Niemcy graniczą z Polską na zachodzie.",
+                steps = listOf("Szukaj na zachód od Polski", "Nad Morzem Bałtyckim i Północnym"))),
+        MapQuiz(1, "Czechia", "Zaznacz Czechy — sąsiada Polski", MapRegion.CENTRAL_EUROPE,
+            hint = Hint("Czechy graniczą z Polską na południe-zachodzie.",
+                steps = listOf("Szukaj na południe od Polski", "Bez dostępu do morza — w środku Europy"))),
+        MapQuiz(2, "Slovakia", "Zaznacz Słowację — sąsiada Polski", MapRegion.CENTRAL_EUROPE,
+            hint = Hint("Słowacja graniczy z Polską na południu.",
+                steps = listOf("Na południe od Polski, na wschód od Czech", "Mały kraj w środkowej Europie"))),
+        MapQuiz(3, "Ukraine", "Zaznacz Ukrainę — sąsiada Polski", MapRegion.CENTRAL_EUROPE,
+            hint = Hint("Ukraina graniczy z Polską na wschodzie.",
+                steps = listOf("Na wschód od Polski", "Duży kraj — największy w całości w Europie"))),
+        MapQuiz(4, "Belarus", "Zaznacz Białoruś — sąsiada Polski", MapRegion.CENTRAL_EUROPE,
+            hint = Hint("Białoruś graniczy z Polską na północnym-wschodzie.",
+                steps = listOf("Północny-wschód od Polski", "Na południe od Litwy"))),
+        MapQuiz(5, "Lithuania", "Zaznacz Litwę — sąsiada Polski", MapRegion.CENTRAL_EUROPE,
+            hint = Hint("Litwa graniczy z Polską na północy.",
+                steps = listOf("Na północ od Polski", "Jedno z trzech państw bałtyckich"))),
+        MapQuiz(6, "Russia", "Zaznacz Rosję (obwód kaliningradzki) — sąsiada Polski", MapRegion.CENTRAL_EUROPE,
+            hint = Hint("Rosja graniczy z Polską przez obwód kaliningradzki.",
+                steps = listOf("Szukaj enklawy nad Morzem Bałtyckim", "Rosyjski obwód odcięty od Rosji, między Polską a Litwą")))
+    )
+
+    /**
+     * Static questions for Lesson 4-2: "Kraje Azji" (Asian Countries).
+     *
+     * Presents map locations for major Asian countries such as China, India, Japan, etc.
+     */
+    private val geo_4_2: List<Question> = listOf(
+        MapQuiz(0, "China", "Gdzie leżą Chiny?", MapRegion.ASIA,
+            hint = Hint("Chiny to największy kraj Azji pod względem populacji.",
+                steps = listOf("Wschód Azji", "Sąsiad Mongolii, Rosji, Indii i Wietnamu"))),
+        MapQuiz(1, "Japan", "Gdzie leży Japonia?", MapRegion.ASIA,
+            hint = Hint("Japonia to archipelag wysp na wschodnim wybrzeżu Azji.",
+                steps = listOf("Daleki Wschód — wyspy na Oceanie Spokojnym", "Na wschód od Korei i Chin"))),
+        MapQuiz(2, "India", "Gdzie leżą Indie?", MapRegion.ASIA,
+            hint = Hint("Indie leżą na Półwyspie Indyjskim.",
+                steps = listOf("Azja Południowa", "Wielki półwysep wchodzący do Oceanu Indyjskiego"))),
+        MapQuiz(3, "South Korea", "Gdzie leży Korea Południowa?", MapRegion.ASIA,
+            hint = Hint("Korea Południowa leży na Półwyspie Koreańskim.",
+                steps = listOf("Azja Wschodnia", "Południowa część Półwyspu Koreańskiego"))),
+        MapQuiz(4, "Mongolia", "Gdzie leży Mongolia?", MapRegion.ASIA,
+            hint = Hint("Mongolia leży między Chinami a Rosją.",
+                steps = listOf("Azja Środkowa/Wschodnia", "Duży kraj otoczony Chinami od południa i Rosją od północy"))),
+        MapQuiz(5, "Kazakhstan", "Gdzie leży Kazachstan?", MapRegion.ASIA,
+            hint = Hint("Kazachstan to największy kraj Azji Środkowej.",
+                steps = listOf("Azja Środkowa", "Na południe od Rosji, na północ od Morza Kaspijskiego"))),
+        MapQuiz(6, "Iran", "Gdzie leży Iran?", MapRegion.ASIA,
+            hint = Hint("Iran leży na Bliskim Wschodzie.",
+                steps = listOf("Azja Zachodnia — Bliski Wschód", "Między Irakiem a Afganistanem, nad Zatoką Perską"))),
+        MapQuiz(7, "Saudi Arabia", "Gdzie leży Arabia Saudyjska?", MapRegion.ASIA,
+            hint = Hint("Arabia Saudyjska zajmuje większość Półwyspu Arabskiego.",
+                steps = listOf("Półwysep Arabski", "Duży kraj w centrum Bliskiego Wschodu"))),
+        MapQuiz(8, "Vietnam", "Gdzie leży Wietnam?", MapRegion.ASIA,
+            hint = Hint("Wietnam leży w Azji Południowo-Wschodniej.",
+                steps = listOf("Półwysep Indochiński", "Długi, wąski kraj wzdłuż Morza Południowochińskiego"))),
+        MapQuiz(9, "Thailand", "Gdzie leży Tajlandia?", MapRegion.ASIA,
+            hint = Hint("Tajlandia leży w Azji Południowo-Wschodniej.",
+                steps = listOf("Azja Południowo-Wschodnia", "Na południe od Laosu, na zachód od Wietnamu")))
+    )
+
+    /**
+     * Static questions for Lesson 4-3: "Stolice Europy" (European Capitals).
+     *
+     * Asks students to identify European countries on the map based on their capital cities.
+     */
+    private val geo_4_3: List<Question> = listOf(
+        MapQuiz(0, "France", "Wskaż kraj, którego stolicą jest Paryż", MapRegion.EUROPE,
+            hint = Hint("Paryż to stolica Francji.",
+                steps = listOf("Francja leży w zachodniej Europie", "Graniczy z Niemcami, Belgią i Hiszpanią"))),
+        MapQuiz(1, "Germany", "Wskaż kraj, którego stolicą jest Berlin", MapRegion.EUROPE,
+            hint = Hint("Berlin to stolica Niemiec.",
+                steps = listOf("Niemcy leżą w środkowej Europie", "Sąsiad Polski na zachodzie"))),
+        MapQuiz(2, "Italy", "Wskaż kraj, którego stolicą jest Rzym", MapRegion.EUROPE,
+            hint = Hint("Rzym to stolica Włoch.",
+                steps = listOf("Włochy to półwysep w kształcie buta", "Morze Śródziemne — południe Europy"))),
+        MapQuiz(3, "Spain", "Wskaż kraj, którego stolicą jest Madryt", MapRegion.EUROPE,
+            hint = Hint("Madryt to stolica Hiszpanii.",
+                steps = listOf("Półwysep Iberyjski — południe-zachód Europy", "Sąsiad Francji i Portugalii"))),
+        MapQuiz(4, "United Kingdom", "Wskaż kraj, którego stolicą jest Londyn", MapRegion.EUROPE,
+            hint = Hint("Londyn to stolica Zjednoczonego Królestwa.",
+                steps = listOf("Wyspy Brytyjskie — północny-zachód Europy", "Oddzielony od Francji Kanałem La Manche"))),
+        MapQuiz(5, "Czechia", "Wskaż kraj, którego stolicą jest Praga", MapRegion.EUROPE,
+            hint = Hint("Praga to stolica Czech.",
+                steps = listOf("Środkowa Europa bez dostępu do morza", "Sąsiad Polski na południu"))),
+        MapQuiz(6, "Hungary", "Wskaż kraj, którego stolicą jest Budapeszt", MapRegion.EUROPE,
+            hint = Hint("Budapeszt to stolica Węgier.",
+                steps = listOf("Środkowa Europa", "Na południe od Czech i Słowacji"))),
+        MapQuiz(7, "Austria", "Wskaż kraj, którego stolicą jest Wiedeń", MapRegion.EUROPE,
+            hint = Hint("Wiedeń to stolica Austrii.",
+                steps = listOf("Środkowa Europa — Alpy", "Sąsiad Niemiec, Czech, Węgier i Włoch"))),
+        MapQuiz(8, "Sweden", "Wskaż kraj, którego stolicą jest Sztokholm", MapRegion.EUROPE,
+            hint = Hint("Sztokholm to stolica Szwecji.",
+                steps = listOf("Półwysep Skandynawski — północna Europa", "Wschodnia część Skandynawii"))),
+        MapQuiz(9, "Greece", "Wskaż kraj, którego stolicą są Ateny", MapRegion.EUROPE,
+            hint = Hint("Ateny to stolica Grecji.",
+                steps = listOf("Południe Bałkanów", "Wiele wysp na Morzu Egejskim")))
+    )
+
+    /**
+     * Static questions for Lesson 4-4: "Województwa Polski" (Polish Provinces).
+     *
+     * Asks students to identify Polish provinces on the map based on their names.
+     */
+    private val geo_4_4: List<Question> = listOf(
+        MapQuiz(4401, "małopolskie", "Wskaż województwo małopolskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Małopolskie leży na południu Polski, ze stolicą w Krakowie.")),
+        MapQuiz(4402, "mazowieckie", "Wskaż województwo mazowieckie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Mazowieckie to największe województwo, leży w centrum-wschodzie, ze stolicą w Warszawie.")),
+        MapQuiz(4403, "pomorskie", "Wskaż województwo pomorskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Pomorskie leży nad Morzem Bałtyckim, ze stolicą w Gdańsku.")),
+        MapQuiz(4404, "śląskie", "Wskaż województwo śląskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Śląskie leży na południu, jest najbardziej zaludnione, ze stolicą w Katowicach.")),
+        MapQuiz(4405, "wielkopolskie", "Wskaż województwo wielkopolskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Wielkopolskie leży w zachodniej części kraju, ze stolicą w Poznaniu.")),
+        MapQuiz(4406, "dolnośląskie", "Wskaż województwo dolnośląskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Dolnośląskie leży na południowym zachodzie, ze stolicą we Wrocławiu.")),
+        MapQuiz(4407, "podkarpackie", "Wskaż województwo podkarpackie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Podkarpackie leży na południowym wschodzie, ze stolicą w Rzeszowie.")),
+        MapQuiz(4408, "zachodniopomorskie", "Wskaż województwo zachodniopomorskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Zachodniopomorskie leży na północnym zachodzie, nad Bałtykiem, ze stolicą w Szczecinie.")),
+        MapQuiz(4409, "lubelskie", "Wskaż województwo lubelskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Lubelskie leży na wschodzie Polski, ze stolicą w Lublinie.")),
+        MapQuiz(4410, "warmińsko-mazurskie", "Wskaż województwo warmińsko-mazurskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Warmińsko-mazurskie to kraina tysiąca jezior na północy, ze stolicą w Olsztynie.")),
+        MapQuiz(4411, "podlaskie", "Wskaż województwo podlaskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Podlaskie leży na północnym wschodzie, ze stolicą w Białymstoku.")),
+        MapQuiz(4412, "łódzkie", "Wskaż województwo łódzkie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Łódzkie leży w samym centrum Polski, ze stolicą w Łodzi.")),
+        MapQuiz(4413, "kujawsko-pomorskie", "Wskaż województwo kujawsko-pomorskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Kujawsko-pomorskie leży w północnej części centrum, ze stolicami w Bydgoszczy i Toruniu.")),
+        MapQuiz(4414, "opolskie", "Wskaż województwo opolskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Opolskie to najmniejsze województwo, leży na południowym zachodzie, ze stolicą w Opolu.")),
+        MapQuiz(4415, "lubuskie", "Wskaż województwo lubuskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Lubuskie leży na zachodzie, przy granicy z Niemcami, ze stolicami w Gorzowie Wlkp. i Zielonej Górze.")),
+        MapQuiz(4416, "świętokrzyskie", "Wskaż województwo świętokrzyskie", MapRegion.POLAND, "files/polish_provinces.geojson",
+            Hint("Świętokrzyskie leży w południowo-środkowej Polsce, ze stolicą w Kielcach."))
+    )
+
+    /**
+     * Static questions for Lesson 4-5: "Polskie Parki Narodowe" (Polish National Parks).
+     *
+     * Asks students to identify Polish National Parks on the map based on their names.
+     */
+    private val geo_4_5: List<Question> = listOf(
+        MapQuiz(4501, "Białowieski Park Narodowy", "Wskaż Białowieski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Białowieski PN leży na granicy z Białorusią, chroni ostatni fragment lasu pierwotnego.")),
+        MapQuiz(4502, "Biebrzański Park Narodowy", "Wskaż Biebrzański Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("To największy polski park narodowy, obejmuje dolinę rzeki Biebrzy.")),
+        MapQuiz(4503, "Wigierski Park Narodowy", "Wskaż Wigierski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Park chroni jezioro Wigry oraz liczne mniejsze jeziora (suchary).")),
+        MapQuiz(4504, "Park Narodowy Ujście Warty", "Wskaż Park Narodowy Ujście Warty", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Park chroni tereny podmokłe u ujścia rzeki Warty do Odry.")),
+        MapQuiz(4505, "Karkonoski Park Narodowy", "Wskaż Karkonoski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Obejmuje najwyższe pasmo Sudetów – Karkonosze ze Śnieżką.")),
+        MapQuiz(4506, "Kampinoski Park Narodowy", "Wskaż Kampinoski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Leży tuż obok Warszawy, chroni Puszczę Kampinoską.")),
+        MapQuiz(4507, "Park Narodowy Gór Stołowych", "Wskaż Park Narodowy Gór Stołowych", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Słynie z formacji skalnych, takich jak Szczeliniec Wielki.")),
+        MapQuiz(4508, "Gorczański Park Narodowy", "Wskaż Gorczański Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni pasmo Gorców w Beskidach Zachodnich.")),
+        MapQuiz(4509, "Pieniński Park Narodowy", "Wskaż Pieniński Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Słynie z przełomu Dunajca i szczytu Trzy Korony.")),
+        MapQuiz(4510, "Roztoczański Park Narodowy", "Wskaż Roztoczański Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Położony na Roztoczu Środkowym, chroni m.in. konika polskiego.")),
+        MapQuiz(4511, "Tatrzański Park Narodowy", "Wskaż Tatrzański Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni najwyższe polskie góry – Tatry.")),
+        MapQuiz(4512, "Słowiński Park Narodowy", "Wskaż Słowiński Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Słynie z ruchomych wydm nad Morzem Bałtyckim.")),
+        MapQuiz(4513, "Park Narodowy Bory Tucholskie", "Wskaż Park Narodowy Bory Tucholskie", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni jeden z największych kompleksów borów sosnowych w Polsce.")),
+        MapQuiz(4514, "Świętokrzyski Park Narodowy", "Wskaż Świętokrzyski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni najwyższe pasmo Gór Świętokrzyskich z gołoborzami.")),
+        MapQuiz(4515, "Woliński Park Narodowy", "Wskaż Woliński Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Leży na wyspie Wolin, słynie z klifowego wybrzeża.")),
+        MapQuiz(4516, "Drawieński Park Narodowy", "Wskaż Drawieński Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Obejmuje dolinę rzeki Drawy i Puszczę Drawską.")),
+        MapQuiz(4517, "Bieszczadzki Park Narodowy", "Wskaż Bieszczadzki Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni najwyższe partie polskich Bieszczadów z połoninami.")),
+        MapQuiz(4518, "Ojcowski Park Narodowy", "Wskaż Ojcowski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("To najmniejszy polski park narodowy, słynie z Maczugi Herkulesa.")),
+        MapQuiz(4519, "Magurski Park Narodowy", "Wskaż Magurski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Położony w Beskidzie Niskim, chroni m.in. krasowe Diable Kamienie.")),
+        MapQuiz(4520, "Poleski Park Narodowy", "Wskaż Poleski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Obejmuje liczne torfowiska i bagna na Polesiu Lubelskim.")),
+        MapQuiz(4521, "Wielkopolski Park Narodowy", "Wskaż Wielkopolski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni krajobraz polodowcowy w pobliżu Poznania.")),
+        MapQuiz(4522, "Babiogórski Park Narodowy", "Wskaż Babiogórski Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Obejmuje masyw Babiej Góry, najwyższego szczytu Beskidów.")),
+        MapQuiz(4523, "Narwiański Park Narodowy", "Wskaż Narwiański Park Narodowy", MapRegion.POLAND, "files/polish_national_parks.geojson",
+            Hint("Chroni dolinę „polskiej Amazonii” – wielokorytowej rzeki Narwi."))
+    )
+
+    /**
+     * Static questions for Lesson: "Stolice województw" (Province Capitals).
+     *
+     * Asks students to identify Polish province capitals on the map.
+     * Question ids start at 4601 to avoid overlap with national-park ids (4501–4523).
+     */
+    private val geografia_stolice_woj: List<Question> = listOf(
+        Question.PointMapQuiz(4601, listOf("Wrocław"), "Zaznacz na mapie Wrocław", MapRegion.POLAND, hint = Hint("Wrocław jest stolicą województwa dolnośląskiego.")),
+        Question.PointMapQuiz(4602, listOf("Bydgoszcz"), "Zaznacz na mapie Bydgoszcz", MapRegion.POLAND, hint = Hint("Bydgoszcz jest jedną z dwóch stolic województwa kujawsko-pomorskiego.")),
+        Question.PointMapQuiz(4603, listOf("Toruń"), "Zaznacz na mapie Toruń", MapRegion.POLAND, hint = Hint("Toruń jest jedną z dwóch stolic województwa kujawsko-pomorskiego.")),
+        Question.PointMapQuiz(4604, listOf("Lublin"), "Zaznacz na mapie Lublin", MapRegion.POLAND, hint = Hint("Lublin jest stolicą województwa lubelskiego.")),
+        Question.PointMapQuiz(4605, listOf("Gorzów Wielkopolski"), "Zaznacz na mapie Gorzów Wielkopolski", MapRegion.POLAND, hint = Hint("Gorzów Wielkopolski jest jedną z dwóch stolic województwa lubuskiego.")),
+        Question.PointMapQuiz(4606, listOf("Zielona Góra"), "Zaznacz na mapie Zielona Góra", MapRegion.POLAND, hint = Hint("Zielona Góra jest jedną z dwóch stolic województwa lubuskiego.")),
+        Question.PointMapQuiz(4607, listOf("Łódź"), "Zaznacz na mapie Łódź", MapRegion.POLAND, hint = Hint("Łódź jest stolicą województwa łódzkiego.")),
+        Question.PointMapQuiz(4608, listOf("Kraków"), "Zaznacz na mapie Kraków", MapRegion.POLAND, hint = Hint("Kraków jest stolicą województwa małopolskiego.")),
+        Question.PointMapQuiz(4609, listOf("Warszawa"), "Zaznacz na mapie Warszawę", MapRegion.POLAND, hint = Hint("Warszawa jest stolicą województwa mazowieckiego (oraz całego kraju).")),
+        Question.PointMapQuiz(4610, listOf("Opole"), "Zaznacz na mapie Opole", MapRegion.POLAND, hint = Hint("Opole jest stolicą województwa opolskiego.")),
+        Question.PointMapQuiz(4611, listOf("Rzeszów"), "Zaznacz na mapie Rzeszów", MapRegion.POLAND, hint = Hint("Rzeszów jest stolicą województwa podkarpackiego.")),
+        Question.PointMapQuiz(4612, listOf("Białystok"), "Zaznacz na mapie Białystok", MapRegion.POLAND, hint = Hint("Białystok jest stolicą województwa podlaskiego.")),
+        Question.PointMapQuiz(4613, listOf("Gdańsk"), "Zaznacz na mapie Gdańsk", MapRegion.POLAND, hint = Hint("Gdańsk jest stolicą województwa pomorskiego.")),
+        Question.PointMapQuiz(4614, listOf("Katowice"), "Zaznacz na mapie Katowice", MapRegion.POLAND, hint = Hint("Katowice są stolicą województwa śląskiego.")),
+        Question.PointMapQuiz(4615, listOf("Kielce"), "Zaznacz na mapie Kielce", MapRegion.POLAND, hint = Hint("Kielce są stolicą województwa świętokrzyskiego.")),
+        Question.PointMapQuiz(4616, listOf("Olsztyn"), "Zaznacz na mapie Olsztyn", MapRegion.POLAND, hint = Hint("Olsztyn jest stolicą województwa warmińsko-mazurskiego.")),
+        Question.PointMapQuiz(4617, listOf("Poznań"), "Zaznacz na mapie Poznań", MapRegion.POLAND, hint = Hint("Poznań jest stolicą województwa wielkopolskiego.")),
+        Question.PointMapQuiz(4618, listOf("Szczecin"), "Zaznacz na mapie Szczecin", MapRegion.POLAND, hint = Hint("Szczecin jest stolicą województwa zachodniopomorskiego.")),
+    )
+
+    /**
+     * Static questions for Lesson 3-1: "Wzory kwasów" (Acid Formulas).
+     *
+     * Covers identifying names and chemical formulas for binary and oxyacids.
+     */
+    private val chemia_3_1: List<Question> = listOf(
+        SelectFromList(
+            id = 3101,
+            prompt = "Wzór kwasu chlorowodorowego (solnego)",
+            options = listOf("HCl", "H₂S", "HF", "HBr"),
+            correctIndices = setOf(0),
+            hint = Hint(
+                mainText = "Kwas chlorowodorowy to kwas beztlenowy. Składa się z wodoru i chloru.",
+                boldPart = "HCl",
+                sectionTitle = "Kwasy beztlenowe",
+                items = listOf("HCl – chlorowodorowy", "H₂S – siarkowodorowy", "HF – fluorowodorowy", "HBr – bromowodorowy")
+            )
+        ),
+        SelectFromList(
+            id = 3102,
+            prompt = "Wzór kwasu siarkowodorowego",
+            options = listOf("H₂SO₄", "H₂S", "H₂SO₃", "HCl"),
+            correctIndices = setOf(1),
+            hint = Hint(
+                mainText = "Kwas siarkowodorowy to H₂S – beztlenowy kwas znany z zapachu zgniłych jaj.",
+                boldPart = "H₂S"
+            )
+        ),
+        SelectFromList(
+            id = 3103,
+            prompt = "Wzór kwasu fluorowodorowego",
+            options = listOf("HBr", "HCl", "HF", "H₂S"),
+            correctIndices = setOf(2),
+            hint = Hint(
+                mainText = "Kwas fluorowodorowy (HF) używany jest do trawienia szkła.",
+                boldPart = "HF"
+            )
+        ),
+        SelectFromList(
+            id = 3104,
+            prompt = "Wzór kwasu bromowodorowego",
+            options = listOf("HF", "HCl", "H₂S", "HBr"),
+            correctIndices = setOf(3),
+            hint = Hint(
+                mainText = "Kwas bromowodorowy to HBr – beztlenowy kwas podobny do HCl.",
+                boldPart = "HBr"
+            )
+        ),
+        SelectFromList(
+            id = 3105,
+            prompt = "Wzór kwasu siarkowego(VI)",
+            options = listOf("H₂SO₃", "HNO₃", "H₂SO₄", "H₃PO₄"),
+            correctIndices = setOf(2),
+            hint = Hint(
+                mainText = "Kwas siarkowy(VI) – H₂SO₄ – najważniejszy kwas przemysłowy, silnie żrący.",
+                boldPart = "H₂SO₄",
+                sectionTitle = "Kwasy tlenowe siarki",
+                items = listOf("H₂SO₄ – siarkowy(VI), siarka na +6", "H₂SO₃ – siarkowy(IV), siarka na +4")
+            )
+        ),
+        SelectFromList(
+            id = 3106,
+            prompt = "Wzór kwasu azotowego(V)",
+            options = listOf("H₂SO₄", "HNO₃", "H₃PO₄", "H₂CO₃"),
+            correctIndices = setOf(1),
+            hint = Hint(
+                mainText = "Kwas azotowy(V) to HNO₃. Używany do produkcji nawozów i materiałów wybuchowych.",
+                boldPart = "HNO₃"
+            )
+        ),
+        SelectFromList(
+            id = 3107,
+            prompt = "Wzór kwasu węglowego",
+            options = listOf("H₂SO₄", "H₃PO₄", "HNO₃", "H₂CO₃"),
+            correctIndices = setOf(3),
+            hint = Hint(
+                mainText = "Kwas węglowy H₂CO₃ to słaby kwas, powstaje gdy CO₂ rozpuszcza się w wodzie.",
+                boldPart = "H₂CO₃"
+            )
+        ),
+        SelectFromList(
+            id = 3108,
+            prompt = "Wzór kwasu fosforowego(V) (ortofosforowego)",
+            options = listOf("H₃PO₄", "H₂SO₄", "H₂CO₃", "HNO₃"),
+            correctIndices = setOf(0),
+            hint = Hint(
+                mainText = "Kwas fosforowy(V) to H₃PO₄. Składnik nawozów i napojów cola.",
+                boldPart = "H₃PO₄"
+            )
+        ),
+        SelectFromList(
+            id = 3109,
+            prompt = "Wzór kwasu siarkowego(IV)",
+            options = listOf("H₂SO₄", "H₂SO₃", "HNO₃", "H₃PO₄"),
+            correctIndices = setOf(1),
+            hint = Hint(
+                mainText = "Kwas siarkowy(IV) to H₂SO₃. Powstaje przy spalaniu siarki – przyczyna kwaśnych deszczy.",
+                boldPart = "H₂SO₃",
+                sectionTitle = "Kwasy tlenowe siarki",
+                items = listOf("H₂SO₄ – siarkowy(VI), siarka na +6", "H₂SO₃ – siarkowy(IV), siarka na +4")
+            )
+        ),
+        SelectFromList(
+            id = 3110,
+            prompt = "Kwas o wzorze H₂SO₄ to…",
+            options = listOf("kwas azotowy(V)", "kwas węglowy", "kwas siarkowy(VI)", "kwas fosforowy(V)"),
+            correctIndices = setOf(2),
+            hint = Hint(
+                mainText = "H₂SO₄ to kwas siarkowy(VI). Liczba (VI) oznacza stopień utlenienia siarki.",
+                boldPart = "kwas siarkowy(VI)"
+            )
+        )
+    )
+
+    /**
+     * Static questions for Lesson 3-2: "Równania reakcji" (Chemical Equations Balancing).
+     *
+     * Focuses on balancing chemical equations for synthesis, acid production, and neutralizations.
+     */
+    private val chemia_3_2: List<Question> = listOf(
+        EquationBalance(
+            id = 3201,
+            instruction = "Zbilansuj równanie reakcji",
+            subInstruction = "Dobierz odpowiednie współczynniki stechiometryczne",
+            reactants = listOf(
+                BalanceTerm("H₂", fixedCoefficient = null, correctCoefficient = 1),
+                BalanceTerm("Cl₂", fixedCoefficient = 1)
+            ),
+            products = listOf(
+                BalanceTerm("HCl", fixedCoefficient = null, correctCoefficient = 2)
+            ),
+            hint = Hint(
+                mainText = "H₂ + Cl₂ → 2HCl. Po lewej: 2H i 2Cl. Po prawej: w 2 cząsteczkach HCl też 2H i 2Cl.",
+                boldPart = "2HCl",
+                sectionTitle = "Krok po kroku",
+                steps = listOf(
+                    "Policz atomy H po lewej: 1×H₂ = 2 atomy H",
+                    "Policz atomy Cl po lewej: 1×Cl₂ = 2 atomy Cl",
+                    "Po prawej HCl ma 1H i 1Cl → potrzeba 2×HCl"
+                )
+            )
+        ),
+        EquationBalance(
+            id = 3202,
+            instruction = "Zbilansuj równanie reakcji",
+            subInstruction = "Dobierz odpowiednie współczynniki stechiometryczne",
+            reactants = listOf(
+                BalanceTerm("H₂", fixedCoefficient = null, correctCoefficient = 2),
+                BalanceTerm("O₂", fixedCoefficient = 1)
+            ),
+            products = listOf(
+                BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 2)
+            ),
+            hint = Hint(
+                mainText = "2H₂ + O₂ → 2H₂O. Klasyczna reakcja syntezy wody.",
+                boldPart = "2H₂O",
+                sectionTitle = "Krok po kroku",
+                steps = listOf(
+                    "Po prawej 2 cząsteczki H₂O = 4H i 2O",
+                    "4H po lewej to 2×H₂",
+                    "2O po lewej to 1×O₂"
+                )
+            )
+        ),
+        EquationBalance(
+            id = 3203,
+            instruction = "Uzupełnij równanie otrzymywania kwasu",
+            subInstruction = "Kwas siarkowy(VI) powstaje z SO₃ i wody",
+            reactants = listOf(
+                BalanceTerm("SO₃", fixedCoefficient = null, correctCoefficient = 1),
+                BalanceTerm("H₂O", fixedCoefficient = 1)
+            ),
+            products = listOf(
+                BalanceTerm("H₂SO₄", fixedCoefficient = null, correctCoefficient = 1)
+            ),
+            hint = Hint(
+                mainText = "SO₃ + H₂O → H₂SO₄. Wszystkie współczynniki wynoszą 1.",
+                boldPart = "H₂SO₄"
+            )
+        ),
+        EquationBalance(
+            id = 3204,
+            instruction = "Uzupełnij równanie otrzymywania kwasu",
+            subInstruction = "Kwas siarkowy(IV) powstaje z SO₂ i wody",
+            reactants = listOf(
+                BalanceTerm("SO₂", fixedCoefficient = 1),
+                BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 1)
+            ),
+            products = listOf(
+                BalanceTerm("H₂SO₃", fixedCoefficient = null, correctCoefficient = 1)
+            ),
+            hint = Hint(
+                mainText = "SO₂ + H₂O → H₂SO₃. Kwas siarkowy(IV) odpowiada za kwaśne deszcze.",
+                boldPart = "H₂SO₃"
+            )
+        ),
+        EquationBalance(
+            id = 3205,
+            instruction = "Uzupełnij równanie otrzymywania kwasu",
+            subInstruction = "Kwas węglowy powstaje z CO₂ i wody",
+            reactants = listOf(
+                BalanceTerm("CO₂", fixedCoefficient = null, correctCoefficient = 1),
+                BalanceTerm("H₂O", fixedCoefficient = 1)
+            ),
+            products = listOf(
+                BalanceTerm("H₂CO₃", fixedCoefficient = null, correctCoefficient = 1)
+            ),
+            hint = Hint(
+                mainText = "CO₂ + H₂O → H₂CO₃. Tak powstaje kwas węglowy w napojach gazowanych.",
+                boldPart = "H₂CO₃"
+            )
+        ),
+        EquationBalance(
+            id = 3206,
+            instruction = "Zbilansuj równanie reakcji",
+            subInstruction = "Kwas azotowy(V) z N₂O₅ i wody",
+            reactants = listOf(
+                BalanceTerm("N₂O₅", fixedCoefficient = null, correctCoefficient = 1),
+                BalanceTerm("H₂O", fixedCoefficient = 1)
+            ),
+            products = listOf(
+                BalanceTerm("HNO₃", fixedCoefficient = null, correctCoefficient = 2)
+            ),
+            hint = Hint(
+                mainText = "N₂O₅ + H₂O → 2HNO₃. Jedna cząsteczka N₂O₅ zawiera 2 atomy N → 2 cząsteczki HNO₃.",
+                boldPart = "2HNO₃",
+                sectionTitle = "Krok po kroku",
+                steps = listOf(
+                    "N₂O₅ ma 2 atomy azotu",
+                    "Każda cząsteczka HNO₃ ma 1 atom azotu",
+                    "Potrzeba 2×HNO₃ aby zbilansować azot"
+                )
+            )
+        ),
+        EquationBalance(
+            id = 3207,
+            instruction = "Zbilansuj równanie reakcji",
+            subInstruction = "Kwas fosforowy(V) z P₂O₅ i wody",
+            reactants = listOf(
+                BalanceTerm("P₂O₅", fixedCoefficient = 1),
+                BalanceTerm("H₂O", fixedCoefficient = null, correctCoefficient = 3)
+            ),
+            products = listOf(
+                BalanceTerm("H₃PO₄", fixedCoefficient = null, correctCoefficient = 2)
+            ),
+            hint = Hint(
+                mainText = "P₂O₅ + 3H₂O → 2H₃PO₄. Dwa atomy P → 2 cząsteczki H₃PO₄, a to wymaga 3 cząsteczek wody.",
+                boldPart = "2H₃PO₄",
+                sectionTitle = "Krok po kroku",
+                steps = listOf(
+                    "P₂O₅ ma 2 atomy P → potrzeba 2×H₃PO₄",
+                    "2×H₃PO₄ ma 6 atomów H → potrzeba 3×H₂O",
+                    "Sprawdź O: P₂O₅(5) + 3H₂O(3) = 8 = 2×H₃PO₄(8) ✓"
+                )
+            )
+        ),
+        EquationBalance(
+            id = 3208,
+            instruction = "Zbilansuj równanie reakcji",
+            subInstruction = "Reakcja syntezy kwasu siarkowodorowego",
+            reactants = listOf(
+                BalanceTerm("H₂", fixedCoefficient = null, correctCoefficient = 1),
+                BalanceTerm("S", fixedCoefficient = 1)
+            ),
+            products = listOf(
+                BalanceTerm("H₂S", fixedCoefficient = null, correctCoefficient = 1)
+            ),
+            hint = Hint(
+                mainText = "H₂ + S → H₂S. Wszystkie współczynniki wynoszą 1.",
+                boldPart = "H₂S"
+            )
+        )
+    )
+
+    // Maps lesson IDs to their static question lists. Add new entries here after
+    // declaring the corresponding private val above.
+    private val banks: Map<String, List<Question>> = mapOf(
+        "mat_3_1" to genericMath,
+        "geo_1_1" to geo_1_1,
+        "geo_4_1" to geo_4_1,
+        "geo_4_2" to geo_4_2,
+        "geo_4_3" to geo_4_3,
+        "geo_4_4" to geo_4_4,
+        "geo_4_5" to geo_4_5,
+        "geografia_stolice_woj" to geografia_stolice_woj,
+        "chemia_3_1" to chemia_3_1,
+        "chemia_3_2" to chemia_3_2,
+    )
 }

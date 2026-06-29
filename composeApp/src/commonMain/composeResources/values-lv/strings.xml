@@ -378,6 +378,10 @@ Spēlējiet kaujas režīmā, lai redzētu labāko spēlētāju rezultātus!</st
     <string name="lesson_desc_geo_4_3">Norādiet valsti pēc tās galvaspilsētas nosaukuma</string>
     <string name="lesson_geo_4_4">Polijas vojevodistes</string>
     <string name="lesson_desc_geo_4_4">Atzīmējiet vojevodistes Polijas kartē</string>
+    <string name="lesson_geo_4_5">Polijas nacionālie parki</string>
+    <string name="lesson_desc_geo_4_5">Atzīmējiet nacionālos parkus Polijas kartē</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Algebriskas izteiksmes</string>
     <string name="topic_desc_mat_2">Saīsinātās reizināšanas formulas un sadalīšana reizinātājos</string>
     <string name="topic_mat_3">Vienādojumi un nevienādības</string>

@@ -359,6 +359,10 @@
     <string name="lesson_desc_geo_4_3">Désigner le pays par le nom de sa capitale</string>
     <string name="lesson_geo_4_4">Voïvodies de Pologne</string>
     <string name="lesson_desc_geo_4_4">Marquer les voïvodies sur la carte de la Pologne</string>
+    <string name="lesson_geo_4_5">Parcs nationaux polonais</string>
+    <string name="lesson_desc_geo_4_5">Repère les parcs nationaux polonais sur la carte de la Pologne</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Expressions algébriques</string>
     <string name="topic_desc_mat_2">Identités remarquables et factorisation</string>
     <string name="topic_mat_3">Équations &amp; Inéquations</string>

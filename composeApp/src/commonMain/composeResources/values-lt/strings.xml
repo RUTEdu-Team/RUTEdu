@@ -378,6 +378,10 @@ arba sukurkite naują su pliuso mygtuku</string>
     <string name="lesson_desc_geo_4_3">Nurodykite šalį pagal jos sostinės pavadinimą</string>
     <string name="lesson_geo_4_4">Lenkijos vaivadijos</string>
     <string name="lesson_desc_geo_4_4">Pažymėkite vaivadijas Lenkijos žemėlapyje</string>
+    <string name="lesson_geo_4_5">Lenkijos nacionaliniai parkai</string>
+    <string name="lesson_desc_geo_4_5">Pažymėkite nacionalinius parkus Lenkijos žemėlapyje</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Algebriniai reiškiniai</string>
     <string name="topic_desc_mat_2">Greitosios daugybos formulės ir skaidymas dauginamaisiais</string>
     <string name="topic_mat_3">Lygtys ir nelygybės</string>
