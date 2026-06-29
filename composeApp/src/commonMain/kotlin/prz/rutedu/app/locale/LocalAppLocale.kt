@@ -16,7 +16,8 @@ import prz.rutedu.app.getSystemLanguage
  * Checks if the language is supported by [prz.rutedu.app.data.QuestionBank], falling back to `"en"`.
  */
 fun getCurrentLanguage(): String {
-    val lang = customAppLocale ?: getSystemLanguage()
+    val raw = customAppLocale ?: getSystemLanguage()
+    val lang = raw.lowercase().substringBefore("-").substringBefore("_")
     return if (lang in prz.rutedu.app.data.QuestionBank.SUPPORTED_QUESTION_LANGS) lang else "en"
 }
 
