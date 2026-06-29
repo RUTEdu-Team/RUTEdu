@@ -2,6 +2,7 @@ package prz.rutedu.app
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import prz.rutedu.app.locale.GeneratorLocalizer
 
 /**
  * Common test suite containing example and base assertions for unit testing.
@@ -17,7 +18,16 @@ class ComposeAppCommonTest {
      * Ensures that standard Kotlin test assertions work correctly within the KMP setup.
      */
     @Test
-    fun example() {
-        assertEquals(3, 1 + 2)
+    fun testGeneratorLocalizerFallback() {
+        // Since we are not in a full Compose app context, initialize might fail if resources aren't packed for unit tests,
+        // but we can test that t(key) returns the key itself as a fallback if not initialized.
+        val result = GeneratorLocalizer.t("Non-existent key")
+        assertEquals("Non-existent key", result)
+    }
+
+    @Test
+    fun testGeneratorLocalizerFormatting() {
+        val formatted = GeneratorLocalizer.t("Test {param}", "param" to "value")
+        assertEquals("Test value", formatted)
     }
 }

@@ -1,0 +1,14 @@
+-- Migration from schema version 1 to 2.
+-- Adds the storedQuestion table which stores JSON-serialised quiz questions per lesson,
+-- language and subject (math / geo / chem).  Existing user data (appSettings, player,
+-- levelProgress) is untouched.
+
+CREATE TABLE storedQuestion (
+  lesson_id TEXT NOT NULL,
+  question_id INTEGER NOT NULL,
+  language TEXT NOT NULL,
+  subject TEXT NOT NULL DEFAULT '',
+  type TEXT NOT NULL,
+  data_json TEXT NOT NULL,
+  PRIMARY KEY (lesson_id, question_id, language)
+);

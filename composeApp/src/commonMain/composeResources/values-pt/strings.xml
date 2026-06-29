@@ -56,7 +56,7 @@
     <string name="menu_settings">Definições</string>
     <string name="menu_pvp">Batalha</string>
     <string name="menu_leaderboard">Classificação</string>
-    
+
     <!-- Player Selection Screen -->
     <string name="no_players_yet">Ainda não há jogadores!</string>
     <string name="create_first_player">Crie o seu primeiro jogador para começar</string>
@@ -66,7 +66,7 @@
     <string name="error_creating_player">Erro ao criar jogador</string>
     <string name="high_score_games">Melhor Pontuação: %1$d | Jogos: %2$d</string>
     <string name="star">Estrela</string>
-    
+
     <!-- Game Screen -->
     <string name="question_counter">Pergunta %1$d / %2$d</string>
     <string name="game_over">🎉 Fim do Jogo! 🎉</string>
@@ -77,7 +77,7 @@
     <string name="score_saved">Pontuação guardada para %1$s!</string>
     <string name="play_again">Jogar Novamente</string>
     <string name="check">VERIFICAR ✓</string>
-    
+
     <!-- PvP Battle Screen -->
     <string name="back_to_menu">Voltar ao Menu</string>
     <string name="player_wins">%1$s Vence! 🏆</string>
@@ -89,7 +89,7 @@
     <string name="correct">✓ Correto!</string>
     <string name="wrong">✗ Errado</string>
     <string name="answer_submitted">✓ Resposta Enviada</string>
-    
+
     <!-- Unit conversion -->
     <string name="unit_hours">horas</string>
     <string name="unit_minutes">minutos</string>
@@ -393,5 +393,169 @@
     <string name="lesson_desc_chemia_4_2">Iões de ácidos, bases e sais em solução</string>
     <string name="lesson_chemia_6_1">Tipos de Óxidos</string>
     <string name="lesson_desc_chemia_6_1">Fórmulas, nomenclatura e classificação de óxidos</string>
-<string name="settings_lang_pl">Polski</string><string name="settings_lang_pl_desc">Idioma polaco</string><string name="settings_lang_en">English</string><string name="settings_lang_en_desc">Idioma inglês</string><string name="settings_lang_cs">Čeština</string><string name="settings_lang_cs_desc">Idioma checo</string><string name="settings_lang_de">Deutsch</string><string name="settings_lang_de_desc">Idioma alemão</string><string name="settings_lang_el">Ελληνικά</string><string name="settings_lang_el_desc">Idioma grego</string><string name="settings_lang_es">Español</string><string name="settings_lang_es_desc">Idioma espanhol</string><string name="settings_lang_fr">Français</string><string name="settings_lang_fr_desc">Idioma francês</string><string name="settings_lang_hu">Magyar</string><string name="settings_lang_hu_desc">Idioma húngaro</string><string name="settings_lang_it">Italiano</string><string name="settings_lang_it_desc">Idioma italiano</string><string name="settings_lang_nl">Nederlands</string><string name="settings_lang_nl_desc">Idioma holandês</string><string name="settings_lang_pt">Português</string><string name="settings_lang_pt_desc">Idioma português</string><string name="settings_lang_sk">Slovenčina</string><string name="settings_lang_sk_desc">Idioma eslovaco</string><string name="settings_lang_uk">Українська</string><string name="settings_lang_uk_desc">Idioma ucraniano</string><string name="settings_lang_bg">Български</string><string name="settings_lang_bg_desc">Idioma búlgaro</string><string name="settings_lang_hr">Hrvatski</string><string name="settings_lang_hr_desc">Idioma croata</string><string name="settings_lang_sr">Српски</string><string name="settings_lang_sr_desc">Idioma sérvio</string><string name="settings_lang_sv">Svenska</string><string name="settings_lang_sv_desc">Idioma sueco</string><string name="settings_lang_da">Dansk</string><string name="settings_lang_da_desc">Idioma dinamarquês</string><string name="settings_lang_no">Norsk</string><string name="settings_lang_no_desc">Idioma norueguês</string><string name="settings_lang_is">Íslenska</string><string name="settings_lang_is_desc">Idioma islandês</string><string name="settings_lang_fi">Suomi</string><string name="settings_lang_fi_desc">Idioma finlandês</string><string name="settings_lang_et">Eesti</string><string name="settings_lang_et_desc">Idioma estoniano</string><string name="settings_lang_lv">Latviešu</string><string name="settings_lang_lv_desc">Idioma letão</string><string name="settings_lang_lt">Lietuvių</string><string name="settings_lang_lt_desc">Idioma lituano</string><string name="settings_lang_ro">Română</string><string name="settings_lang_ro_desc">Idioma romeno</string><string name="settings_lang_sl">Slovenščina</string><string name="settings_lang_sl_desc">Idioma esloveno</string><string name="settings_lang_ga">Gaeilge</string><string name="settings_lang_ga_desc">Idioma irlandês</string><string name="settings_lang_mt">Malti</string><string name="settings_lang_mt_desc">Idioma maltês</string><string name="topic_mat_6">Frações</string><string name="topic_mat_7">Percentagens</string><string name="topic_mat_8">Proporções e escala</string><string name="topic_mat_9">Geometria espacial</string><string name="topic_mat_10">Sistema de coordenadas</string><string name="topic_mat_11">Estatística e probabilidade</string><string name="topic_mat_12">Números inteiros</string><string name="topic_desc_mat_6">Operações em frações ordinárias e decimais e suas aplicações</string><string name="topic_desc_mat_7">Cálculos de percentagem e a sua aplicação no dia a dia</string><string name="topic_desc_mat_8">Relações proporcionais e trabalho com escala e mapas</string><string name="topic_desc_mat_9">Sólidos, suas propriedades e cálculo de volumes e áreas</string><string name="topic_desc_mat_10">Pontos, gráficos e geometria analítica num plano</string><string name="topic_desc_mat_11">Média, mediana, gráficos e probabilidade</string><string name="topic_desc_mat_12">Números inteiros positivos e negativos e operações</string><string name="lesson_mat_3_3">Inequações lineares</string><string name="lesson_desc_mat_3_3">Método de substituição e coeficientes opostos</string><string name="lesson_mat_4_2">Função quadrática</string><string name="lesson_desc_mat_4_2">Gráfico da função quadrática (parábola) e propriedades básicas</string><string name="lesson_mat_4_3">Leitura de gráficos de funções</string><string name="lesson_desc_mat_4_3">Interpretação de gráficos: valores, raízes e intervalos</string><string name="lesson_mat_4_4">Propriedades das funções</string><string name="lesson_desc_mat_4_4">Domínio, contradomínio, monotonia e raízes de uma função</string><string name="lesson_mat_5_2">Quadriláteros</string><string name="lesson_desc_mat_5_2">Propriedades de retângulo, quadrado, paralelogramo e trapézio</string><string name="lesson_mat_5_3">Círculos e discos</string><string name="lesson_desc_mat_5_3">Elementos do círculo: raio, diâmetro, corda e propriedades</string><string name="lesson_mat_5_4">Áreas e perímetros de figuras</string><string name="lesson_desc_mat_5_4">Cálculo de áreas e perímetros de figuras geométricas básicas</string><string name="lesson_mat_5_5">Teorema de Pitágoras</string><string name="lesson_desc_mat_5_5">Relação a² + b² = c² num triângulo retângulo</string><string name="lesson_mat_6_1">Conversão de frações</string><string name="lesson_desc_mat_6_1">Conversão de frações ordinárias e decimais</string><string name="lesson_mat_6_2">Operações em frações</string><string name="lesson_desc_mat_6_2">Adição, subtração, multiplicação e divisão de frações</string><string name="lesson_mat_6_3">Comparação de frações</string><string name="lesson_desc_mat_6_3">Comparação de frações ordinárias e decimais</string><string name="lesson_mat_6_4">Frações decimais</string><string name="lesson_desc_mat_6_4">Operações em números decimais e suas aplicações</string><string name="lesson_mat_7_1">Percentagem de um número</string><string name="lesson_desc_mat_7_1">Cálculo da percentagem de um determinado número</string><string name="lesson_mat_7_2">Descontos e aumentos</string><string name="lesson_desc_mat_7_2">Alterações percentuais em preços e valores</string><string name="lesson_mat_7_3">Problemas de palavras</string><string name="lesson_desc_mat_7_3">Aplicação de percentagens em problemas práticos</string><string name="lesson_mat_8_1">Proporções</string><string name="lesson_desc_mat_8_1">Resolução de proporções diretas e inversas</string><string name="lesson_mat_8_2">Escala</string><string name="lesson_desc_mat_8_2">Leitura e aplicação de escala em mapas e planos</string><string name="lesson_mat_8_3">Mapa e distâncias</string><string name="lesson_desc_mat_8_3">Cálculo de distâncias reais num mapa</string><string name="lesson_mat_9_1">Prismas</string><string name="lesson_desc_mat_9_1">Propriedades e elementos dos prismas</string><string name="lesson_mat_9_2">Pirâmides</string><string name="lesson_desc_mat_9_2">Propriedades e elementos das pirâmides</string><string name="lesson_mat_9_3">Sólidos de revolução</string><string name="lesson_desc_mat_9_3">Cilindro, cone e esfera e suas propriedades</string><string name="lesson_mat_9_4">Áreas de sólidos</string><string name="lesson_desc_mat_9_4">Cálculo de áreas de superfície de sólidos</string><string name="lesson_mat_9_5">Volume de sólidos</string><string name="lesson_desc_mat_9_5">Cálculo de volumes de sólidos geométricos</string><string name="lesson_mat_10_1">Sistema de coordenadas</string><string name="lesson_desc_mat_10_1">Introdução aos eixos X e Y</string><string name="lesson_mat_10_2">Leitura de pontos</string><string name="lesson_desc_mat_10_2">Coordenadas de pontos num plano</string><string name="lesson_mat_10_3">Desenho de figuras</string><string name="lesson_desc_mat_10_3">Desenho de linhas e figuras num sistema de coordenadas</string><string name="lesson_mat_10_4">Distância entre pontos</string><string name="lesson_desc_mat_10_4">Cálculo de distância entre pontos</string><string name="lesson_mat_11_1">Média aritmética</string><string name="lesson_desc_mat_11_1">Cálculo da média aritmética de dados</string><string name="lesson_mat_11_2">Mediana e moda</string><string name="lesson_desc_mat_11_2">Determinação da mediana e moda em conjuntos de dados</string><string name="lesson_mat_11_3">Gráficos e diagramas</string><string name="lesson_desc_mat_11_3">Leitura e criação de gráficos e diagramas</string><string name="lesson_mat_11_4">Probabilidade de eventos simples</string><string name="lesson_desc_mat_11_4">Cálculo da probabilidade de eventos aleatórios simples</string><string name="lesson_mat_12_1">Números positivos e negativos</string><string name="lesson_desc_mat_12_1">Introdução aos números inteiros</string><string name="lesson_mat_12_2">Soma e subtração</string><string name="lesson_desc_mat_12_2">Operações em números inteiros</string><string name="lesson_mat_12_3">Multiplicação e divisão</string><string name="lesson_desc_mat_12_3">Operações em números inteiros</string>    <string name="weii_description">Faculdade de Engenharia Elétrica e Informática da Universidade Tecnológica de Rzeszów</string>
+    <string name="settings_lang_pl">Polski</string>
+    <string name="settings_lang_pl_desc">Idioma polaco</string>
+    <string name="settings_lang_en">English</string>
+    <string name="settings_lang_en_desc">Idioma inglês</string>
+    <string name="settings_lang_cs">Čeština</string>
+    <string name="settings_lang_cs_desc">Idioma checo</string>
+    <string name="settings_lang_de">Deutsch</string>
+    <string name="settings_lang_de_desc">Idioma alemão</string>
+    <string name="settings_lang_el">Ελληνικά</string>
+    <string name="settings_lang_el_desc">Idioma grego</string>
+    <string name="settings_lang_es">Español</string>
+    <string name="settings_lang_es_desc">Idioma espanhol</string>
+    <string name="settings_lang_fr">Français</string>
+    <string name="settings_lang_fr_desc">Idioma francês</string>
+    <string name="settings_lang_hu">Magyar</string>
+    <string name="settings_lang_hu_desc">Idioma húngaro</string>
+    <string name="settings_lang_it">Italiano</string>
+    <string name="settings_lang_it_desc">Idioma italiano</string>
+    <string name="settings_lang_nl">Nederlands</string>
+    <string name="settings_lang_nl_desc">Idioma holandês</string>
+    <string name="settings_lang_pt">Português</string>
+    <string name="settings_lang_pt_desc">Idioma português</string>
+    <string name="settings_lang_sk">Slovenčina</string>
+    <string name="settings_lang_sk_desc">Idioma eslovaco</string>
+    <string name="settings_lang_uk">Українська</string>
+    <string name="settings_lang_uk_desc">Idioma ucraniano</string>
+    <string name="settings_lang_bg">Български</string>
+    <string name="settings_lang_bg_desc">Idioma búlgaro</string>
+    <string name="settings_lang_hr">Hrvatski</string>
+    <string name="settings_lang_hr_desc">Idioma croata</string>
+    <string name="settings_lang_sr">Српски</string>
+    <string name="settings_lang_sr_desc">Idioma sérvio</string>
+    <string name="settings_lang_sv">Svenska</string>
+    <string name="settings_lang_sv_desc">Idioma sueco</string>
+    <string name="settings_lang_da">Dansk</string>
+    <string name="settings_lang_da_desc">Idioma dinamarquês</string>
+    <string name="settings_lang_no">Norsk</string>
+    <string name="settings_lang_no_desc">Idioma norueguês</string>
+    <string name="settings_lang_is">Íslenska</string>
+    <string name="settings_lang_is_desc">Idioma islandês</string>
+    <string name="settings_lang_fi">Suomi</string>
+    <string name="settings_lang_fi_desc">Idioma finlandês</string>
+    <string name="settings_lang_et">Eesti</string>
+    <string name="settings_lang_et_desc">Idioma estoniano</string>
+    <string name="settings_lang_lv">Latviešu</string>
+    <string name="settings_lang_lv_desc">Idioma letão</string>
+    <string name="settings_lang_lt">Lietuvių</string>
+    <string name="settings_lang_lt_desc">Idioma lituano</string>
+    <string name="settings_lang_ro">Română</string>
+    <string name="settings_lang_ro_desc">Idioma romeno</string>
+    <string name="settings_lang_sl">Slovenščina</string>
+    <string name="settings_lang_sl_desc">Idioma esloveno</string>
+    <string name="settings_lang_ga">Gaeilge</string>
+    <string name="settings_lang_ga_desc">Idioma irlandês</string>
+    <string name="settings_lang_mt">Malti</string>
+    <string name="settings_lang_mt_desc">Idioma maltês</string>
+    <string name="topic_mat_6">Frações</string>
+    <string name="topic_mat_7">Percentagens</string>
+    <string name="topic_mat_8">Proporções e escala</string>
+    <string name="topic_mat_9">Geometria espacial</string>
+    <string name="topic_mat_10">Sistema de coordenadas</string>
+    <string name="topic_mat_11">Estatística e probabilidade</string>
+    <string name="topic_mat_12">Números inteiros</string>
+    <string name="topic_desc_mat_6">Operações em frações ordinárias e decimais e suas aplicações</string>
+    <string name="topic_desc_mat_7">Cálculos de percentagem e a sua aplicação no dia a dia</string>
+    <string name="topic_desc_mat_8">Relações proporcionais e trabalho com escala e mapas</string>
+    <string name="topic_desc_mat_9">Sólidos, suas propriedades e cálculo de volumes e áreas</string>
+    <string name="topic_desc_mat_10">Pontos, gráficos e geometria analítica num plano</string>
+    <string name="topic_desc_mat_11">Média, mediana, gráficos e probabilidade</string>
+    <string name="topic_desc_mat_12">Números inteiros positivos e negativos e operações</string>
+    <string name="lesson_mat_3_3">Inequações lineares</string>
+    <string name="lesson_desc_mat_3_3">Método de substituição e coeficientes opostos</string>
+    <string name="lesson_mat_4_2">Função quadrática</string>
+    <string name="lesson_desc_mat_4_2">Gráfico da função quadrática (parábola) e propriedades básicas</string>
+    <string name="lesson_mat_4_3">Leitura de gráficos de funções</string>
+    <string name="lesson_desc_mat_4_3">Interpretação de gráficos: valores, raízes e intervalos</string>
+    <string name="lesson_mat_4_4">Propriedades das funções</string>
+    <string name="lesson_desc_mat_4_4">Domínio, contradomínio, monotonia e raízes de uma função</string>
+    <string name="lesson_mat_5_2">Quadriláteros</string>
+    <string name="lesson_desc_mat_5_2">Propriedades de retângulo, quadrado, paralelogramo e trapézio</string>
+    <string name="lesson_mat_5_3">Círculos e discos</string>
+    <string name="lesson_desc_mat_5_3">Elementos do círculo: raio, diâmetro, corda e propriedades</string>
+    <string name="lesson_mat_5_4">Áreas e perímetros de figuras</string>
+    <string name="lesson_desc_mat_5_4">Cálculo de áreas e perímetros de figuras geométricas básicas</string>
+    <string name="lesson_mat_5_5">Teorema de Pitágoras</string>
+    <string name="lesson_desc_mat_5_5">Relação a² + b² = c² num triângulo retângulo</string>
+    <string name="lesson_mat_6_1">Conversão de frações</string>
+    <string name="lesson_desc_mat_6_1">Conversão de frações ordinárias e decimais</string>
+    <string name="lesson_mat_6_2">Operações em frações</string>
+    <string name="lesson_desc_mat_6_2">Adição, subtração, multiplicação e divisão de frações</string>
+    <string name="lesson_mat_6_3">Comparação de frações</string>
+    <string name="lesson_desc_mat_6_3">Comparação de frações ordinárias e decimais</string>
+    <string name="lesson_mat_6_4">Frações decimais</string>
+    <string name="lesson_desc_mat_6_4">Operações em números decimais e suas aplicações</string>
+    <string name="lesson_mat_7_1">Percentagem de um número</string>
+    <string name="lesson_desc_mat_7_1">Cálculo da percentagem de um determinado número</string>
+    <string name="lesson_mat_7_2">Descontos e aumentos</string>
+    <string name="lesson_desc_mat_7_2">Alterações percentuais em preços e valores</string>
+    <string name="lesson_mat_7_3">Problemas de palavras</string>
+    <string name="lesson_desc_mat_7_3">Aplicação de percentagens em problemas práticos</string>
+    <string name="lesson_mat_8_1">Proporções</string>
+    <string name="lesson_desc_mat_8_1">Resolução de proporções diretas e inversas</string>
+    <string name="lesson_mat_8_2">Escala</string>
+    <string name="lesson_desc_mat_8_2">Leitura e aplicação de escala em mapas e planos</string>
+    <string name="lesson_mat_8_3">Mapa e distâncias</string>
+    <string name="lesson_desc_mat_8_3">Cálculo de distâncias reais num mapa</string>
+    <string name="lesson_mat_9_1">Prismas</string>
+    <string name="lesson_desc_mat_9_1">Propriedades e elementos dos prismas</string>
+    <string name="lesson_mat_9_2">Pirâmides</string>
+    <string name="lesson_desc_mat_9_2">Propriedades e elementos das pirâmides</string>
+    <string name="lesson_mat_9_3">Sólidos de revolução</string>
+    <string name="lesson_desc_mat_9_3">Cilindro, cone e esfera e suas propriedades</string>
+    <string name="lesson_mat_9_4">Áreas de sólidos</string>
+    <string name="lesson_desc_mat_9_4">Cálculo de áreas de superfície de sólidos</string>
+    <string name="lesson_mat_9_5">Volume de sólidos</string>
+    <string name="lesson_desc_mat_9_5">Cálculo de volumes de sólidos geométricos</string>
+    <string name="lesson_mat_10_1">Sistema de coordenadas</string>
+    <string name="lesson_desc_mat_10_1">Introdução aos eixos X e Y</string>
+    <string name="lesson_mat_10_2">Leitura de pontos</string>
+    <string name="lesson_desc_mat_10_2">Coordenadas de pontos num plano</string>
+    <string name="lesson_mat_10_3">Desenho de figuras</string>
+    <string name="lesson_desc_mat_10_3">Desenho de linhas e figuras num sistema de coordenadas</string>
+    <string name="lesson_mat_10_4">Distância entre pontos</string>
+    <string name="lesson_desc_mat_10_4">Cálculo de distância entre pontos</string>
+    <string name="lesson_mat_11_1">Média aritmética</string>
+    <string name="lesson_desc_mat_11_1">Cálculo da média aritmética de dados</string>
+    <string name="lesson_mat_11_2">Mediana e moda</string>
+    <string name="lesson_desc_mat_11_2">Determinação da mediana e moda em conjuntos de dados</string>
+    <string name="lesson_mat_11_3">Gráficos e diagramas</string>
+    <string name="lesson_desc_mat_11_3">Leitura e criação de gráficos e diagramas</string>
+    <string name="lesson_mat_11_4">Probabilidade de eventos simples</string>
+    <string name="lesson_desc_mat_11_4">Cálculo da probabilidade de eventos aleatórios simples</string>
+    <string name="lesson_mat_12_1">Números positivos e negativos</string>
+    <string name="lesson_desc_mat_12_1">Introdução aos números inteiros</string>
+    <string name="lesson_mat_12_2">Soma e subtração</string>
+    <string name="lesson_desc_mat_12_2">Operações em números inteiros</string>
+    <string name="lesson_mat_12_3">Multiplicação e divisão</string>
+    <string name="lesson_desc_mat_12_3">Operações em números inteiros</string>
+
+    <!-- Database corruption / error screen -->
+    <string name="database_error_title">Erro de base de dados</string>
+    <string name="database_error_desc">A aplicação encontrou um erro ao abrir ou migrar a base de dados. Pode repor a base de dados (o que eliminará o seu progresso local e restaurará a aplicação) ou fechar a aplicação e aguardar uma correção.</string>
+    <string name="database_error_tech_details">Detalhes técnicos:</string>
+    <string name="database_error_reset_progress">Repor progresso</string>
+    <string name="database_error_exit_app">Sair da aplicação</string>
+
+    <string name="placeholder_factorize">p.ex. (x+2)(x-3)</string>
+
+    <string name="app_name">RUTMath</string>
+    <string name="button_hint">Dica</string>
+    <string name="button_check">Verificar</string>
+    <string name="close">Fechar</string>
+    <string name="feedback_correct">Correto!</string>
+    <string name="feedback_wrong">Tente novamente</string>
+    <string name="your_answer">Sua resposta</string>
+    <string name="placeholder_algebra">ex: 2*x^2 + 3*x</string>
+    <string name="subject_math">MATEMÁTICA</string>
+    <string name="title_complete_equation">Complete a equação</string>
+    <string name="desc_drag_operator">Arraste o sinal que falta para a caixa vazia</string>
+    <string name="hint_step_by_step">Passo a passo:</string>
+    <string name="hint_dismiss_button">Entendi, voltar para a tarefa</string>
+    <string name="weii_description">Faculdade de Engenharia Elétrica, Informatica e Telecomunicações</string>
+    <string name="placeholder_enter_result">Insira o resultado...</string>
+    <string name="periodic_table_electrons_shells">elétrons nas camadas K, L, M, N...</string>
+    <string name="select_all_correct_answers">Selecione todas as respostas corretas</string>
 </resources>

@@ -31,6 +31,9 @@ enum class ThemeMode {
      */
     DARK;
 
+    /**
+     * Companion utilities for [ThemeMode].
+     */
     companion object {
         /**
          * Parses a string value into a [ThemeMode].

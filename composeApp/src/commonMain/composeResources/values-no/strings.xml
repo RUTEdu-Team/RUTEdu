@@ -60,7 +60,7 @@ Spill i kampmodus for å se de beste spillernes resultater!</string>
     <string name="menu_settings">Innstillinger</string>
     <string name="menu_pvp">Kamp</string>
     <string name="menu_leaderboard">Resultatliste</string>
-    
+
     <!-- Player Selection Screen -->
     <string name="no_players_yet">Ingen spillere ennå!</string>
     <string name="create_first_player">Opprett din første spiller for å komme i gang</string>
@@ -70,7 +70,7 @@ Spill i kampmodus for å se de beste spillernes resultater!</string>
     <string name="error_creating_player">Feil under opprettelse av spiller</string>
     <string name="high_score_games">Beste poengsum: %1$d | Spill: %2$d</string>
     <string name="star">Stjerne</string>
-    
+
     <!-- Game Screen -->
     <string name="question_counter">Spørsmål %1$d / %2$d</string>
     <string name="game_over">🎉 Spillet er slutt! 🎉</string>
@@ -97,7 +97,7 @@ Spill i kampmodus for å se de beste spillernes resultater!</string>
     <string name="placeholder_enter_result">Skriv inn resultat...</string>
     <string name="periodic_table_electrons_shells">elektroner i skallene K, L, M, N...</string>
     <string name="select_all_correct_answers">Velg alle riktige svar</string>
-    
+
     <!-- PvP Battle Screen -->
     <string name="back_to_menu">Tilbake til menyen</string>
     <string name="player_wins">%1$s vinner! 🏆</string>
@@ -109,7 +109,7 @@ Spill i kampmodus for å se de beste spillernes resultater!</string>
     <string name="correct">✓ Riktig!</string>
     <string name="wrong">✗ Feil</string>
     <string name="answer_submitted">✓ Svar sendt</string>
-    
+
     <!-- Unit conversion -->
     <string name="unit_hours">timer</string>
     <string name="unit_minutes">minutter</string>
@@ -122,13 +122,13 @@ Spill i kampmodus for å se de beste spillernes resultater!</string>
     <string name="unit_days">dager</string>
     <string name="unit_conversion_question">%1$d %2$s = ? %3$s</string>
     <string name="divisibility_question">Er %1$d delelig med %2$d?</string>
-    
+
     <!-- Theme selection -->
     <string name="theme_select_theme">Velg tema</string>
     <string name="theme_system">Systemstandard</string>
     <string name="theme_light">Lys</string>
     <string name="theme_dark">Mørk</string>
-    
+
     <!-- Auto-generated elements and UI strings -->
     <string name="settings_theme_title">Temainnstillinger</string>
     <string name="settings_select_theme">VELG TEMA</string>
@@ -412,4 +412,151 @@ Spill i kampmodus for å se de beste spillernes resultater!</string>
     <string name="lesson_desc_chemia_4_2">Ioner av syrer, baser og salter i løsning</string>
     <string name="lesson_chemia_6_1">Typer oksider</string>
     <string name="lesson_desc_chemia_6_1">Formler, navngivning og klassifisering av oksider</string>
-<string name="settings_lang_pl">Polski</string><string name="settings_lang_pl_desc">polske språk</string><string name="settings_lang_en">English</string><string name="settings_lang_en_desc">engelske språk</string><string name="settings_lang_cs">Čeština</string><string name="settings_lang_cs_desc">tsjekkiske språk</string><string name="settings_lang_de">Deutsch</string><string name="settings_lang_de_desc">tyske språk</string><string name="settings_lang_el">Ελληνικά</string><string name="settings_lang_el_desc">greske språk</string><string name="settings_lang_es">Español</string><string name="settings_lang_es_desc">spanske språk</string><string name="settings_lang_fr">Français</string><string name="settings_lang_fr_desc">franske språk</string><string name="settings_lang_hu">Magyar</string><string name="settings_lang_hu_desc">ungarske språk</string><string name="settings_lang_it">Italiano</string><string name="settings_lang_it_desc">italienske språk</string><string name="settings_lang_nl">Nederlands</string><string name="settings_lang_nl_desc">nederlandske språk</string><string name="settings_lang_pt">Português</string><string name="settings_lang_pt_desc">portugisiske språk</string><string name="settings_lang_sk">Slovenčina</string><string name="settings_lang_sk_desc">slovakiske språk</string><string name="settings_lang_uk">Українська</string><string name="settings_lang_uk_desc">ukrainske språk</string><string name="settings_lang_bg">Български</string><string name="settings_lang_bg_desc">bulgarske språk</string><string name="settings_lang_hr">Hrvatski</string><string name="settings_lang_hr_desc">kroatiske språk</string><string name="settings_lang_sr">Српски</string><string name="settings_lang_sr_desc">serbiske språk</string><string name="settings_lang_sv">Svenska</string><string name="settings_lang_sv_desc">svenske språk</string><string name="settings_lang_da">Dansk</string><string name="settings_lang_da_desc">danske språk</string><string name="settings_lang_no">Norsk</string><string name="settings_lang_no_desc">norske språk</string><string name="settings_lang_is">Íslenska</string><string name="settings_lang_is_desc">islandske språk</string><string name="settings_lang_fi">Suomi</string><string name="settings_lang_fi_desc">finske språk</string><string name="settings_lang_et">Eesti</string><string name="settings_lang_et_desc">estiske språk</string><string name="settings_lang_lv">Latviešu</string><string name="settings_lang_lv_desc">lettiske språk</string><string name="settings_lang_lt">Lietuvių</string><string name="settings_lang_lt_desc">litauiske språk</string><string name="settings_lang_ro">Română</string><string name="settings_lang_ro_desc">rumenske språk</string><string name="settings_lang_sl">Slovenščina</string><string name="settings_lang_sl_desc">slovenske språk</string><string name="settings_lang_ga">Gaeilge</string><string name="settings_lang_ga_desc">irske språk</string><string name="settings_lang_mt">Malti</string><string name="settings_lang_mt_desc">maltesiske språk</string><string name="topic_mat_6">Brøker</string><string name="topic_mat_7">Prosent</string><string name="topic_mat_8">Proporsjoner og skala</string><string name="topic_mat_9">Romgeometri</string><string name="topic_mat_10">Koordinatsystem</string><string name="topic_mat_11">Statistikk og sannsynlighet</string><string name="topic_mat_12">Heltall</string><string name="topic_desc_mat_6">Regneoperasjoner med brøk og desimalbrøk samt deres anvendelser</string><string name="topic_desc_mat_7">Prosentregning og dens anvendelse i hverdagen</string><string name="topic_desc_mat_8">Proportionale forhold og arbeid med skala og kart</string><string name="topic_desc_mat_9">Geometriske legemer, egenskaper og beregning av volum og areal</string><string name="topic_desc_mat_10">Punkter, grafer og analytisk geometri i planet</string><string name="topic_desc_mat_11">Gjennomsnitt, median, grafer og sannsynlighet</string><string name="topic_desc_mat_12">Positive og negative tall samt operasjoner</string><string name="lesson_mat_3_3">Lineære ulikheter</string><string name="lesson_desc_mat_3_3">Substitusjons- og eliminasjonsmetoden</string><string name="lesson_mat_4_2">Kvadratisk funksjon</string><string name="lesson_desc_mat_4_2">Grafen til en kvadratisk funksjon (parabel) og dens grunnleggende egenskaper</string><string name="lesson_mat_4_3">Avlesing av funksjonsgrafer</string><string name="lesson_desc_mat_4_3">Tolkning av grafer: verdier, nullpunkter og intervaller</string><string name="lesson_mat_4_4">Funksjoners egenskaper</string><string name="lesson_desc_mat_4_4">Definisjonsmengde, verdimengde, monotoniegenskaper og nullpunkter</string><string name="lesson_mat_5_2">Firkanter</string><string name="lesson_desc_mat_5_2">Egenskaper til rektangler, kvadrater, parallellogrammer og trapeser</string><string name="lesson_mat_5_3">Sirkler og skiver</string><string name="lesson_desc_mat_5_3">Sirklens deler: radius, diameter, korde og sirkelskivens egenskaper</string><string name="lesson_mat_5_4">Figurers areal og omkrets</string><string name="lesson_desc_mat_5_4">Beregning av areal og omkrets for grunnleggende geometriske figurer</string><string name="lesson_mat_5_5">Pythagoras\' setning</string><string name="lesson_desc_mat_5_5">Forholdet a² + b² = c² i en rettvinklet trekant</string><string name="lesson_mat_6_1">Omregning av brøk</string><string name="lesson_desc_mat_6_1">Omregning mellom brøk og desimaltall</string><string name="lesson_mat_6_2">Regning med brøk</string><string name="lesson_desc_mat_6_2">Addisjon, subtraksjon, multiplikasjon og divisjon av brøker</string><string name="lesson_mat_6_3">Sammenligne brøk</string><string name="lesson_desc_mat_6_3">Sammenligning av verdier for brøk og desimaltall</string><string name="lesson_mat_6_4">Desimaltall</string><string name="lesson_desc_mat_6_4">Operasjoner med desimaltall og deres anvendelser</string><string name="lesson_mat_7_1">Prosent av et tall</string><string name="lesson_desc_mat_7_1">Beregn prosentdelen av et gitt tall</string><string name="lesson_mat_7_2">Rabatter og forhøyelser</string><string name="lesson_desc_mat_7_2">Prosentuelle endringer i priser og verdier</string><string name="lesson_mat_7_3">Tekstopgaver</string><string name="lesson_desc_mat_7_3">Anvendelse av prosent i praktiske problemer</string><string name="lesson_mat_8_1">Proporsjoner</string><string name="lesson_desc_mat_8_1">Løsning av direkte og omvendt proporsjonalitet</string><string name="lesson_mat_8_2">Skala</string><string name="lesson_desc_mat_8_2">Å lese og bruke skala på kart og tegninger</string><string name="lesson_mat_8_3">Kart og avstander</string><string name="lesson_desc_mat_8_3">Beregning av virkelige avstander ved hjelp av et kart</string><string name="lesson_mat_9_1">Prismer</string><string name="lesson_desc_mat_9_1">Egenskaper og elementer til prismer</string><string name="lesson_mat_9_2">Pyramider</string><string name="lesson_desc_mat_9_2">Egenskaper og elementer til pyramider</string><string name="lesson_mat_9_3">Rotasjonslegemer</string><string name="lesson_desc_mat_9_3">Sylinder, kjegle og kule samt deres egenskaper</string><string name="lesson_mat_9_4">Legemers areal</string><string name="lesson_desc_mat_9_4">Beregning av overflateareal for geometriske legemer</string><string name="lesson_mat_9_5">Legemers volum</string><string name="lesson_desc_mat_9_5">Beregning av volum for geometriske legemer</string><string name="lesson_mat_10_1">Koordinatsystem</string><string name="lesson_desc_mat_10_1">Introduksjon til X- og Y-aksen</string><string name="lesson_mat_10_2">Avlesing av punkter</string><string name="lesson_desc_mat_10_2">Koordinater for punkter i planen</string><string name="lesson_mat_10_3">Tegne figurer</string><string name="lesson_desc_mat_10_3">Tegning av linjer og figurer i et koordinatsystem</string><string name="lesson_mat_10_4">Avstand mellom punkter</string><string name="lesson_desc_mat_10_4">Beregn avstanden mellom punkter</string><string name="lesson_mat_11_1">Aritmetisk gjennomsnitt</string><string name="lesson_desc_mat_11_1">Beregn aritmetisk gjennomsnitt for data</string><string name="lesson_mat_11_2">Median og typetall</string><string name="lesson_desc_mat_11_2">Bestemme median og typetall i datamengder</string><string name="lesson_mat_11_3">Grafer og diagrammer</string><string name="lesson_desc_mat_11_3">Avlesning og opprettelse av grafer og diagrammer</string><string name="lesson_mat_11_4">Sannsynlighet for enkle hendelser</string><string name="lesson_desc_mat_11_4">Beregn sannsynligheten for enkle tilfeldige hendelser</string><string name="lesson_mat_12_1">Positive og negative tall</string><string name="lesson_desc_mat_12_1">Introduksjon til heltall</string><string name="lesson_mat_12_2">Addition og subtraksjon</string><string name="lesson_desc_mat_12_2">Operasjoner med heltall</string><string name="lesson_mat_12_3">Multiplikasjon og divisjon</string><string name="lesson_desc_mat_12_3">Operasjoner med heltall</string></resources>
+    <string name="settings_lang_pl">Polski</string>
+    <string name="settings_lang_pl_desc">polske språk</string>
+    <string name="settings_lang_en">English</string>
+    <string name="settings_lang_en_desc">engelske språk</string>
+    <string name="settings_lang_cs">Čeština</string>
+    <string name="settings_lang_cs_desc">tsjekkiske språk</string>
+    <string name="settings_lang_de">Deutsch</string>
+    <string name="settings_lang_de_desc">tyske språk</string>
+    <string name="settings_lang_el">Ελληνικά</string>
+    <string name="settings_lang_el_desc">greske språk</string>
+    <string name="settings_lang_es">Español</string>
+    <string name="settings_lang_es_desc">spanske språk</string>
+    <string name="settings_lang_fr">Français</string>
+    <string name="settings_lang_fr_desc">franske språk</string>
+    <string name="settings_lang_hu">Magyar</string>
+    <string name="settings_lang_hu_desc">ungarske språk</string>
+    <string name="settings_lang_it">Italiano</string>
+    <string name="settings_lang_it_desc">italienske språk</string>
+    <string name="settings_lang_nl">Nederlands</string>
+    <string name="settings_lang_nl_desc">nederlandske språk</string>
+    <string name="settings_lang_pt">Português</string>
+    <string name="settings_lang_pt_desc">portugisiske språk</string>
+    <string name="settings_lang_sk">Slovenčina</string>
+    <string name="settings_lang_sk_desc">slovakiske språk</string>
+    <string name="settings_lang_uk">Українська</string>
+    <string name="settings_lang_uk_desc">ukrainske språk</string>
+    <string name="settings_lang_bg">Български</string>
+    <string name="settings_lang_bg_desc">bulgarske språk</string>
+    <string name="settings_lang_hr">Hrvatski</string>
+    <string name="settings_lang_hr_desc">kroatiske språk</string>
+    <string name="settings_lang_sr">Српски</string>
+    <string name="settings_lang_sr_desc">serbiske språk</string>
+    <string name="settings_lang_sv">Svenska</string>
+    <string name="settings_lang_sv_desc">svenske språk</string>
+    <string name="settings_lang_da">Dansk</string>
+    <string name="settings_lang_da_desc">danske språk</string>
+    <string name="settings_lang_no">Norsk</string>
+    <string name="settings_lang_no_desc">norske språk</string>
+    <string name="settings_lang_is">Íslenska</string>
+    <string name="settings_lang_is_desc">islandske språk</string>
+    <string name="settings_lang_fi">Suomi</string>
+    <string name="settings_lang_fi_desc">finske språk</string>
+    <string name="settings_lang_et">Eesti</string>
+    <string name="settings_lang_et_desc">estiske språk</string>
+    <string name="settings_lang_lv">Latviešu</string>
+    <string name="settings_lang_lv_desc">lettiske språk</string>
+    <string name="settings_lang_lt">Lietuvių</string>
+    <string name="settings_lang_lt_desc">litauiske språk</string>
+    <string name="settings_lang_ro">Română</string>
+    <string name="settings_lang_ro_desc">rumenske språk</string>
+    <string name="settings_lang_sl">Slovenščina</string>
+    <string name="settings_lang_sl_desc">slovenske språk</string>
+    <string name="settings_lang_ga">Gaeilge</string>
+    <string name="settings_lang_ga_desc">irske språk</string>
+    <string name="settings_lang_mt">Malti</string>
+    <string name="settings_lang_mt_desc">maltesiske språk</string>
+    <string name="topic_mat_6">Brøker</string>
+    <string name="topic_mat_7">Prosent</string>
+    <string name="topic_mat_8">Proporsjoner og skala</string>
+    <string name="topic_mat_9">Romgeometri</string>
+    <string name="topic_mat_10">Koordinatsystem</string>
+    <string name="topic_mat_11">Statistikk og sannsynlighet</string>
+    <string name="topic_mat_12">Heltall</string>
+    <string name="topic_desc_mat_6">Regneoperasjoner med brøk og desimalbrøk samt deres anvendelser</string>
+    <string name="topic_desc_mat_7">Prosentregning og dens anvendelse i hverdagen</string>
+    <string name="topic_desc_mat_8">Proportionale forhold og arbeid med skala og kart</string>
+    <string name="topic_desc_mat_9">Geometriske legemer, egenskaper og beregning av volum og areal</string>
+    <string name="topic_desc_mat_10">Punkter, grafer og analytisk geometri i planet</string>
+    <string name="topic_desc_mat_11">Gjennomsnitt, median, grafer og sannsynlighet</string>
+    <string name="topic_desc_mat_12">Positive og negative tall samt operasjoner</string>
+    <string name="lesson_mat_3_3">Lineære ulikheter</string>
+    <string name="lesson_desc_mat_3_3">Substitusjons- og eliminasjonsmetoden</string>
+    <string name="lesson_mat_4_2">Kvadratisk funksjon</string>
+    <string name="lesson_desc_mat_4_2">Grafen til en kvadratisk funksjon (parabel) og dens grunnleggende egenskaper</string>
+    <string name="lesson_mat_4_3">Avlesing av funksjonsgrafer</string>
+    <string name="lesson_desc_mat_4_3">Tolkning av grafer: verdier, nullpunkter og intervaller</string>
+    <string name="lesson_mat_4_4">Funksjoners egenskaper</string>
+    <string name="lesson_desc_mat_4_4">Definisjonsmengde, verdimengde, monotoniegenskaper og nullpunkter</string>
+    <string name="lesson_mat_5_2">Firkanter</string>
+    <string name="lesson_desc_mat_5_2">Egenskaper til rektangler, kvadrater, parallellogrammer og trapeser</string>
+    <string name="lesson_mat_5_3">Sirkler og skiver</string>
+    <string name="lesson_desc_mat_5_3">Sirklens deler: radius, diameter, korde og sirkelskivens egenskaper</string>
+    <string name="lesson_mat_5_4">Figurers areal og omkrets</string>
+    <string name="lesson_desc_mat_5_4">Beregning av areal og omkrets for grunnleggende geometriske figurer</string>
+    <string name="lesson_mat_5_5">Pythagoras\' setning</string>
+    <string name="lesson_desc_mat_5_5">Forholdet a² + b² = c² i en rettvinklet trekant</string>
+    <string name="lesson_mat_6_1">Omregning av brøk</string>
+    <string name="lesson_desc_mat_6_1">Omregning mellom brøk og desimaltall</string>
+    <string name="lesson_mat_6_2">Regning med brøk</string>
+    <string name="lesson_desc_mat_6_2">Addisjon, subtraksjon, multiplikasjon og divisjon av brøker</string>
+    <string name="lesson_mat_6_3">Sammenligne brøk</string>
+    <string name="lesson_desc_mat_6_3">Sammenligning av verdier for brøk og desimaltall</string>
+    <string name="lesson_mat_6_4">Desimaltall</string>
+    <string name="lesson_desc_mat_6_4">Operasjoner med desimaltall og deres anvendelser</string>
+    <string name="lesson_mat_7_1">Prosent av et tall</string>
+    <string name="lesson_desc_mat_7_1">Beregn prosentdelen av et gitt tall</string>
+    <string name="lesson_mat_7_2">Rabatter og forhøyelser</string>
+    <string name="lesson_desc_mat_7_2">Prosentuelle endringer i priser og verdier</string>
+    <string name="lesson_mat_7_3">Tekstopgaver</string>
+    <string name="lesson_desc_mat_7_3">Anvendelse av prosent i praktiske problemer</string>
+    <string name="lesson_mat_8_1">Proporsjoner</string>
+    <string name="lesson_desc_mat_8_1">Løsning av direkte og omvendt proporsjonalitet</string>
+    <string name="lesson_mat_8_2">Skala</string>
+    <string name="lesson_desc_mat_8_2">Å lese og bruke skala på kart og tegninger</string>
+    <string name="lesson_mat_8_3">Kart og avstander</string>
+    <string name="lesson_desc_mat_8_3">Beregning av virkelige avstander ved hjelp av et kart</string>
+    <string name="lesson_mat_9_1">Prismer</string>
+    <string name="lesson_desc_mat_9_1">Egenskaper og elementer til prismer</string>
+    <string name="lesson_mat_9_2">Pyramider</string>
+    <string name="lesson_desc_mat_9_2">Egenskaper og elementer til pyramider</string>
+    <string name="lesson_mat_9_3">Rotasjonslegemer</string>
+    <string name="lesson_desc_mat_9_3">Sylinder, kjegle og kule samt deres egenskaper</string>
+    <string name="lesson_mat_9_4">Legemers areal</string>
+    <string name="lesson_desc_mat_9_4">Beregning av overflateareal for geometriske legemer</string>
+    <string name="lesson_mat_9_5">Legemers volum</string>
+    <string name="lesson_desc_mat_9_5">Beregning av volum for geometriske legemer</string>
+    <string name="lesson_mat_10_1">Koordinatsystem</string>
+    <string name="lesson_desc_mat_10_1">Introduksjon til X- og Y-aksen</string>
+    <string name="lesson_mat_10_2">Avlesing av punkter</string>
+    <string name="lesson_desc_mat_10_2">Koordinater for punkter i planen</string>
+    <string name="lesson_mat_10_3">Tegne figurer</string>
+    <string name="lesson_desc_mat_10_3">Tegning av linjer og figurer i et koordinatsystem</string>
+    <string name="lesson_mat_10_4">Avstand mellom punkter</string>
+    <string name="lesson_desc_mat_10_4">Beregn avstanden mellom punkter</string>
+    <string name="lesson_mat_11_1">Aritmetisk gjennomsnitt</string>
+    <string name="lesson_desc_mat_11_1">Beregn aritmetisk gjennomsnitt for data</string>
+    <string name="lesson_mat_11_2">Median og typetall</string>
+    <string name="lesson_desc_mat_11_2">Bestemme median og typetall i datamengder</string>
+    <string name="lesson_mat_11_3">Grafer og diagrammer</string>
+    <string name="lesson_desc_mat_11_3">Avlesning og opprettelse av grafer og diagrammer</string>
+    <string name="lesson_mat_11_4">Sannsynlighet for enkle hendelser</string>
+    <string name="lesson_desc_mat_11_4">Beregn sannsynligheten for enkle tilfeldige hendelser</string>
+    <string name="lesson_mat_12_1">Positive og negative tall</string>
+    <string name="lesson_desc_mat_12_1">Introduksjon til heltall</string>
+    <string name="lesson_mat_12_2">Addition og subtraksjon</string>
+    <string name="lesson_desc_mat_12_2">Operasjoner med heltall</string>
+    <string name="lesson_mat_12_3">Multiplikasjon og divisjon</string>
+    <string name="lesson_desc_mat_12_3">Operasjoner med heltall</string>
+
+    <!-- Database corruption / error screen -->
+    <string name="database_error_title">Databasefeil</string>
+    <string name="database_error_desc">Applikasjonen støtte på en feil under åpning eller migrering av databasen. Du kan tilbakestille databasen (som vil slette din lokale fremgang og gjenopprette applikasjonen) eller lukke applikasjonen og vente på en rettelse.</string>
+    <string name="database_error_tech_details">Tekniske detaljer:</string>
+    <string name="database_error_reset_progress">Tilbakestill fremgang</string>
+    <string name="database_error_exit_app">Lukk applikasjon</string>
+
+    <string name="placeholder_factorize">f.eks. (x+2)(x-3)</string>
+</resources>

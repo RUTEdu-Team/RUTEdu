@@ -29,4 +29,13 @@ actual class DriverFactory(private val context: Context) {
             )
         )
     }
+
+    actual fun deleteDatabase(): Boolean {
+        return try {
+            context.deleteDatabase("test.db")
+        } catch (e: Exception) {
+            android.util.Log.e("DriverFactory", "Failed to delete database", e)
+            false
+        }
+    }
 }

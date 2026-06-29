@@ -60,7 +60,7 @@ Igrajte v načinu dvoboja za prikaz najboljših rezultatov!</string>
     <string name="menu_settings">Nastavitve</string>
     <string name="menu_pvp">Bitka</string>
     <string name="menu_leaderboard">Lestvica</string>
-    
+
     <!-- Player Selection Screen -->
     <string name="no_players_yet">Ni še igralcev!</string>
     <string name="create_first_player">Ustvarite svojega prvega igralca za začetek</string>
@@ -70,7 +70,7 @@ Igrajte v načinu dvoboja za prikaz najboljših rezultatov!</string>
     <string name="error_creating_player">Napaka pri ustvarjanju igralca</string>
     <string name="high_score_games">Najboljši rezultat: %1$d | Igre: %2$d</string>
     <string name="star">Zvezda</string>
-    
+
     <!-- Game Screen -->
     <string name="question_counter">Vprašanje %1$d / %2$d</string>
     <string name="game_over">🎉 Igra končana! 🎉</string>
@@ -97,7 +97,7 @@ Igrajte v načinu dvoboja za prikaz najboljših rezultatov!</string>
     <string name="placeholder_enter_result">Vnesite rezultat...</string>
     <string name="periodic_table_electrons_shells">elektroni po lupinah K, L, M, N...</string>
     <string name="select_all_correct_answers">Izberite vse pravilne odgovore</string>
-    
+
     <!-- PvP Battle Screen -->
     <string name="back_to_menu">Nazaj v meni</string>
     <string name="player_wins">%1$s Zmaga! 🏆</string>
@@ -109,7 +109,7 @@ Igrajte v načinu dvoboja za prikaz najboljših rezultatov!</string>
     <string name="correct">✓ Pravilno!</string>
     <string name="wrong">✗ Napačno</string>
     <string name="answer_submitted">✓ Odgovor oddan</string>
-    
+
     <!-- Unit conversion -->
     <string name="unit_hours">ur</string>
     <string name="unit_minutes">minut</string>
@@ -412,4 +412,151 @@ Igrajte v načinu dvoboja za prikaz najboljših rezultatov!</string>
     <string name="lesson_desc_chemia_4_2">Ioni kislin, baz in soli v raztopini</string>
     <string name="lesson_chemia_6_1">Vrste oksidov</string>
     <string name="lesson_desc_chemia_6_1">Formule, poimenovanje in klasifikacija oksidov</string>
-<string name="settings_lang_pl">Polski</string><string name="settings_lang_pl_desc">poljski jezik</string><string name="settings_lang_en">English</string><string name="settings_lang_en_desc">angleški jezik</string><string name="settings_lang_cs">Čeština</string><string name="settings_lang_cs_desc">češki jezik</string><string name="settings_lang_de">Deutsch</string><string name="settings_lang_de_desc">nemški jezik</string><string name="settings_lang_el">Ελληνικά</string><string name="settings_lang_el_desc">grški jezik</string><string name="settings_lang_es">Español</string><string name="settings_lang_es_desc">španski jezik</string><string name="settings_lang_fr">Français</string><string name="settings_lang_fr_desc">francoski jezik</string><string name="settings_lang_hu">Magyar</string><string name="settings_lang_hu_desc">madžarski jezik</string><string name="settings_lang_it">Italiano</string><string name="settings_lang_it_desc">italijanski jezik</string><string name="settings_lang_nl">Nederlands</string><string name="settings_lang_nl_desc">nizozemski jezik</string><string name="settings_lang_pt">Português</string><string name="settings_lang_pt_desc">portugalski jezik</string><string name="settings_lang_sk">Slovenčina</string><string name="settings_lang_sk_desc">slovaški jezik</string><string name="settings_lang_uk">Українська</string><string name="settings_lang_uk_desc">ukrajinski jezik</string><string name="settings_lang_bg">Български</string><string name="settings_lang_bg_desc">bolgarski jezik</string><string name="settings_lang_hr">Hrvatski</string><string name="settings_lang_hr_desc">hrvaški jezik</string><string name="settings_lang_sr">Српски</string><string name="settings_lang_sr_desc">srbski jezik</string><string name="settings_lang_sv">Svenska</string><string name="settings_lang_sv_desc">švedski jezik</string><string name="settings_lang_da">Dansk</string><string name="settings_lang_da_desc">danski jezik</string><string name="settings_lang_no">Norsk</string><string name="settings_lang_no_desc">norveški jezik</string><string name="settings_lang_is">Íslenska</string><string name="settings_lang_is_desc">islandski jezik</string><string name="settings_lang_fi">Suomi</string><string name="settings_lang_fi_desc">finski jezik</string><string name="settings_lang_et">Eesti</string><string name="settings_lang_et_desc">estonski jezik</string><string name="settings_lang_lv">Latviešu</string><string name="settings_lang_lv_desc">latvijski jezik</string><string name="settings_lang_lt">Lietuvių</string><string name="settings_lang_lt_desc">litovski jezik</string><string name="settings_lang_ro">Română</string><string name="settings_lang_ro_desc">romunski jezik</string><string name="settings_lang_sl">Slovenščina</string><string name="settings_lang_sl_desc">slovenski jezik</string><string name="settings_lang_ga">Gaeilge</string><string name="settings_lang_ga_desc">irski jezik</string><string name="settings_lang_mt">Malti</string><string name="settings_lang_mt_desc">malteški jezik</string><string name="topic_mat_6">Ulomki</string><string name="topic_mat_7">Procenti</string><string name="topic_mat_8">Razmerja in merilo</string><string name="topic_mat_9">Prostorska geometrija</string><string name="topic_mat_10">Koordinatni sistem</string><string name="topic_mat_11">Statistika in verjetnost</string><string name="topic_mat_12">Cela števila</string><string name="topic_desc_mat_6">Operacije z navadnimi in decimalnimi ulomki ter njihova uporaba</string><string name="topic_desc_mat_7">Računanje s procenti in njihova uporaba v vsakdanjem življenju</string><string name="topic_desc_mat_8">Sorazmerja in delo z merilom ter zemljevidi</string><string name="topic_desc_mat_9">Geometrijska telesa, njihove lastnosti ter računanje prostornin in površin</string><string name="topic_desc_mat_10">Točke, grafi in analitična geometrija v ravnini</string><string name="topic_desc_mat_11">Sredina, mediana, grafi in verjetnost</string><string name="topic_desc_mat_12">Pozitivna in negativna števila ter računske operacije</string><string name="lesson_mat_3_3">Linearne neenačbe</string><string name="lesson_desc_mat_3_3">Metoda zamenjave in nasprotnih koeficientov</string><string name="lesson_mat_4_2">Kvadratna funkcija</string><string name="lesson_desc_mat_4_2">Graf kvadratne funkcije (parabola) in njene osnovne lastnosti</string><string name="lesson_mat_4_3">Branje grafov funkcij</string><string name="lesson_desc_mat_4_3">Interpretacija grafov funkcij: vrednosti, ničle in intervali</string><string name="lesson_mat_4_4">Lastnosti funkcij</string><string name="lesson_desc_mat_4_4">Definicijsko območje, zaloga vrednosti, monotonost in ničle funkcije</string><string name="lesson_mat_5_2">Štirikotniki</string><string name="lesson_desc_mat_5_2">Lastnosti pravokotnika, kvadrata, paralelograma in trapeza</string><string name="lesson_mat_5_3">Krožnice in krogi</string><string name="lesson_desc_mat_5_3">Elementi krožnice: polmer, premer, tetiva in lastnosti kroga</string><string name="lesson_mat_5_4">Ploščine in obsegi likov</string><string name="lesson_desc_mat_5_4">Računanje ploščin in obsegov osnovnih geometrijskih likov</string><string name="lesson_mat_5_5">Pitagorov izrek</string><string name="lesson_desc_mat_5_5">Razmerje a² + b² = c² v pravokotnem trikotniku</string><string name="lesson_mat_6_1">Pretvarjanje ulomkov</string><string name="lesson_desc_mat_6_1">Pretvarjanje navadnih in decimalnih ulomkov</string><string name="lesson_mat_6_2">Računanje z ulomki</string><string name="lesson_desc_mat_6_2">Seštevanje, odštevanje, množenje in deljenje ulomkov</string><string name="lesson_mat_6_3">Primerjanje ulomkov</string><string name="lesson_desc_mat_6_3">Primerjava vrednosti navadnih in decimalnih ulomkov</string><string name="lesson_mat_6_4">Decimalni ulomki</string><string name="lesson_desc_mat_6_4">Operacije z decimalnimi števili in njihova uporaba</string><string name="lesson_mat_7_1">Delež števila</string><string name="lesson_desc_mat_7_1">Računanje deleža oz. odstotka danega števila</string><string name="lesson_mat_7_2">Popusti in podražitve</string><string name="lesson_desc_mat_7_2">Odstotne spremembe cen in vrednosti</string><string name="lesson_mat_7_3">Besedilne naloge</string><string name="lesson_desc_mat_7_3">Uporaba odstotkov v praktičnih nalogah</string><string name="lesson_mat_8_1">Sorazmerja</string><string name="lesson_desc_mat_8_1">Reševanje premo- in obratnosorazmernih količin</string><string name="lesson_mat_8_2">Merilo</string><string name="lesson_desc_mat_8_2">Branje in uporaba merila na zemljevidih in načrtih</string><string name="lesson_mat_8_3">Zemljevid in razdalje</string><string name="lesson_desc_mat_8_3">Računanje dejanskih razdalj na zemljevidu</string><string name="lesson_mat_9_1">Prizme</string><string name="lesson_desc_mat_9_1">Lastnosti in elementi prizem</string><string name="lesson_mat_9_2">Piramide</string><string name="lesson_desc_mat_9_2">Lastnosti in elementi piramid</string><string name="lesson_mat_9_3">Okrogla telesa</string><string name="lesson_desc_mat_9_3">Valj, stožec in krogla ter njihove lastnosti</string><string name="lesson_mat_9_4">Površine teles</string><string name="lesson_desc_mat_9_4">Računanje površin geometrijskih teles</string><string name="lesson_mat_9_5">Prostornina teles</string><string name="lesson_desc_mat_9_5">Računanje prostornin geometrijskih teles</string><string name="lesson_mat_10_1">Koordinatni sistem</string><string name="lesson_desc_mat_10_1">Uvod v osi X in Y</string><string name="lesson_mat_10_2">Branje točk</string><string name="lesson_desc_mat_10_2">Koordinate točk v ravnini</string><string name="lesson_mat_10_3">Risanje likov</string><string name="lesson_desc_mat_10_3">Risanje premic in likov v koordinatnem sistemu</string><string name="lesson_mat_10_4">Razdalja med točkami</string><string name="lesson_desc_mat_10_4">Računanje razdalje med dvema točkama</string><string name="lesson_mat_11_1">Aritmetična sredina</string><string name="lesson_desc_mat_11_1">Računanje aritmetične sredine podatkov</string><string name="lesson_mat_11_2">Mediana in modus</string><string name="lesson_desc_mat_11_2">Določanje mediane in modusa v naborih podatkov</string><string name="lesson_mat_11_3">Grafi in diagrami</string><string name="lesson_desc_mat_11_3">Branje in ustvarjanje grafov in diagramov</string><string name="lesson_mat_11_4">Verjetnost enostavnih dogodkov</string><string name="lesson_desc_mat_11_4">Računanje verjetnosti enostavnih naključnih dogodkov</string><string name="lesson_mat_12_1">Pozitivna in negativna števila</string><string name="lesson_desc_mat_12_1">Uvod v cela števila</string><string name="lesson_mat_12_2">Seštevanje in odštevanje</string><string name="lesson_desc_mat_12_2">Računske operacije s celimi števili</string><string name="lesson_mat_12_3">Množenje in deljenje</string><string name="lesson_desc_mat_12_3">Računske operacije s celimi števili</string></resources>
+    <string name="settings_lang_pl">Polski</string>
+    <string name="settings_lang_pl_desc">poljski jezik</string>
+    <string name="settings_lang_en">English</string>
+    <string name="settings_lang_en_desc">angleški jezik</string>
+    <string name="settings_lang_cs">Čeština</string>
+    <string name="settings_lang_cs_desc">češki jezik</string>
+    <string name="settings_lang_de">Deutsch</string>
+    <string name="settings_lang_de_desc">nemški jezik</string>
+    <string name="settings_lang_el">Ελληνικά</string>
+    <string name="settings_lang_el_desc">grški jezik</string>
+    <string name="settings_lang_es">Español</string>
+    <string name="settings_lang_es_desc">španski jezik</string>
+    <string name="settings_lang_fr">Français</string>
+    <string name="settings_lang_fr_desc">francoski jezik</string>
+    <string name="settings_lang_hu">Magyar</string>
+    <string name="settings_lang_hu_desc">madžarski jezik</string>
+    <string name="settings_lang_it">Italiano</string>
+    <string name="settings_lang_it_desc">italijanski jezik</string>
+    <string name="settings_lang_nl">Nederlands</string>
+    <string name="settings_lang_nl_desc">nizozemski jezik</string>
+    <string name="settings_lang_pt">Português</string>
+    <string name="settings_lang_pt_desc">portugalski jezik</string>
+    <string name="settings_lang_sk">Slovenčina</string>
+    <string name="settings_lang_sk_desc">slovaški jezik</string>
+    <string name="settings_lang_uk">Українська</string>
+    <string name="settings_lang_uk_desc">ukrajinski jezik</string>
+    <string name="settings_lang_bg">Български</string>
+    <string name="settings_lang_bg_desc">bolgarski jezik</string>
+    <string name="settings_lang_hr">Hrvatski</string>
+    <string name="settings_lang_hr_desc">hrvaški jezik</string>
+    <string name="settings_lang_sr">Српски</string>
+    <string name="settings_lang_sr_desc">srbski jezik</string>
+    <string name="settings_lang_sv">Svenska</string>
+    <string name="settings_lang_sv_desc">švedski jezik</string>
+    <string name="settings_lang_da">Dansk</string>
+    <string name="settings_lang_da_desc">danski jezik</string>
+    <string name="settings_lang_no">Norsk</string>
+    <string name="settings_lang_no_desc">norveški jezik</string>
+    <string name="settings_lang_is">Íslenska</string>
+    <string name="settings_lang_is_desc">islandski jezik</string>
+    <string name="settings_lang_fi">Suomi</string>
+    <string name="settings_lang_fi_desc">finski jezik</string>
+    <string name="settings_lang_et">Eesti</string>
+    <string name="settings_lang_et_desc">estonski jezik</string>
+    <string name="settings_lang_lv">Latviešu</string>
+    <string name="settings_lang_lv_desc">latvijski jezik</string>
+    <string name="settings_lang_lt">Lietuvių</string>
+    <string name="settings_lang_lt_desc">litovski jezik</string>
+    <string name="settings_lang_ro">Română</string>
+    <string name="settings_lang_ro_desc">romunski jezik</string>
+    <string name="settings_lang_sl">Slovenščina</string>
+    <string name="settings_lang_sl_desc">slovenski jezik</string>
+    <string name="settings_lang_ga">Gaeilge</string>
+    <string name="settings_lang_ga_desc">irski jezik</string>
+    <string name="settings_lang_mt">Malti</string>
+    <string name="settings_lang_mt_desc">malteški jezik</string>
+    <string name="topic_mat_6">Ulomki</string>
+    <string name="topic_mat_7">Procenti</string>
+    <string name="topic_mat_8">Razmerja in merilo</string>
+    <string name="topic_mat_9">Prostorska geometrija</string>
+    <string name="topic_mat_10">Koordinatni sistem</string>
+    <string name="topic_mat_11">Statistika in verjetnost</string>
+    <string name="topic_mat_12">Cela števila</string>
+    <string name="topic_desc_mat_6">Operacije z navadnimi in decimalnimi ulomki ter njihova uporaba</string>
+    <string name="topic_desc_mat_7">Računanje s procenti in njihova uporaba v vsakdanjem življenju</string>
+    <string name="topic_desc_mat_8">Sorazmerja in delo z merilom ter zemljevidi</string>
+    <string name="topic_desc_mat_9">Geometrijska telesa, njihove lastnosti ter računanje prostornin in površin</string>
+    <string name="topic_desc_mat_10">Točke, grafi in analitična geometrija v ravnini</string>
+    <string name="topic_desc_mat_11">Sredina, mediana, grafi in verjetnost</string>
+    <string name="topic_desc_mat_12">Pozitivna in negativna števila ter računske operacije</string>
+    <string name="lesson_mat_3_3">Linearne neenačbe</string>
+    <string name="lesson_desc_mat_3_3">Metoda zamenjave in nasprotnih koeficientov</string>
+    <string name="lesson_mat_4_2">Kvadratna funkcija</string>
+    <string name="lesson_desc_mat_4_2">Graf kvadratne funkcije (parabola) in njene osnovne lastnosti</string>
+    <string name="lesson_mat_4_3">Branje grafov funkcij</string>
+    <string name="lesson_desc_mat_4_3">Interpretacija grafov funkcij: vrednosti, ničle in intervali</string>
+    <string name="lesson_mat_4_4">Lastnosti funkcij</string>
+    <string name="lesson_desc_mat_4_4">Definicijsko območje, zaloga vrednosti, monotonost in ničle funkcije</string>
+    <string name="lesson_mat_5_2">Štirikotniki</string>
+    <string name="lesson_desc_mat_5_2">Lastnosti pravokotnika, kvadrata, paralelograma in trapeza</string>
+    <string name="lesson_mat_5_3">Krožnice in krogi</string>
+    <string name="lesson_desc_mat_5_3">Elementi krožnice: polmer, premer, tetiva in lastnosti kroga</string>
+    <string name="lesson_mat_5_4">Ploščine in obsegi likov</string>
+    <string name="lesson_desc_mat_5_4">Računanje ploščin in obsegov osnovnih geometrijskih likov</string>
+    <string name="lesson_mat_5_5">Pitagorov izrek</string>
+    <string name="lesson_desc_mat_5_5">Razmerje a² + b² = c² v pravokotnem trikotniku</string>
+    <string name="lesson_mat_6_1">Pretvarjanje ulomkov</string>
+    <string name="lesson_desc_mat_6_1">Pretvarjanje navadnih in decimalnih ulomkov</string>
+    <string name="lesson_mat_6_2">Računanje z ulomki</string>
+    <string name="lesson_desc_mat_6_2">Seštevanje, odštevanje, množenje in deljenje ulomkov</string>
+    <string name="lesson_mat_6_3">Primerjanje ulomkov</string>
+    <string name="lesson_desc_mat_6_3">Primerjava vrednosti navadnih in decimalnih ulomkov</string>
+    <string name="lesson_mat_6_4">Decimalni ulomki</string>
+    <string name="lesson_desc_mat_6_4">Operacije z decimalnimi števili in njihova uporaba</string>
+    <string name="lesson_mat_7_1">Delež števila</string>
+    <string name="lesson_desc_mat_7_1">Računanje deleža oz. odstotka danega števila</string>
+    <string name="lesson_mat_7_2">Popusti in podražitve</string>
+    <string name="lesson_desc_mat_7_2">Odstotne spremembe cen in vrednosti</string>
+    <string name="lesson_mat_7_3">Besedilne naloge</string>
+    <string name="lesson_desc_mat_7_3">Uporaba odstotkov v praktičnih nalogah</string>
+    <string name="lesson_mat_8_1">Sorazmerja</string>
+    <string name="lesson_desc_mat_8_1">Reševanje premo- in obratnosorazmernih količin</string>
+    <string name="lesson_mat_8_2">Merilo</string>
+    <string name="lesson_desc_mat_8_2">Branje in uporaba merila na zemljevidih in načrtih</string>
+    <string name="lesson_mat_8_3">Zemljevid in razdalje</string>
+    <string name="lesson_desc_mat_8_3">Računanje dejanskih razdalj na zemljevidu</string>
+    <string name="lesson_mat_9_1">Prizme</string>
+    <string name="lesson_desc_mat_9_1">Lastnosti in elementi prizem</string>
+    <string name="lesson_mat_9_2">Piramide</string>
+    <string name="lesson_desc_mat_9_2">Lastnosti in elementi piramid</string>
+    <string name="lesson_mat_9_3">Okrogla telesa</string>
+    <string name="lesson_desc_mat_9_3">Valj, stožec in krogla ter njihove lastnosti</string>
+    <string name="lesson_mat_9_4">Površine teles</string>
+    <string name="lesson_desc_mat_9_4">Računanje površin geometrijskih teles</string>
+    <string name="lesson_mat_9_5">Prostornina teles</string>
+    <string name="lesson_desc_mat_9_5">Računanje prostornin geometrijskih teles</string>
+    <string name="lesson_mat_10_1">Koordinatni sistem</string>
+    <string name="lesson_desc_mat_10_1">Uvod v osi X in Y</string>
+    <string name="lesson_mat_10_2">Branje točk</string>
+    <string name="lesson_desc_mat_10_2">Koordinate točk v ravnini</string>
+    <string name="lesson_mat_10_3">Risanje likov</string>
+    <string name="lesson_desc_mat_10_3">Risanje premic in likov v koordinatnem sistemu</string>
+    <string name="lesson_mat_10_4">Razdalja med točkami</string>
+    <string name="lesson_desc_mat_10_4">Računanje razdalje med dvema točkama</string>
+    <string name="lesson_mat_11_1">Aritmetična sredina</string>
+    <string name="lesson_desc_mat_11_1">Računanje aritmetične sredine podatkov</string>
+    <string name="lesson_mat_11_2">Mediana in modus</string>
+    <string name="lesson_desc_mat_11_2">Določanje mediane in modusa v naborih podatkov</string>
+    <string name="lesson_mat_11_3">Grafi in diagrami</string>
+    <string name="lesson_desc_mat_11_3">Branje in ustvarjanje grafov in diagramov</string>
+    <string name="lesson_mat_11_4">Verjetnost enostavnih dogodkov</string>
+    <string name="lesson_desc_mat_11_4">Računanje verjetnosti enostavnih naključnih dogodkov</string>
+    <string name="lesson_mat_12_1">Pozitivna in negativna števila</string>
+    <string name="lesson_desc_mat_12_1">Uvod v cela števila</string>
+    <string name="lesson_mat_12_2">Seštevanje in odštevanje</string>
+    <string name="lesson_desc_mat_12_2">Računske operacije s celimi števili</string>
+    <string name="lesson_mat_12_3">Množenje in deljenje</string>
+    <string name="lesson_desc_mat_12_3">Računske operacije s celimi števili</string>
+
+    <!-- Database corruption / error screen -->
+    <string name="database_error_title">Napaka baze podatkov</string>
+    <string name="database_error_desc">Aplikacija je naletela na napako pri odpiranju ali migraciji baze podatkov. Lahko ponastavite bazo podatkov (kar bo izbrisalo vaš lokalni napredek in obnovilo aplikacijo) ali zaprete aplikacijo in počakate na popravek.</string>
+    <string name="database_error_tech_details">Tehnične podrobnosti:</string>
+    <string name="database_error_reset_progress">Ponastavi napredek</string>
+    <string name="database_error_exit_app">Zapri aplikacijo</string>
+
+    <string name="placeholder_factorize">npr. (x+2)(x-3)</string>
+</resources>

@@ -56,7 +56,7 @@
     <string name="menu_settings">Nastavení</string>
     <string name="menu_pvp">Souboj</string>
     <string name="menu_leaderboard">Žebříček</string>
-    
+
     <!-- Player Selection Screen -->
     <string name="no_players_yet">Zatím žádní hráči!</string>
     <string name="create_first_player">Vytvořte svého prvního hráče pro zahájení</string>
@@ -66,7 +66,7 @@
     <string name="error_creating_player">Chyba při vytváření hráče</string>
     <string name="high_score_games">Nejvyšší skóre: %1$d | Hry: %2$d</string>
     <string name="star">Hvězda</string>
-    
+
     <!-- Game Screen -->
     <string name="question_counter">Otázka %1$d / %2$d</string>
     <string name="game_over">🎉 Konec hry! 🎉</string>
@@ -77,7 +77,7 @@
     <string name="score_saved">Skóre uloženo pro %1$s!</string>
     <string name="play_again">Hrát znovu</string>
     <string name="check">ZKONTROLOVAT ✓</string>
-    
+
     <!-- PvP Battle Screen -->
     <string name="back_to_menu">Zpět do menu</string>
     <string name="player_wins">%1$s vyhrává! 🏆</string>
@@ -89,7 +89,7 @@
     <string name="correct">✓ Správně!</string>
     <string name="wrong">✗ Špatně</string>
     <string name="answer_submitted">✓ Odpověď odeslána</string>
-    
+
     <!-- Unit conversion -->
     <string name="unit_hours">hodiny</string>
     <string name="unit_minutes">minuty</string>
@@ -393,5 +393,169 @@
     <string name="lesson_desc_chemia_4_2">Ionty kyselin, zásad a solí v roztoku</string>
     <string name="lesson_chemia_6_1">Typy oxidů</string>
     <string name="lesson_desc_chemia_6_1">Vzorce, názvosloví a klasifikace oxidů</string>
-<string name="settings_lang_pl">Polski</string><string name="settings_lang_pl_desc">polský jazyk</string><string name="settings_lang_en">English</string><string name="settings_lang_en_desc">anglický jazyk</string><string name="settings_lang_cs">Čeština</string><string name="settings_lang_cs_desc">český jazyk</string><string name="settings_lang_de">Deutsch</string><string name="settings_lang_de_desc">německý jazyk</string><string name="settings_lang_el">Ελληνικά</string><string name="settings_lang_el_desc">řecký jazyk</string><string name="settings_lang_es">Español</string><string name="settings_lang_es_desc">španělský jazyk</string><string name="settings_lang_fr">Français</string><string name="settings_lang_fr_desc">francouzský jazyk</string><string name="settings_lang_hu">Magyar</string><string name="settings_lang_hu_desc">maďarský jazyk</string><string name="settings_lang_it">Italiano</string><string name="settings_lang_it_desc">italský jazyk</string><string name="settings_lang_nl">Nederlands</string><string name="settings_lang_nl_desc">nizozemský jazyk</string><string name="settings_lang_pt">Português</string><string name="settings_lang_pt_desc">portugalský jazyk</string><string name="settings_lang_sk">Slovenčina</string><string name="settings_lang_sk_desc">slovenský jazyk</string><string name="settings_lang_uk">Українська</string><string name="settings_lang_uk_desc">ukrajinský jazyk</string><string name="settings_lang_bg">Български</string><string name="settings_lang_bg_desc">bulharský jazyk</string><string name="settings_lang_hr">Hrvatski</string><string name="settings_lang_hr_desc">chorvatský jazyk</string><string name="settings_lang_sr">Српски</string><string name="settings_lang_sr_desc">srbský jazyk</string><string name="settings_lang_sv">Svenska</string><string name="settings_lang_sv_desc">švédský jazyk</string><string name="settings_lang_da">Dansk</string><string name="settings_lang_da_desc">dánský jazyk</string><string name="settings_lang_no">Norsk</string><string name="settings_lang_no_desc">norský jazyk</string><string name="settings_lang_is">Íslenska</string><string name="settings_lang_is_desc">islandský jazyk</string><string name="settings_lang_fi">Suomi</string><string name="settings_lang_fi_desc">finský jazyk</string><string name="settings_lang_et">Eesti</string><string name="settings_lang_et_desc">estonský jazyk</string><string name="settings_lang_lv">Latviešu</string><string name="settings_lang_lv_desc">lotyšský jazyk</string><string name="settings_lang_lt">Lietuvių</string><string name="settings_lang_lt_desc">litevský jazyk</string><string name="settings_lang_ro">Română</string><string name="settings_lang_ro_desc">rumunský jazyk</string><string name="settings_lang_sl">Slovenščina</string><string name="settings_lang_sl_desc">slovinský jazyk</string><string name="settings_lang_ga">Gaeilge</string><string name="settings_lang_ga_desc">irský jazyk</string><string name="settings_lang_mt">Malti</string><string name="settings_lang_mt_desc">maltský jazyk</string><string name="topic_mat_6">Zlomky</string><string name="topic_mat_7">Procenta</string><string name="topic_mat_8">Poměry a měřítko</string><string name="topic_mat_9">Prostorová geometrie</string><string name="topic_mat_10">Souřadnicový systém</string><string name="topic_mat_11">Statistika a pravděpodobnost</string><string name="topic_mat_12">Celá čísla</string><string name="topic_desc_mat_6">Operace s obyčejnými a desetinnými zlomky a jejich použití</string><string name="topic_desc_mat_7">Výpočty procent a jejich využití v každodenním životě</string><string name="topic_desc_mat_8">Proporcionální vztahy a práce s měřítkem a mapami</string><string name="topic_desc_mat_9">Tělesa, jejich vlastnosti a výpočty objemů a povrchů</string><string name="topic_desc_mat_10">Body, grafy a analytická geometrie v rovině</string><string name="topic_desc_mat_11">Průměr, medián, grafy a pravděpodobnost</string><string name="topic_desc_mat_12">Kladná a záporná čísla a operace s nimi</string><string name="lesson_mat_3_3">Lineární nerovnice</string><string name="lesson_desc_mat_3_3">Metoda dosazovací a sčítací</string><string name="lesson_mat_4_2">Kvadratická funkce</string><string name="lesson_desc_mat_4_2">Graf kvadratické funkce (parabola) a její základní vlastnosti</string><string name="lesson_mat_4_3">Čtení grafů funkcí</string><string name="lesson_desc_mat_4_3">Interpretace grafů funkcí: hodnoty, nulové body a intervaly</string><string name="lesson_mat_4_4">Vlastnosti funkcí</string><string name="lesson_desc_mat_4_4">Definiční obor, obor hodnot, monotónnost a nulové body funkce</string><string name="lesson_mat_5_2">Čtyřúhelníky</string><string name="lesson_desc_mat_5_2">Vlastnosti obdélníku, čtverce, kosočtverce a lichoběžníku</string><string name="lesson_mat_5_3">Kružnice a kruhy</string><string name="lesson_desc_mat_5_3">Prvky kružnice: poloměr, průměr, tětiva a vlastnosti kruhu</string><string name="lesson_mat_5_4">Obsahy a obvody obrazců</string><string name="lesson_desc_mat_5_4">Výpočet obsahů a obvodů základních geometrických obrazců</string><string name="lesson_mat_5_5">Pythagorova věta</string><string name="lesson_desc_mat_5_5">Vztah a² + b² = c² v pravoúhlém trojúhelníku</string><string name="lesson_mat_6_1">Převod zlomků</string><string name="lesson_desc_mat_6_1">Převod mezi obyčejnými a desetinnými zlomky</string><string name="lesson_mat_6_2">Operace se zlomky</string><string name="lesson_desc_mat_6_2">Sčítání, odčítání, násobení a dělení zlomků</string><string name="lesson_mat_6_3">Porovnávání zlomků</string><string name="lesson_desc_mat_6_3">Porovnávání hodnot obyčejných a desetinných zlomků</string><string name="lesson_mat_6_4">Desetinná čísla</string><string name="lesson_desc_mat_6_4">Operace s desetinnými čísly a jejich použití</string><string name="lesson_mat_7_1">Procento z čísla</string><string name="lesson_desc_mat_7_1">Výpočet procentuální části z daného čísla</string><string name="lesson_mat_7_2">Slevy a zdražení</string><string name="lesson_desc_mat_7_2">Procentuální změny cen a hodnot</string><string name="lesson_mat_7_3">Slovní úlohy</string><string name="lesson_desc_mat_7_3">Použití procent v praktických úlohách</string><string name="lesson_mat_8_1">Poměry</string><string name="lesson_desc_mat_8_1">Řešení přímé a nepřímé úměrnosti</string><string name="lesson_mat_8_2">Měřítko</string><string name="lesson_desc_mat_8_2">Čtení a použití měřítka na mapách a plánech</string><string name="lesson_mat_8_3">Mapa a vzdálenosti</string><string name="lesson_desc_mat_8_3">Výpočet skutečných vzdáleností na mapě</string><string name="lesson_mat_9_1">Hranoly</string><string name="lesson_desc_mat_9_1">Vlastnosti a prvky hranolů</string><string name="lesson_mat_9_2">Jehlan</string><string name="lesson_desc_mat_9_2">Vlastnosti a prvky jehlanů</string><string name="lesson_mat_9_3">Rotační tělesa</string><string name="lesson_desc_mat_9_3">Válec, kužel a koule a jejich vlastnosti</string><string name="lesson_mat_9_4">Povrchy těles</string><string name="lesson_desc_mat_9_4">Výpočet povrchů těles</string><string name="lesson_mat_9_5">Objemy těles</string><string name="lesson_desc_mat_9_5">Výpočet objemů geometrických těles</string><string name="lesson_mat_10_1">Souřadnicový systém</string><string name="lesson_desc_mat_10_1">Úvod do os X a Y</string><string name="lesson_mat_10_2">Odečítání bodů</string><string name="lesson_desc_mat_10_2">Souřadnice bodů v rovině</string><string name="lesson_mat_10_3">Kreslení obrazců</string><string name="lesson_desc_mat_10_3">Kreslení přímek a obrazců v souřadnicovém systému</string><string name="lesson_mat_10_4">Vzdálenost bodů</string><string name="lesson_desc_mat_10_4">Výpočet vzdálenosti mezi body</string><string name="lesson_mat_11_1">Aritmetický průměr</string><string name="lesson_desc_mat_11_1">Výpočet aritmetického průměru dat</string><string name="lesson_mat_11_2">Medián a modus</string><string name="lesson_desc_mat_11_2">Určení mediánu a modusu v souborech dat</string><string name="lesson_mat_11_3">Grafy a diagramy</string><string name="lesson_desc_mat_11_3">Čtení a vytváření grafů a diagramů</string><string name="lesson_mat_11_4">Pravděpodobnost jednoduchých jevů</string><string name="lesson_desc_mat_11_4">Výpočet pravděpodobnosti jednoduchých náhodných jevů</string><string name="lesson_mat_12_1">Kladná a záporná čísla</string><string name="lesson_desc_mat_12_1">Úvod do celých čísel</string><string name="lesson_mat_12_2">Sčítání a odčítání</string><string name="lesson_desc_mat_12_2">Početní operace s celými čísly</string><string name="lesson_mat_12_3">Násobení a dělení</string><string name="lesson_desc_mat_12_3">Početní operace s celými čísly</string>    <string name="weii_description">Fakulta elektrotechniky a informatiky Rzeszowské polytechniky</string>
+    <string name="settings_lang_pl">Polski</string>
+    <string name="settings_lang_pl_desc">polský jazyk</string>
+    <string name="settings_lang_en">English</string>
+    <string name="settings_lang_en_desc">anglický jazyk</string>
+    <string name="settings_lang_cs">Čeština</string>
+    <string name="settings_lang_cs_desc">český jazyk</string>
+    <string name="settings_lang_de">Deutsch</string>
+    <string name="settings_lang_de_desc">německý jazyk</string>
+    <string name="settings_lang_el">Ελληνικά</string>
+    <string name="settings_lang_el_desc">řecký jazyk</string>
+    <string name="settings_lang_es">Español</string>
+    <string name="settings_lang_es_desc">španělský jazyk</string>
+    <string name="settings_lang_fr">Français</string>
+    <string name="settings_lang_fr_desc">francouzský jazyk</string>
+    <string name="settings_lang_hu">Magyar</string>
+    <string name="settings_lang_hu_desc">maďarský jazyk</string>
+    <string name="settings_lang_it">Italiano</string>
+    <string name="settings_lang_it_desc">italský jazyk</string>
+    <string name="settings_lang_nl">Nederlands</string>
+    <string name="settings_lang_nl_desc">nizozemský jazyk</string>
+    <string name="settings_lang_pt">Português</string>
+    <string name="settings_lang_pt_desc">portugalský jazyk</string>
+    <string name="settings_lang_sk">Slovenčina</string>
+    <string name="settings_lang_sk_desc">slovenský jazyk</string>
+    <string name="settings_lang_uk">Українська</string>
+    <string name="settings_lang_uk_desc">ukrajinský jazyk</string>
+    <string name="settings_lang_bg">Български</string>
+    <string name="settings_lang_bg_desc">bulharský jazyk</string>
+    <string name="settings_lang_hr">Hrvatski</string>
+    <string name="settings_lang_hr_desc">chorvatský jazyk</string>
+    <string name="settings_lang_sr">Српски</string>
+    <string name="settings_lang_sr_desc">srbský jazyk</string>
+    <string name="settings_lang_sv">Svenska</string>
+    <string name="settings_lang_sv_desc">švédský jazyk</string>
+    <string name="settings_lang_da">Dansk</string>
+    <string name="settings_lang_da_desc">dánský jazyk</string>
+    <string name="settings_lang_no">Norsk</string>
+    <string name="settings_lang_no_desc">norský jazyk</string>
+    <string name="settings_lang_is">Íslenska</string>
+    <string name="settings_lang_is_desc">islandský jazyk</string>
+    <string name="settings_lang_fi">Suomi</string>
+    <string name="settings_lang_fi_desc">finský jazyk</string>
+    <string name="settings_lang_et">Eesti</string>
+    <string name="settings_lang_et_desc">estonský jazyk</string>
+    <string name="settings_lang_lv">Latviešu</string>
+    <string name="settings_lang_lv_desc">lotyšský jazyk</string>
+    <string name="settings_lang_lt">Lietuvių</string>
+    <string name="settings_lang_lt_desc">litevský jazyk</string>
+    <string name="settings_lang_ro">Română</string>
+    <string name="settings_lang_ro_desc">rumunský jazyk</string>
+    <string name="settings_lang_sl">Slovenščina</string>
+    <string name="settings_lang_sl_desc">slovinský jazyk</string>
+    <string name="settings_lang_ga">Gaeilge</string>
+    <string name="settings_lang_ga_desc">irský jazyk</string>
+    <string name="settings_lang_mt">Malti</string>
+    <string name="settings_lang_mt_desc">maltský jazyk</string>
+    <string name="topic_mat_6">Zlomky</string>
+    <string name="topic_mat_7">Procenta</string>
+    <string name="topic_mat_8">Poměry a měřítko</string>
+    <string name="topic_mat_9">Prostorová geometrie</string>
+    <string name="topic_mat_10">Souřadnicový systém</string>
+    <string name="topic_mat_11">Statistika a pravděpodobnost</string>
+    <string name="topic_mat_12">Celá čísla</string>
+    <string name="topic_desc_mat_6">Operace s obyčejnými a desetinnými zlomky a jejich použití</string>
+    <string name="topic_desc_mat_7">Výpočty procent a jejich využití v každodenním životě</string>
+    <string name="topic_desc_mat_8">Proporcionální vztahy a práce s měřítkem a mapami</string>
+    <string name="topic_desc_mat_9">Tělesa, jejich vlastnosti a výpočty objemů a povrchů</string>
+    <string name="topic_desc_mat_10">Body, grafy a analytická geometrie v rovině</string>
+    <string name="topic_desc_mat_11">Průměr, medián, grafy a pravděpodobnost</string>
+    <string name="topic_desc_mat_12">Kladná a záporná čísla a operace s nimi</string>
+    <string name="lesson_mat_3_3">Lineární nerovnice</string>
+    <string name="lesson_desc_mat_3_3">Metoda dosazovací a sčítací</string>
+    <string name="lesson_mat_4_2">Kvadratická funkce</string>
+    <string name="lesson_desc_mat_4_2">Graf kvadratické funkce (parabola) a její základní vlastnosti</string>
+    <string name="lesson_mat_4_3">Čtení grafů funkcí</string>
+    <string name="lesson_desc_mat_4_3">Interpretace grafů funkcí: hodnoty, nulové body a intervaly</string>
+    <string name="lesson_mat_4_4">Vlastnosti funkcí</string>
+    <string name="lesson_desc_mat_4_4">Definiční obor, obor hodnot, monotónnost a nulové body funkce</string>
+    <string name="lesson_mat_5_2">Čtyřúhelníky</string>
+    <string name="lesson_desc_mat_5_2">Vlastnosti obdélníku, čtverce, kosočtverce a lichoběžníku</string>
+    <string name="lesson_mat_5_3">Kružnice a kruhy</string>
+    <string name="lesson_desc_mat_5_3">Prvky kružnice: poloměr, průměr, tětiva a vlastnosti kruhu</string>
+    <string name="lesson_mat_5_4">Obsahy a obvody obrazců</string>
+    <string name="lesson_desc_mat_5_4">Výpočet obsahů a obvodů základních geometrických obrazců</string>
+    <string name="lesson_mat_5_5">Pythagorova věta</string>
+    <string name="lesson_desc_mat_5_5">Vztah a² + b² = c² v pravoúhlém trojúhelníku</string>
+    <string name="lesson_mat_6_1">Převod zlomků</string>
+    <string name="lesson_desc_mat_6_1">Převod mezi obyčejnými a desetinnými zlomky</string>
+    <string name="lesson_mat_6_2">Operace se zlomky</string>
+    <string name="lesson_desc_mat_6_2">Sčítání, odčítání, násobení a dělení zlomků</string>
+    <string name="lesson_mat_6_3">Porovnávání zlomků</string>
+    <string name="lesson_desc_mat_6_3">Porovnávání hodnot obyčejných a desetinných zlomků</string>
+    <string name="lesson_mat_6_4">Desetinná čísla</string>
+    <string name="lesson_desc_mat_6_4">Operace s desetinnými čísly a jejich použití</string>
+    <string name="lesson_mat_7_1">Procento z čísla</string>
+    <string name="lesson_desc_mat_7_1">Výpočet procentuální části z daného čísla</string>
+    <string name="lesson_mat_7_2">Slevy a zdražení</string>
+    <string name="lesson_desc_mat_7_2">Procentuální změny cen a hodnot</string>
+    <string name="lesson_mat_7_3">Slovní úlohy</string>
+    <string name="lesson_desc_mat_7_3">Použití procent v praktických úlohách</string>
+    <string name="lesson_mat_8_1">Poměry</string>
+    <string name="lesson_desc_mat_8_1">Řešení přímé a nepřímé úměrnosti</string>
+    <string name="lesson_mat_8_2">Měřítko</string>
+    <string name="lesson_desc_mat_8_2">Čtení a použití měřítka na mapách a plánech</string>
+    <string name="lesson_mat_8_3">Mapa a vzdálenosti</string>
+    <string name="lesson_desc_mat_8_3">Výpočet skutečných vzdáleností na mapě</string>
+    <string name="lesson_mat_9_1">Hranoly</string>
+    <string name="lesson_desc_mat_9_1">Vlastnosti a prvky hranolů</string>
+    <string name="lesson_mat_9_2">Jehlan</string>
+    <string name="lesson_desc_mat_9_2">Vlastnosti a prvky jehlanů</string>
+    <string name="lesson_mat_9_3">Rotační tělesa</string>
+    <string name="lesson_desc_mat_9_3">Válec, kužel a koule a jejich vlastnosti</string>
+    <string name="lesson_mat_9_4">Povrchy těles</string>
+    <string name="lesson_desc_mat_9_4">Výpočet povrchů těles</string>
+    <string name="lesson_mat_9_5">Objemy těles</string>
+    <string name="lesson_desc_mat_9_5">Výpočet objemů geometrických těles</string>
+    <string name="lesson_mat_10_1">Souřadnicový systém</string>
+    <string name="lesson_desc_mat_10_1">Úvod do os X a Y</string>
+    <string name="lesson_mat_10_2">Odečítání bodů</string>
+    <string name="lesson_desc_mat_10_2">Souřadnice bodů v rovině</string>
+    <string name="lesson_mat_10_3">Kreslení obrazců</string>
+    <string name="lesson_desc_mat_10_3">Kreslení přímek a obrazců v souřadnicovém systému</string>
+    <string name="lesson_mat_10_4">Vzdálenost bodů</string>
+    <string name="lesson_desc_mat_10_4">Výpočet vzdálenosti mezi body</string>
+    <string name="lesson_mat_11_1">Aritmetický průměr</string>
+    <string name="lesson_desc_mat_11_1">Výpočet aritmetického průměru dat</string>
+    <string name="lesson_mat_11_2">Medián a modus</string>
+    <string name="lesson_desc_mat_11_2">Určení mediánu a modusu v souborech dat</string>
+    <string name="lesson_mat_11_3">Grafy a diagramy</string>
+    <string name="lesson_desc_mat_11_3">Čtení a vytváření grafů a diagramů</string>
+    <string name="lesson_mat_11_4">Pravděpodobnost jednoduchých jevů</string>
+    <string name="lesson_desc_mat_11_4">Výpočet pravděpodobnosti jednoduchých náhodných jevů</string>
+    <string name="lesson_mat_12_1">Kladná a záporná čísla</string>
+    <string name="lesson_desc_mat_12_1">Úvod do celých čísel</string>
+    <string name="lesson_mat_12_2">Sčítání a odčítání</string>
+    <string name="lesson_desc_mat_12_2">Početní operace s celými čísly</string>
+    <string name="lesson_mat_12_3">Násobení a dělení</string>
+    <string name="lesson_desc_mat_12_3">Početní operace s celými čísly</string>
+
+    <!-- Database corruption / error screen -->
+    <string name="database_error_title">Chyba databáze</string>
+    <string name="database_error_desc">Aplikace narazila na chybu při otevírání nebo migraci databáze. Můžete resetovat databázi (čímž smažete místní postup a obnovíte aplikaci) nebo zavřít aplikaci a počkat na opravu.</string>
+    <string name="database_error_tech_details">Technické podrobnosti:</string>
+    <string name="database_error_reset_progress">Resetovat postup</string>
+    <string name="database_error_exit_app">Zavřít aplikaci</string>
+
+    <string name="placeholder_factorize">např. (x+2)(x-3)</string>
+
+    <string name="app_name">RUTMath</string>
+    <string name="button_hint">Nápověda</string>
+    <string name="button_check">Zkontrolovat</string>
+    <string name="close">Zavřít</string>
+    <string name="feedback_correct">Správně!</string>
+    <string name="feedback_wrong">Zkusit znovu</string>
+    <string name="your_answer">Vaše odpověď</string>
+    <string name="placeholder_algebra">např. 2*x^2 + 3*x</string>
+    <string name="subject_math">MATEMATIKA</string>
+    <string name="title_complete_equation">Doplňte rovnici</string>
+    <string name="desc_drag_operator">Přetáhněte chybějící znaménko do prázdného pole</string>
+    <string name="hint_step_by_step">Krok za krokem:</string>
+    <string name="hint_dismiss_button">Rozumím, zpět k úkolu</string>
+    <string name="weii_description">Fakulta elektrotechniky, informatiky a telekomunikací</string>
+    <string name="placeholder_enter_result">Zadejte výsledek...</string>
+    <string name="periodic_table_electrons_shells">elektrony na slupkách K, L, M, N...</string>
+    <string name="select_all_correct_answers">Vyberte všechny správné odpovědi</string>
 </resources>

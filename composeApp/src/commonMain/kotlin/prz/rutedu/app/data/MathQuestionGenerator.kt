@@ -18,6 +18,24 @@ import kotlin.random.Random
  */
 object MathQuestionGenerator {
 
+    private fun s(key: String): String = GeneratorStrings.math(key)
+
+    private fun String.format(vararg args: Any): String {
+        var result = this
+        for (arg in args) {
+            val indexS = result.indexOf("%s")
+            val indexD = result.indexOf("%d")
+            val index = when {
+                indexS == -1 -> indexD
+                indexD == -1 -> indexS
+                else -> minOf(indexS, indexD)
+            }
+            if (index != -1) result = result.substring(0, index) + arg.toString() + result.substring(index + 2)
+        }
+        return result
+    }
+
+
     /**
      * Generates or retrieves the ordered list of questions for a specific math lesson.
      *
@@ -69,7 +87,7 @@ object MathQuestionGenerator {
         repeat(10) { i ->
             val op = if (rng.nextBoolean()) ADD else SUBTRACT; val a = rng.nextInt(1, 100)
             val b = if (op == ADD) rng.nextInt(1, 100) else rng.nextInt(1, a + 1)
-            questions += FindAnswer(1100 + i, a, b, op, Hint(if (op == ADD) "Dodawanie to liczenie do przodu." else "Odejmowanie to liczenie wstecz."))
+            questions += FindAnswer(1100 + i, a, b, op, Hint(if (op == ADD) s("hint.addition") else s("hint.subtraction")))
         }
         return questions.shuffled(rng)
     }
@@ -78,7 +96,7 @@ object MathQuestionGenerator {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         repeat(10) { i ->
             val a = rng.nextInt(2, 11); val b = rng.nextInt(2, 11)
-            questions += FindAnswer(1200 + i, a, b, MULTIPLY, Hint("Tabliczka mnożenia."))
+            questions += FindAnswer(1200 + i, a, b, MULTIPLY, Hint(s("hint.multiplication_table")))
         }
         return questions.shuffled(rng)
     }
@@ -87,7 +105,7 @@ object MathQuestionGenerator {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         repeat(10) { i ->
             val b = rng.nextInt(2, 6); val e = rng.nextInt(2, 4)
-            questions += FindAnswer(1300 + i, b, e, POWER, Hint("Pomnóż $b przez siebie $e razy."))
+            questions += FindAnswer(1300 + i, b, e, POWER, Hint(s("hint.power").format(b, e)))
         }
         return questions.shuffled(rng)
     }
@@ -95,8 +113,8 @@ object MathQuestionGenerator {
     private fun mat_1_4(seed: Long): List<Question> {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         val squares = listOf(4, 9, 16, 25, 36, 49, 64, 81, 100)
-        squares.shuffled(rng).take(6).forEachIndexed { i, s ->
-            questions += FindAnswer(1400 + i, 2, s, ROOT, Hint("Jaka liczba do kwadratu daje $s?"))
+        squares.shuffled(rng).take(6).forEachIndexed { i, sq ->
+            questions += FindAnswer(1400 + i, 2, sq, ROOT, Hint(s("hint.square_root").format(sq)))
         }
         return questions.shuffled(rng)
     }
@@ -104,7 +122,7 @@ object MathQuestionGenerator {
     private fun mat_1_5(seed: Long): List<Question> {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         listOf(2 to 8, 3 to 9, 10 to 100, 2 to 16, 5 to 25).forEachIndexed { i, (b, r) ->
-            questions += FindAnswer(1500 + i, b, r, LOG, Hint("Do jakiej potęgi podnieść $b, aby otrzymać $r?"))
+            questions += FindAnswer(1500 + i, b, r, LOG, Hint(s("hint.logarithm").format(b, r)))
         }
         return questions.shuffled(rng)
     }
@@ -114,7 +132,7 @@ object MathQuestionGenerator {
         repeat(5) { i ->
             val v = listOf("x", "y", "a").random(rng); val c = rng.nextInt(2, 10)
             val correct = "$c$v"; val opts = listOf(correct, "$c+$v", "$v-1", "2$v").distinct().shuffled(rng)
-            questions += SelectFromList(2100 + i, "Które z poniższych jest jednomianem?", opts, setOf(opts.indexOf(correct)))
+            questions += SelectFromList(2100 + i, s("prompt.monomial"), opts, setOf(opts.indexOf(correct)))
         }
         return questions.shuffled(rng)
     }
@@ -123,8 +141,8 @@ object MathQuestionGenerator {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         repeat(5) { i ->
             val a = rng.nextInt(1, 10); val prompt = "(x + $a)²"; val correct = "x² + ${2*a}x + ${a*a}"
-            if (mathEngineAvailable) questions += ExpressionTypeAnswer(2200 + i, "Rozwiń: $prompt", "x^2 + ${2*a}*x + ${a*a}", correct)
-            else questions += SelectFromList(2200 + i, "Rozwiń: $prompt", listOf(correct, "x² + ${a*a}", "x² + ${a}x").shuffled(rng), setOf(0)).let { it.copy(correctIndices = setOf(it.options.indexOf(correct))) }
+            if (mathEngineAvailable) questions += ExpressionTypeAnswer(2200 + i, s("prompt.expand").format(prompt), "x^2 + ${2*a}*x + ${a*a}", correct)
+            else questions += SelectFromList(2200 + i, s("prompt.expand").format(prompt), listOf(correct, "x² + ${a*a}", "x² + ${a}x").shuffled(rng), setOf(0)).let { it.copy(correctIndices = setOf(it.options.indexOf(correct))) }
         }
         return questions.shuffled(rng)
     }
@@ -134,7 +152,7 @@ object MathQuestionGenerator {
         repeat(5) { i ->
             val c = rng.nextInt(2, 6); val a = c * rng.nextInt(1, 4); val b = c * rng.nextInt(1, 4)
             val res = "$c(${a/c}x + ${b/c}y)"
-            questions += SelectFromList(2300 + i, "Wyłącz czynnik: ${a}x + ${b}y", listOf(res, "$c(${a}x + ${b}y)", "2(${a/2}x + ${b/2}y)").distinct().shuffled(rng), setOf(0)).let { it.copy(correctIndices = setOf(it.options.indexOf(res))) }
+            questions += SelectFromList(2300 + i, s("prompt.factor_out").format(a, b), listOf(res, "$c(${a}x + ${b}y)", "2(${a/2}x + ${b/2}y)").distinct().shuffled(rng), setOf(0)).let { it.copy(correctIndices = setOf(it.options.indexOf(res))) }
         }
         return questions.shuffled(rng)
     }
@@ -160,9 +178,9 @@ object MathQuestionGenerator {
     private fun mat_3_3(seed: Long): List<Question> {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         repeat(5) { i ->
-            val a = rng.nextInt(1, 5); val s = rng.nextInt(-3, 4); val c = a * s
-            val res = "x > $s"; val opts = listOf(res, "x < $s", "x > ${s+1}").shuffled(rng)
-            questions += SelectFromList(3300 + i, "Rozwiąż: ${a}x > $c", opts, setOf(opts.indexOf(res)))
+            val a = rng.nextInt(1, 5); val sol = rng.nextInt(-3, 4); val c = a * sol
+            val res = "x > $sol"; val opts = listOf(res, "x < $sol", "x > ${sol+1}").shuffled(rng)
+            questions += SelectFromList(3300 + i, s("prompt.solve").format("${a}x > $c"), opts, setOf(opts.indexOf(res)))
         }
         return questions.shuffled(rng)
     }
@@ -172,7 +190,7 @@ object MathQuestionGenerator {
         repeat(5) { i ->
             val a = rng.nextInt(1, 5); val b = rng.nextInt(-5, 6); val x = rng.nextInt(0, 5); val y = a * x + b
             val opts = listOf("$y", "${y+1}", "${y-1}").shuffled(rng)
-            questions += SelectFromList(4100 + i, "Dla f(x) = ${a}x + $b, oblicz f($x)", opts, setOf(opts.indexOf("$y")))
+            questions += SelectFromList(4100 + i, s("prompt.calculate_function").format(a, b, x), opts, setOf(opts.indexOf("$y")))
         }
         return questions.shuffled(rng)
     }
@@ -182,7 +200,7 @@ object MathQuestionGenerator {
         repeat(5) { i ->
             val p = rng.nextInt(-3, 4); val q = rng.nextInt(-3, 4); val res = "($p, $q)"
             val opts = listOf(res, "(${-p}, $q)", "($q, $p)").distinct().shuffled(rng)
-            questions += SelectFromList(4200 + i, "Podaj wierzchołek f(x) = (x - $p)² + $q", opts, setOf(opts.indexOf(res)))
+            questions += SelectFromList(4200 + i, s("prompt.function_vertex").format(p, q), opts, setOf(opts.indexOf(res)))
         }
         return questions.shuffled(rng)
     }
@@ -191,7 +209,7 @@ object MathQuestionGenerator {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         repeat(5) { i ->
             val x0 = rng.nextInt(-3, 4); val f = { x: Double -> x - x0 }
-            questions += GraphTypeAnswer(4300 + i, "Odczytaj miejsce zerowe z wykresu", listOf(MathShape.FunctionPlot(f)), MathViewport(), x0)
+            questions += GraphTypeAnswer(4300 + i, s("prompt.read_zero"), listOf(MathShape.FunctionPlot(f)), MathViewport(), x0)
         }
         return questions.shuffled(rng)
     }
@@ -200,7 +218,7 @@ object MathQuestionGenerator {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         repeat(5) { i ->
             val inc = rng.nextBoolean(); val f = { x: Double -> if(inc) x else -x }
-            questions += GraphSelectFromList(4400 + i, "Określ monotoniczność", listOf(MathShape.FunctionPlot(f)), MathViewport(), listOf("Rosnąca", "Malejąca"), setOf(if(inc) 0 else 1))
+            questions += GraphSelectFromList(4400 + i, s("prompt.monotonicity"), listOf(MathShape.FunctionPlot(f)), MathViewport(), listOf(s("word.increasing"), s("word.decreasing")), setOf(if(inc) 0 else 1))
         }
         return questions.shuffled(rng)
     }
@@ -210,7 +228,7 @@ object MathQuestionGenerator {
         repeat(5) { i ->
             val a = rng.nextInt(30, 80).toDouble(); val b = rng.nextInt(30, 80).toDouble(); val c = 180 - a - b
             val (v, vp) = TriangleBuilder.fromAnglesWithViewport(a, b)
-            questions += GraphTypeAnswer(5100 + i, "Oblicz miarę trzeciego kąta", listOf(MathShape.Triangle(v.first, v.second, v.third, labelA="${a.toInt()}°", labelB="${b.toInt()}°", labelC="?")), vp, c.toInt(), "°")
+            questions += GraphTypeAnswer(5100 + i, s("prompt.third_angle"), listOf(MathShape.Triangle(v.first, v.second, v.third, labelA="${a.toInt()}°", labelB="${b.toInt()}°", labelC="?")), vp, c.toInt(), "°")
         }
         return questions.shuffled(rng)
     }
@@ -219,7 +237,7 @@ object MathQuestionGenerator {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         repeat(5) { i ->
             val w = rng.nextInt(2, 6); val h = rng.nextInt(2, 6)
-            questions += GraphTypeAnswer(5200 + i, "Oblicz pole prostokąta o bokach $w i $h", listOf(MathShape.Rectangle(-w/2.0, -h/2.0, w.toDouble(), h.toDouble(), filled = true)), MathViewport(), w * h)
+            questions += GraphTypeAnswer(5200 + i, s("prompt.rectangle_area").format(w, h), listOf(MathShape.Rectangle(-w/2.0, -h/2.0, w.toDouble(), h.toDouble(), filled = true)), MathViewport(), w * h)
         }
         return questions.shuffled(rng)
     }
@@ -236,15 +254,15 @@ object MathQuestionGenerator {
         data class NamedElement(val name: String, val hint: String, val getShapes: (String, Double) -> List<MathShape>, val color: Color)
 
         val allElements = listOf(
-            NamedElement("promieniem", "Promień łączy środek okręgu z punktem na okręgu.", { l, a ->
+            NamedElement(s("word.radius"), s("hint.radius"), { l, a ->
                 val p = onCircle(a)
                 listOf(MathShape.Segment(Pt(0.0, 0.0), p, color = Color(0xFF4A80F0)), MathShape.TextLabel(Pt(p.x/2.0 + 0.3, p.y/2.0 + 0.3), l, color = Color(0xFF4A80F0)))
             }, Color(0xFF4A80F0)),
-            NamedElement("średnicą", "Średnica przechodzi przez środek okręgu.", { l, a ->
+            NamedElement(s("word.diameter"), s("hint.diameter"), { l, a ->
                 val p1 = onCircle(a); val p2 = onCircle(a + kotlin.math.PI)
                 listOf(MathShape.Segment(p1, p2, color = Color(0xFF3DBD7D)), MathShape.TextLabel(Pt(p1.x*0.4 + 0.3, p1.y*0.4 + 0.3), l, color = Color(0xFF3DBD7D)))
             }, Color(0xFF3DBD7D)),
-            NamedElement("cięciwą", "Cięciwa łączy dwa punkty na okręgu, nie musi przechodzić przez środek.", { l, a ->
+            NamedElement(s("word.chord"), s("hint.chord"), { l, a ->
                 val p1 = onCircle(a); val p2 = onCircle(a + 1.2)
                 val m = mid(p1, p2)
                 listOf(MathShape.Segment(p1, p2, color = Color(0xFFF47B20)), MathShape.TextLabel(Pt(m.x + 0.4, m.y + 0.4), l, color = Color(0xFFF47B20)))
@@ -263,7 +281,7 @@ object MathQuestionGenerator {
                 shapes.addAll(el.getShapes(labels[i], angle))
             }
 
-            questions += GraphSelectFromList(5300 + qIdx, "Który odcinek jest ${target.name} okręgu?", shapes, 
+            questions += GraphSelectFromList(5300 + qIdx, s("prompt.circle_segment").format(target.name), shapes, 
                 MathViewport(xMin = -6.0, xMax = 6.0, yMin = -6.0, yMax = 6.0, showGrid = false, showAxes = false),
                 labels, setOf(shuffled.indexOf(target)), hint = Hint(target.hint))
         }
@@ -290,15 +308,15 @@ object MathQuestionGenerator {
             shapes += MathShape.Segment(po1, po2, color = Color(0xFFF47B20))
             shapes += MathShape.TextLabel(mid(po1, po2).let { Pt(it.x + 0.5, it.y + 0.5) }, "C", Color(0xFFF47B20))
 
-            questions += GraphSelectFromList(5340 + i, "Który odcinek znajduje się poza obszarem koła?", shapes,
+            questions += GraphSelectFromList(5340 + i, s("prompt.segment_outside_circle"), shapes,
                 MathViewport(xMin = -8.0, xMax = 8.0, yMin = -8.0, yMax = 8.0, showGrid = false, showAxes = false),
-                labels, setOf(2), hint = Hint("Odcinek poza kołem nie przecina okręgu i znajduje się w całości na zewnątrz."))
+                labels, setOf(2), hint = Hint(s("hint.segment_outside_circle")))
         }
 
         // 3. Two calculation questions
         repeat(2) { i ->
             val rad = rng.nextInt(3, 10); val dia = 2 * rad
-            questions += SelectFromList(5350 + i, "Jeśli promień r = $rad, to ile wynosi średnica d?", listOf("$dia", "${rad+2}", "${rad-1}").shuffled(rng), setOf(0)).let { it.copy(correctIndices = setOf(it.options.indexOf("$dia"))) }
+            questions += SelectFromList(5350 + i, s("prompt.diameter_from_radius").format(rad), listOf("$dia", "${rad+2}", "${rad-1}").shuffled(rng), setOf(0)).let { it.copy(correctIndices = setOf(it.options.indexOf("$dia"))) }
         }
 
         return questions.shuffled(rng)
@@ -308,7 +326,7 @@ object MathQuestionGenerator {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         repeat(5) { i ->
             val a = rng.nextInt(2, 8); val h = rng.nextInt(2, 6); val area = (a * h) / 2
-            questions += GraphTypeAnswer(5400 + i, "Oblicz pole trójkąta (a=$a, h=$h)", listOf(MathShape.Triangle(Pt(-a/2.0, 0.0), Pt(a/2.0, 0.0), Pt(0.0, h.toDouble()))), MathViewport(), area)
+            questions += GraphTypeAnswer(5400 + i, s("prompt.triangle_area").format(a, h), listOf(MathShape.Triangle(Pt(-a/2.0, 0.0), Pt(a/2.0, 0.0), Pt(0.0, h.toDouble()))), MathViewport(), area)
         }
         return questions.shuffled(rng)
     }
@@ -317,7 +335,7 @@ object MathQuestionGenerator {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         repeat(5) { i ->
             val (a, b, c) = listOf(Triple(3, 4, 5), Triple(6, 8, 10), Triple(5, 12, 13)).random(rng)
-            questions += GraphTypeAnswer(5500 + i, "Przyprostokątne $a i $b, oblicz przeciwprostokątną", listOf(MathShape.Triangle(Pt(0.0,0.0), Pt(a.toDouble(),0.0), Pt(0.0,b.toDouble()), labelAB="$a", labelCA="$b", labelBC="?")), MathViewport(), c)
+            questions += GraphTypeAnswer(5500 + i, s("prompt.hypotenuse").format(a, b), listOf(MathShape.Triangle(Pt(0.0,0.0), Pt(a.toDouble(),0.0), Pt(0.0,b.toDouble()), labelAB="$a", labelCA="$b", labelBC="?")), MathViewport(), c)
         }
         return questions.shuffled(rng)
     }
@@ -329,14 +347,14 @@ object MathQuestionGenerator {
         pairs.forEachIndexed { i, pair ->
             val (f, d) = pair
             val (n, den) = f
-            questions += DecimalAnswer(6100 + i, "Zamień ułamek zwykły $n/$den na dziesiętny", d, precision = 3, hint = Hint("Podziel licznik przez mianownik."))
+            questions += DecimalAnswer(6100 + i, s("prompt.fraction_to_decimal").format(n, den), d, precision = 3, hint = Hint(s("hint.fraction_to_decimal")))
         }
         // Decimals to Fractions
         val revPairs = listOf(0.5 to (1 to 2), 0.2 to (1 to 5), 0.75 to (3 to 4), 0.6 to (3 to 5))
         revPairs.forEachIndexed { i, pair ->
             val (d, f) = pair
             val (n, den) = f
-            questions += FractionAnswer(6150 + i, "Zamień ułamek dziesiętny $d na zwykły nieskracalny", n, den, hint = Hint("Zapisz jako ułamek o mianowniku 10, 100... a następnie skróć."))
+            questions += FractionAnswer(6150 + i, s("prompt.decimal_to_fraction").format(d), n, den, hint = Hint(s("hint.decimal_to_fraction")))
         }
         return questions.shuffled(rng)
     }
@@ -349,7 +367,7 @@ object MathQuestionGenerator {
             val op = if (rng.nextBoolean()) "+" else "-"
             val resN = if (op == "+") n1 + n2 else n1 - n2
             if (resN > 0) {
-                questions += FractionAnswer(6200 + i, "Oblicz: $n1/$den $op $n2/$den", resN, den, hint = Hint("Dodaj lub odejmij liczniki, mianownik pozostaje bez zmian."))
+                questions += FractionAnswer(6200 + i, s("prompt.calculate").format("$n1/$den $op $n2/$den"), resN, den, hint = Hint(s("hint.fraction_same_denom")))
             }
         }
         return questions.shuffled(rng)
@@ -361,8 +379,8 @@ object MathQuestionGenerator {
             Triple("1/2", "1/3", ">"), Triple("1/4", "1/2", "<"), Triple("2/5", "3/5", "<"),
             Triple("4/8", "1/2", "="), Triple("0.5", "1/2", "="), Triple("0.7", "0.65", ">")
         )
-        cases.forEachIndexed { i, (l, r, s) ->
-            questions += ComparisonQuiz(6300 + i, "Porównaj liczby", l, r, s, hint = Hint("Sprowadź do wspólnego mianownika lub zamień na ułamki dziesiętne."))
+        cases.forEachIndexed { i, (l, r, sign) ->
+            questions += ComparisonQuiz(6300 + i, s("prompt.compare_numbers"), l, r, sign, hint = Hint(s("hint.compare_fractions")))
         }
         return questions.shuffled(rng)
     }
@@ -379,7 +397,7 @@ object MathQuestionGenerator {
                 else -> a * b
             }
             if (res >= 0) {
-                questions += DecimalAnswer(6400 + i, "Oblicz: $a $op $b", res, precision = 2, hint = Hint("Działaj tak jak na liczbach całkowitych, pamiętając o przecinku."))
+                questions += DecimalAnswer(6400 + i, s("prompt.calculate").format("$a $op $b"), res, precision = 2, hint = Hint(s("hint.decimal_operations")))
             }
         }
         return questions.shuffled(rng)
@@ -393,9 +411,9 @@ object MathQuestionGenerator {
             val base = rng.nextInt(1, 21) * 10
             val res = (p * base) / 100.0
             if (res == res.toInt().toDouble()) {
-                questions += TypeAnswer(7100 + i, "Oblicz $p% z liczby $base", res.toInt(), hint = Hint("Pomnóż liczbę przez procent i podziel przez 100, lub zamień procent na ułamek."))
+                questions += TypeAnswer(7100 + i, s("prompt.percent_of").format(p, base), res.toInt(), hint = Hint(s("hint.percent_of")))
             } else {
-                questions += DecimalAnswer(7100 + i, "Oblicz $p% z liczby $base", res, hint = Hint("Pomnóż liczbę przez ułamek dziesiętny odpowiadający procentowi."))
+                questions += DecimalAnswer(7100 + i, s("prompt.percent_of").format(p, base), res, hint = Hint(s("hint.percent_decimal")))
             }
         }
         return questions.shuffled(rng)
@@ -409,8 +427,8 @@ object MathQuestionGenerator {
             val isDown = rng.nextBoolean()
             val diff = (price * p) / 100
             val res = if (isDown) price - diff else price + diff
-            val type = if (isDown) "obniżono" else "podniesiono"
-            questions += TypeAnswer(7200 + i, "Cenę $price zł $type o $p%. Jaka jest nowa cena?", res, unit = "zł", hint = Hint("Najpierw oblicz kwotę zmiany, a potem dodaj ją do ceny lub odejmij od niej."))
+            val type = if (isDown) s("word.decreased") else s("word.increased")
+            questions += TypeAnswer(7200 + i, s("prompt.price_change").format(price, s("word.currency"), type, p), res, unit = s("word.currency"), hint = Hint(s("hint.price_change")))
         }
         return questions.shuffled(rng)
     }
@@ -423,12 +441,12 @@ object MathQuestionGenerator {
             val girls = rng.nextInt(total / 2, total - 2)
             val percent = (girls * 100) / total
             if ((girls * 100) % total == 0) {
-                questions += TypeAnswer(7300 + i, "W klasie jest $total uczniów, w tym $girls dziewcząt. Jaki procent klasy stanowią dziewczęta?", percent, unit = "%", hint = Hint("Podziel liczbę dziewcząt przez wszystkich uczniów i pomnóż przez 100%."))
+                questions += TypeAnswer(7300 + i, s("prompt.percent_of_total").format(total, girls), percent, unit = "%", hint = Hint(s("hint.percent_of_total")))
             }
         }
         // Case 2: Simple interest / other
-        questions += SelectFromList(7310, "Jeśli 25% liczby wynosi 10, to cała liczba wynosi:", listOf("40", "30", "20", "50"), setOf(0), hint = Hint("Skoro 1/4 liczby to 10, to cała liczba jest 4 razy większa."))
-        questions += SelectFromList(7311, "Półtora to jaki procent całości?", listOf("150%", "15%", "50%", "105%"), setOf(0), hint = Hint("Jedna całoś to 100%, więc 1.5 to 1.5 * 100%."))
+        questions += SelectFromList(7310, s("prompt.find_whole_from_percent"), listOf("40", "30", "20", "50"), setOf(0), hint = Hint(s("hint.find_whole_from_quarter")))
+        questions += SelectFromList(7311, s("prompt.one_half_percent"), listOf("150%", "15%", "50%", "105%"), setOf(0), hint = Hint(s("hint.one_half_percent")))
 
         return questions.shuffled(rng)
     }
@@ -442,7 +460,7 @@ object MathQuestionGenerator {
             val a = b * x // ensure a/b is an integer x
             val c = rng.nextInt(2, 11)
             val res = x * c
-            questions += TypeAnswer(8100 + i, "Rozwiąż proporcję: $a / $b = x / $c", res, hint = Hint("Mnóż na krzyż: $a * $c = $b * x, a następnie podziel przez $b."))
+            questions += TypeAnswer(8100 + i, s("prompt.solve_proportion").format(a, b, c), res, hint = Hint(s("hint.solve_proportion").format(a, c, b, b)))
         }
         return questions.shuffled(rng)
     }
@@ -451,9 +469,9 @@ object MathQuestionGenerator {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         val scales = listOf(100, 1000, 10000, 50000, 100000)
         repeat(10) { i ->
-            val s = scales.random(rng)
+            val scale = scales.random(rng)
             val mapDist = rng.nextInt(1, 21)
-            val realDistCm = mapDist.toLong() * s
+            val realDistCm = mapDist.toLong() * scale
 
             val (res, unit) = when {
                 realDistCm >= 100000 -> (realDistCm / 100000.0) to "km"
@@ -462,9 +480,9 @@ object MathQuestionGenerator {
             }
 
             if (res == res.toLong().toDouble()) {
-                questions += TypeAnswer(8200 + i, "Skala 1:$s. Odległość na mapie to $mapDist cm. Ile to w terenie?", res.toInt(), unit = unit, hint = Hint("Pomnóż odległość na mapie przez mianownik skali i zamień jednostki."))
+                questions += TypeAnswer(8200 + i, s("prompt.map_scale").format(scale, mapDist), res.toInt(), unit = unit, hint = Hint(s("hint.map_scale")))
             } else {
-                questions += DecimalAnswer(8200 + i, "Skala 1:$s. Odległość na mapie to $mapDist cm. Ile to w terenie?", res, precision = 2, hint = Hint("1 cm na mapie to $s cm w terenie. Pomnóż i przelicz na $unit."))
+                questions += DecimalAnswer(8200 + i, s("prompt.map_scale").format(scale, mapDist), res, precision = 2, hint = Hint(s("hint.map_scale_detail").format(scale, unit)))
             }
         }
         return questions.shuffled(rng)
@@ -479,7 +497,7 @@ object MathQuestionGenerator {
             // mapDistCm = (realDistKm * 100,000) / scale
             val res = (realDistKm.toLong() * 100000) / scale
             if ((realDistKm.toLong() * 100000) % scale == 0L) {
-                questions += TypeAnswer(8300 + i, "Odległość w terenie wynosi $realDistKm km. Jaka będzie to odległość na mapie w skali 1:$scale?", res.toInt(), unit = "cm", hint = Hint("Zamień kilometry na centymetry, a potem podziel przez mianownik skali."))
+                questions += TypeAnswer(8300 + i, s("prompt.map_scale_reverse").format(realDistKm, scale), res.toInt(), unit = "cm", hint = Hint(s("hint.map_scale_reverse")))
             }
         }
         return questions.shuffled(rng)
@@ -488,14 +506,14 @@ object MathQuestionGenerator {
     private fun mat_9_1(seed: Long): List<Question> {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         val types = listOf(
-            Triple("czworokątny", 4, "kwadrat"),
-            Triple("trójkątny", 3, "trójkąt"),
-            Triple("sześciokątny", 6, "sześciokąt")
+            Triple(s("word.quadrangular"), 4, "kwadrat"),
+            Triple(s("word.triangular"), 3, "trójkąt"),
+            Triple(s("word.hexagonal"), 6, "sześciokąt")
         )
         types.forEachIndexed { i, (name, n, _) ->
-            questions += TypeAnswer(9100 + i*3, "Ile wierzchołków ma graniastosłup $name?", 2 * n, hint = Hint("Graniastosłup ma dwie identyczne podstawy, więc liczba wierzchołków to 2 * n."))
-            questions += TypeAnswer(9101 + i*3, "Ile krawędzi ma graniastosłup $name?", 3 * n, hint = Hint("Graniastosłup ma n krawędzi w każdej podstawie i n krawędzi bocznych."))
-            questions += TypeAnswer(9102 + i*3, "Ile ścian ma graniastosłup $name?", n + 2, hint = Hint("Graniastosłup ma n ścian bocznych i 2 podstawy."))
+            questions += TypeAnswer(9100 + i*3, s("prompt.prism_vertices").format(name), 2 * n, hint = Hint(s("hint.prism_vertices")))
+            questions += TypeAnswer(9101 + i*3, s("prompt.prism_edges").format(name), 3 * n, hint = Hint(s("hint.prism_edges")))
+            questions += TypeAnswer(9102 + i*3, s("prompt.prism_faces").format(name), n + 2, hint = Hint(s("hint.prism_faces")))
         }
         return questions.shuffled(rng)
     }
@@ -503,23 +521,23 @@ object MathQuestionGenerator {
     private fun mat_9_2(seed: Long): List<Question> {
         val rng = Random(seed); val questions = mutableListOf<Question>()
         val types = listOf(
-            Pair("czworokątny", 4),
-            Pair("trójkątny", 3),
-            Pair("pięciokątny", 5)
+            Pair(s("word.quadrangular"), 4),
+            Pair(s("word.triangular"), 3),
+            Pair(s("word.pentagonal"), 5)
         )
         types.forEachIndexed { i, (name, n) ->
-            questions += TypeAnswer(9200 + i*3, "Ile wierzchołków ma ostrosłup $name?", n + 1, hint = Hint("Ostrosłup ma n wierzchołków w podstawie i jeden wierzchołek na górze."))
-            questions += TypeAnswer(9201 + i*3, "Ile krawędzi ma ostrosłup $name?", 2 * n, hint = Hint("Ostrosłup ma n krawędzi w podstawie i n krawędzi bocznych."))
-            questions += TypeAnswer(9202 + i*3, "Ile ścian ma ostrosłup $name?", n + 1, hint = Hint("Ostrosłup ma n ścian bocznych i 1 podstawę."))
+            questions += TypeAnswer(9200 + i*3, s("prompt.pyramid_vertices").format(name), n + 1, hint = Hint(s("hint.pyramid_vertices")))
+            questions += TypeAnswer(9201 + i*3, s("prompt.pyramid_edges").format(name), 2 * n, hint = Hint(s("hint.pyramid_edges")))
+            questions += TypeAnswer(9202 + i*3, s("prompt.pyramid_faces").format(name), n + 1, hint = Hint(s("hint.pyramid_faces")))
         }
         return questions.shuffled(rng)
     }
 
     private fun mat_9_3(seed: Long): List<Question> {
         val rng = Random(seed); val questions = mutableListOf<Question>()
-        questions += SelectFromList(9300, "Która z tych brył powstaje przez obrót prostokąta wokół boku?", listOf("Walec", "Stożek", "Kula", "Graniastosłup"), setOf(0))
-        questions += SelectFromList(9301, "Która z tych brył powstaje przez obrót trójkąta prostokątnego wokół przyprostokątnej?", listOf("Stożek", "Walec", "Kula", "Ostrosłup"), setOf(0))
-        questions += SelectFromList(9302, "Przekrój osiowy kuli jest:", listOf("Kołem", "Kwadratem", "Trójkątem", "Prostokątem"), setOf(0))
+        questions += SelectFromList(9300, s("prompt.solid_from_rectangle"), listOf(s("word.cylinder"), s("word.cone"), s("word.sphere"), s("word.prism")), setOf(0))
+        questions += SelectFromList(9301, s("prompt.solid_from_triangle"), listOf(s("word.cone"), s("word.cylinder"), s("word.sphere"), s("word.pyramid")), setOf(0))
+        questions += SelectFromList(9302, s("prompt.sphere_section"), listOf(s("word.circle_noun"), s("word.square_noun"), s("word.triangle_noun"), s("word.rectangle_noun")), setOf(0))
         return questions.shuffled(rng)
     }
 
@@ -528,11 +546,11 @@ object MathQuestionGenerator {
         // Cube surface area: 6 * a^2
         repeat(5) { i ->
             val a = rng.nextInt(2, 7)
-            questions += TypeAnswer(9400 + i, "Oblicz pole powierzchni sześcianu o krawędzi $a", 6 * a * a, unit = "j²", hint = Hint("Sześcian ma 6 identycznych kwadratowych ścian. Pole jednej to a²."))
+            questions += TypeAnswer(9400 + i, s("prompt.cube_surface").format(a), 6 * a * a, unit = "j²", hint = Hint(s("hint.cube_surface")))
         }
         // Rectangular prism: 2(ab + bc + ac)
         val a = 2; val b = 3; val c = 4
-        questions += TypeAnswer(9410, "Oblicz pole powierzchni prostopadłościanu o wymiarach $a x $b x $c", 2 * (a*b + b*c + a*c), unit = "j²", hint = Hint("Pole powierzchni to suma pól wszystkich 6 ścian: 2 * (a*b + b*c + a*c)."))
+        questions += TypeAnswer(9410, s("prompt.cuboid_surface").format(a, b, c), 2 * (a*b + b*c + a*c), unit = "j²", hint = Hint(s("hint.cuboid_surface")))
         return questions.shuffled(rng)
     }
 
@@ -541,12 +559,12 @@ object MathQuestionGenerator {
         // Cube volume: a^3
         repeat(5) { i ->
             val a = rng.nextInt(2, 6)
-            questions += TypeAnswer(9500 + i, "Oblicz objętość sześcianu o krawędzi $a", a * a * a, unit = "j³", hint = Hint("Objętość sześcianu to krawędź podniesiona do potęgi trzeciej: V = a³."))
+            questions += TypeAnswer(9500 + i, s("prompt.cube_volume").format(a), a * a * a, unit = "j³", hint = Hint(s("hint.cube_volume")))
         }
         // Rectangular prism: a * b * c
         repeat(5) { i ->
             val a = rng.nextInt(2, 6); val b = rng.nextInt(2, 6); val h = rng.nextInt(2, 6)
-            questions += TypeAnswer(9510 + i, "Oblicz objętość prostopadłościanu o wymiarach $a, $b i wysokości $h", a * b * h, unit = "j³", hint = Hint("Objętość prostopadłościanu to iloczyn jego trzech wymiarów: V = a * b * h."))
+            questions += TypeAnswer(9510 + i, s("prompt.cuboid_volume").format(a, b, h), a * b * h, unit = "j³", hint = Hint(s("hint.cuboid_volume")))
         }
         return questions.shuffled(rng)
     }
@@ -558,8 +576,8 @@ object MathQuestionGenerator {
             val askX = rng.nextBoolean()
             val shapes = listOf(MathShape.PointMark(Pt(x.toDouble(), y.toDouble()), color = Color(0xFFE53935)))
             val correct = if (askX) x else y
-            val axis = if (askX) "X (odcięta)" else "Y (rzędna)"
-            questions += GraphTypeAnswer(10100 + i, "Podaj współrzędną $axis zaznaczonego punktu", shapes, MathViewport(), correct, hint = Hint("Oś X to oś pozioma, oś Y to oś pionowa. Pierwsza liczba w (x, y) to X, druga to Y."))
+            val axis = if (askX) s("word.x_axis") else s("word.y_axis")
+            questions += GraphTypeAnswer(10100 + i, s("prompt.coordinate_of").format(axis), shapes, MathViewport(), correct, hint = Hint(s("hint.coordinate_axes")))
         }
         return questions.shuffled(rng)
     }
@@ -571,7 +589,7 @@ object MathQuestionGenerator {
             val shapes = listOf(MathShape.PointMark(Pt(x.toDouble(), y.toDouble()), color = Color(0xFF4A80F0)))
             val correct = "($x, $y)"
             val options = listOf(correct, "($y, $x)", "(${-x}, $y)", "($x, ${-y})").distinct().shuffled(rng)
-            questions += GraphSelectFromList(10200 + i, "Jakie są współrzędne tego punktu?", shapes, MathViewport(), options, setOf(options.indexOf(correct)), hint = Hint("Najpierw odczytaj wartość z osi poziomej (X), a potem z pionowej (Y)."))
+            questions += GraphSelectFromList(10200 + i, s("prompt.coordinates"), shapes, MathViewport(), options, setOf(options.indexOf(correct)), hint = Hint(s("hint.read_coordinates")))
         }
         return questions.shuffled(rng)
     }
@@ -582,7 +600,7 @@ object MathQuestionGenerator {
             val x = rng.nextInt(1, 4).toDouble(); val y = rng.nextInt(1, 4).toDouble()
             val shapes = listOf(MathShape.Rectangle(-x, -y, 2*x, 2*y, color = Color(0xFF3DBD7D)))
             val area = (2 * x * 2 * y).toInt()
-            questions += GraphTypeAnswer(10300 + i, "Oblicz pole narysowanego prostokąta", shapes, MathViewport(), area, hint = Hint("Oblicz długości boków licząc jednostki na osiach, a potem pomnóż je przez siebie."))
+            questions += GraphTypeAnswer(10300 + i, s("prompt.drawn_rectangle_area"), shapes, MathViewport(), area, hint = Hint(s("hint.area_from_axes")))
         }
         return questions.shuffled(rng)
     }
@@ -598,7 +616,7 @@ object MathQuestionGenerator {
                 MathShape.PointMark(Pt(x2.toDouble(), y2.toDouble())),
                 MathShape.Segment(Pt(x1.toDouble(), y1.toDouble()), Pt(x2.toDouble(), y2.toDouble()), dashed = true)
             )
-            questions += GraphTypeAnswer(10400 + i, "Jaka jest odległość między tymi punktami?", shapes, MathViewport(), dx, hint = Hint("Punkty leżą na tej samej wysokości, więc wystarczy odjąć ich współrzędne X."))
+            questions += GraphTypeAnswer(10400 + i, s("prompt.distance_between_points"), shapes, MathViewport(), dx, hint = Hint(s("hint.horizontal_distance")))
         }
         return questions.shuffled(rng)
     }
@@ -610,10 +628,11 @@ object MathQuestionGenerator {
             val nums = List(count) { rng.nextInt(1, 11) }
             val sum = nums.sum()
             val mean = sum.toDouble() / count
+            val numStr = nums.joinToString(", ")
             if (sum % count == 0) {
-                questions += TypeAnswer(11100 + i, "Oblicz średnią arytmetyczną liczb: ${nums.joinToString(", ")}", mean.toInt(), hint = Hint("Średnia to suma wszystkich liczb podzielona przez ich ilość."))
+                questions += TypeAnswer(11100 + i, s("prompt.mean").format(numStr), mean.toInt(), hint = Hint(s("hint.mean")))
             } else {
-                questions += DecimalAnswer(11100 + i, "Oblicz średnią arytmetyczną liczb: ${nums.joinToString(", ")}", mean, precision = 2, hint = Hint("Dodaj wszystkie liczby i podziel sumę ($sum) przez $count."))
+                questions += DecimalAnswer(11100 + i, s("prompt.mean").format(numStr), mean, precision = 2, hint = Hint(s("hint.mean_detail").format(sum, count)))
             }
         }
         return questions.shuffled(rng)
@@ -627,13 +646,13 @@ object MathQuestionGenerator {
             val isMedian = rng.nextBoolean()
             if (isMedian) {
                 val res = nums[count / 2]
-                questions += TypeAnswer(11200 + i, "Podaj medianę zbioru: ${nums.shuffled(rng).joinToString(", ")}", res, hint = Hint("Mediana to środkowa liczba w uporządkowanym zbiorze."))
+                questions += TypeAnswer(11200 + i, s("prompt.median").format(nums.shuffled(rng).joinToString(", ")), res, hint = Hint(s("hint.median")))
             } else {
                 // Dominanta (Mode) - ensure one clear winner
                 val mode = rng.nextInt(1, 10)
                 val otherNums = List(count - 2) { rng.nextInt(11, 20) }
                 val set = (listOf(mode, mode) + otherNums).shuffled(rng)
-                questions += TypeAnswer(11200 + i, "Podaj dominantę (liczbę najczęstszą) zbioru: ${set.joinToString(", ")}", mode, hint = Hint("Dominanta to liczba, która występuje w zbiorze najwięcej razy."))
+                questions += TypeAnswer(11200 + i, s("prompt.mode").format(set.joinToString(", ")), mode, hint = Hint(s("hint.mode")))
             }
         }
         return questions.shuffled(rng)
@@ -654,9 +673,9 @@ object MathQuestionGenerator {
                 shapes += MathShape.TextLabel(Pt(x + 0.5, -0.4), labels[idx], color = Color(0xFF1A1A1A))
             }
             val targetIdx = rng.nextInt(0, 4)
-            questions += GraphTypeAnswer(11300 + i, "Odczytaj wartość dla słupka ${labels[targetIdx]}", shapes,
+            questions += GraphTypeAnswer(11300 + i, s("prompt.bar_value").format(labels[targetIdx]), shapes,
                 MathViewport(xMin = -1.0, xMax = 8.5, yMin = -1.5, yMax = 6.5, showGrid = true, showAxes = true, showXLabels = false, showYLabels = true),
-                values[targetIdx], hint = Hint("Spójrz na wysokość słupka i odczytaj wartość z osi pionowej (liczby po lewej)."))
+                values[targetIdx], hint = Hint(s("hint.bar_chart")))
         }
         // Case 2: Pie Chart
         repeat(2) { i ->
@@ -667,9 +686,9 @@ object MathQuestionGenerator {
                 MathShape.PieChart.Slice(10.0, Color(0xFF7C4DFF), "D")
             ).shuffled(rng)
             val shapes = listOf(MathShape.PieChart(0.0, 0.0, 3.8, data))
-            questions += GraphSelectFromList(11350 + i, "Który sektor wykresu kołowego jest największy?", shapes,
+            questions += GraphSelectFromList(11350 + i, s("prompt.largest_pie_sector"), shapes,
                 MathViewport(xMin = -5.0, xMax = 5.0, yMin = -5.0, yMax = 5.0, showAxes = false, showGrid = false),
-                data.map { it.label!! }, setOf(data.indexOf(data.maxBy { it.value })), hint = Hint("Największy sektor zajmuje najwięcej miejsca na kole."))
+                data.map { it.label!! }, setOf(data.indexOf(data.maxBy { it.value })), hint = Hint(s("hint.largest_pie_sector")))
         }
         return questions.shuffled(rng)
     }
@@ -680,12 +699,12 @@ object MathQuestionGenerator {
             val total = listOf(4, 5, 6, 10).random(rng)
             val target = rng.nextInt(1, total)
             val scenarios = listOf(
-                "W pudełku jest $total kul, w tym $target czerwonych. Wyciągamy jedną. Prawdopodobieństwo wylosowania czerwonej to:",
-                "Rzucamy kostką o $total ścianach. Prawdopodobieństwo wyrzucenia '1' to:", // wait, this one is fixed
-                "Na loterii jest $total losów, a wygrywających jest $target. Prawdopodobieństwo wygranej to:"
+                s("prompt.probability_balls").format(total, target),
+                s("prompt.probability_die").format(total),
+                s("prompt.probability_lottery").format(total, target)
             )
             val scenario = if (i % 2 == 0) scenarios[0] else scenarios[2]
-            questions += FractionAnswer(11400 + i, scenario, target, total, hint = Hint("Prawdopodobieństwo to liczba zdarzeń sprzyjających podzielona przez liczbę wszystkich możliwych zdarzeń."))
+            questions += FractionAnswer(11400 + i, scenario, target, total, hint = Hint(s("hint.probability")))
         }
         return questions.shuffled(rng)
     }
@@ -696,14 +715,14 @@ object MathQuestionGenerator {
         repeat(5) { i ->
             val n = rng.nextInt(-20, 21)
             val res = kotlin.math.abs(n)
-            questions += TypeAnswer(12100 + i, "Oblicz wartość bezwzględną: |$n|", res, hint = Hint("Wartość bezwzględna to odległość liczby od zera na osi liczbowej (zawsze nieujemna)."))
+            questions += TypeAnswer(12100 + i, s("prompt.abs_value").format(n), res, hint = Hint(s("hint.abs_value")))
         }
         // Opposite numbers
         repeat(5) { i ->
             val n = rng.nextInt(-20, 21)
             if (n == 0) return@repeat
             val res = -n
-            questions += TypeAnswer(12110 + i, "Podaj liczbę przeciwną do $n", res, hint = Hint("Liczba przeciwna leży po drugiej stronie zera na osi liczbowej. Suma liczby i jej przeciwnej to 0."))
+            questions += TypeAnswer(12110 + i, s("prompt.opposite_number").format(n), res, hint = Hint(s("hint.opposite_number")))
         }
         return questions.shuffled(rng)
     }
@@ -720,7 +739,7 @@ object MathQuestionGenerator {
             } else {
                 if (b < 0) "$a - ($b)" else "$a - $b"
             }
-            questions += TypeAnswer(12200 + i, "Oblicz: $display", res, hint = Hint("Pamiętaj: plus i minus daje minus ($a + (-$b) = $a - $b), a dwa minusy dają plus ($a - (-$b) = $a + $b)."))
+            questions += TypeAnswer(12200 + i, s("prompt.calculate").format(display), res, hint = Hint(s("hint.sign_rules_add_sub").format(a, b, a, b, a, b, a, b)))
         }
         return questions.shuffled(rng)
     }
@@ -741,16 +760,16 @@ object MathQuestionGenerator {
             }
 
             val display = if (op == MULTIPLY) {
-                val sA = if (qA < 0) "($qA)" else "$qA"
-                val sB = if (qB < 0) "($qB)" else "$qB"
-                "$sA * $sB"
+                val strA = if (qA < 0) "($qA)" else "$qA"
+                val strB = if (qB < 0) "($qB)" else "$qB"
+                "$strA * $strB"
             } else {
-                val sA = if (qA < 0) "($qA)" else "$qA"
-                val sB = if (qB < 0) "($qB)" else "$qB"
-                "$sA / $sB"
+                val strA = if (qA < 0) "($qA)" else "$qA"
+                val strB = if (qB < 0) "($qB)" else "$qB"
+                "$strA / $strB"
             }.replace("*", "×").replace("/", "÷")
 
-            questions += TypeAnswer(12300 + i, "Oblicz: $display", res, hint = Hint("Zasada znaków: dwa takie same znaki dają PLUS, dwa różne znaki dają MINUS."))
+            questions += TypeAnswer(12300 + i, s("prompt.calculate").format(display), res, hint = Hint(s("hint.sign_rule")))
         }
         return questions.shuffled(rng)
     }

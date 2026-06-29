@@ -1,0 +1,4437 @@
+[
+  {
+    "lessonId": "mat_1_1",
+    "questions": [
+      {
+        "type": "FindAnswer",
+        "id": 0,
+        "operand1": 3,
+        "operand2": 5,
+        "operator": "ADD",
+        "hint": {
+          "mainText": "Sčítání je počítání dopředu.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "Máte 3",
+            "Přidáte 5 kroků",
+            "Výsledek: 8"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 1,
+        "operand1": 9,
+        "operand2": 4,
+        "result": 13,
+        "correctOperator": "ADD",
+        "hint": {
+          "mainText": "Výsledek je větší než obě čísla — jedná se o sčítání.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "9 + 4 = 13 ✓",
+            "9 − 4 = 5 ✗"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 2,
+        "operand1": 12,
+        "operand2": 4,
+        "operator": "SUBTRACT",
+        "hint": {
+          "mainText": "Odčítání je počítání pozpátku.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "Máte 12",
+            "Uděláte 4 kroky zpět",
+            "Výsledek: 8"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 3,
+        "operand1": 15,
+        "operand2": 7,
+        "result": 8,
+        "correctOperator": "SUBTRACT",
+        "hint": {
+          "mainText": "Výsledek je menší než první číslo — jedná se o odčítání.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "15 − 7 = 8 ✓",
+            "15 + 7 = 22 ✗"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 4,
+        "operand1": 6,
+        "operand2": 8,
+        "operator": "ADD",
+        "hint": {
+          "mainText": "Rozdělte 8 na 4 + 4 pro snazší počítání.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "6 + 4 = 10",
+            "10 + 4 = 14"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 5,
+        "operand1": 20,
+        "operand2": 5,
+        "result": 15,
+        "correctOperator": "SUBTRACT",
+        "hint": {
+          "mainText": "Výsledek 15 je menší než 20.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "20 − 5 = 15 ✓",
+            "20 + 5 = 25 ✗"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 6,
+        "operand1": 17,
+        "operand2": 9,
+        "operator": "SUBTRACT",
+        "hint": {
+          "mainText": "Rozdělte odčítání: 17 − 9 = 17 − 10 + 1.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "17 − 10 = 7",
+            "7 + 1 = 8"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 7,
+        "operand1": 8,
+        "operand2": 6,
+        "result": 14,
+        "correctOperator": "ADD",
+        "hint": {
+          "mainText": "Výsledek 14 je větší než obě čísla.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "8 + 6 = 14 ✓",
+            "8 − 6 = 2 ✗"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 8,
+        "operand1": 25,
+        "operand2": 13,
+        "operator": "ADD",
+        "hint": {
+          "mainText": "Sečtěte desítky a jednotky zvlášť.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "20 + 10 = 30",
+            "5 + 3 = 8",
+            "30 + 8 = 38"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 9,
+        "operand1": 30,
+        "operand2": 12,
+        "result": 18,
+        "correctOperator": "SUBTRACT",
+        "hint": {
+          "mainText": "Výsledek 18 je menší než 30.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "30 − 12 = 18 ✓",
+            "30 + 12 = 42 ✗"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 10,
+        "operand1": 100,
+        "operand2": 37,
+        "operator": "SUBTRACT",
+        "hint": {
+          "mainText": "Odečtěte desítky a jednotky postupně.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "100 − 30 = 70",
+            "70 − 7 = 63"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 11,
+        "operand1": 44,
+        "operand2": 56,
+        "result": 100,
+        "correctOperator": "ADD",
+        "hint": {
+          "mainText": "44 + 56 dává zaokrouhlené číslo 100.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "4 + 6 = 10 (jednotky)",
+            "40 + 50 = 90 (desítky)",
+            "90 + 10 = 100 ✓"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "mat_1_2",
+    "questions": [
+      {
+        "type": "FindAnswer",
+        "id": 0,
+        "operand1": 7,
+        "operand2": 8,
+        "operator": "MULTIPLY",
+        "hint": {
+          "mainText": "7 × 8 je výsledek, který stojí za to si zapamatovat.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "7 × 4 = 28",
+            "28 × 2 = 56"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 1,
+        "operand1": 5,
+        "operand2": 4,
+        "result": 20,
+        "correctOperator": "MULTIPLY",
+        "hint": {
+          "mainText": "Výsledek 20 = 5 krát 4.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "5 × 4 = 20 ✓",
+            "5 + 4 = 9 ✗",
+            "20 ÷ 4 = 5 ✓"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 2,
+        "operand1": 36,
+        "operand2": 6,
+        "operator": "DIVIDE",
+        "hint": {
+          "mainText": "Dělení je opačná operace k násobení.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "6 × 6 = 36",
+            "So 36 ÷ 6 = 6"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 3,
+        "operand1": 24,
+        "operand2": 4,
+        "result": 6,
+        "correctOperator": "DIVIDE",
+        "hint": {
+          "mainText": "Kontrola: 4 × 6 = 24.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "24 ÷ 4 = 6 ✓",
+            "24 × 4 = 96 ✗"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 4,
+        "operand1": 9,
+        "operand2": 9,
+        "operator": "MULTIPLY",
+        "hint": {
+          "mainText": "9 × 9 je jeden z nejdůležitějších výsledků k zapamatování.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "9 × 10 = 90",
+            "90 − 9 = 81"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 5,
+        "operand1": 6,
+        "operand2": 7,
+        "result": 42,
+        "correctOperator": "MULTIPLY",
+        "hint": {
+          "mainText": "6 × 7 = 42 — stojí za to si pamatovat nazpaměť.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "6 × 7 = 42 ✓",
+            "6 + 7 = 13 ✗"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 6,
+        "operand1": 56,
+        "operand2": 8,
+        "operator": "DIVIDE",
+        "hint": {
+          "mainText": "Zopakujte si malou násobilku osmi.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "8 × 7 = 56",
+            "So 56 ÷ 8 = 7"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 7,
+        "operand1": 48,
+        "operand2": 6,
+        "result": 8,
+        "correctOperator": "DIVIDE",
+        "hint": {
+          "mainText": "Kontrola: 6 × 8 = 48.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "48 ÷ 6 = 8 ✓",
+            "6 × 8 = 48 ✓"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 8,
+        "operand1": 12,
+        "operand2": 11,
+        "operator": "MULTIPLY",
+        "hint": {
+          "mainText": "Násobení 11: sečtěte číslice.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "12 × 10 = 120",
+            "12 × 1 = 12",
+            "120 + 12 = 132"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 9,
+        "operand1": 3,
+        "operand2": 8,
+        "result": 24,
+        "correctOperator": "MULTIPLY",
+        "hint": {
+          "mainText": "3 × 8 = 24.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3 × 8 = 24 ✓",
+            "3 + 8 = 11 ✗"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 10,
+        "operand1": 81,
+        "operand2": 9,
+        "operator": "DIVIDE",
+        "hint": {
+          "mainText": "Dělení je opačná operace k násobení.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "9 × 9 = 81",
+            "So 81 ÷ 9 = 9"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 11,
+        "operand1": 72,
+        "operand2": 8,
+        "result": 9,
+        "correctOperator": "DIVIDE",
+        "hint": {
+          "mainText": "Kontrola: 8 × 9 = 72.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "72 ÷ 8 = 9 ✓",
+            "8 × 9 = 72 ✓"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "mat_1_3",
+    "questions": [
+      {
+        "type": "FindAnswer",
+        "id": 0,
+        "operand1": 2,
+        "operand2": 2,
+        "operator": "POWER",
+        "hint": {
+          "mainText": "2 na druhou je 2 × 2.",
+          "boldPart": null,
+          "sectionTitle": "DEFINICE UMOCŇOVÁNÍ",
+          "items": [
+            "a^n = a × a × ... × a (n-krát)",
+            "2^2 = 2 × 2"
+          ],
+          "steps": [
+            "2 × 2 = 4"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 1,
+        "operand1": 3,
+        "operand2": 2,
+        "operator": "POWER",
+        "hint": {
+          "mainText": "3 na druhou je 3 × 3.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3 × 3 = 9"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 2,
+        "operand1": 2,
+        "operand2": 3,
+        "operator": "POWER",
+        "hint": {
+          "mainText": "2 na třetí je 2 × 2 × 2.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "2 × 2 = 4",
+            "4 × 2 = 8"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 3,
+        "operand1": 2,
+        "operand2": 3,
+        "result": 8,
+        "correctOperator": "POWER",
+        "hint": {
+          "mainText": "2 ^ 3 znamená 2 vynásobené sebou samým 3krát.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "2 × 2 = 4",
+            "4 × 2 = 8 ✓"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 4,
+        "operand1": 4,
+        "operand2": 2,
+        "operator": "POWER",
+        "hint": {
+          "mainText": "4 na druhou je 4 × 4.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "4 × 4 = 16"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 5,
+        "operand1": 5,
+        "operand2": 2,
+        "operator": "POWER",
+        "hint": {
+          "mainText": "5 na druhou je 5 × 5.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "5 × 5 = 25"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 6,
+        "operand1": 2,
+        "operand2": 4,
+        "operator": "POWER",
+        "hint": {
+          "mainText": "2 na čtvrtou je 2 × 2 × 2 × 2.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "2 × 2 = 4",
+            "4 × 2 = 8",
+            "8 × 2 = 16"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 7,
+        "operand1": 3,
+        "operand2": 3,
+        "result": 27,
+        "correctOperator": "POWER",
+        "hint": {
+          "mainText": "3 ^ 3 znamená 3 vynásobené sebou samým 3krát.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3 × 3 = 9",
+            "9 × 3 = 27 ✓"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 8,
+        "operand1": 10,
+        "operand2": 2,
+        "operator": "POWER",
+        "hint": {
+          "mainText": "10 na druhou je 10 × 10.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "10 × 10 = 100"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 9,
+        "operand1": 3,
+        "operand2": 4,
+        "operator": "POWER",
+        "hint": {
+          "mainText": "3 na čtvrtou je 3 × 3 × 3 × 3.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3 × 3 = 9",
+            "9 × 3 = 27",
+            "27 × 3 = 81"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "mat_2_1",
+    "questions": [
+      {
+        "type": "SelectFromList",
+        "id": 0,
+        "prompt": "Který z následujících výrazů je jednočlen?",
+        "options": [
+          "3x + 2",
+          "5x²y",
+          "x + y + z",
+          "a² + b"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Jednočlen je algebraický výraz, který je součinem čísel a proměnných.",
+          "boldPart": "součin čísel a proměnných",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3x+2 — součet, nikoli součin ✗",
+            "5x²y — součin: 5·x²·y ✓",
+            "x+y+z — součet ✗",
+            "a²+b — součet ✗"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 1,
+        "prompt": "Kolik členů má mnohočlen 3x² − 2x + 1?",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Členy mnohočlenu jsou odděleny znaménky + nebo −.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3x² — člen 1",
+            "−2x — člen 2",
+            "+1 — člen 3",
+            "Celkem: 3 členy"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 2,
+        "prompt": "Které výrazy jsou jednočleny? (vyberte všechny)",
+        "options": [
+          "7a³b",
+          "2x − 3",
+          "−4xy²",
+          "m + n"
+        ],
+        "correctIndices": [
+          0,
+          2
+        ],
+        "multiSelect": true,
+        "hint": {
+          "mainText": "Jednočlen nemůže obsahovat sčítání ani odčítání.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "7a³b ✓ — pouze součin",
+            "2x−3 ✗ — součet",
+            "−4xy² ✓ — pouze součin",
+            "m+n ✗ — součet"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3,
+        "prompt": "Který z následujících výrazů je mnohočlen druhého stupně?",
+        "options": [
+          "5x³ + 1",
+          "3x² − x + 4",
+          "7x",
+          "2"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Stupeň mnohočlenu = nejvyšší exponent proměnné.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "5x³ → stupeň 3 ✗",
+            "3x² → stupeň 2 ✓",
+            "7x → stupeň 1 ✗",
+            "2 → stupeň 0 ✗"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 4,
+        "prompt": "Sečtěte stejné členy: 4x + 3x = ?",
+        "options": [
+          "7x²",
+          "7x",
+          "12x",
+          "7"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Stejné členy jsou ty se stejnou literální částí — sčítáme jejich koeficienty.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "4x + 3x = (4+3)x = 7x"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 5,
+        "prompt": "Které výrazy jsou stejné členy k 2x²? (vyberte všechny)",
+        "options": [
+          "3x²",
+          "2x",
+          "−5x²",
+          "x² + 1"
+        ],
+        "correctIndices": [
+          0,
+          2
+        ],
+        "multiSelect": true,
+        "hint": {
+          "mainText": "Stejné členy mají identickou literální část.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3x² ✓ — literální část x²",
+            "2x ✗ — literální část x",
+            "−5x² ✓ — literální část x²",
+            "x²+1 ✗ — toto je mnohočlen"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 6,
+        "prompt": "Zjednodušte: 5a − 2a + a = ?",
+        "options": [
+          "4a",
+          "3a",
+          "8a",
+          "2a"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Odečtěte a sečtěte koeficienty u a.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "5a − 2a = 3a",
+            "3a + a = 4a"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 7,
+        "prompt": "Který člen je absolutní člen ve výrazu x² + 3x − 7?",
+        "options": [
+          "x²",
+          "3x",
+          "−7",
+          "3"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Absolutní člen neobsahuje proměnnou.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "−7 nemá žádné x → je to absolutní člen ✓"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 8,
+        "prompt": "Které z následujících výrazů jsou mnohočleny? (vyberte všechny)",
+        "options": [
+          "x² + 2x + 1",
+          "3/x",
+          "4x³ − x",
+          "√x + 1"
+        ],
+        "correctIndices": [
+          0,
+          2
+        ],
+        "multiSelect": true,
+        "hint": {
+          "mainText": "Mnohočlen nemůže mít proměnnou ve jmenovateli ani pod odmocninou.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "x²+2x+1 ✓",
+            "3/x ✗ — proměnná ve jmenovateli",
+            "4x³−x ✓",
+            "√x ✗ — pod odmocninou"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 9,
+        "prompt": "Vynásobte jednočleny: 3x · 4x = ?",
+        "options": [
+          "12x",
+          "12x²",
+          "7x²",
+          "7x"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Násobíme čísla čísly, mocniny mocninami.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3·4 = 12",
+            "x·x = x²",
+            "Výsledek: 12x²"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "mat_2_2",
+    "questions": [
+      {
+        "type": "SelectFromList",
+        "id": 0,
+        "prompt": "Jaký je rozvoj (a + b)²?",
+        "options": [
+          "a² + b²",
+          "a² + 2ab + b²",
+          "a² − 2ab + b²",
+          "2a + 2b"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "(a+b)² = a·a + 2·a·b + b·b",
+          "boldPart": null,
+          "sectionTitle": "VZORCE PRO ZKRÁCENÉ NÁSOBENÍ",
+          "items": [
+            "(a+b)² = a² + 2ab + b²",
+            "(a−b)² = a² − 2ab + b²",
+            "(a+b)(a−b) = a² − b²"
+          ],
+          "steps": [
+            "(a+b)² = (a+b)(a+b)",
+            "= a² + ab + ab + b²",
+            "= a² + 2ab + b²"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 1,
+        "prompt": "Jaký je rozvoj (a − b)²?",
+        "options": [
+          "a² − b²",
+          "a² + 2ab + b²",
+          "a² − 2ab + b²",
+          "a − b"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "(a−b)² = a·a − 2·a·b + b·b",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "(a−b)² = (a−b)(a−b)",
+            "= a² − ab − ab + b²",
+            "= a² − 2ab + b²"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 2,
+        "prompt": "Jaký je rozvoj (a + b)(a − b)?",
+        "options": [
+          "a² + b²",
+          "a² − b²",
+          "a² − 2ab + b²",
+          "2ab"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Toto je vzorec pro rozdíl čtverců.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "(a+b)(a−b) = a² − ab + ab − b²",
+            "= a² − b²"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3,
+        "prompt": "Roznásobte (x + 3)²",
+        "options": [
+          "x² + 9",
+          "x² + 6x + 9",
+          "x² − 6x + 9",
+          "x² + 3x + 9"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Dosaďte a=x, b=3 do vzorce (a+b)².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "(x+3)² = x² + 2·x·3 + 3²",
+            "= x² + 6x + 9"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 4,
+        "prompt": "Roznásobte (x − 5)²",
+        "options": [
+          "x² − 25",
+          "x² − 10x + 25",
+          "x² + 10x + 25",
+          "x² − 10x − 25"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Dosaďte a=x, b=5 do vzorce (a−b)².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "(x−5)² = x² − 2·x·5 + 5²",
+            "= x² − 10x + 25"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 5,
+        "prompt": "Vypočítejte (2x + 3)²",
+        "options": [
+          "4x² + 9",
+          "4x² + 12x + 9",
+          "4x² − 12x + 9",
+          "2x² + 12x + 9"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Dosaďte a=2x, b=3.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "(2x)² = 4x²",
+            "2·(2x)·3 = 12x",
+            "3² = 9",
+            "Výsledek: 4x² + 12x + 9"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 6,
+        "prompt": "Vypočítejte (x + 4)(x − 4)",
+        "options": [
+          "x² + 16",
+          "x² − 16",
+          "x² − 8x + 16",
+          "x² + 8x − 16"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Toto je vzorec (a+b)(a−b) = a² − b².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "a=x, b=4",
+            "x² − 4² = x² − 16"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 7,
+        "prompt": "Které vzorce pro zkrácené násobení jsou správné? (vyberte všechny)",
+        "options": [
+          "(a+b)² = a² + 2ab + b²",
+          "(a+b)² = a² + b²",
+          "(a−b)² = a² − 2ab + b²",
+          "(a+b)(a−b) = a² − b²"
+        ],
+        "correctIndices": [
+          0,
+          2,
+          3
+        ],
+        "multiSelect": true,
+        "hint": {
+          "mainText": "Pamatujte si tři základní vzorce pro zkrácené násobení.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [
+            "(a+b)² = a² + 2ab + b²  ✓",
+            "(a−b)² = a² − 2ab + b²  ✓",
+            "(a+b)(a−b) = a² − b²  ✓"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 8,
+        "prompt": "Roznásobte (3 − x)²",
+        "options": [
+          "9 − x²",
+          "9 − 6x + x²",
+          "9 + 6x + x²",
+          "9 − 3x + x²"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Dosaďte a=3, b=x do vzorce (a−b)².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3² = 9",
+            "2·3·x = 6x",
+            "x² = x²",
+            "Výsledek: 9 − 6x + x²"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 9,
+        "prompt": "Která hodnota je rovna (10 + 1)²?",
+        "options": [
+          "101",
+          "100 + 1",
+          "100 + 20 + 1",
+          "10² + 1²"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Použijte vzorec (a+b)² s a=10, b=1.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "10² = 100",
+            "2·10·1 = 20",
+            "1² = 1",
+            "Celkem: 121"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "mat_3_1",
+    "questions": [
+      {
+        "type": "FindAnswer",
+        "id": 0,
+        "operand1": 5,
+        "operand2": 3,
+        "operator": "ADD",
+        "hint": {
+          "mainText": "Sečtěte obě čísla.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "5 + 3 = 8"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 1,
+        "operand1": 9,
+        "operand2": 2,
+        "operator": "SUBTRACT",
+        "hint": {
+          "mainText": "Odečtěte.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "9 − 2 = 7"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 2,
+        "operand1": 4,
+        "operand2": 3,
+        "result": 12,
+        "correctOperator": "MULTIPLY",
+        "hint": {
+          "mainText": "4 × 3 = 12.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "4 × 3 = 12 ✓"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 3,
+        "operand1": 8,
+        "operand2": 4,
+        "operator": "DIVIDE",
+        "hint": {
+          "mainText": "8 ÷ 4 = 2.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "4 × 2 = 8",
+            "So 8 ÷ 4 = 2"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 4,
+        "operand1": 6,
+        "operand2": 7,
+        "operator": "ADD",
+        "hint": {
+          "mainText": "6 + 7 = 13.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "6 + 7 = 13"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 5,
+        "operand1": 10,
+        "operand2": 5,
+        "result": 5,
+        "correctOperator": "DIVIDE",
+        "hint": {
+          "mainText": "10 ÷ 5 = 2.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "10 ÷ 5 = 2 ✓",
+            "5 × 2 = 10 ✓"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 6,
+        "operand1": 15,
+        "operand2": 8,
+        "operator": "SUBTRACT",
+        "hint": {
+          "mainText": "15 − 8 = 7.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "15 − 8 = 7"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 7,
+        "operand1": 3,
+        "operand2": 9,
+        "operator": "MULTIPLY",
+        "hint": {
+          "mainText": "3 × 9 = 27.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3 × 9 = 27"
+          ]
+        }
+      },
+      {
+        "type": "FindOperator",
+        "id": 8,
+        "operand1": 11,
+        "operand2": 4,
+        "result": 15,
+        "correctOperator": "ADD",
+        "hint": {
+          "mainText": "11 + 4 = 15.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "11 + 4 = 15 ✓"
+          ]
+        }
+      },
+      {
+        "type": "FindAnswer",
+        "id": 9,
+        "operand1": 20,
+        "operand2": 4,
+        "operator": "DIVIDE",
+        "hint": {
+          "mainText": "20 ÷ 4 = 5.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "4 × 5 = 20",
+            "So 20 ÷ 4 = 5"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "mat_4_1",
+    "questions": [
+      {
+        "type": "GraphSelectFromList",
+        "id": 0,
+        "prompt": "Given the function f(x) = x².\nWhat is the value of f(3)?",
+        "shapes": [
+          {
+            "type": "FunctionPlot",
+            "formula": "x^2",
+            "color": "#ff4a80f0",
+            "label": null,
+            "strokeWidth": 2.5,
+            "samples": 300
+          },
+          {
+            "type": "PointMark",
+            "pt": {
+              "x": 3.0,
+              "y": 9.0
+            },
+            "label": "f(3) = ?",
+            "color": "#ff4a80f0",
+            "radiusDp": 4.0
+          }
+        ],
+        "viewport": {
+          "xMin": -4.0,
+          "xMax": 4.0,
+          "yMin": -1.0,
+          "yMax": 10.0,
+          "showGrid": true,
+          "showAxes": true,
+          "gridStep": 1.0
+        },
+        "options": [
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "correctIndices": [
+          3
+        ],
+        "hint": {
+          "mainText": "f(3) = 3² = 3 × 3.",
+          "boldPart": "3²",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "f(3) = 3² = 9"
+          ]
+        }
+      },
+      {
+        "type": "GraphSelectFromList",
+        "id": 1,
+        "prompt": "Given the function f(x) = x² − 2.\nWhat is the value of f(0)?",
+        "shapes": [
+          {
+            "type": "FunctionPlot",
+            "formula": "x^2 - 2",
+            "color": "#ff4a80f0",
+            "label": null,
+            "strokeWidth": 2.5,
+            "samples": 300
+          },
+          {
+            "type": "PointMark",
+            "pt": {
+              "x": 0.0,
+              "y": -2.0
+            },
+            "label": "f(0) = ?",
+            "color": "#ff4a80f0",
+            "radiusDp": 4.0
+          }
+        ],
+        "viewport": {
+          "xMin": -4.0,
+          "xMax": 4.0,
+          "yMin": -3.0,
+          "yMax": 8.0,
+          "showGrid": true,
+          "showAxes": true,
+          "gridStep": 1.0
+        },
+        "options": [
+          "−3",
+          "−2",
+          "−1",
+          "0"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "hint": {
+          "mainText": "f(0) = 0² − 2.",
+          "boldPart": "0²",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "f(0) = 0 − 2 = −2"
+          ]
+        }
+      },
+      {
+        "type": "GraphSelectFromList",
+        "id": 2,
+        "prompt": "Given the function f(x) = −x².\nFor which value of x does the function reach its maximum?",
+        "shapes": [
+          {
+            "type": "FunctionPlot",
+            "formula": "-x^2",
+            "color": "#ff4a80f0",
+            "label": null,
+            "strokeWidth": 2.5,
+            "samples": 300
+          }
+        ],
+        "viewport": {
+          "xMin": -4.0,
+          "xMax": 4.0,
+          "yMin": -10.0,
+          "yMax": 2.0,
+          "showGrid": true,
+          "showAxes": true,
+          "gridStep": 1.0
+        },
+        "options": [
+          "x = −1",
+          "x = 0",
+          "x = 1",
+          "nemá maximum"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "hint": {
+          "mainText": "Parabola otevírající se dolů — vrchol je maximum.",
+          "boldPart": "vrchol",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "Vrchol f(x) = −x² leží v (0, 0)",
+            "Maximum v x = 0, f(0) = 0"
+          ]
+        }
+      },
+      {
+        "type": "GraphSelectFromList",
+        "id": 3,
+        "prompt": "Given the function f(x) = x² + 1.\nWhat is the minimum value of this function?",
+        "shapes": [
+          {
+            "type": "FunctionPlot",
+            "formula": "x^2 + 1",
+            "color": "#ff4a80f0",
+            "label": null,
+            "strokeWidth": 2.5,
+            "samples": 300
+          }
+        ],
+        "viewport": {
+          "xMin": -4.0,
+          "xMax": 4.0,
+          "yMin": -1.0,
+          "yMax": 9.0,
+          "showGrid": true,
+          "showAxes": true,
+          "gridStep": 1.0
+        },
+        "options": [
+          "0",
+          "1",
+          "2",
+          "−1"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "hint": {
+          "mainText": "Vrchol paraboly y = x² + 1 je posunut o 1 nahoru.",
+          "boldPart": "posunutý o 1 nahoru",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "Minimum ve vrcholu (0, 1)",
+            "f(0) = 0² + 1 = 1"
+          ]
+        }
+      },
+      {
+        "type": "GraphSelectFromList",
+        "id": 4,
+        "prompt": "Given the function f(x) = (x − 2)².\nWhat is the value of f(2)?",
+        "shapes": [
+          {
+            "type": "FunctionPlot",
+            "formula": "(x - 2)^2",
+            "color": "#ff4a80f0",
+            "label": null,
+            "strokeWidth": 2.5,
+            "samples": 300
+          },
+          {
+            "type": "PointMark",
+            "pt": {
+              "x": 2.0,
+              "y": 0.0
+            },
+            "label": "f(2) = ?",
+            "color": "#ff4a80f0",
+            "radiusDp": 4.0
+          }
+        ],
+        "viewport": {
+          "xMin": -1.0,
+          "xMax": 5.0,
+          "yMin": -1.0,
+          "yMax": 8.0,
+          "showGrid": true,
+          "showAxes": true,
+          "gridStep": 1.0
+        },
+        "options": [
+          "0",
+          "1",
+          "2",
+          "4"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "hint": {
+          "mainText": "f(2) = (2 − 2)² = 0² = 0.",
+          "boldPart": "(2 − 2)²",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "f(2) = (2 − 2)²",
+            "= 0² = 0"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 5,
+        "prompt": "Given the function f(x) = x².\nWhat is the value of f(4)?",
+        "shapes": [
+          {
+            "type": "FunctionPlot",
+            "formula": "x^2",
+            "color": "#ff4a80f0",
+            "label": null,
+            "strokeWidth": 2.5,
+            "samples": 300
+          },
+          {
+            "type": "Segment",
+            "from": {
+              "x": 4.0,
+              "y": 0.0
+            },
+            "to": {
+              "x": 4.0,
+              "y": 16.0
+            },
+            "color": "#ff4a80f0",
+            "dashed": true,
+            "strokeWidth": 2.0
+          },
+          {
+            "type": "PointMark",
+            "pt": {
+              "x": 4.0,
+              "y": 16.0
+            },
+            "label": "f(4)=?",
+            "color": "#ff4a80f0",
+            "radiusDp": 4.0
+          }
+        ],
+        "viewport": {
+          "xMin": -1.0,
+          "xMax": 5.0,
+          "yMin": -1.0,
+          "yMax": 18.0,
+          "showGrid": true,
+          "showAxes": true,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 16,
+        "unit": "",
+        "inlineHint": "f(x) = x²  →  f(4) = 4²",
+        "hint": {
+          "mainText": "f(4) = 4² = 4 × 4.",
+          "boldPart": "4²",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "f(4) = 4 × 4 = 16"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 6,
+        "prompt": "Given the function f(x) = x² − 3.\nWhat is the value of f(2)?",
+        "shapes": [
+          {
+            "type": "FunctionPlot",
+            "formula": "x^2 - 3",
+            "color": "#ff4a80f0",
+            "label": null,
+            "strokeWidth": 2.5,
+            "samples": 300
+          },
+          {
+            "type": "PointMark",
+            "pt": {
+              "x": 2.0,
+              "y": 1.0
+            },
+            "label": "f(2)=?",
+            "color": "#ff4a80f0",
+            "radiusDp": 4.0
+          }
+        ],
+        "viewport": {
+          "xMin": -4.0,
+          "xMax": 4.0,
+          "yMin": -4.0,
+          "yMax": 6.0,
+          "showGrid": true,
+          "showAxes": true,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 1,
+        "unit": "",
+        "inlineHint": "f(2) = 2² − 3",
+        "hint": {
+          "mainText": "f(2) = 2² − 3.",
+          "boldPart": "2²",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "2² = 4",
+            "4 − 3 = 1"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 7,
+        "prompt": "Given the function f(x) = 2x².\nWhat is the value of f(2)?",
+        "shapes": [
+          {
+            "type": "FunctionPlot",
+            "formula": "2*x^2",
+            "color": "#ff4a80f0",
+            "label": null,
+            "strokeWidth": 2.5,
+            "samples": 300
+          },
+          {
+            "type": "PointMark",
+            "pt": {
+              "x": 2.0,
+              "y": 8.0
+            },
+            "label": "f(2)=?",
+            "color": "#ff4a80f0",
+            "radiusDp": 4.0
+          }
+        ],
+        "viewport": {
+          "xMin": -3.0,
+          "xMax": 3.0,
+          "yMin": -1.0,
+          "yMax": 10.0,
+          "showGrid": true,
+          "showAxes": true,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 8,
+        "unit": "",
+        "inlineHint": "f(2) = 2 · 2²",
+        "hint": {
+          "mainText": "f(2) = 2 · 2² = 2 · 4.",
+          "boldPart": "2 · 2²",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "2² = 4",
+            "2 × 4 = 8"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "mat_5_1",
+    "questions": [
+      {
+        "type": "GraphTypeAnswer",
+        "id": 0,
+        "prompt": "Vypočítejte velikost chybějícího úhlu v trojúhelníku označeném '?'.",
+        "shapes": [
+          {
+            "type": "Triangle",
+            "a": {
+              "x": -2.1511210646037853,
+              "y": -1.4164499003669055
+            },
+            "b": {
+              "x": 1.8488789353962147,
+              "y": -1.4164499003669055
+            },
+            "c": {
+              "x": 0.3022421292075701,
+              "y": 2.832899800733811
+            },
+            "color": "#ff4a80f0",
+            "showAngleArcs": true,
+            "labelA": "60°",
+            "labelB": "70°",
+            "labelC": "?",
+            "labelAB": null,
+            "labelBC": null,
+            "labelCA": null
+          }
+        ],
+        "viewport": {
+          "xMin": -3.3511210646037854,
+          "xMax": 3.048878935396215,
+          "yMin": -2.6164499003669057,
+          "yMax": 4.032899800733811,
+          "showGrid": false,
+          "showAxes": false,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 50,
+        "unit": "°",
+        "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+        "hint": {
+          "mainText": "Součet úhlů = 180°.",
+          "boldPart": "180°",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "180° − 60° − 70° = 50°"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 1,
+        "prompt": "Vypočítejte velikost chybějícího úhlu v trojúhelníku označeném '?'.",
+        "shapes": [
+          {
+            "type": "Triangle",
+            "a": {
+              "x": -2.6666666666666665,
+              "y": -1.3333333333333333
+            },
+            "b": {
+              "x": 1.3333333333333335,
+              "y": -1.3333333333333333
+            },
+            "c": {
+              "x": 1.3333333333333344,
+              "y": 2.666666666666667
+            },
+            "color": "#ff4a80f0",
+            "showAngleArcs": true,
+            "labelA": "45°",
+            "labelB": "90°",
+            "labelC": "?",
+            "labelAB": null,
+            "labelBC": null,
+            "labelCA": null
+          }
+        ],
+        "viewport": {
+          "xMin": -3.8666666666666663,
+          "xMax": 2.533333333333334,
+          "yMin": -2.533333333333333,
+          "yMax": 3.866666666666667,
+          "showGrid": false,
+          "showAxes": false,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 45,
+        "unit": "°",
+        "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+        "hint": {
+          "mainText": "Pravoúhlý trojúhelník má jeden úhel 90°.",
+          "boldPart": "90°",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "180° − 45° − 90° = 45°"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 2,
+        "prompt": "Vypočítejte velikost chybějícího úhlu v trojúhelníku označeném '?'.",
+        "shapes": [
+          {
+            "type": "Triangle",
+            "a": {
+              "x": -2.3333333333333335,
+              "y": -0.5773502691896256
+            },
+            "b": {
+              "x": 1.6666666666666665,
+              "y": -0.5773502691896256
+            },
+            "c": {
+              "x": 0.6666666666666665,
+              "y": 1.1547005383792515
+            },
+            "color": "#ff4a80f0",
+            "showAngleArcs": true,
+            "labelA": "30°",
+            "labelB": "60°",
+            "labelC": "?",
+            "labelAB": null,
+            "labelBC": null,
+            "labelCA": null
+          }
+        ],
+        "viewport": {
+          "xMin": -3.533333333333333,
+          "xMax": 2.8666666666666663,
+          "yMin": -1.7773502691896255,
+          "yMax": 2.3547005383792516,
+          "showGrid": false,
+          "showAxes": false,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 90,
+        "unit": "°",
+        "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+        "hint": {
+          "mainText": "Pokud je výsledek 90°, trojúhelník je pravoúhlý.",
+          "boldPart": "90°",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "180° − 30° − 60° = 90°"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 3,
+        "prompt": "Vypočítejte velikost chybějícího úhlu v trojúhelníku označeném '?'.",
+        "shapes": [
+          {
+            "type": "Triangle",
+            "a": {
+              "x": -2.13367442949372,
+              "y": -1.1430055411952558
+            },
+            "b": {
+              "x": 1.8663255705062798,
+              "y": -1.1430055411952558
+            },
+            "c": {
+              "x": 0.2673488589874413,
+              "y": 2.2860110823905115
+            },
+            "color": "#ff4a80f0",
+            "showAngleArcs": true,
+            "labelA": "55°",
+            "labelB": "65°",
+            "labelC": "?",
+            "labelAB": null,
+            "labelBC": null,
+            "labelCA": null
+          }
+        ],
+        "viewport": {
+          "xMin": -3.33367442949372,
+          "xMax": 3.0663255705062795,
+          "yMin": -2.3430055411952555,
+          "yMax": 3.4860110823905117,
+          "showGrid": false,
+          "showAxes": false,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 60,
+        "unit": "°",
+        "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+        "hint": {
+          "mainText": "Součet úhlů = 180°.",
+          "boldPart": "180°",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "180° − 55° − 65° = 60°"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 4,
+        "prompt": "Vypočítejte velikost chybějícího úhlu v trojúhelníku označeném '?'.",
+        "shapes": [
+          {
+            "type": "Triangle",
+            "a": {
+              "x": -1.5051818673542938,
+              "y": -0.9746014667210291
+            },
+            "b": {
+              "x": 2.4948181326457064,
+              "y": -0.9746014667210291
+            },
+            "c": {
+              "x": -0.9896362652914119,
+              "y": 1.949202933442058
+            },
+            "color": "#ff4a80f0",
+            "showAngleArcs": true,
+            "labelA": "80°",
+            "labelB": "40°",
+            "labelC": "?",
+            "labelAB": null,
+            "labelBC": null,
+            "labelCA": null
+          }
+        ],
+        "viewport": {
+          "xMin": -2.705181867354294,
+          "xMax": 3.6948181326457066,
+          "yMin": -2.174601466721029,
+          "yMax": 3.1492029334420577,
+          "showGrid": false,
+          "showAxes": false,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 60,
+        "unit": "°",
+        "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+        "hint": {
+          "mainText": "Součet úhlů = 180°.",
+          "boldPart": "180°",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "180° − 80° − 40° = 60°"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 5,
+        "prompt": "Vypočítejte velikost chybějícího úhlu v trojúhelníku označeném '?'.",
+        "shapes": [
+          {
+            "type": "Triangle",
+            "a": {
+              "x": -2.0601535096350663,
+              "y": -0.8661905562775472
+            },
+            "b": {
+              "x": 1.9398464903649337,
+              "y": -0.8661905562775472
+            },
+            "c": {
+              "x": 0.12030701927013254,
+              "y": 1.7323811125550943
+            },
+            "color": "#ff4a80f0",
+            "showAngleArcs": true,
+            "labelA": "50°",
+            "labelB": "55°",
+            "labelC": "?",
+            "labelAB": null,
+            "labelBC": null,
+            "labelCA": null
+          }
+        ],
+        "viewport": {
+          "xMin": -3.2601535096350664,
+          "xMax": 3.139846490364934,
+          "yMin": -2.0661905562775473,
+          "yMax": 2.9323811125550945,
+          "showGrid": false,
+          "showAxes": false,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 75,
+        "unit": "°",
+        "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+        "hint": {
+          "mainText": "Součet úhlů = 180°.",
+          "boldPart": "180°",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "180° − 50° − 55° = 75°"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 6,
+        "prompt": "Vypočítejte velikost chybějícího úhlu v trojúhelníku označeném '?'.",
+        "shapes": [
+          {
+            "type": "Triangle",
+            "a": {
+              "x": -2.0,
+              "y": -1.1547005383792515
+            },
+            "b": {
+              "x": 2.0,
+              "y": -1.1547005383792515
+            },
+            "c": {
+              "x": 4.440892098500626e-16,
+              "y": 2.309401076758503
+            },
+            "color": "#ff4a80f0",
+            "showAngleArcs": true,
+            "labelA": "60°",
+            "labelB": "60°",
+            "labelC": "?",
+            "labelAB": null,
+            "labelBC": null,
+            "labelCA": null
+          }
+        ],
+        "viewport": {
+          "xMin": -3.2,
+          "xMax": 3.2,
+          "yMin": -2.3547005383792516,
+          "yMax": 3.509401076758503,
+          "showGrid": false,
+          "showAxes": false,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 60,
+        "unit": "°",
+        "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+        "hint": {
+          "mainText": "Rovnostranný trojúhelník — všechny úhly jsou rovny 60°.",
+          "boldPart": "60°",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "180° ÷ 3 = 60°"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 7,
+        "prompt": "Vypočítejte velikost chybějícího úhlu v trojúhelníku označeném '?'.",
+        "shapes": [
+          {
+            "type": "Triangle",
+            "a": {
+              "x": -0.8773064755657751,
+              "y": -1.2529234943812113
+            },
+            "b": {
+              "x": 3.122693524434225,
+              "y": -1.2529234943812113
+            },
+            "c": {
+              "x": -2.2453870488684498,
+              "y": 2.505846988762422
+            },
+            "color": "#ff4a80f0",
+            "showAngleArcs": true,
+            "labelA": "110°",
+            "labelB": "35°",
+            "labelC": "?",
+            "labelAB": null,
+            "labelBC": null,
+            "labelCA": null
+          }
+        ],
+        "viewport": {
+          "xMin": -3.44538704886845,
+          "xMax": 4.322693524434225,
+          "yMin": -2.4529234943812113,
+          "yMax": 3.7058469887624224,
+          "showGrid": false,
+          "showAxes": false,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 35,
+        "unit": "°",
+        "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+        "hint": {
+          "mainText": "Tupý úhel (>90°) také patří do trojúhelníku.",
+          "boldPart": ">90°",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "180° − 110° − 35° = 35°"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 8,
+        "prompt": "Vypočítejte velikost chybějícího úhlu v trojúhelníku označeném '?'.",
+        "shapes": [
+          {
+            "type": "Triangle",
+            "a": {
+              "x": -0.0804098389521221,
+              "y": -1.4931760756744998
+            },
+            "b": {
+              "x": 3.919590161047878,
+              "y": -1.4931760756744998
+            },
+            "c": {
+              "x": -3.8391803220957557,
+              "y": 2.986352151349
+            },
+            "color": "#ff4a80f0",
+            "showAngleArcs": true,
+            "labelA": "130°",
+            "labelB": "30°",
+            "labelC": "?",
+            "labelAB": null,
+            "labelBC": null,
+            "labelCA": null
+          }
+        ],
+        "viewport": {
+          "xMin": -5.039180322095755,
+          "xMax": 5.119590161047878,
+          "yMin": -2.6931760756745,
+          "yMax": 4.186352151349,
+          "showGrid": false,
+          "showAxes": false,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 20,
+        "unit": "°",
+        "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+        "hint": {
+          "mainText": "Součet úhlů = 180°.",
+          "boldPart": "180°",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "180° − 130° − 30° = 20°"
+          ]
+        }
+      },
+      {
+        "type": "GraphTypeAnswer",
+        "id": 9,
+        "prompt": "Vypočítejte velikost chybějícího úhlu v trojúhelníku označeném '?'.",
+        "shapes": [
+          {
+            "type": "Triangle",
+            "a": {
+              "x": -2.0,
+              "y": -1.831651612969748
+            },
+            "b": {
+              "x": 2.0,
+              "y": -1.831651612969748
+            },
+            "c": {
+              "x": 4.440892098500626e-16,
+              "y": 3.6633032259394964
+            },
+            "color": "#ff4a80f0",
+            "showAngleArcs": true,
+            "labelA": "70°",
+            "labelB": "70°",
+            "labelC": "?",
+            "labelAB": null,
+            "labelBC": null,
+            "labelCA": null
+          }
+        ],
+        "viewport": {
+          "xMin": -3.2,
+          "xMax": 3.2,
+          "yMin": -3.031651612969748,
+          "yMax": 4.863303225939497,
+          "showGrid": false,
+          "showAxes": false,
+          "gridStep": 1.0
+        },
+        "correctAnswer": 40,
+        "unit": "°",
+        "inlineHint": "The sum of interior angles in a triangle is always 180°.",
+        "hint": {
+          "mainText": "Rovnoramenný trojúhelník — dva úhly jsou stejné.",
+          "boldPart": "dva úhly jsou stejné",
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "180° − 70° − 70° = 40°"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "algebra_1_1",
+    "questions": [
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 0,
+        "prompt": "Roznásobte a zjednodušte: x*(x + 2)",
+        "correctExpr": "x^2+2*x",
+        "displayCorrect": "x² + 2x",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Vynásobíme každý člen v závorce x.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "x*(x+2)",
+            "= x*x + x*2",
+            "= x² + 2x"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 1,
+        "prompt": "Roznásobte a zjednodušte: (x + 1)*(x + 1)",
+        "correctExpr": "x^2+2*x+1",
+        "displayCorrect": "x² + 2x + 1",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Toto je vzorec pro zkrácené násobení: (a+b)² = a²+2ab+b².",
+          "boldPart": null,
+          "sectionTitle": "VZORCE PRO ZKRÁCENÉ NÁSOBENÍ",
+          "items": [
+            "(a+b)² = a² + 2ab + b²"
+          ],
+          "steps": [
+            "(x+1)² = x² + 2·x·1 + 1²",
+            "= x² + 2x + 1"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 2,
+        "prompt": "Roznásobte a zjednodušte: (x + 3)*(x - 3)",
+        "correctExpr": "x^2-9",
+        "displayCorrect": "x² - 9",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Toto je vzorec pro zkrácené násobení: (a+b)(a-b) = a²-b².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "(x+3)(x-3) = x² - 3²",
+            "= x² - 9"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 3,
+        "prompt": "Roznásobte a zjednodušte: 2*x*(x + 4)",
+        "correctExpr": "2*x^2+8*x",
+        "displayCorrect": "2x² + 8x",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Vynásobíme 2x každý člen.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "2x*(x+4)",
+            "= 2x*x + 2x*4",
+            "= 2x² + 8x"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 4,
+        "prompt": "Roznásobte a zjednodušte: (x + 2)*(x + 3)",
+        "correctExpr": "x^2+5*x+6",
+        "displayCorrect": "x² + 5x + 6",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Vynásobíme křížem každou dvojici členů.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "(x+2)(x+3)",
+            "= x²+3x+2x+6",
+            "= x² + 5x + 6"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 5,
+        "prompt": "Roznásobte a zjednodušte: (x - 4)*(x + 4)",
+        "correctExpr": "x^2-16",
+        "displayCorrect": "x² - 16",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Vzorec (a+b)(a-b) = a²-b².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "(x-4)(x+4) = x² - 4²",
+            "= x² - 16"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 6,
+        "prompt": "Roznásobte a zjednodušte: (x - 2)²",
+        "correctExpr": "x^2-4*x+4",
+        "displayCorrect": "x² - 4x + 4",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Vzorec (a-b)² = a²-2ab+b².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "(x-2)² = x² - 2·x·2 + 2²",
+            "= x² - 4x + 4"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 7,
+        "prompt": "Roznásobte a zjednodušte: 3*x*(2*x - 1)",
+        "correctExpr": "6*x^2-3*x",
+        "displayCorrect": "6x² - 3x",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Vynásobíme 3x každý člen.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "3x*(2x-1)",
+            "= 3x*2x - 3x*1",
+            "= 6x² - 3x"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 8,
+        "prompt": "Roznásobte a zjednodušte: (2*x + 1)²",
+        "correctExpr": "4*x^2+4*x+1",
+        "displayCorrect": "4x² + 4x + 1",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Vzorec (a+b)² = a²+2ab+b², kde a=2x, b=1.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "(2x)² = 4x²",
+            "2*(2x)*1 = 4x",
+            "1² = 1",
+            "Výsledek: 4x²+4x+1"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 9,
+        "prompt": "Roznásobte a zjednodušte: (x + 5)*(x - 2)",
+        "correctExpr": "x^2+3*x-10",
+        "displayCorrect": "x² + 3x - 10",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Vynásobíme křížem každou dvojici.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "x*x + x*(-2) + 5*x + 5*(-2)",
+            "= x² - 2x + 5x - 10",
+            "= x² + 3x - 10"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 100,
+        "prompt": "Jaká je hodnota x*(x+2)?",
+        "options": [
+          "x²+2x",
+          "x²+2",
+          "2x+2",
+          "x²-2x"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Vynásobíme x každý člen: x*x + x*2 = x²+2x.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 101,
+        "prompt": "Jaká je hodnota (x+1)²?",
+        "options": [
+          "x²+2x+1",
+          "x²+1",
+          "x²-2x+1",
+          "2x+1"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "(a+b)² = a²+2ab+b².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 102,
+        "prompt": "Jaká je hodnota (x+3)(x-3)?",
+        "options": [
+          "x²-9",
+          "x²+9",
+          "x²-3",
+          "x²+6x-9"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "(a+b)(a-b) = a²-b².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 103,
+        "prompt": "Jaká je hodnota 2x*(x+4)?",
+        "options": [
+          "2x²+8x",
+          "2x+8",
+          "x²+8x",
+          "2x²+4"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 104,
+        "prompt": "Jaká je hodnota (x+2)(x+3)?",
+        "options": [
+          "x²+5x+6",
+          "x²+6x+5",
+          "x²+5x+5",
+          "x²+6"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 105,
+        "prompt": "Jaká je hodnota (x-4)(x+4)?",
+        "options": [
+          "x²-16",
+          "x²+16",
+          "x²-8x-16",
+          "x²-8"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "(a-b)(a+b) = a²-b².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 106,
+        "prompt": "Jaká je hodnota (x-2)²?",
+        "options": [
+          "x²-4x+4",
+          "x²+4x+4",
+          "x²-4",
+          "x²-2x+4"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 107,
+        "prompt": "Jaká je hodnota 3x*(2x-1)?",
+        "options": [
+          "6x²-3x",
+          "6x-3x",
+          "6x²-1",
+          "5x²-3x"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 108,
+        "prompt": "Jaká je hodnota (2x+1)²?",
+        "options": [
+          "4x²+4x+1",
+          "2x²+4x+1",
+          "4x²+1",
+          "4x²+2x+1"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 109,
+        "prompt": "Jaká je hodnota (x+5)(x-2)?",
+        "options": [
+          "x²+3x-10",
+          "x²-3x-10",
+          "x²+3x+10",
+          "x²-10"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "algebra_1_2",
+    "questions": [
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 0,
+        "prompt": "Vypočítejte derivaci f(x) = x²",
+        "correctExpr": "2*x",
+        "displayCorrect": "2x",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "d/dx(x²) = 2·x²⁻¹ = 2x",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "f(x) = x²",
+            "n=2, so f'(x) = 2·x^(2-1)",
+            "= 2x"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 1,
+        "prompt": "Vypočítejte derivaci f(x) = x³",
+        "correctExpr": "3*x^2",
+        "displayCorrect": "3x²",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "d/dx(x³) = 3x²",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "n=3, so f'(x) = 3·x^(3-1)",
+            "= 3x²"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 2,
+        "prompt": "Vypočítejte derivaci f(x) = 3*x²",
+        "correctExpr": "6*x",
+        "displayCorrect": "6x",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Konstantní činitel 3 zůstává, derivujeme x².",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "f'(x) = 3·d/dx(x²)",
+            "= 3·2x",
+            "= 6x"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 3,
+        "prompt": "Vypočítejte derivaci f(x) = 2*x³",
+        "correctExpr": "6*x^2",
+        "displayCorrect": "6x²",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Konstantní činitel 2 zůstává, derivujeme x³.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "f'(x) = 2·3x²",
+            "= 6x²"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 4,
+        "prompt": "Vypočítejte derivaci f(x) = x² + 2*x",
+        "correctExpr": "2*x+2",
+        "displayCorrect": "2x + 2",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Derivujeme každý člen zvlášť.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "d/dx(x²) = 2x",
+            "d/dx(2x) = 2",
+            "f'(x) = 2x + 2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 5,
+        "prompt": "Vypočítejte derivaci f(x) = 3*x² + 4*x",
+        "correctExpr": "6*x+4",
+        "displayCorrect": "6x + 4",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Pravidlo: d/dx(xⁿ) = n·xⁿ⁻¹",
+          "boldPart": "d/dx(xⁿ) = n·xⁿ⁻¹",
+          "sectionTitle": "PRAVIDLA DERIVOVÁNÍ",
+          "items": [
+            "d/dx(xⁿ) = n·xⁿ⁻¹",
+            "d/dx(c·f(x)) = c·f'(x)",
+            "d/dx(f(x)+g(x)) = f'(x)+g'(x)",
+            "d/dx(konstanta) = 0"
+          ],
+          "steps": [
+            "d/dx(3x²) = 6x",
+            "d/dx(4x) = 4",
+            "f'(x) = 6x + 4"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 6,
+        "prompt": "Vypočítejte derivaci f(x) = x² - 5",
+        "correctExpr": "2*x",
+        "displayCorrect": "2x",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Derivace konstanty (-5) je 0.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "d/dx(x²) = 2x",
+            "d/dx(-5) = 0",
+            "f'(x) = 2x"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 7,
+        "prompt": "Vypočítejte derivaci f(x) = 4*x² + 2*x + 1",
+        "correctExpr": "8*x+2",
+        "displayCorrect": "8x + 2",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Pravidlo: d/dx(xⁿ) = n·xⁿ⁻¹",
+          "boldPart": "d/dx(xⁿ) = n·xⁿ⁻¹",
+          "sectionTitle": "PRAVIDLA DERIVOVÁNÍ",
+          "items": [
+            "d/dx(xⁿ) = n·xⁿ⁻¹",
+            "d/dx(c·f(x)) = c·f'(x)",
+            "d/dx(f(x)+g(x)) = f'(x)+g'(x)",
+            "d/dx(konstanta) = 0"
+          ],
+          "steps": [
+            "d/dx(4x²)=8x",
+            "d/dx(2x)=2",
+            "d/dx(1)=0",
+            "f'(x)=8x+2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 8,
+        "prompt": "Vypočítejte derivaci f(x) = x³ + x²",
+        "correctExpr": "3*x^2+2*x",
+        "displayCorrect": "3x² + 2x",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Pravidlo: d/dx(xⁿ) = n·xⁿ⁻¹",
+          "boldPart": "d/dx(xⁿ) = n·xⁿ⁻¹",
+          "sectionTitle": "PRAVIDLA DERIVOVÁNÍ",
+          "items": [
+            "d/dx(xⁿ) = n·xⁿ⁻¹",
+            "d/dx(c·f(x)) = c·f'(x)",
+            "d/dx(f(x)+g(x)) = f'(x)+g'(x)",
+            "d/dx(konstanta) = 0"
+          ],
+          "steps": [
+            "d/dx(x³)=3x²",
+            "d/dx(x²)=2x",
+            "f'(x)=3x²+2x"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 9,
+        "prompt": "Vypočítejte derivaci f(x) = 2*x³ + 3*x",
+        "correctExpr": "6*x^2+3",
+        "displayCorrect": "6x² + 3",
+        "inlineHint": "Use * for multiplication, ^ for power (e.g. 3*x^2)",
+        "hint": {
+          "mainText": "Pravidlo: d/dx(xⁿ) = n·xⁿ⁻¹",
+          "boldPart": "d/dx(xⁿ) = n·xⁿ⁻¹",
+          "sectionTitle": "PRAVIDLA DERIVOVÁNÍ",
+          "items": [
+            "d/dx(xⁿ) = n·xⁿ⁻¹",
+            "d/dx(c·f(x)) = c·f'(x)",
+            "d/dx(f(x)+g(x)) = f'(x)+g'(x)",
+            "d/dx(konstanta) = 0"
+          ],
+          "steps": [
+            "d/dx(2x³)=6x²",
+            "d/dx(3x)=3",
+            "f'(x)=6x²+3"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 100,
+        "prompt": "Jaká je derivace f(x) = x²?",
+        "options": [
+          "2x",
+          "x",
+          "2",
+          "x²"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "d/dx(xⁿ) = n·xⁿ⁻¹, więc d/dx(x²) = 2x.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 101,
+        "prompt": "Jaká je derivace f(x) = x³?",
+        "options": [
+          "3x²",
+          "x²",
+          "3x",
+          "3"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 102,
+        "prompt": "Jaká je derivace f(x) = 3x²?",
+        "options": [
+          "6x",
+          "3x",
+          "6x²",
+          "6"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Činitel 3 zůstává: 3·2x = 6x.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 103,
+        "prompt": "Jaká je derivace f(x) = x²+2x?",
+        "options": [
+          "2x+2",
+          "2x+1",
+          "x+2",
+          "2x²+2"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 104,
+        "prompt": "Jaká je derivace f(x) = 3x²+4x?",
+        "options": [
+          "6x+4",
+          "3x+4",
+          "6x+3",
+          "6x²+4"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 105,
+        "prompt": "Jaká je derivace f(x) = x²-5?",
+        "options": [
+          "2x",
+          "2x-5",
+          "2x-0",
+          "x"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Derivace konstanty je 0.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 106,
+        "prompt": "Jaká je derivace f(x) = 4x²+2x+1?",
+        "options": [
+          "8x+2",
+          "4x+2",
+          "8x+2x",
+          "8x"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 107,
+        "prompt": "Jaká je derivace f(x) = x³+x²?",
+        "options": [
+          "3x²+2x",
+          "x²+x",
+          "3x+2x",
+          "3x²"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 108,
+        "prompt": "Jaká je derivace f(x) = 2x³+3x?",
+        "options": [
+          "6x²+3",
+          "6x+3",
+          "2x²+3",
+          "6x²"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 109,
+        "prompt": "Jaká je derivace f(x) = 5x²?",
+        "options": [
+          "10x",
+          "5x",
+          "10x²",
+          "5"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "algebra_1_3",
+    "questions": [
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 0,
+        "prompt": "Vypočítejte neurčitý integrál: ∫2x dx",
+        "correctExpr": "x^2",
+        "displayCorrect": "x²",
+        "inlineHint": "Enter the result without the constant of integration C",
+        "hint": {
+          "mainText": "∫2x dx = 2·x²/2 = x²",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "∫2x dx = 2·∫x dx",
+            "= 2·x²/2",
+            "= x²"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 1,
+        "prompt": "Vypočítejte neurčitý integrál: ∫3x² dx",
+        "correctExpr": "x^3",
+        "displayCorrect": "x³",
+        "inlineHint": "Enter the result without the constant of integration C",
+        "hint": {
+          "mainText": "∫3x² dx = 3·x³/3 = x³",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "∫3x² dx = 3·x³/3",
+            "= x³"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 2,
+        "prompt": "Vypočítejte neurčitý integrál: ∫x dx",
+        "correctExpr": "x^2/2",
+        "displayCorrect": "x²/2",
+        "inlineHint": "Enter the result without the constant of integration C",
+        "hint": {
+          "mainText": "Pravidlo: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "sectionTitle": "PRAVIDLA INTEGROVÁNÍ",
+          "items": [
+            "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+            "∫c·f(x) dx = c·∫f(x) dx",
+            "∫(f+g) dx = ∫f dx + ∫g dx"
+          ],
+          "steps": [
+            "∫x dx = x^(1+1)/(1+1)",
+            "= x²/2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 3,
+        "prompt": "Vypočítejte neurčitý integrál: ∫4x³ dx",
+        "correctExpr": "x^4",
+        "displayCorrect": "x⁴",
+        "inlineHint": "Enter the result without the constant of integration C",
+        "hint": {
+          "mainText": "∫4x³ dx = 4·x⁴/4 = x⁴",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "4·x^(3+1)/(3+1)",
+            "= 4·x⁴/4",
+            "= x⁴"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 4,
+        "prompt": "Vypočítejte neurčitý integrál: ∫(2x + 3) dx",
+        "correctExpr": "x^2+3*x",
+        "displayCorrect": "x² + 3x",
+        "inlineHint": "Enter the result without the constant of integration C",
+        "hint": {
+          "mainText": "Pravidlo: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "sectionTitle": "PRAVIDLA INTEGROVÁNÍ",
+          "items": [
+            "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+            "∫c·f(x) dx = c·∫f(x) dx",
+            "∫(f+g) dx = ∫f dx + ∫g dx"
+          ],
+          "steps": [
+            "∫2x dx = x²",
+            "∫3 dx = 3x",
+            "Výsledek: x²+3x"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 5,
+        "prompt": "Vypočítejte neurčitý integrál: ∫(6x² + 2x) dx",
+        "correctExpr": "2*x^3+x^2",
+        "displayCorrect": "2x³ + x²",
+        "inlineHint": "Enter the result without the constant of integration C",
+        "hint": {
+          "mainText": "Pravidlo: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "sectionTitle": "PRAVIDLA INTEGROVÁNÍ",
+          "items": [
+            "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+            "∫c·f(x) dx = c·∫f(x) dx",
+            "∫(f+g) dx = ∫f dx + ∫g dx"
+          ],
+          "steps": [
+            "∫6x² dx = 6·x³/3 = 2x³",
+            "∫2x dx = x²",
+            "Výsledek: 2x³+x²"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 6,
+        "prompt": "Vypočítejte neurčitý integrál: ∫5 dx",
+        "correctExpr": "5*x",
+        "displayCorrect": "5x",
+        "inlineHint": "Enter the result without the constant of integration C",
+        "hint": {
+          "mainText": "∫konstanta dx = konstanta·x",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "∫5 dx = 5x"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 7,
+        "prompt": "Vypočítejte neurčitý integrál: ∫(x² + 1) dx",
+        "correctExpr": "x^3/3+x",
+        "displayCorrect": "x³/3 + x",
+        "inlineHint": "Enter the result without the constant of integration C",
+        "hint": {
+          "mainText": "Pravidlo: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "sectionTitle": "PRAVIDLA INTEGROVÁNÍ",
+          "items": [
+            "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+            "∫c·f(x) dx = c·∫f(x) dx",
+            "∫(f+g) dx = ∫f dx + ∫g dx"
+          ],
+          "steps": [
+            "∫x² dx = x³/3",
+            "∫1 dx = x",
+            "Výsledek: x³/3+x"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 8,
+        "prompt": "Vypočítejte neurčitý integrál: ∫(3x² - 2x) dx",
+        "correctExpr": "x^3-x^2",
+        "displayCorrect": "x³ - x²",
+        "inlineHint": "Enter the result without the constant of integration C",
+        "hint": {
+          "mainText": "Pravidlo: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "sectionTitle": "PRAVIDLA INTEGROVÁNÍ",
+          "items": [
+            "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+            "∫c·f(x) dx = c·∫f(x) dx",
+            "∫(f+g) dx = ∫f dx + ∫g dx"
+          ],
+          "steps": [
+            "∫3x² dx = x³",
+            "∫2x dx = x²",
+            "Výsledek: x³-x²"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 9,
+        "prompt": "Vypočítejte neurčitý integrál: ∫(4x + 6) dx",
+        "correctExpr": "2*x^2+6*x",
+        "displayCorrect": "2x² + 6x",
+        "inlineHint": "Enter the result without the constant of integration C",
+        "hint": {
+          "mainText": "Pravidlo: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "boldPart": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+          "sectionTitle": "PRAVIDLA INTEGROVÁNÍ",
+          "items": [
+            "∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+            "∫c·f(x) dx = c·∫f(x) dx",
+            "∫(f+g) dx = ∫f dx + ∫g dx"
+          ],
+          "steps": [
+            "∫4x dx = 2x²",
+            "∫6 dx = 6x",
+            "Výsledek: 2x²+6x"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 100,
+        "prompt": "Jaký je integrál ∫2x dx?",
+        "options": [
+          "x²",
+          "x²/2",
+          "2x²",
+          "x"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 101,
+        "prompt": "Jaký je integrál ∫3x² dx?",
+        "options": [
+          "x³",
+          "x²",
+          "3x³",
+          "x³/3"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 102,
+        "prompt": "Jaký je integrál ∫x dx?",
+        "options": [
+          "x²/2",
+          "x²",
+          "2x",
+          "x/2"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 103,
+        "prompt": "Jaký je integrál ∫4x³ dx?",
+        "options": [
+          "x⁴",
+          "4x⁴",
+          "x³",
+          "x⁴/4"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 104,
+        "prompt": "Jaký je integrál ∫(2x+3) dx?",
+        "options": [
+          "x²+3x",
+          "x²+3",
+          "2x²+3x",
+          "x+3x"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 105,
+        "prompt": "Jaký je integrál ∫5 dx?",
+        "options": [
+          "5x",
+          "5",
+          "x/5",
+          "5x²"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 106,
+        "prompt": "Jaký je integrál ∫(x²+1) dx?",
+        "options": [
+          "x³/3+x",
+          "x³+x",
+          "x²/2+x",
+          "x³/3+1"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 107,
+        "prompt": "Jaký je integrál ∫(3x²-2x) dx?",
+        "options": [
+          "x³-x²",
+          "3x³-x²",
+          "x³-2x²",
+          "x²-x"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 108,
+        "prompt": "Jaký je integrál ∫(4x+6) dx?",
+        "options": [
+          "2x²+6x",
+          "4x²+6x",
+          "2x+6",
+          "4x²+6"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 109,
+        "prompt": "Jaký je integrál ∫6x² dx?",
+        "options": [
+          "2x³",
+          "6x³",
+          "x³",
+          "6x²/2"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "algebra_2_1",
+    "questions": [
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 0,
+        "prompt": "Vyřešte rovnici: 2x + 4 = 0",
+        "correctExpr": "-2",
+        "displayCorrect": "x = -2",
+        "inlineHint": "Enter only the number (e.g. -2)",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "2x = -4",
+            "x = -4/2",
+            "x = -2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 1,
+        "prompt": "Vyřešte rovnici: 3x - 6 = 0",
+        "correctExpr": "2",
+        "displayCorrect": "x = 2",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "3x = 6",
+            "x = 6/3",
+            "x = 2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 2,
+        "prompt": "Vyřešte rovnici: x + 5 = 10",
+        "correctExpr": "5",
+        "displayCorrect": "x = 5",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "x = 10-5",
+            "x = 5"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 3,
+        "prompt": "Vyřešte rovnici: 4x = 12",
+        "correctExpr": "3",
+        "displayCorrect": "x = 3",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "x = 12/4",
+            "x = 3"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 4,
+        "prompt": "Vyřešte rovnici: 2x - 8 = 0",
+        "correctExpr": "4",
+        "displayCorrect": "x = 4",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "2x = 8",
+            "x = 4"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 5,
+        "prompt": "Vyřešte rovnici: 5x + 10 = 0",
+        "correctExpr": "-2",
+        "displayCorrect": "x = -2",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "5x = -10",
+            "x = -10/5",
+            "x = -2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 6,
+        "prompt": "Vyřešte rovnici: 3x + 9 = 0",
+        "correctExpr": "-3",
+        "displayCorrect": "x = -3",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "3x = -9",
+            "x = -3"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 7,
+        "prompt": "Vyřešte rovnici: x - 7 = 3",
+        "correctExpr": "10",
+        "displayCorrect": "x = 10",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "x = 3+7",
+            "x = 10"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 8,
+        "prompt": "Vyřešte rovnici: 6x = 18",
+        "correctExpr": "3",
+        "displayCorrect": "x = 3",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "x = 18/6",
+            "x = 3"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 9,
+        "prompt": "Vyřešte rovnici: 2x + 6 = 14",
+        "correctExpr": "4",
+        "displayCorrect": "x = 4",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "2x = 14-6 = 8",
+            "x = 4"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 10,
+        "prompt": "Vyřešte rovnici: 7x - 14 = 0",
+        "correctExpr": "2",
+        "displayCorrect": "x = 2",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "7x = 14",
+            "x = 2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 11,
+        "prompt": "Vyřešte rovnici: x + 3 = -1",
+        "correctExpr": "-4",
+        "displayCorrect": "x = -4",
+        "inlineHint": "Enter only the number",
+        "hint": {
+          "mainText": "Přesouváme členy s x doleva, čísla doprava.",
+          "boldPart": null,
+          "sectionTitle": "METODA ŘEŠENÍ",
+          "items": [
+            "1. Přesuňte členy s x na levou stranu",
+            "2. Přesuňte konstanty na pravou stranu",
+            "3. Vydělte obě strany koeficientem u x"
+          ],
+          "steps": [
+            "x = -1-3",
+            "x = -4"
+          ]
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 100,
+        "prompt": "Vyřešte: 2x + 4 = 0",
+        "options": [
+          "x = -2",
+          "x = 2",
+          "x = -4",
+          "x = 4"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 101,
+        "prompt": "Vyřešte: 3x - 6 = 0",
+        "options": [
+          "x = 2",
+          "x = -2",
+          "x = 6",
+          "x = 3"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 102,
+        "prompt": "Vyřešte: x + 5 = 10",
+        "options": [
+          "x = 5",
+          "x = 15",
+          "x = -5",
+          "x = 10"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 103,
+        "prompt": "Vyřešte: 4x = 12",
+        "options": [
+          "x = 3",
+          "x = 4",
+          "x = 8",
+          "x = 12"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 104,
+        "prompt": "Vyřešte: 5x + 10 = 0",
+        "options": [
+          "x = -2",
+          "x = 2",
+          "x = -10",
+          "x = 10"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 105,
+        "prompt": "Vyřešte: 6x = 18",
+        "options": [
+          "x = 3",
+          "x = 6",
+          "x = 12",
+          "x = 2"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 106,
+        "prompt": "Vyřešte: x - 7 = 3",
+        "options": [
+          "x = 10",
+          "x = -4",
+          "x = 4",
+          "x = 7"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 107,
+        "prompt": "Vyřešte: 2x + 6 = 14",
+        "options": [
+          "x = 4",
+          "x = 10",
+          "x = 3",
+          "x = 7"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 108,
+        "prompt": "Vyřešte: 3x + 9 = 0",
+        "options": [
+          "x = -3",
+          "x = 3",
+          "x = -9",
+          "x = 9"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 109,
+        "prompt": "Vyřešte: 7x - 14 = 0",
+        "options": [
+          "x = 2",
+          "x = -2",
+          "x = 7",
+          "x = 14"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "algebra_2_2",
+    "questions": [
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 0,
+        "prompt": "Vyřešte: x² - 5x + 6 = 0  (zadejte menší kořen)",
+        "correctExpr": "2",
+        "displayCorrect": "x₁ = 2",
+        "inlineHint": "Enter the smaller root",
+        "hint": {
+          "mainText": "x² + bx + c = 0. Delta = b²-4c. Kořeny: (-b±√Δ)/2",
+          "boldPart": "Delta = b²-4c",
+          "sectionTitle": "VZORCE",
+          "items": [
+            "Δ = b² - 4ac",
+            "x₁ = (-b - √Δ) / 2a",
+            "x₂ = (-b + √Δ) / 2a",
+            "Pokud je D=0, jedno řešení: x = -b/2a"
+          ],
+          "steps": [
+            "Δ=25-24=1",
+            "x₁=(5-1)/2=2",
+            "x₂=(5+1)/2=3"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 1,
+        "prompt": "Vyřešte: x² - 5x + 6 = 0  (zadejte větší kořen)",
+        "correctExpr": "3",
+        "displayCorrect": "x₂ = 3",
+        "inlineHint": "Enter the larger root",
+        "hint": {
+          "mainText": "x² + bx + c = 0. Delta = b²-4c. Kořeny: (-b±√Δ)/2",
+          "boldPart": "Delta = b²-4c",
+          "sectionTitle": "VZORCE",
+          "items": [
+            "Δ = b² - 4ac",
+            "x₁ = (-b - √Δ) / 2a",
+            "x₂ = (-b + √Δ) / 2a",
+            "Pokud je D=0, jedno řešení: x = -b/2a"
+          ],
+          "steps": [
+            "Δ=1",
+            "x₁=2, x₂=3"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 2,
+        "prompt": "Vyřešte: x² + x - 6 = 0  (zadejte menší kořen)",
+        "correctExpr": "-3",
+        "displayCorrect": "x₁ = -3",
+        "inlineHint": "Enter the smaller root",
+        "hint": {
+          "mainText": "x² + bx + c = 0. Delta = b²-4c. Kořeny: (-b±√Δ)/2",
+          "boldPart": "Delta = b²-4c",
+          "sectionTitle": "VZORCE",
+          "items": [
+            "Δ = b² - 4ac",
+            "x₁ = (-b - √Δ) / 2a",
+            "x₂ = (-b + √Δ) / 2a",
+            "Pokud je D=0, jedno řešení: x = -b/2a"
+          ],
+          "steps": [
+            "Δ=1+24=25",
+            "x₁=(-1-5)/2=-3",
+            "x₂=(-1+5)/2=2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 3,
+        "prompt": "Vyřešte: x² + x - 6 = 0  (zadejte větší kořen)",
+        "correctExpr": "2",
+        "displayCorrect": "x₂ = 2",
+        "inlineHint": "Enter the larger root",
+        "hint": {
+          "mainText": "x² + bx + c = 0. Delta = b²-4c. Kořeny: (-b±√Δ)/2",
+          "boldPart": "Delta = b²-4c",
+          "sectionTitle": "VZORCE",
+          "items": [
+            "Δ = b² - 4ac",
+            "x₁ = (-b - √Δ) / 2a",
+            "x₂ = (-b + √Δ) / 2a",
+            "Pokud je D=0, jedno řešení: x = -b/2a"
+          ],
+          "steps": [
+            "x₁=-3, x₂=2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 4,
+        "prompt": "Vyřešte: x² - 4 = 0  (zadejte menší kořen)",
+        "correctExpr": "-2",
+        "displayCorrect": "x₁ = -2",
+        "inlineHint": "Enter the smaller root",
+        "hint": {
+          "mainText": "x²=4, so x=±2",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": [
+            "x²=4",
+            "x₁=-2, x₂=2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 5,
+        "prompt": "Vyřešte: x² - 4 = 0  (zadejte větší kořen)",
+        "correctExpr": "2",
+        "displayCorrect": "x₂ = 2",
+        "inlineHint": "Enter the larger root",
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 6,
+        "prompt": "Vyřešte: x² - 3x + 2 = 0  (zadejte menší kořen)",
+        "correctExpr": "1",
+        "displayCorrect": "x₁ = 1",
+        "inlineHint": "Enter the smaller root",
+        "hint": {
+          "mainText": "x² + bx + c = 0. Delta = b²-4c. Kořeny: (-b±√Δ)/2",
+          "boldPart": "Delta = b²-4c",
+          "sectionTitle": "VZORCE",
+          "items": [
+            "Δ = b² - 4ac",
+            "x₁ = (-b - √Δ) / 2a",
+            "x₂ = (-b + √Δ) / 2a",
+            "Pokud je D=0, jedno řešení: x = -b/2a"
+          ],
+          "steps": [
+            "Δ=9-8=1",
+            "x₁=(3-1)/2=1",
+            "x₂=2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 7,
+        "prompt": "Vyřešte: x² - 3x + 2 = 0  (zadejte větší kořen)",
+        "correctExpr": "2",
+        "displayCorrect": "x₂ = 2",
+        "inlineHint": "Enter the larger root",
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 8,
+        "prompt": "Vyřešte: x² + 2x - 8 = 0  (zadejte menší kořen)",
+        "correctExpr": "-4",
+        "displayCorrect": "x₁ = -4",
+        "inlineHint": "Enter the smaller root",
+        "hint": {
+          "mainText": "x² + bx + c = 0. Delta = b²-4c. Kořeny: (-b±√Δ)/2",
+          "boldPart": "Delta = b²-4c",
+          "sectionTitle": "VZORCE",
+          "items": [
+            "Δ = b² - 4ac",
+            "x₁ = (-b - √Δ) / 2a",
+            "x₂ = (-b + √Δ) / 2a",
+            "Pokud je D=0, jedno řešení: x = -b/2a"
+          ],
+          "steps": [
+            "Δ=4+32=36",
+            "x₁=(-2-6)/2=-4",
+            "x₂=2"
+          ]
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 9,
+        "prompt": "Vyřešte: x² + 2x - 8 = 0  (zadejte větší kořen)",
+        "correctExpr": "2",
+        "displayCorrect": "x₂ = 2",
+        "inlineHint": "Enter the larger root",
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 10,
+        "prompt": "Vyřešte: x² - 9 = 0  (zadejte menší kořen)",
+        "correctExpr": "-3",
+        "displayCorrect": "x₁ = -3",
+        "inlineHint": "Enter the smaller root",
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "ExpressionTypeAnswer",
+        "id": 11,
+        "prompt": "Vyřešte: x² - 9 = 0  (zadejte větší kořen)",
+        "correctExpr": "3",
+        "displayCorrect": "x₂ = 3",
+        "inlineHint": "Enter the larger root",
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 100,
+        "prompt": "Kořeny rovnice x² - 5x + 6 = 0 jsou:",
+        "options": [
+          "x=2 a x=3",
+          "x=-2 a x=-3",
+          "x=1 a x=6",
+          "x=-1 a x=6"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "x² + bx + c = 0. Delta = b²-4c. Kořeny: (-b±√Δ)/2",
+          "boldPart": "Delta = b²-4c",
+          "sectionTitle": "VZORCE",
+          "items": [
+            "Δ = b² - 4ac",
+            "x₁ = (-b - √Δ) / 2a",
+            "x₂ = (-b + √Δ) / 2a",
+            "Pokud je D=0, jedno řešení: x = -b/2a"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 101,
+        "prompt": "Kořeny rovnice x² + x - 6 = 0 jsou:",
+        "options": [
+          "x=-3 a x=2",
+          "x=3 a x=-2",
+          "x=-1 a x=6",
+          "x=1 a x=-6"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 102,
+        "prompt": "Kořeny rovnice x² - 4 = 0 jsou:",
+        "options": [
+          "x=-2 a x=2",
+          "x=2 a x=2",
+          "x=-4 a x=4",
+          "x=1 a x=4"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 103,
+        "prompt": "Kořeny rovnice x² - 3x + 2 = 0 jsou:",
+        "options": [
+          "x=1 a x=2",
+          "x=-1 a x=-2",
+          "x=1 a x=3",
+          "x=2 a x=3"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 104,
+        "prompt": "Kořeny rovnice x² + 2x - 8 = 0 jsou:",
+        "options": [
+          "x=-4 a x=2",
+          "x=4 a x=-2",
+          "x=-4 a x=-2",
+          "x=4 a x=2"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 105,
+        "prompt": "Kořeny rovnice x² - 9 = 0 jsou:",
+        "options": [
+          "x=-3 a x=3",
+          "x=3 a x=3",
+          "x=-9 a x=9",
+          "x=1 a x=9"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 106,
+        "prompt": "Kořeny rovnice x² + 4x + 4 = 0 jsou:",
+        "options": [
+          "x=-2 (dvojnásobný kořen)",
+          "x=2 a x=-2",
+          "x=2 (dvojnásobný kořen)",
+          "x=-4 a x=-1"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Δ=0 → jeden dvojnásobný kořen: x = -b/2a",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 107,
+        "prompt": "Kolik kořenů má rovnice x² + 1 = 0?",
+        "options": [
+          "0 (žádné reálné kořeny)",
+          "1",
+          "2",
+          "nekonečně mnoho"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Δ = 0 - 4·1 = -4 < 0 → žádné reálné kořeny.",
+          "boldPart": null,
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  }
+]
