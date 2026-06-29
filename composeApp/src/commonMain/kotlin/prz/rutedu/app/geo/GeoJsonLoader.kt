@@ -1,5 +1,7 @@
 package prz.rutedu.app.geo
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.float
@@ -27,6 +29,8 @@ import rutedu.composeapp.generated.resources.Res
  * @property selectable When `false`, the feature is drawn but excluded from tap hit-testing
  *                      (e.g. a country outline behind national parks). Set via GeoJSON
  *                      `"rutedu_selectable"` or inferred for country borders.
+ * @property centerLon Pre-calculated centroid longitude for O(1) visibility filtering.
+ * @property centerLat Pre-calculated centroid latitude for O(1) visibility filtering.
  */
 data class CountryFeature(
     val name: String,
@@ -34,6 +38,8 @@ data class CountryFeature(
     val rings: List<List<LonLat>> = emptyList(),
     val point: LonLat? = null,
     val selectable: Boolean = true,
+    val centerLon: Float = 0f,
+    val centerLat: Float = 0f,
 )
 
 /**
@@ -117,93 +123,90 @@ private fun JsonObject.isFeatureSelectable(): Boolean {
  * some platforms. The result is cached in memory under [geoCache] after the first call
  * so repeated invocations for the same path are instant.
  *
- * Supported GeoJSON geometry types:
- * - `"Polygon"` - a single polygon (outer ring only; holes are ignored).
- * - `"MultiPolygon"` - multiple polygons (outer rings only), e.g. island chains.
- * - `"Point"` - a single point coordinate (e.g. a city on a province map).
+ * Runs on [Dispatchers.Default] to avoid freezing the main UI thread during I/O and JSON parsing.
  *
- * Features are included when they contain at least one valid polygon ring or a valid point.
- *
- * Each feature receives [CountryFeature.selectable] from [isFeatureSelectable]. Optional
- * GeoJSON property `"rutedu_selectable": false` marks background polygons that are drawn
- * but excluded from tap hit-testing.
- *
- * @param path The resource path to the GeoJSON file (e.g., `"files/polish_national_parks.geojson"`).
+ * @param path The resource path to the GeoJSON file.
  * @return A list of [CountryFeature] objects parsed from the specified file.
  */
 @OptIn(ExperimentalResourceApi::class)
 suspend fun loadGeoJson(path: String): List<CountryFeature> {
     geoCache[path]?.let { return it }
 
-    val result = mutableListOf<CountryFeature>()
-    try {
-        val bytes = Res.readBytes(path)
-        val jsonStr = bytes.decodeToString()
-        val root = Json.parseToJsonElement(jsonStr).jsonObject
-        val features = root["features"]?.jsonArray ?: return emptyList()
+    return withContext(Dispatchers.Default) {
+        val result = mutableListOf<CountryFeature>()
+        try {
+            val bytes = Res.readBytes(path)
+            val jsonStr = bytes.decodeToString()
+            val root = Json.parseToJsonElement(jsonStr).jsonObject
+            val features = root["features"]?.jsonArray ?: return@withContext emptyList<CountryFeature>()
 
-        for (featureElem in features) {
-            val featureObj = featureElem.jsonObject
-            val props = featureObj["properties"]?.jsonObject ?: continue
+            for (featureElem in features) {
+                val featureObj = featureElem.jsonObject
+                val props = featureObj["properties"]?.jsonObject ?: continue
 
-            // Try multiple common property names for the name/key
-            val name = props["name:pl"]?.jsonPrimitive?.content
-                ?: props["name"]?.jsonPrimitive?.content
-                ?: props["JPT_NAZWA_"]?.jsonPrimitive?.content
-                ?: props["NAME"]?.jsonPrimitive?.content
-                ?: props["VARNAME_1"]?.jsonPrimitive?.content
-                ?: continue
+                val name = props["name:pl"]?.jsonPrimitive?.content
+                    ?: props["name"]?.jsonPrimitive?.content
+                    ?: props["JPT_NAZWA_"]?.jsonPrimitive?.content
+                    ?: props["NAME"]?.jsonPrimitive?.content
+                    ?: props["VARNAME_1"]?.jsonPrimitive?.content
+                    ?: continue
 
-            val iso2 = props["ISO3166-1-Alpha-2"]?.jsonPrimitive?.content ?: ""
-            val geomObj = featureObj["geometry"]?.jsonObject ?: continue
-            val geomType = geomObj["type"]?.jsonPrimitive?.content ?: continue
-            val coordsArr = geomObj["coordinates"]?.jsonArray ?: continue
+                val iso2 = props["ISO3166-1-Alpha-2"]?.jsonPrimitive?.content ?: ""
+                val geomObj = featureObj["geometry"]?.jsonObject ?: continue
+                val geomType = geomObj["type"]?.jsonPrimitive?.content ?: continue
+                val coordsArr = geomObj["coordinates"]?.jsonArray ?: continue
 
-            var point: LonLat? = null
-            val rings = mutableListOf<List<LonLat>>()
+                var point: LonLat? = null
+                val rings = mutableListOf<List<LonLat>>()
 
-            when (geomType) {
-                "Point" -> {
-                    if (coordsArr.size >= 2) {
-                        point = LonLat(coordsArr[0].jsonPrimitive.float, coordsArr[1].jsonPrimitive.float)
+                when (geomType) {
+                    "Point" -> {
+                        if (coordsArr.size >= 2) {
+                            point = LonLat(coordsArr[0].jsonPrimitive.float, coordsArr[1].jsonPrimitive.float)
+                        }
                     }
-                }
-                "Polygon" -> {
-                    if (coordsArr.isNotEmpty()) {
-                        val outerRing = parseRing(coordsArr[0].jsonArray).simplify()
-                        if (outerRing.size >= 3) rings.add(outerRing)
-                    }
-                }
-                "MultiPolygon" -> {
-                    for (polyElem in coordsArr) {
-                        val polyArr = polyElem.jsonArray
-                        if (polyArr.isNotEmpty()) {
-                            val outerRing = parseRing(polyArr[0].jsonArray).simplify()
+                    "Polygon" -> {
+                        if (coordsArr.isNotEmpty()) {
+                            val outerRing = parseRing(coordsArr[0].jsonArray).simplify()
                             if (outerRing.size >= 3) rings.add(outerRing)
                         }
                     }
+                    "MultiPolygon" -> {
+                        for (polyElem in coordsArr) {
+                            val polyArr = polyElem.jsonArray
+                            if (polyArr.isNotEmpty()) {
+                                val outerRing = parseRing(polyArr[0].jsonArray).simplify()
+                                if (outerRing.size >= 3) rings.add(outerRing)
+                            }
+                        }
+                    }
+                }
+
+                if (point != null || rings.isNotEmpty()) {
+                    val allPts = rings.flatten()
+                    val avgLon = if (allPts.isNotEmpty()) allPts.map { it.lon }.average().toFloat() else 0f
+                    val avgLat = if (allPts.isNotEmpty()) allPts.map { it.lat }.average().toFloat() else 0f
+                    result.add(
+                        CountryFeature(
+                            name = name,
+                            iso2 = iso2,
+                            rings = rings,
+                            point = point,
+                            selectable = props.isFeatureSelectable(),
+                            centerLon = point?.lon ?: avgLon,
+                            centerLat = point?.lat ?: avgLat
+                        )
+                    )
                 }
             }
-
-            if (point != null || rings.isNotEmpty()) {
-                result.add(
-                    CountryFeature(
-                        name = name,
-                        iso2 = iso2,
-                        rings = rings,
-                        point = point,
-                        selectable = props.isFeatureSelectable(),
-                    )
-                )
-            }
+        } catch (e: Exception) {
+            println("Error loading GeoJSON from $path: ${e.message}")
+            e.printStackTrace()
         }
-    } catch (e: Exception) {
-        println("Error loading GeoJSON from $path: ${e.message}")
-        e.printStackTrace()
-    }
 
-    if (result.isNotEmpty()) {
-        geoCache[path] = result
+        if (result.isNotEmpty()) {
+            geoCache[path] = result
+        }
+        result
     }
-    return result
 }

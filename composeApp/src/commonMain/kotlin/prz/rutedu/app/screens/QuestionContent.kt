@@ -167,5 +167,12 @@ internal fun QuestionContent(
             onCorrect = onCorrect,
             onWrong = onWrong
         )
+        is Question.PointMapQuiz -> PointMapQuizContent(
+            question = question,
+            accentColor = accentColor,
+            bottomPadding = bottomPadding,
+            onCorrect = onCorrect,
+            onWrong = onWrong
+        )
     }
 }

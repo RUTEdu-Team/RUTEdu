@@ -96,13 +96,8 @@ private fun isNationalParksMap(mapFile: String) = mapFile == NATIONAL_PARKS_MAP_
  */
 private fun CountryFeature.hasRingNear(r: MapRegion): Boolean {
     val margin = 10f
-    return rings.any { ring ->
-        if (ring.isEmpty()) return@any false
-        val avgLon = ring.map { it.lon }.average().toFloat()
-        val avgLat = ring.map { it.lat }.average().toFloat()
-        avgLon in (r.lonMin - margin)..(r.lonMax + margin) &&
-                avgLat in (r.latMin - margin)..(r.latMax + margin)
-    }
+    return centerLon in (r.lonMin - margin)..(r.lonMax + margin) &&
+            centerLat in (r.latMin - margin)..(r.latMax + margin)
 }
 
 /**
