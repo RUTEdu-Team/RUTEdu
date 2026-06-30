@@ -13,6 +13,7 @@ import prz.rutedu.app.models.Lesson
 fun Subject.getNameRes(): StringResource {
     return when (id) {
         "matematyka" -> Res.string.subject_matematyka
+        "matematyka_rozszerzona" -> Res.string.subject_matematyka_rozszerzona
         "chemia"     -> Res.string.subject_chemia
         "algebra"    -> Res.string.subject_algebra
         "geografia"  -> Res.string.subject_geografia
@@ -30,6 +31,16 @@ fun Topic.getNameRes(): StringResource {
         "mat_3"     -> Res.string.topic_mat_3
         "mat_4"     -> Res.string.topic_mat_4
         "mat_5"     -> Res.string.topic_mat_5
+        "mat_roz_1" -> Res.string.topic_mat_roz_1
+        "mat_roz_2" -> Res.string.topic_mat_roz_2
+        "mat_roz_3" -> Res.string.topic_mat_roz_3
+        "mat_roz_4" -> Res.string.topic_mat_roz_4
+        "mat_roz_5" -> Res.string.topic_mat_roz_5
+        "mat_roz_6" -> Res.string.topic_mat_roz_6
+        "mat_roz_7" -> Res.string.topic_mat_roz_7
+        "mat_roz_8" -> Res.string.topic_mat_roz_8
+        "mat_roz_9" -> Res.string.topic_mat_roz_9
+        "mat_roz_10" -> Res.string.topic_mat_roz_10
         "mat_6"     -> Res.string.topic_mat_6
         "mat_7"     -> Res.string.topic_mat_7
         "mat_8"     -> Res.string.topic_mat_8
@@ -70,6 +81,16 @@ fun Topic.getDescriptionRes(): StringResource {
         "mat_10"    -> Res.string.topic_desc_mat_10
         "mat_11"    -> Res.string.topic_desc_mat_11
         "mat_12"    -> Res.string.topic_desc_mat_12
+        "mat_roz_1" -> Res.string.topic_desc_mat_roz_1
+        "mat_roz_2" -> Res.string.topic_desc_mat_roz_2
+        "mat_roz_3" -> Res.string.topic_desc_mat_roz_3
+        "mat_roz_4" -> Res.string.topic_desc_mat_roz_4
+        "mat_roz_5" -> Res.string.topic_desc_mat_roz_5
+        "mat_roz_6" -> Res.string.topic_desc_mat_roz_6
+        "mat_roz_7" -> Res.string.topic_desc_mat_roz_7
+        "mat_roz_8" -> Res.string.topic_desc_mat_roz_8
+        "mat_roz_9" -> Res.string.topic_desc_mat_roz_9
+        "mat_roz_10" -> Res.string.topic_desc_mat_roz_10
         "chemia_1"  -> Res.string.topic_desc_chemia_1
         "chemia_2"  -> Res.string.topic_desc_chemia_2
         "chemia_3"  -> Res.string.topic_desc_chemia_3
@@ -107,6 +128,36 @@ fun Lesson.getNameRes(): StringResource {
         "mat_4_3"    -> Res.string.lesson_mat_4_3
         "mat_4_4"    -> Res.string.lesson_mat_4_4
         "mat_5_1"    -> Res.string.lesson_mat_5_1
+        "mat_roz_1_1" -> Res.string.lesson_mat_roz_1_1
+        "mat_roz_1_2" -> Res.string.lesson_mat_roz_1_2
+        "mat_roz_1_3" -> Res.string.lesson_mat_roz_1_3
+        "mat_roz_2_1" -> Res.string.lesson_mat_roz_2_1
+        "mat_roz_2_2" -> Res.string.lesson_mat_roz_2_2
+        "mat_roz_2_3" -> Res.string.lesson_mat_roz_2_3
+        "mat_roz_3_1" -> Res.string.lesson_mat_roz_3_1
+        "mat_roz_3_2" -> Res.string.lesson_mat_roz_3_2
+        "mat_roz_3_3" -> Res.string.lesson_mat_roz_3_3
+        "mat_roz_4_1" -> Res.string.lesson_mat_roz_4_1
+        "mat_roz_4_2" -> Res.string.lesson_mat_roz_4_2
+        "mat_roz_4_3" -> Res.string.lesson_mat_roz_4_3
+        "mat_roz_5_1" -> Res.string.lesson_mat_roz_5_1
+        "mat_roz_5_2" -> Res.string.lesson_mat_roz_5_2
+        "mat_roz_5_3" -> Res.string.lesson_mat_roz_5_3
+        "mat_roz_6_1" -> Res.string.lesson_mat_roz_6_1
+        "mat_roz_6_2" -> Res.string.lesson_mat_roz_6_2
+        "mat_roz_6_3" -> Res.string.lesson_mat_roz_6_3
+        "mat_roz_7_1" -> Res.string.lesson_mat_roz_7_1
+        "mat_roz_7_2" -> Res.string.lesson_mat_roz_7_2
+        "mat_roz_7_3" -> Res.string.lesson_mat_roz_7_3
+        "mat_roz_8_1" -> Res.string.lesson_mat_roz_8_1
+        "mat_roz_8_2" -> Res.string.lesson_mat_roz_8_2
+        "mat_roz_8_3" -> Res.string.lesson_mat_roz_8_3
+        "mat_roz_9_1" -> Res.string.lesson_mat_roz_9_1
+        "mat_roz_9_2" -> Res.string.lesson_mat_roz_9_2
+        "mat_roz_9_3" -> Res.string.lesson_mat_roz_9_3
+        "mat_roz_10_1" -> Res.string.lesson_mat_roz_10_1
+        "mat_roz_10_2" -> Res.string.lesson_mat_roz_10_2
+        "mat_roz_10_3" -> Res.string.lesson_mat_roz_10_3
         "mat_5_2"    -> Res.string.lesson_mat_5_2
         "mat_5_3"    -> Res.string.lesson_mat_5_3
         "mat_5_4"    -> Res.string.lesson_mat_5_4
@@ -190,6 +241,36 @@ fun Lesson.getDescriptionRes(): StringResource {
         "mat_4_3"    -> Res.string.lesson_desc_mat_4_3
         "mat_4_4"    -> Res.string.lesson_desc_mat_4_4
         "mat_5_1"    -> Res.string.lesson_desc_mat_5_1
+        "mat_roz_1_1" -> Res.string.lesson_desc_mat_roz_1_1
+        "mat_roz_1_2" -> Res.string.lesson_desc_mat_roz_1_2
+        "mat_roz_1_3" -> Res.string.lesson_desc_mat_roz_1_3
+        "mat_roz_2_1" -> Res.string.lesson_desc_mat_roz_2_1
+        "mat_roz_2_2" -> Res.string.lesson_desc_mat_roz_2_2
+        "mat_roz_2_3" -> Res.string.lesson_desc_mat_roz_2_3
+        "mat_roz_3_1" -> Res.string.lesson_desc_mat_roz_3_1
+        "mat_roz_3_2" -> Res.string.lesson_desc_mat_roz_3_2
+        "mat_roz_3_3" -> Res.string.lesson_desc_mat_roz_3_3
+        "mat_roz_4_1" -> Res.string.lesson_desc_mat_roz_4_1
+        "mat_roz_4_2" -> Res.string.lesson_desc_mat_roz_4_2
+        "mat_roz_4_3" -> Res.string.lesson_desc_mat_roz_4_3
+        "mat_roz_5_1" -> Res.string.lesson_desc_mat_roz_5_1
+        "mat_roz_5_2" -> Res.string.lesson_desc_mat_roz_5_2
+        "mat_roz_5_3" -> Res.string.lesson_desc_mat_roz_5_3
+        "mat_roz_6_1" -> Res.string.lesson_desc_mat_roz_6_1
+        "mat_roz_6_2" -> Res.string.lesson_desc_mat_roz_6_2
+        "mat_roz_6_3" -> Res.string.lesson_desc_mat_roz_6_3
+        "mat_roz_7_1" -> Res.string.lesson_desc_mat_roz_7_1
+        "mat_roz_7_2" -> Res.string.lesson_desc_mat_roz_7_2
+        "mat_roz_7_3" -> Res.string.lesson_desc_mat_roz_7_3
+        "mat_roz_8_1" -> Res.string.lesson_desc_mat_roz_8_1
+        "mat_roz_8_2" -> Res.string.lesson_desc_mat_roz_8_2
+        "mat_roz_8_3" -> Res.string.lesson_desc_mat_roz_8_3
+        "mat_roz_9_1" -> Res.string.lesson_desc_mat_roz_9_1
+        "mat_roz_9_2" -> Res.string.lesson_desc_mat_roz_9_2
+        "mat_roz_9_3" -> Res.string.lesson_desc_mat_roz_9_3
+        "mat_roz_10_1" -> Res.string.lesson_desc_mat_roz_10_1
+        "mat_roz_10_2" -> Res.string.lesson_desc_mat_roz_10_2
+        "mat_roz_10_3" -> Res.string.lesson_desc_mat_roz_10_3
         "mat_5_2"    -> Res.string.lesson_desc_mat_5_2
         "mat_5_3"    -> Res.string.lesson_desc_mat_5_3
         "mat_5_4"    -> Res.string.lesson_desc_mat_5_4

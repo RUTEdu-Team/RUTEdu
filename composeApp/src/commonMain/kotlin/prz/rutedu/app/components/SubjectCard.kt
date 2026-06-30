@@ -60,17 +60,17 @@ fun SubjectCard(
 ) {
     Box(
         modifier = modifier
-            .clip(RoundedCornerShape(20.dp))
+            .clip(RoundedCornerShape(18.dp))
             .background(subject.themeBackgroundColor())
             .clickable { onClick() }
-            .padding(16.dp)
+            .padding(14.dp)
     ) {
         Column {
             val subjectName = stringResource(subject.getNameRes())
             Box(
                 modifier = Modifier
-                    .size(52.dp)
-                    .clip(RoundedCornerShape(14.dp))
+                    .size(44.dp)
+                    .clip(RoundedCornerShape(12.dp))
                     .background(subject.color),
                 contentAlignment = Alignment.Center
             ) {
@@ -78,34 +78,34 @@ fun SubjectCard(
                     imageVector = subject.icon,
                     contentDescription = subjectName,
                     tint = Color.White,
-                    modifier = Modifier.size(28.dp)
+                    modifier = Modifier.size(24.dp)
                 )
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(10.dp))
 
             Text(
                 text = subjectName,
-                fontSize = 18.sp,
+                fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface
             )
 
             Text(
                 text = stringResource(Res.string.subject_lessons_count, subject.lessonCount),
-                fontSize = 13.sp,
+                fontSize = 12.sp,
                 color = subject.color,
                 fontWeight = FontWeight.Medium
             )
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             // Custom two-layer Box progress bar: outer = track at 30% alpha, inner = fill.
             // Avoids Material3 LinearProgressIndicator which adds an unwanted stop-dot at 100%.
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(6.dp)
+                    .height(5.dp)
                     .clip(RoundedCornerShape(3.dp))
                     .background(subject.color.copy(alpha = 0.3f))
             ) {

@@ -257,6 +257,8 @@ object QuestionBank {
                 ChemistryQuestionGenerator.generateFor(lessonId, seed, excludeIds)
             lessonId.startsWith("algebra_") ->
                 AlgebraQuestionGenerator.generateFor(lessonId, seed, excludeIds)
+            lessonId.startsWith("mat_roz_") ->
+                ExtendedMathQuestionGenerator.generateFor(lessonId, seed, excludeIds)
             lessonId.startsWith("mat_") ->
                 MathQuestionGenerator.questionsFor(lessonId, seed, excludeIds)
             else ->

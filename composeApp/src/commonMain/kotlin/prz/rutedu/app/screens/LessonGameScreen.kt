@@ -95,7 +95,8 @@ fun LessonGameScreen(
     val subject = SubjectRepository.getById(subjectId)
     val topic = SubjectRepository.getTopicById(subjectId, topicId)
     val lesson = topic?.lessons?.find { it.id == lessonId }
-    val isGenerated = lessonId.startsWith("chemia_") || lessonId.startsWith("algebra_") || 
+    val isGenerated = lessonId.startsWith("chemia_") || lessonId.startsWith("algebra_") ||
+                      lessonId.startsWith("mat_roz_") ||
                       lessonId.startsWith("mat_1_") || lessonId.startsWith("mat_2_") || 
                       lessonId.startsWith("mat_3_") || lessonId.startsWith("mat_6_") ||
                       lessonId.startsWith("mat_7_") || lessonId.startsWith("mat_8_") ||
