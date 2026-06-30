@@ -6,10 +6,9 @@ import prz.rutedu.app.database.DriverFactory
 /**
  * iOS entry point for the app.
  *
- * Creates the platform [DriverFactory], initialises the SQLite driver, and returns a
- * [ComposeUIViewController] that hosts the [App] composable.
+ * Creates the platform [DriverFactory] and passes it to [App], which manages the driver
+ * lifecycle internally - including showing [DatabaseErrorScreen] on open failure.
  */
 fun MainViewController() = ComposeUIViewController {
-    val driver = DriverFactory().createDriver();
-    App(driver)
+    App(DriverFactory())
 }

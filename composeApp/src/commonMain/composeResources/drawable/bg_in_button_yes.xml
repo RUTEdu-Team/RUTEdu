@@ -4,7 +4,9 @@
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="20dp" />
-            <stroke android:width="4dp" android:color="@color/green"/>
+            <stroke
+                android:width="4dp"
+                android:color="@color/green" />
             <gradient
                 android:startColor="@color/accent"
                 android:centerColor="@color/accent_dark"

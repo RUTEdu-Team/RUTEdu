@@ -1298,7 +1298,7 @@ object SubjectRepository {
          * - Kontynenty i oceany (Continents and Oceans)
          * - Klimat i pogoda (Climate and Weather)
          * - Ludność świata (World Population)
-         * - Kraje i stolice (Countries and Capitals map quizzes)
+         * - Kraje i stolice (Countries, capitals, voivodeships, national parks)
          */
         Subject(
             id = "geografia",
@@ -1331,7 +1331,7 @@ object SubjectRepository {
                             name = "Ukształtowanie terenu",
                             description = "Góry, niziny, wyżyny",
                             progress = 0.0f,
-                            isLocked = false,
+                            isLocked = true,
                             color = Color(0xFF3DBD7D),
                             icon = Icons.Default.Landscape
                         )
@@ -1351,7 +1351,7 @@ object SubjectRepository {
                     name = "Ludność świata",
                     description = "Demografia i migracje",
                     progress = 0.0f,
-                    isLocked = false,
+                    isLocked = true,
                     color = Color(0xFFF47B20),
                     icon = Icons.Default.Public
                 ),
@@ -1399,6 +1399,24 @@ object SubjectRepository {
                             isLocked = false,
                             color = Color(0xFF959955),
                             icon = Icons.Default.Map
+                        ),
+                        Lesson(
+                            id = "geo_4_5",
+                            name = "Polskie Parki Narodowe",
+                            description = "Rozpoznaj i wskaż polskie parki narodowe na mapie",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFF29DE32),
+                            icon = Icons.Default.Landscape
+                        ),
+                        Lesson(
+                            id = "geografia_stolice_woj",
+                            name = "Stolice województw",
+                            description = "Wskaż stolice na mapie Polski",
+                            progress = 0.0f,
+                            isLocked = false,
+                            color = Color(0xFFF47B20),
+                            icon = Icons.Default.Explore
                         )
                     )
                 )

@@ -28,4 +28,12 @@ expect class DriverFactory {
      * The schema is applied (or migrated) automatically on first open.
      */
     fun createDriver(): SqlDriver
+
+    /**
+     * Deletes the underlying database file from the device storage.
+     *
+     * Called by [prz.rutedu.app.DatabaseErrorScreen] when the user opts to reset progress after
+     * an unrecoverable database error. Returns `true` on success, `false` if the delete failed.
+     */
+    fun deleteDatabase(): Boolean
 }

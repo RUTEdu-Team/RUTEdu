@@ -4,8 +4,7 @@
     android:viewportHeight="600.2376"
     android:width="64dp"
     android:height="64dp">
-    <path
-        android:pathData="M0 0H611.0588V600.2376H0V0Z" />
+    <path android:pathData="M0 0H611.0588V600.2376H0V0Z" />
     <group
         android:scaleX="2.076226"
         android:scaleY="2.076226"

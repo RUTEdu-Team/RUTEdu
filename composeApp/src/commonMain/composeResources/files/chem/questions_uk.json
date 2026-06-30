@@ -1,0 +1,515 @@
+[
+  {
+    "lessonId": "chemia_3_1",
+    "questions": [
+      {
+        "type": "SelectFromList",
+        "id": 3101,
+        "prompt": "Формула хлоридної кислоти",
+        "options": [
+          "HCl",
+          "H₂S",
+          "HF",
+          "HBr"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Хлоридна кислота — це безоксигенова кислота. Вона складається з водню та хлору.",
+          "boldPart": "Хлоридна кислота",
+          "sectionTitle": "Безоксигенові кислоти",
+          "items": [
+            "HCl – хлоридна",
+            "H₂S – сульфідна",
+            "HF – фторидна",
+            "HBr – бромідна"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3102,
+        "prompt": "Формула сульфідної кислоти",
+        "options": [
+          "H₂SO₄",
+          "H₂S",
+          "H₂SO₃",
+          "HCl"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Сульфідна кислота H₂S — це безоксигенова кислота, відома своїм запахом тухлих яєць.",
+          "boldPart": "H₂S",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3103,
+        "prompt": "Формула фторидної кислоти",
+        "options": [
+          "HBr",
+          "HCl",
+          "HF",
+          "H₂S"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Фторидна кислота (HF) використовується для травлення скла.",
+          "boldPart": "HF",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3104,
+        "prompt": "Формула бромідної кислоти",
+        "options": [
+          "HF",
+          "HCl",
+          "H₂S",
+          "HBr"
+        ],
+        "correctIndices": [
+          3
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Бромідна кислота HBr — це безоксигенова кислота, подібна до HCl.",
+          "boldPart": "HBr",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3105,
+        "prompt": "Формула сульфатної кислоти",
+        "options": [
+          "H₂SO₃",
+          "HNO₃",
+          "H₂SO₄",
+          "H₃PO₄"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Сульфатна кислота – H₂SO₄ – найважливіша промислова кислота, дуже їдка.",
+          "boldPart": "H₂SO₄",
+          "sectionTitle": "Оксигеновмісні кислоти сірки",
+          "items": [
+            "H₂SO₄ – сульфатна, сірка в +6",
+            "H₂SO₃ – сульфітна, сірка в +4"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3106,
+        "prompt": "Формула нітратної кислоти",
+        "options": [
+          "H₂SO₄",
+          "HNO₃",
+          "H₃PO₄",
+          "H₂CO₃"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Нітратна кислота — це HNO₃. Використовується для виробництва добрив та вибухівки.",
+          "boldPart": "HNO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3107,
+        "prompt": "Формула вугільної кислоти",
+        "options": [
+          "H₂SO₄",
+          "H₃PO₄",
+          "HNO₃",
+          "H₂CO₃"
+        ],
+        "correctIndices": [
+          3
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Вугільна кислота H₂CO₃ — це слабка кислота, що утворюється при розчиненні CO₂ у воді.",
+          "boldPart": "H₂CO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3108,
+        "prompt": "Формула ортофосфатної кислоти",
+        "options": [
+          "H₃PO₄",
+          "H₂SO₄",
+          "H₂CO₃",
+          "HNO₃"
+        ],
+        "correctIndices": [
+          0
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Ортофосфатна кислота — це H₃PO₄. Інгредієнт добрив та напоїв кола.",
+          "boldPart": "H₃PO₄",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3109,
+        "prompt": "Формула сульфітної кислоти",
+        "options": [
+          "H₂SO₄",
+          "H₂SO₃",
+          "HNO₃",
+          "H₃PO₄"
+        ],
+        "correctIndices": [
+          1
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "Сульфітна кислота — це H₂SO₃. Утворюється при згорянні сірки — причина кислотних дощів.",
+          "boldPart": "H₂SO₃",
+          "sectionTitle": "Оксигеновмісні кислоти сірки",
+          "items": [
+            "H₂SO₄ – сульфатна, сірка в +6",
+            "H₂SO₃ – сульфітна, сірка в +4"
+          ],
+          "steps": []
+        }
+      },
+      {
+        "type": "SelectFromList",
+        "id": 3110,
+        "prompt": "Кислота з формулою H₂SO₄ — це...",
+        "options": [
+          "нітратна кислота",
+          "вугільна кислота",
+          "сульфатна кислота",
+          "ортофосфатна кислота"
+        ],
+        "correctIndices": [
+          2
+        ],
+        "multiSelect": false,
+        "hint": {
+          "mainText": "H₂SO₄ — це сульфатна кислота. Число (VI) вказує на ступінь окиснення сірки.",
+          "boldPart": "сульфатна кислота",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  },
+  {
+    "lessonId": "chemia_3_2",
+    "questions": [
+      {
+        "type": "EquationBalance",
+        "id": 3201,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Select the correct stoichiometric coefficients",
+        "reactants": [
+          {
+            "formula": "H₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "Cl₂",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "HCl",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "H₂ + Cl₂ → 2HCl. Ліворуч: 2H і 2Cl. Праворуч: 2H і 2Cl у 2 молекулах HCl.",
+          "boldPart": "2HCl",
+          "sectionTitle": "Крок за кроком",
+          "items": [],
+          "steps": [
+            "Порахуйте атоми H ліворуч: 1×H₂ = 2 атоми H",
+            "Порахуйте атоми Cl ліворуч: 1×Cl₂ = 2 атоми Cl",
+            "Праворуч: HCl має 1H і 1Cl → нам потрібно 2×HCl"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3202,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Select the correct stoichiometric coefficients",
+        "reactants": [
+          {
+            "formula": "H₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          },
+          {
+            "formula": "O₂",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "2H₂ + O₂ → 2H₂O. Класична реакція синтезу води.",
+          "boldPart": "2H₂O",
+          "sectionTitle": "Крок за кроком",
+          "items": [],
+          "steps": [
+            "Праворуч: 2 молекули H₂O = 4H і 2O",
+            "4H ліворуч — це 2×H₂",
+            "2O ліворуч — це 1×O₂"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3203,
+        "instruction": "Complete the acid preparation equation",
+        "subInstruction": "Sulfuric(VI) acid is formed from SO₃ and water",
+        "reactants": [
+          {
+            "formula": "SO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂SO₄",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "SO₃ + H₂O → H₂SO₄. Усі коефіцієнти дорівнюють 1.",
+          "boldPart": "H₂SO₄",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3204,
+        "instruction": "Complete the acid preparation equation",
+        "subInstruction": "Sulfurous(IV) acid is formed from SO₂ and water",
+        "reactants": [
+          {
+            "formula": "SO₂",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂SO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "SO₂ + H₂O → H₂SO₃. Сульфітна кислота відповідальна за кислотні дощі.",
+          "boldPart": "H₂SO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3205,
+        "instruction": "Complete the acid preparation equation",
+        "subInstruction": "Carbonic acid is formed from CO₂ and water",
+        "reactants": [
+          {
+            "formula": "CO₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂CO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "CO₂ + H₂O → H₂CO₃. Так утворюється вугільна кислота в газованих напоях.",
+          "boldPart": "H₂CO₃",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3206,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Nitric(V) acid from N₂O₅ and water",
+        "reactants": [
+          {
+            "formula": "N₂O₅",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "HNO₃",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "N₂O₅ + H₂O → 2HNO₃. Одна молекула N₂O₅ містить 2 атоми N → 2 молекули HNO₃.",
+          "boldPart": "2HNO₃",
+          "sectionTitle": "Крок за кроком",
+          "items": [],
+          "steps": [
+            "N₂O₅ має 2 атоми азоту",
+            "Кожна молекула HNO₃ містить 1 атом азоту",
+            "Нам потрібно 2×HNO₃ для балансу азоту"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3207,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Phosphoric(V) acid from P₂O₅ and water",
+        "reactants": [
+          {
+            "formula": "P₂O₅",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          },
+          {
+            "formula": "H₂O",
+            "fixedCoefficient": null,
+            "correctCoefficient": 3
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₃PO₄",
+            "fixedCoefficient": null,
+            "correctCoefficient": 2
+          }
+        ],
+        "hint": {
+          "mainText": "P₂O₅ + 3H₂O → 2H₃PO₄. Два атоми P → 2 молекули H₃PO₄, що вимагає 3 молекули води.",
+          "boldPart": "2H₃PO₄",
+          "sectionTitle": "Крок за кроком",
+          "items": [],
+          "steps": [
+            "P₂O₅ має 2 атоми P → нам потрібно 2×H₃PO₄",
+            "2×H₃PO₄ має 6 атомів H → нам потрібно 3×H₂O",
+            "Перевірка O: P₂O₅(5) + 3H₂O(3) = 8 = 2×H₃PO₄(8) ✓"
+          ]
+        }
+      },
+      {
+        "type": "EquationBalance",
+        "id": 3208,
+        "instruction": "Balance the chemical equation",
+        "subInstruction": "Hydrosulfuric acid synthesis reaction",
+        "reactants": [
+          {
+            "formula": "H₂",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          },
+          {
+            "formula": "S",
+            "fixedCoefficient": 1,
+            "correctCoefficient": null
+          }
+        ],
+        "products": [
+          {
+            "formula": "H₂S",
+            "fixedCoefficient": null,
+            "correctCoefficient": 1
+          }
+        ],
+        "hint": {
+          "mainText": "H₂ + S → H₂S. Усі коефіцієнти дорівнюють 1.",
+          "boldPart": "H₂S",
+          "sectionTitle": null,
+          "items": [],
+          "steps": []
+        }
+      }
+    ]
+  }
+]

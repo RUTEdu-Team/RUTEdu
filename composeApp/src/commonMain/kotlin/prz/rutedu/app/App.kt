@@ -4,12 +4,29 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,6 +39,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -35,8 +53,10 @@ import org.jetbrains.compose.resources.stringResource
 import prz.rutedu.app.components.BottomNavBar
 import prz.rutedu.app.components.NavTab
 import prz.rutedu.app.data.SubjectRepository
+import prz.rutedu.app.database.DriverFactory
 import prz.rutedu.app.locale.AppLocaleProvider
 import prz.rutedu.app.locale.customAppLocale
+import prz.rutedu.app.locale.getCurrentLanguage
 import prz.rutedu.app.screens.ConfigListScreen
 import prz.rutedu.app.screens.GameMode
 import prz.rutedu.app.screens.GameScreen
@@ -187,13 +207,46 @@ private fun showBottomNav(route: String?): Boolean =
  * **Adding a new screen:** declare an `object` in [Screen], add a `composable()` block here,
  * and add the route to [showBottomNav] if the bottom bar should be visible there.
  *
- * @param driver Platform-specific SQLite driver created by `DriverFactory` in the platform entry
- *               point (Android `MainActivity` / iOS `MainViewController`). Must outlive this
- *               composable - do not create a new driver inside `App`.
+ * @param driverFactory Platform-specific factory used to open the database and, if needed,
+ *                      delete it after an unrecoverable error. Created in the platform entry
+ *                      point (Android `MainActivity` / iOS `MainViewController`).
  */
 @Composable
 @Preview
-fun App(driver: SqlDriver) {
+fun App(driverFactory: DriverFactory) {
+    var driverState by remember { mutableStateOf<SqlDriver?>(null) }
+    var databaseError by remember { mutableStateOf<Throwable?>(null) }
+
+    remember(driverFactory) {
+        try {
+            driverState = driverFactory.createDriver()
+        } catch (e: Throwable) {
+            databaseError = e
+        }
+        Unit
+    }
+
+    if (databaseError != null) {
+        RUTEduTheme {
+            DatabaseErrorScreen(
+                error = databaseError!!,
+                onReset = {
+                    driverFactory.deleteDatabase()
+                    databaseError = null
+                    try {
+                        driverState = driverFactory.createDriver()
+                    } catch (e: Throwable) {
+                        databaseError = e
+                    }
+                },
+                onExit = { exitApp() }
+            )
+        }
+        return
+    }
+
+    val driver = driverState ?: return
+
     val navController = rememberNavController()
     val db = remember { Database(driver) }
 
@@ -211,7 +264,23 @@ fun App(driver: SqlDriver) {
                 customAppThemeMode = ThemeMode.fromString(savedTheme)
             }
         } catch (_: Exception) {}
+        try {
+            prz.rutedu.app.data.QuestionBank.loadQuestions(driver, getCurrentLanguage())
+        } catch (_: Exception) {}
         Unit
+    }
+
+    LaunchedEffect(driver) {
+        prz.rutedu.app.locale.GeneratorLocalizer.initialize()
+        prz.rutedu.app.data.GeneratorStrings.load(getCurrentLanguage())
+        prz.rutedu.app.data.QuestionBank.seedDatabaseIfNeeded(driver)
+        prz.rutedu.app.data.QuestionBank.loadQuestions(driver, getCurrentLanguage())
+    }
+
+    LaunchedEffect(customAppLocale) {
+        prz.rutedu.app.locale.GeneratorLocalizer.loadForLanguage(getCurrentLanguage())
+        prz.rutedu.app.data.GeneratorStrings.load(getCurrentLanguage())
+        prz.rutedu.app.data.QuestionBank.loadQuestions(driver, getCurrentLanguage())
     }
 
     RUTEduTheme {
@@ -477,5 +546,139 @@ private fun PlaceholderScreen(label: String, bottomPadding: Dp = 0.dp) {
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onBackground
         )
+    }
+}
+
+/**
+ * Full-screen error surface shown when [DriverFactory.createDriver] throws an exception.
+ *
+ * Offers two recovery paths:
+ * - **Reset Progress** – deletes the database file via [onReset] and attempts to re-open it,
+ *   losing all stored progress in exchange for a working app.
+ * - **Exit App** – calls [onExit] so the user can wait for a fix without losing data.
+ *
+ * The screen reuses the app's [MaterialTheme] colour scheme and shape system so it is
+ * visually consistent with the rest of the UI even when rendered outside the normal nav graph.
+ *
+ * @param error   The [Throwable] that caused the database initialisation to fail.
+ * @param onReset Called when the user confirms they want to delete the database and try again.
+ * @param onExit  Called when the user wants to close the app without resetting.
+ */
+@Composable
+fun DatabaseErrorScreen(
+    error: Throwable,
+    onReset: () -> Unit,
+    onExit: () -> Unit
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+            .padding(16.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState()),
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+            elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(24.dp)
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Warning,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.error,
+                    modifier = Modifier
+                        .height(48.dp)
+                        .width(48.dp)
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    text = stringResource(Res.string.database_error_title),
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    textAlign = TextAlign.Center
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                Text(
+                    text = stringResource(Res.string.database_error_desc),
+                    fontSize = 14.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant
+                    )
+                ) {
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Text(
+                            text = stringResource(Res.string.database_error_tech_details),
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = error.message ?: error.toString(),
+                            fontSize = 12.sp,
+                            color = MaterialTheme.colorScheme.error,
+                            fontWeight = FontWeight.Medium
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Button(
+                    onClick = onReset,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp),
+                    shape = RoundedCornerShape(24.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.error
+                    )
+                ) {
+                    Text(
+                        text = stringResource(Res.string.database_error_reset_progress),
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onError
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                OutlinedButton(
+                    onClick = onExit,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp),
+                    shape = RoundedCornerShape(24.dp)
+                ) {
+                    Text(
+                        text = stringResource(Res.string.database_error_exit_app),
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
+            }
+        }
     }
 }

@@ -252,7 +252,7 @@ internal fun HintBottomSheet(
  *
  * @param text     The token string to display (e.g. `"12"`, `"+"`, `"?"`).
  * @param color    Text color - typically the subject accent color for the answer slot, or
- *                 `Color(0xFF1A1A1A)` for known values.
+ *                 `MaterialTheme.colorScheme.onSurface` for known values.
  * @param fontSize Token size; defaults to 48 sp for primary equation display.
  */
 @Composable

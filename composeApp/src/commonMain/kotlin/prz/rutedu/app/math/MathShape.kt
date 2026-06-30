@@ -25,9 +25,11 @@ data class Pt(val x: Double, val y: Double)
  * @property xMax     Right edge of the visible area in world units.
  * @property yMin     Bottom edge of the visible area in world units.
  * @property yMax     Top edge of the visible area in world units.
- * @property showGrid When `true`, evenly-spaced grid lines are drawn at [gridStep] intervals.
- * @property showAxes When `true`, x and y axes with numeric tick labels are drawn.
- * @property gridStep Distance between grid lines and tick marks, in world units.
+ * @property showGrid    When `true`, evenly-spaced grid lines are drawn at [gridStep] intervals.
+ * @property showAxes    When `true`, x and y axes with numeric tick labels are drawn.
+ * @property showXLabels When `true`, numeric labels along the x-axis are shown.
+ * @property showYLabels When `true`, numeric labels along the y-axis are shown.
+ * @property gridStep    Distance between grid lines and tick marks, in world units.
  */
 data class MathViewport(
     val xMin: Double = -5.0,
@@ -207,10 +209,11 @@ sealed class MathShape {
     /**
      * A pie chart with slices sized proportionally to their values.
      *
-     * @property cx     World x-coordinate of the centre.
-     * @property cy     World y-coordinate of the centre.
-     * @property r      Radius in world units.
-     * @property slices List of data points to represent as slices.
+     * @property cx          World x-coordinate of the centre.
+     * @property cy          World y-coordinate of the centre.
+     * @property r           Radius in world units.
+     * @property slices      List of data points to represent as slices.
+     * @property strokeWidth Stroke width of the chart outline and slice separators in dp.
      */
     data class PieChart(
         val cx: Double,
@@ -219,6 +222,13 @@ sealed class MathShape {
         val slices: List<Slice>,
         val strokeWidth: Float = 1.5f
     ) : MathShape() {
+        /**
+         * Represents a single slice of a [PieChart].
+         *
+         * @property value The numeric value of the slice (determining its proportional arc length).
+         * @property color The color used to fill the slice.
+         * @property label Optional label printed near the slice.
+         */
         data class Slice(val value: Double, val color: Color, val label: String? = null)
     }
 

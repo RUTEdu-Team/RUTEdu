@@ -20,6 +20,14 @@ import kotlin.math.pow
  */
 object ExtendedMathQuestionGenerator {
 
+    /**
+     * Generates a procedural set of questions for a given "Matematyka rozszerzona" lesson.
+     *
+     * @param lessonId The identifier of the lesson (e.g., "mat_roz_1_1").
+     * @param seed The random seed used to shuffle and generate procedural values.
+     * @param excludeIds Set of question IDs to exclude (already answered).
+     * @return List of generated [Question] objects.
+     */
     fun generateFor(
         lessonId: String,
         seed: Long,
@@ -62,6 +70,12 @@ object ExtendedMathQuestionGenerator {
         return if (excludeIds.isEmpty()) all else all.filter { it.id !in excludeIds }
     }
 
+    /**
+     * Returns the total number of questions available for a given lesson.
+     *
+     * @param lessonId The identifier of the lesson.
+     * @return Total count of questions.
+     */
     fun totalFor(lessonId: String): Int = generateFor(lessonId, seed = 0L).size
 
     private fun select(

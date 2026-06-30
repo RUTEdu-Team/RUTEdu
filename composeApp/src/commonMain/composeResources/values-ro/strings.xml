@@ -60,7 +60,7 @@ Joacă în modul luptă pentru a vedea rezultatele!</string>
     <string name="menu_settings">Setări</string>
     <string name="menu_pvp">Luptă</string>
     <string name="menu_leaderboard">Clasament</string>
-    
+
     <!-- Player Selection Screen -->
     <string name="no_players_yet">Niciun jucător momentan!</string>
     <string name="create_first_player">Creează-ți primul jucător pentru a începe</string>
@@ -70,7 +70,7 @@ Joacă în modul luptă pentru a vedea rezultatele!</string>
     <string name="error_creating_player">Eroare la crearea jucătorului</string>
     <string name="high_score_games">Scor maxim: %1$d | Jocuri: %2$d</string>
     <string name="star">Stea</string>
-    
+
     <!-- Game Screen -->
     <string name="question_counter">Întrebarea %1$d / %2$d</string>
     <string name="game_over">🎉 Joc încheiat! 🎉</string>
@@ -97,7 +97,7 @@ Joacă în modul luptă pentru a vedea rezultatele!</string>
     <string name="placeholder_enter_result">Introduceți rezultatul...</string>
     <string name="periodic_table_electrons_shells">electroni pe straturile K, L, M, N...</string>
     <string name="select_all_correct_answers">Selectați toate răspunsurile corecte</string>
-    
+
     <!-- PvP Battle Screen -->
     <string name="back_to_menu">Înapoi la Meniu</string>
     <string name="player_wins">%1$s Câștigă! 🏆</string>
@@ -109,7 +109,7 @@ Joacă în modul luptă pentru a vedea rezultatele!</string>
     <string name="correct">✓ Corect!</string>
     <string name="wrong">✗ Greșit</string>
     <string name="answer_submitted">✓ Răspuns trimis</string>
-    
+
     <!-- Unit conversion -->
     <string name="unit_hours">ore</string>
     <string name="unit_minutes">minute</string>
@@ -378,6 +378,10 @@ Joacă în modul luptă pentru a vedea rezultatele!</string>
     <string name="lesson_desc_geo_4_3">Indică țara după denumirea capitalei sale</string>
     <string name="lesson_geo_4_4">Voievodatele Poloniei</string>
     <string name="lesson_desc_geo_4_4">Marchează voievodatele pe harta Poloniei</string>
+    <string name="lesson_geo_4_5">Parcuri naționale din Polonia</string>
+    <string name="lesson_desc_geo_4_5">Marchează parcurile naționale pe harta Poloniei</string>
+    <string name="lesson_geografia_stolice_woj">Province Capitals</string>
+    <string name="lesson_desc_geografia_stolice_woj">Find province capitals on the map of Poland</string>
     <string name="topic_mat_2">Expresii algebrice</string>
     <string name="topic_desc_mat_2">Identități algebrice și factorizare</string>
     <string name="topic_mat_3">Ecuații și Inecuații</string>
@@ -412,8 +416,153 @@ Joacă în modul luptă pentru a vedea rezultatele!</string>
     <string name="lesson_desc_chemia_4_2">Ioni de acizi, baze și săruri în soluție</string>
     <string name="lesson_chemia_6_1">Tipuri de Oxizi</string>
     <string name="lesson_desc_chemia_6_1">Formule, denumiri și clasificarea oxizilor</string>
-<string name="settings_lang_pl">Polski</string><string name="settings_lang_pl_desc">Limba poloneză</string><string name="settings_lang_en">English</string><string name="settings_lang_en_desc">Limba engleză</string><string name="settings_lang_cs">Čeština</string><string name="settings_lang_cs_desc">Limba cehă</string><string name="settings_lang_de">Deutsch</string><string name="settings_lang_de_desc">Limba germană</string><string name="settings_lang_el">Ελληνικά</string><string name="settings_lang_el_desc">Limba greacă</string><string name="settings_lang_es">Español</string><string name="settings_lang_es_desc">Limba spaniolă</string><string name="settings_lang_fr">Français</string><string name="settings_lang_fr_desc">Limba franceză</string><string name="settings_lang_hu">Magyar</string><string name="settings_lang_hu_desc">Limba maghiară</string><string name="settings_lang_it">Italiano</string><string name="settings_lang_it_desc">Limba italiană</string><string name="settings_lang_nl">Nederlands</string><string name="settings_lang_nl_desc">Limba olandeză</string><string name="settings_lang_pt">Português</string><string name="settings_lang_pt_desc">Limba portugheză</string><string name="settings_lang_sk">Slovenčina</string><string name="settings_lang_sk_desc">Limba slovacă</string><string name="settings_lang_uk">Українська</string><string name="settings_lang_uk_desc">Limba ucraineană</string><string name="settings_lang_bg">Български</string><string name="settings_lang_bg_desc">Limba bulgară</string><string name="settings_lang_hr">Hrvatski</string><string name="settings_lang_hr_desc">Limba croată</string><string name="settings_lang_sr">Српски</string><string name="settings_lang_sr_desc">Limba sârbă</string><string name="settings_lang_sv">Svenska</string><string name="settings_lang_sv_desc">Limba suedeză</string><string name="settings_lang_da">Dansk</string><string name="settings_lang_da_desc">Limba daneză</string><string name="settings_lang_no">Norsk</string><string name="settings_lang_no_desc">Limba norvegiană</string><string name="settings_lang_is">Íslenska</string><string name="settings_lang_is_desc">Limba islandeză</string><string name="settings_lang_fi">Suomi</string><string name="settings_lang_fi_desc">Limba finlandeză</string><string name="settings_lang_et">Eesti</string><string name="settings_lang_et_desc">Limba estonă</string><string name="settings_lang_lv">Latviešu</string><string name="settings_lang_lv_desc">Limba letonă</string><string name="settings_lang_lt">Lietuvių</string><string name="settings_lang_lt_desc">Limba lituaniană</string><string name="settings_lang_ro">Română</string><string name="settings_lang_ro_desc">Limba română</string><string name="settings_lang_sl">Slovenščina</string><string name="settings_lang_sl_desc">Limba slovenă</string><string name="settings_lang_ga">Gaeilge</string><string name="settings_lang_ga_desc">Limba irlandeză</string><string name="settings_lang_mt">Malti</string><string name="settings_lang_mt_desc">Limba malteză</string><string name="topic_mat_6">Fracții</string><string name="topic_mat_7">Procente</string><string name="topic_mat_8">Proporții și scară</string><string name="topic_mat_9">Geometrie în spațiu</string><string name="topic_mat_10">Sistemul de coordonate</string><string name="topic_mat_11">Statistică și probabilități</string><string name="topic_mat_12">Numere întregi</string><string name="topic_desc_mat_6">Operații cu fracții ordinare și zecimale și aplicațiile lor</string><string name="topic_desc_mat_7">Calculul procentelor și aplicarea lor în viața de zi cu zi</string><string name="topic_desc_mat_8">Relații de proporționalitate și lucrul cu scara și hărțile</string><string name="topic_desc_mat_9">Corpuri geometrice, proprietățile lor și calcularea volumelor și a ariilor</string><string name="topic_desc_mat_10">Puncte, grafice și geometrie analitică în plan</string><string name="topic_desc_mat_11">Medie, mediană, grafice și probabilități</string><string name="topic_desc_mat_12">Numere pozitive și negative și operații cu ele</string><string name="lesson_mat_3_3">Inecuații liniare</string><string name="lesson_desc_mat_3_3">Metoda substituției și coeficienților opuși</string><string name="lesson_mat_4_2">Funcția de gradul doi</string><string name="lesson_desc_mat_4_2">Graficul funcției de gradul doi (parabola) și proprietățile sale de bază</string><string name="lesson_mat_4_3">Citirea graficelor funcțiilor</string><string name="lesson_desc_mat_4_3">Interpretarea graficelor de funcții: valori, rădăcini și intervale</string><string name="lesson_mat_4_4">Proprietățile funcțiilor</string><string name="lesson_desc_mat_4_4">Domeniu, codomeniu, monotonie și rădăcinile unei funcții</string><string name="lesson_mat_5_2">Patrulatere</string><string name="lesson_desc_mat_5_2">Proprietățile dreptunghiului, pătratului, paralelogramului și trapezului</string><string name="lesson_mat_5_3">Cercuri și discuri</string><string name="lesson_desc_mat_5_3">Elementele cercului: rază, diametru, coardă și proprietățile discului</string><string name="lesson_mat_5_4">Arii și perimetre ale figurilor</string><string name="lesson_desc_mat_5_4">Calcularea ariilor și perimetrelor figurilor geometrice de bază</string><string name="lesson_mat_5_5">Teorema lui Pitagora</string><string name="lesson_desc_mat_5_5">Relația a² + b² = c² în triunghiul dreptunghic</string><string name="lesson_mat_6_1">Conversia fracțiilor</string><string name="lesson_desc_mat_6_1">Transformarea fracțiilor ordinare și zecimale</string><string name="lesson_mat_6_2">Operații cu fracții</string><string name="lesson_desc_mat_6_2">Adunarea, scăderea, înmulțirea și împărțirea fracțiilor</string><string name="lesson_mat_6_3">Compararea fracțiilor</string><string name="lesson_desc_mat_6_3">Compararea valorilor fracțiilor ordinare și zecimale</string><string name="lesson_mat_6_4">Fracții zecimale</string><string name="lesson_desc_mat_6_4">Operații cu numere zecimale și aplicațiile lor</string><string name="lesson_mat_7_1">Procentul dintr-un număr</string><string name="lesson_desc_mat_7_1">Calcularea procentului dintr-un număr dat</string><string name="lesson_mat_7_2">Reduceri și scumpiri</string><string name="lesson_desc_mat_7_2">Modificări procentuale de prețuri și valori</string><string name="lesson_mat_7_3">Probleme textuale</string><string name="lesson_desc_mat_7_3">Aplicarea procentelor în probleme practice</string><string name="lesson_mat_8_1">Proporții</string><string name="lesson_desc_mat_8_1">Rezolvarea proporțiilor directe și inverse</string><string name="lesson_mat_8_2">Scară</string><string name="lesson_desc_mat_8_2">Citirea și aplicarea scării pe hărți și planuri</string><string name="lesson_mat_8_3">Hartă și distanțe</string><string name="lesson_desc_mat_8_3">Calcularea distanțelor reale de pe hartă</string><string name="lesson_mat_9_1">Prisme</string><string name="lesson_desc_mat_9_1">Proprietățile și elementele prismelor</string><string name="lesson_mat_9_2">Piramide</string><string name="lesson_desc_mat_9_2">Proprietățile și elementele piramidelor</string><string name="lesson_mat_9_3">Corpuri de rotație</string><string name="lesson_desc_mat_9_3">Cilindrul, conul și sfera și proprietățile lor</string><string name="lesson_mat_9_4">Arii ale corpurilor</string><string name="lesson_desc_mat_9_4">Calcularea ariilor suprafețelor corpurilor geometrice</string><string name="lesson_mat_9_5">Volumul corpurilor</string><string name="lesson_desc_mat_9_5">Calcularea volumelor corpurilor geometrice</string><string name="lesson_mat_10_1">Sistem de coordonate</string><string name="lesson_desc_mat_10_1">Introducere în axele X și Y</string><string name="lesson_mat_10_2">Citirea punctelor</string><string name="lesson_desc_mat_10_2">Coordonatele punctelor în plan</string><string name="lesson_mat_10_3">Desenarea figurilor</string><string name="lesson_desc_mat_10_3">Desenarea liniilor și figurilor într-un sistem de coordonate</string><string name="lesson_mat_10_4">Distanța dintre puncte</string><string name="lesson_desc_mat_10_4">Calcularea distanței dintre două puncte</string><string name="lesson_mat_11_1">Medie aritmetică</string><string name="lesson_desc_mat_11_1">Calcularea mediei aritmetice a datelor</string><string name="lesson_mat_11_2">Mediană și mod</string><string name="lesson_desc_mat_11_2">Determinarea medianei și a modului în seturi de date</string><string name="lesson_mat_11_3">Grafice și diagrame</string><string name="lesson_desc_mat_11_3">Citirea și crearea graficelor și diagramelor</string><string name="lesson_mat_11_4">Probabilitatea unor evenimente simple</string><string name="lesson_desc_mat_11_4">Calcularea probabilității unor evenimente aleatorii simple</string><string name="lesson_mat_12_1">Numere pozitive și negative</string><string name="lesson_desc_mat_12_1">Introducere în numerele întregi</string><string name="lesson_mat_12_2">Adunare și scădere</string><string name="lesson_desc_mat_12_2">Operații cu numere întregi</string><string name="lesson_mat_12_3">Înmulțire și împărțire</string><string name="lesson_desc_mat_12_3">Operații cu numere întregi</string>
-    <!-- Extended mathematics -->
+    <string name="settings_lang_pl">Polski</string>
+    <string name="settings_lang_pl_desc">Limba poloneză</string>
+    <string name="settings_lang_en">English</string>
+    <string name="settings_lang_en_desc">Limba engleză</string>
+    <string name="settings_lang_cs">Čeština</string>
+    <string name="settings_lang_cs_desc">Limba cehă</string>
+    <string name="settings_lang_de">Deutsch</string>
+    <string name="settings_lang_de_desc">Limba germană</string>
+    <string name="settings_lang_el">Ελληνικά</string>
+    <string name="settings_lang_el_desc">Limba greacă</string>
+    <string name="settings_lang_es">Español</string>
+    <string name="settings_lang_es_desc">Limba spaniolă</string>
+    <string name="settings_lang_fr">Français</string>
+    <string name="settings_lang_fr_desc">Limba franceză</string>
+    <string name="settings_lang_hu">Magyar</string>
+    <string name="settings_lang_hu_desc">Limba maghiară</string>
+    <string name="settings_lang_it">Italiano</string>
+    <string name="settings_lang_it_desc">Limba italiană</string>
+    <string name="settings_lang_nl">Nederlands</string>
+    <string name="settings_lang_nl_desc">Limba olandeză</string>
+    <string name="settings_lang_pt">Português</string>
+    <string name="settings_lang_pt_desc">Limba portugheză</string>
+    <string name="settings_lang_sk">Slovenčina</string>
+    <string name="settings_lang_sk_desc">Limba slovacă</string>
+    <string name="settings_lang_uk">Українська</string>
+    <string name="settings_lang_uk_desc">Limba ucraineană</string>
+    <string name="settings_lang_bg">Български</string>
+    <string name="settings_lang_bg_desc">Limba bulgară</string>
+    <string name="settings_lang_hr">Hrvatski</string>
+    <string name="settings_lang_hr_desc">Limba croată</string>
+    <string name="settings_lang_sr">Српски</string>
+    <string name="settings_lang_sr_desc">Limba sârbă</string>
+    <string name="settings_lang_sv">Svenska</string>
+    <string name="settings_lang_sv_desc">Limba suedeză</string>
+    <string name="settings_lang_da">Dansk</string>
+    <string name="settings_lang_da_desc">Limba daneză</string>
+    <string name="settings_lang_no">Norsk</string>
+    <string name="settings_lang_no_desc">Limba norvegiană</string>
+    <string name="settings_lang_is">Íslenska</string>
+    <string name="settings_lang_is_desc">Limba islandeză</string>
+    <string name="settings_lang_fi">Suomi</string>
+    <string name="settings_lang_fi_desc">Limba finlandeză</string>
+    <string name="settings_lang_et">Eesti</string>
+    <string name="settings_lang_et_desc">Limba estonă</string>
+    <string name="settings_lang_lv">Latviešu</string>
+    <string name="settings_lang_lv_desc">Limba letonă</string>
+    <string name="settings_lang_lt">Lietuvių</string>
+    <string name="settings_lang_lt_desc">Limba lituaniană</string>
+    <string name="settings_lang_ro">Română</string>
+    <string name="settings_lang_ro_desc">Limba română</string>
+    <string name="settings_lang_sl">Slovenščina</string>
+    <string name="settings_lang_sl_desc">Limba slovenă</string>
+    <string name="settings_lang_ga">Gaeilge</string>
+    <string name="settings_lang_ga_desc">Limba irlandeză</string>
+    <string name="settings_lang_mt">Malti</string>
+    <string name="settings_lang_mt_desc">Limba malteză</string>
+    <string name="topic_mat_6">Fracții</string>
+    <string name="topic_mat_7">Procente</string>
+    <string name="topic_mat_8">Proporții și scară</string>
+    <string name="topic_mat_9">Geometrie în spațiu</string>
+    <string name="topic_mat_10">Sistemul de coordonate</string>
+    <string name="topic_mat_11">Statistică și probabilități</string>
+    <string name="topic_mat_12">Numere întregi</string>
+    <string name="topic_desc_mat_6">Operații cu fracții ordinare și zecimale și aplicațiile lor</string>
+    <string name="topic_desc_mat_7">Calculul procentelor și aplicarea lor în viața de zi cu zi</string>
+    <string name="topic_desc_mat_8">Relații de proporționalitate și lucrul cu scara și hărțile</string>
+    <string name="topic_desc_mat_9">Corpuri geometrice, proprietățile lor și calcularea volumelor și a ariilor</string>
+    <string name="topic_desc_mat_10">Puncte, grafice și geometrie analitică în plan</string>
+    <string name="topic_desc_mat_11">Medie, mediană, grafice și probabilități</string>
+    <string name="topic_desc_mat_12">Numere pozitive și negative și operații cu ele</string>
+    <string name="lesson_mat_3_3">Inecuații liniare</string>
+    <string name="lesson_desc_mat_3_3">Metoda substituției și coeficienților opuși</string>
+    <string name="lesson_mat_4_2">Funcția de gradul doi</string>
+    <string name="lesson_desc_mat_4_2">Graficul funcției de gradul doi (parabola) și proprietățile sale de bază</string>
+    <string name="lesson_mat_4_3">Citirea graficelor funcțiilor</string>
+    <string name="lesson_desc_mat_4_3">Interpretarea graficelor de funcții: valori, rădăcini și intervale</string>
+    <string name="lesson_mat_4_4">Proprietățile funcțiilor</string>
+    <string name="lesson_desc_mat_4_4">Domeniu, codomeniu, monotonie și rădăcinile unei funcții</string>
+    <string name="lesson_mat_5_2">Patrulatere</string>
+    <string name="lesson_desc_mat_5_2">Proprietățile dreptunghiului, pătratului, paralelogramului și trapezului</string>
+    <string name="lesson_mat_5_3">Cercuri și discuri</string>
+    <string name="lesson_desc_mat_5_3">Elementele cercului: rază, diametru, coardă și proprietățile discului</string>
+    <string name="lesson_mat_5_4">Arii și perimetre ale figurilor</string>
+    <string name="lesson_desc_mat_5_4">Calcularea ariilor și perimetrelor figurilor geometrice de bază</string>
+    <string name="lesson_mat_5_5">Teorema lui Pitagora</string>
+    <string name="lesson_desc_mat_5_5">Relația a² + b² = c² în triunghiul dreptunghic</string>
+    <string name="lesson_mat_6_1">Conversia fracțiilor</string>
+    <string name="lesson_desc_mat_6_1">Transformarea fracțiilor ordinare și zecimale</string>
+    <string name="lesson_mat_6_2">Operații cu fracții</string>
+    <string name="lesson_desc_mat_6_2">Adunarea, scăderea, înmulțirea și împărțirea fracțiilor</string>
+    <string name="lesson_mat_6_3">Compararea fracțiilor</string>
+    <string name="lesson_desc_mat_6_3">Compararea valorilor fracțiilor ordinare și zecimale</string>
+    <string name="lesson_mat_6_4">Fracții zecimale</string>
+    <string name="lesson_desc_mat_6_4">Operații cu numere zecimale și aplicațiile lor</string>
+    <string name="lesson_mat_7_1">Procentul dintr-un număr</string>
+    <string name="lesson_desc_mat_7_1">Calcularea procentului dintr-un număr dat</string>
+    <string name="lesson_mat_7_2">Reduceri și scumpiri</string>
+    <string name="lesson_desc_mat_7_2">Modificări procentuale de prețuri și valori</string>
+    <string name="lesson_mat_7_3">Probleme textuale</string>
+    <string name="lesson_desc_mat_7_3">Aplicarea procentelor în probleme practice</string>
+    <string name="lesson_mat_8_1">Proporții</string>
+    <string name="lesson_desc_mat_8_1">Rezolvarea proporțiilor directe și inverse</string>
+    <string name="lesson_mat_8_2">Scară</string>
+    <string name="lesson_desc_mat_8_2">Citirea și aplicarea scării pe hărți și planuri</string>
+    <string name="lesson_mat_8_3">Hartă și distanțe</string>
+    <string name="lesson_desc_mat_8_3">Calcularea distanțelor reale de pe hartă</string>
+    <string name="lesson_mat_9_1">Prisme</string>
+    <string name="lesson_desc_mat_9_1">Proprietățile și elementele prismelor</string>
+    <string name="lesson_mat_9_2">Piramide</string>
+    <string name="lesson_desc_mat_9_2">Proprietățile și elementele piramidelor</string>
+    <string name="lesson_mat_9_3">Corpuri de rotație</string>
+    <string name="lesson_desc_mat_9_3">Cilindrul, conul și sfera și proprietățile lor</string>
+    <string name="lesson_mat_9_4">Arii ale corpurilor</string>
+    <string name="lesson_desc_mat_9_4">Calcularea ariilor suprafețelor corpurilor geometrice</string>
+    <string name="lesson_mat_9_5">Volumul corpurilor</string>
+    <string name="lesson_desc_mat_9_5">Calcularea volumelor corpurilor geometrice</string>
+    <string name="lesson_mat_10_1">Sistem de coordonate</string>
+    <string name="lesson_desc_mat_10_1">Introducere în axele X și Y</string>
+    <string name="lesson_mat_10_2">Citirea punctelor</string>
+    <string name="lesson_desc_mat_10_2">Coordonatele punctelor în plan</string>
+    <string name="lesson_mat_10_3">Desenarea figurilor</string>
+    <string name="lesson_desc_mat_10_3">Desenarea liniilor și figurilor într-un sistem de coordonate</string>
+    <string name="lesson_mat_10_4">Distanța dintre puncte</string>
+    <string name="lesson_desc_mat_10_4">Calcularea distanței dintre două puncte</string>
+    <string name="lesson_mat_11_1">Medie aritmetică</string>
+    <string name="lesson_desc_mat_11_1">Calcularea mediei aritmetice a datelor</string>
+    <string name="lesson_mat_11_2">Mediană și mod</string>
+    <string name="lesson_desc_mat_11_2">Determinarea medianei și a modului în seturi de date</string>
+    <string name="lesson_mat_11_3">Grafice și diagrame</string>
+    <string name="lesson_desc_mat_11_3">Citirea și crearea graficelor și diagramelor</string>
+    <string name="lesson_mat_11_4">Probabilitatea unor evenimente simple</string>
+    <string name="lesson_desc_mat_11_4">Calcularea probabilității unor evenimente aleatorii simple</string>
+    <string name="lesson_mat_12_1">Numere pozitive și negative</string>
+    <string name="lesson_desc_mat_12_1">Introducere în numerele întregi</string>
+    <string name="lesson_mat_12_2">Adunare și scădere</string>
+    <string name="lesson_desc_mat_12_2">Operații cu numere întregi</string>
+    <string name="lesson_mat_12_3">Înmulțire și împărțire</string>
+    <string name="lesson_desc_mat_12_3">Operații cu numere întregi</string>
+
+    <!-- Database corruption / error screen -->
+    <string name="database_error_title">Eroare bază de date</string>
+    <string name="database_error_desc">Aplicația a întâlnit o eroare la deschiderea sau migrarea bazei de date. Puteți reseta baza de date (care va șterge progresul local și va restaura aplicația) sau închide aplicația și aștepta o remediere.</string>
+    <string name="database_error_tech_details">Detalii tehnice:</string>
+    <string name="database_error_reset_progress">Resetați progresul</string>
+    <string name="database_error_exit_app">Ieșiți din aplicație</string>
+
+    <string name="placeholder_factorize">ex. (x+2)(x-3)</string>
     <string name="subject_matematyka_rozszerzona">Matematică avansată</string>
     <string name="topic_mat_roz_1">Funcții și transformări</string>
     <string name="topic_desc_mat_roz_1">Parametri, grafice și valoare absolută</string>

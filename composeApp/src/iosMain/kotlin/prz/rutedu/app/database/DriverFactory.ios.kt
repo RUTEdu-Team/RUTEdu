@@ -27,4 +27,14 @@ actual class DriverFactory {
             name = "test.db"
         )
     }
+
+    actual fun deleteDatabase(): Boolean {
+        return try {
+            co.touchlab.sqliter.DatabaseFileContext.deleteDatabase("test.db", null)
+            true
+        } catch (e: Exception) {
+            println("DriverFactory: Failed to delete native database: ${e.message}")
+            false
+        }
+    }
 }

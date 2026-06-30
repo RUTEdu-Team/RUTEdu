@@ -43,6 +43,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.withTransform
+import kotlin.math.hypot
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.text.font.FontWeight
@@ -71,6 +72,18 @@ private val COLOR_SELECTED = Color(0xFFF4A430)
 /** Wrong answer highlight color. */
 private val COLOR_WRONG    = Color(0xFFE53935)
 
+/** Resource path to `files/polish_national_parks.geojson`. */
+private const val NATIONAL_PARKS_MAP_FILE = "files/polish_national_parks.geojson"
+/** Tap target radius for national-park markers (canvas coords before zoom). */
+private const val PARK_MARKER_RADIUS = 18f
+/** Max distance to snap a tap to the nearest park marker. */
+private const val PARK_MARKER_SNAP_RADIUS = 36f
+/** How far the map may be dragged past the canvas edge (px). */
+private const val MAP_PAN_OVERSCROLL_PX = 40f
+
+/** @return `true` when [mapFile] is [NATIONAL_PARKS_MAP_FILE]. */
+private fun isNationalParksMap(mapFile: String) = mapFile == NATIONAL_PARKS_MAP_FILE
+
 /**
  * Returns `true` if any of this country's rings has its centroid within [r]'s bounding box
  * plus a `margin` degree buffer.
@@ -83,13 +96,8 @@ private val COLOR_WRONG    = Color(0xFFE53935)
  */
 private fun CountryFeature.hasRingNear(r: MapRegion): Boolean {
     val margin = 10f
-    return rings.any { ring ->
-        if (ring.isEmpty()) return@any false
-        val avgLon = ring.map { it.lon }.average().toFloat()
-        val avgLat = ring.map { it.lat }.average().toFloat()
-        avgLon in (r.lonMin - margin)..(r.lonMax + margin) &&
-                avgLat in (r.latMin - margin)..(r.latMax + margin)
-    }
+    return centerLon in (r.lonMin - margin)..(r.lonMax + margin) &&
+            centerLat in (r.latMin - margin)..(r.latMax + margin)
 }
 
 /**
@@ -126,13 +134,92 @@ private fun pointInPolygon(px: Float, py: Float, polygon: List<Offset>): Boolean
 private data class ScreenRing(val offsets: List<Offset>, val path: Path)
 
 /**
- * Pairing of the original [CountryFeature] with its per-ring screen projections.
- * The feature is kept so the composable can compare [CountryFeature.name] against the answer key.
+ * Letterboxed map rectangle in canvas pixels (before pan/zoom transform).
  *
- * @property feature The source [CountryFeature] from the GeoJSON data.
- * @property rings   Per-ring screen projections computed by `buildScreenCountries`.
+ * Used by [clampPanOffset] to keep the projected map from being panned entirely off-screen.
  */
-private data class ScreenCountry(val feature: CountryFeature, val rings: List<ScreenRing>)
+private data class MapScreenLayout(
+    val originX: Float,
+    val originY: Float,
+    val mapW: Float,
+    val mapH: Float,
+    val canvasW: Float,
+    val canvasH: Float,
+) {
+    val centerX get() = canvasW / 2f
+    val centerY get() = canvasH / 2f
+}
+
+/**
+ * Pairing of the original [CountryFeature] with its per-ring screen projections.
+ *
+ * When [isNationalParksMap] applies, selectable features include [markerCenter] for dot rendering.
+ *
+ * @property feature       Source feature from GeoJSON ([CountryFeature.name] matches [Question.MapQuiz.countryKey]).
+ * @property rings         Per-ring paths in canvas space (polygons).
+ * @property markerCenter  Centroid for park dot mode; `null` for standard polygon quizzes.
+ */
+private data class ScreenCountry(
+    val feature: CountryFeature,
+    val rings: List<ScreenRing>,
+    val markerCenter: Offset? = null,
+)
+
+/**
+ * Clamps [pan] so the zoomed map rectangle stays at least partially visible on the canvas.
+ *
+ * Screen position of the map edges (before [pan]): `edge + pan`. When the map is larger than
+ * the canvas, [pan] may span a wide range so the user can reach every part of the map.
+ *
+ * @param pan    Current pan offset applied after `Modifier.transformable`.
+ * @param zoom   Current uniform zoom scale around canvas center.
+ * @param layout Letterboxed map bounds from [computeMapLayout].
+ */
+private fun clampPanOffset(pan: Offset, zoom: Float, layout: MapScreenLayout): Offset {
+    val cx = layout.centerX
+    val cy = layout.centerY
+    val mapLeft = (layout.originX - cx) * zoom + cx
+    val mapRight = (layout.originX + layout.mapW - cx) * zoom + cx
+    val mapTop = (layout.originY - cy) * zoom + cy
+    val mapBottom = (layout.originY + layout.mapH - cy) * zoom + cy
+    val overscroll = MAP_PAN_OVERSCROLL_PX
+
+    // mapRight + pan.x >= -overscroll  and  mapLeft + pan.x <= canvasW + overscroll
+    val minPanX = -overscroll - mapRight
+    val maxPanX = layout.canvasW + overscroll - mapLeft
+    val minPanY = -overscroll - mapBottom
+    val maxPanY = layout.canvasH + overscroll - mapTop
+
+    return Offset(
+        x = pan.x.coerceIn(minPanX, maxPanX),
+        y = pan.y.coerceIn(minPanY, maxPanY),
+    )
+}
+
+/**
+ * Computes the letterboxed map rectangle for [r] inside a canvas of the given size.
+ * Shared by [buildScreenCountries] and [clampPanOffset].
+ */
+private fun computeMapLayout(canvasW: Float, canvasH: Float, r: MapRegion): MapScreenLayout {
+    val midLatRad = ((r.latMin + r.latMax) / 2f) * (PI / 180.0).toFloat()
+    val lonCorrection = cos(midLatRad)
+    val lonRange = r.lonMax - r.lonMin
+    val latRange = r.latMax - r.latMin
+    val naturalAR = (lonRange * lonCorrection) / latRange
+    val (mapW, mapH) = if (canvasW / canvasH > naturalAR) {
+        Pair(canvasH * naturalAR, canvasH)
+    } else {
+        Pair(canvasW, canvasW / naturalAR)
+    }
+    return MapScreenLayout(
+        originX = (canvasW - mapW) / 2f,
+        originY = (canvasH - mapH) / 2f,
+        mapW = mapW,
+        mapH = mapH,
+        canvasW = canvasW,
+        canvasH = canvasH,
+    )
+}
 
 /**
  * Projects each [CountryFeature]'s geographic rings into canvas pixel coordinates using an
@@ -146,39 +233,31 @@ private data class ScreenCountry(val feature: CountryFeature, val rings: List<Sc
  * ```
  *
  * **Letterboxing:** the map rectangle (`mapW` x `mapH`) is centered inside (`canvasW` x `canvasH`)
- * to preserve the natural aspect ratio. Empty bars appear on the short sides when the canvas
- * aspect ratio does not match the geographic region's corrected aspect ratio.
+ * to preserve the natural aspect ratio.
  *
- * This function is called from `remember(countries, canvasSize, region)` so it only recomputes
- * when the canvas is resized or the question changes - not on every recomposition.
- *
- * @param features All country features to project (pre-filtered to the region by [hasRingNear]).
- * @param canvasW  Canvas width in pixels.
- * @param canvasH  Canvas height in pixels.
- * @param r        The geographic bounding box that defines the visible map area.
+ * @param features       Features to project (pre-filtered by [hasRingNear]).
+ * @param canvasW        Canvas width in pixels.
+ * @param canvasH        Canvas height in pixels.
+ * @param r              Geographic bounding box for the visible map area.
+ * @param useParkMarkers When `true`, selectable features get [ScreenCountry.markerCenter] dots.
  * @return List of [ScreenCountry] objects ready for drawing and hit-testing.
  */
 private fun buildScreenCountries(
     features: List<CountryFeature>,
     canvasW: Float,
     canvasH: Float,
-    r: MapRegion
+    r: MapRegion,
+    useParkMarkers: Boolean,
 ): List<ScreenCountry> {
+    val layout = computeMapLayout(canvasW, canvasH, r)
+    val originX = layout.originX
+    val originY = layout.originY
+    val mapW = layout.mapW
+    val mapH = layout.mapH
     val midLatRad = ((r.latMin + r.latMax) / 2f) * (PI / 180.0).toFloat()
-    val lonCorrection = cos(midLatRad) // squish longitude at high latitudes
+    val lonCorrection = cos(midLatRad)
     val lonRange = r.lonMax - r.lonMin
     val latRange = r.latMax - r.latMin
-    val naturalAR = (lonRange * lonCorrection) / latRange // natural width/height ratio
-
-    // Fit map inside canvas while keeping aspect ratio (letterbox).
-    // Choose the axis that is the binding constraint so the map fills as much of the canvas as possible.
-    val (mapW, mapH) = if (canvasW / canvasH > naturalAR) {
-        Pair(canvasH * naturalAR, canvasH)
-    } else {
-        Pair(canvasW, canvasW / naturalAR)
-    }
-    val originX = (canvasW - mapW) / 2f
-    val originY = (canvasH - mapH) / 2f
 
     return features.map { feature ->
         val screenRings = feature.rings.map { ring ->
@@ -196,41 +275,63 @@ private fun buildScreenCountries(
             }
             ScreenRing(offsets, path)
         }
-        ScreenCountry(feature, screenRings)
+        val markerCenter = if (useParkMarkers && feature.selectable && screenRings.isNotEmpty()) {
+            val allPts = screenRings.flatMap { it.offsets }
+            if (allPts.isEmpty()) null
+            else Offset(
+                x = allPts.map { it.x }.average().toFloat(),
+                y = allPts.map { it.y }.average().toFloat(),
+            )
+        } else null
+        ScreenCountry(feature, screenRings, markerCenter)
     }
 }
 
 /**
- * Returns `true` if [tap] (canvas pixel coordinates) falls inside any ring of [country].
- *
- * Multi-ring countries (e.g. archipelagos) are handled correctly because `any` checks each
- * island ring separately - the tap only needs to land in one of them.
+ * Returns `true` if [tap] hits [country] — polygon ray-cast or circular marker (park mode).
  */
-private fun hitTest(tap: Offset, country: ScreenCountry): Boolean =
-    country.rings.any { ring -> pointInPolygon(tap.x, tap.y, ring.offsets) }
+private fun hitTest(tap: Offset, country: ScreenCountry): Boolean {
+    country.markerCenter?.let { center ->
+        return hypot(tap.x - center.x, tap.y - center.y) <= PARK_MARKER_SNAP_RADIUS
+    }
+    return country.rings.any { ring -> pointInPolygon(tap.x, tap.y, ring.offsets) }
+}
 
 /**
- * Interactive map quiz where the student taps a country to answer the question.
+ * When [isNationalParksMap] is active, returns the closest park marker within [PARK_MARKER_SNAP_RADIUS].
+ */
+private fun nearestParkMarker(tap: Offset, countries: List<ScreenCountry>): ScreenCountry? =
+    countries
+        .asSequence()
+        .filter { it.feature.selectable && it.markerCenter != null }
+        .mapNotNull { sc ->
+            val c = sc.markerCenter!!
+            val d = hypot(tap.x - c.x, tap.y - c.y)
+            if (d <= PARK_MARKER_SNAP_RADIUS) sc to d else null
+        }
+        .minByOrNull { it.second }
+        ?.first
+
+/**
+ * Interactive map quiz where the student taps a region on a zoomable map.
  *
  * ## Data flow
- * 1. GeoJSON country data is loaded once from [loadCountries] and cached globally.
- * 2. On each render (and whenever `canvasSize` changes), [buildScreenCountries] reprojects
- *    only the countries near [Question.MapQuiz.region] into canvas coordinates.
- * 3. When the user taps the canvas, the raw tap coordinate is **un-transformed** (reversing the
- *    current pan/zoom) before being passed to [hitTest]. This keeps hit-testing simple - it
- *    always works in the base (unzoomed) coordinate space.
- * 4. "Sprawdź" compares the selected country name to [Question.MapQuiz.countryKey] and calls
- *    [onCorrect] or [onWrong].
+ * 1. GeoJSON is loaded via [prz.rutedu.app.geo.loadGeoJson] ([Question.MapQuiz.mapFile]) and cached.
+ * 2. [buildScreenCountries] projects features near [Question.MapQuiz.region] into canvas space.
+ * 3. Tap coordinates are inverted from pan/zoom, then matched via [hitTest] or [nearestParkMarker].
+ * 4. "Sprawdź" compares the selection to [Question.MapQuiz.countryKey].
+ *
+ * ## National parks ([NATIONAL_PARKS_MAP_FILE])
+ * - Non-selectable background features (e.g. Poland outline) use [CountryFeature.selectable].
+ * - Selectable parks render as dots; [nearestParkMarker] snaps within [PARK_MARKER_SNAP_RADIUS].
  *
  * ## Zoom / pan
- * Pinch-zoom and single-finger pan are implemented via `Modifier.transformable`. The transform
- * is applied as a `withTransform { translate; scale }` block inside the Canvas, so the hit-test
- * inversion must mirror this: `base = (tap - pan - pivot) / scale + pivot`.
+ * - Pan and pinch-zoom via `Modifier.transformable` (outermost in the modifier chain).
+ * - [clampPanOffset] keeps the map at least partially on screen.
+ * - Tap hit-test uses base coordinates: `base = (tap - pan - pivot) / scale + pivot`.
  *
  * ## State reset
- * All per-question state (`selectedCountry`, `isWrong`, `panOffset`, `zoomScale`) is keyed on
- * `question.id` via `remember(question.id)` so navigating to the next question resets the map
- * to its default zoom/position without needing explicit reset logic.
+ * Per-question state is keyed on `question.id` via `remember(question.id)`.
  *
  * @param question      The map quiz question: bounding region, country key, hint, and prompt text.
  * @param accentColor   Subject accent color for buttons and UI accents.
@@ -263,19 +364,33 @@ internal fun MapQuizContent(
     val selectedColor = if (isDark) Color(0xFFE08D1E) else COLOR_SELECTED
 
     val region = question.region
-    val screenCountries = remember(countries, canvasSize, region) {
+    val useParkMarkers = isNationalParksMap(question.mapFile)
+
+    val mapLayout = remember(canvasSize, region) {
+        val cs = canvasSize ?: return@remember null
+        computeMapLayout(cs.first.toFloat(), cs.second.toFloat(), region)
+    }
+
+    val screenCountries = remember(countries, canvasSize, region, useParkMarkers) {
         val cs = canvasSize ?: return@remember emptyList()
         buildScreenCountries(
             countries.filter { it.hasRingNear(region) },
             cs.first.toFloat(),
             cs.second.toFloat(),
-            region
+            region,
+            useParkMarkers,
         )
     }
 
     val transformableState = rememberTransformableState { zoomChange, panChange, _ ->
+        val layout = mapLayout ?: return@rememberTransformableState
         zoomScale = (zoomScale * zoomChange).coerceIn(0.5f, 8f)
-        panOffset += panChange
+        panOffset = clampPanOffset(panOffset + panChange, zoomScale, layout)
+    }
+
+    LaunchedEffect(zoomScale, mapLayout) {
+        val layout = mapLayout ?: return@LaunchedEffect
+        panOffset = clampPanOffset(panOffset, zoomScale, layout)
     }
 
     LaunchedEffect(question.mapFile) {
@@ -343,10 +458,6 @@ internal fun MapQuizContent(
                     modifier = Modifier
                         .fillMaxSize()
                         .onSizeChanged { cs -> canvasSize = Pair(cs.width, cs.height) }
-                        // transformable handles single-finger pan + two-finger pinch zoom
-                        .transformable(state = transformableState)
-                        // pointerInput for tap - MUST include question.id so it restarts
-                        // on each new question and captures the fresh selectedCountry state
                         .pointerInput(screenCountries, question.id) {
                             detectTapGestures { tap ->
                                 val cs = canvasSize ?: return@detectTapGestures
@@ -354,22 +465,25 @@ internal fun MapQuizContent(
                                 val h = cs.second.toFloat()
                                 val cx = w / 2f
                                 val cy = h / 2f
-                                // The Canvas draws with: visual = (base - pivot) * scale + pivot + pan
-                                // To find which base coordinate the user tapped, invert that:
-                                //   base = (visual - pan - pivot)/scale + pivot
-                                // Without this inversion, tapping a zoomed-in country would test
-                                // the wrong coordinates and miss the polygon.
+                                // Invert pan/zoom: base = (visual - pan - pivot) / scale + pivot
                                 val base = Offset(
                                     x = (tap.x - panOffset.x - cx) / zoomScale + cx,
                                     y = (tap.y - panOffset.y - cy) / zoomScale + cy
                                 )
-                                val hit = screenCountries.firstOrNull { hitTest(base, it) }
+                                val hit = if (useParkMarkers) {
+                                    nearestParkMarker(base, screenCountries)
+                                } else {
+                                    screenCountries
+                                        .asReversed()
+                                        .firstOrNull { it.feature.selectable && hitTest(base, it) }
+                                }
                                 if (hit != null) {
                                     selectedCountry = hit.feature.name
                                     isWrong = false
                                 }
                             }
                         }
+                        .transformable(state = transformableState)
                 ) {
                     drawRect(color = oceanColor)
 
@@ -379,21 +493,37 @@ internal fun MapQuizContent(
                             scale(zoomScale, zoomScale, center)
                         }
                     ) {
-                        // Unselected countries first
-                        screenCountries.forEach { sc ->
-                            if (sc.feature.name != selectedCountry) {
-                                sc.rings.forEach { ring ->
-                                    drawPath(ring.path, color = countryColor)
-                                    drawPath(ring.path, color = borderColor, style = Stroke(width = 1.2f))
-                                }
-                            }
-                        }
-                        // Selected country drawn on top
-                        screenCountries.firstOrNull { it.feature.name == selectedCountry }?.let { sc ->
-                            val fill = if (isWrong) COLOR_WRONG else selectedColor
+                        fun drawPolygons(sc: ScreenCountry, fill: Color, strokeW: Float) {
                             sc.rings.forEach { ring ->
                                 drawPath(ring.path, color = fill)
-                                drawPath(ring.path, color = borderColor, style = Stroke(width = 1.8f))
+                                drawPath(ring.path, color = borderColor, style = Stroke(width = strokeW))
+                            }
+                        }
+
+                        fun drawMarker(center: Offset, fill: Color, radius: Float, strokeW: Float) {
+                            drawCircle(color = fill, radius = radius, center = center)
+                            drawCircle(
+                                color = borderColor,
+                                radius = radius,
+                                center = center,
+                                style = Stroke(width = strokeW),
+                            )
+                        }
+
+                        screenCountries.forEach { sc ->
+                            if (sc.feature.name == selectedCountry) return@forEach
+                            if (sc.markerCenter != null) {
+                                drawMarker(sc.markerCenter, countryColor, PARK_MARKER_RADIUS, 1.2f)
+                            } else {
+                                drawPolygons(sc, countryColor, 1.2f)
+                            }
+                        }
+                        screenCountries.firstOrNull { it.feature.name == selectedCountry }?.let { sc ->
+                            val fill = if (isWrong) COLOR_WRONG else selectedColor
+                            if (sc.markerCenter != null) {
+                                drawMarker(sc.markerCenter, fill, PARK_MARKER_RADIUS + 3f, 1.8f)
+                            } else {
+                                drawPolygons(sc, fill, 1.8f)
                             }
                         }
                     }

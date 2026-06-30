@@ -129,6 +129,41 @@ WHERE player_id = ? AND game_mode = ? AND level = ?;
 
 -- Check if previous level is completed (for unlocking)
 isPreviousLevelCompleted:
-SELECT completed FROM levelProgress 
+SELECT completed FROM levelProgress
 WHERE player_id = ? AND game_mode = ? AND level = ?;
 
+-- Stored questions table for lesson quiz questions, partitioned by subject (math/geo/chem).
+-- Each row holds the full JSON-serialised QuestionDto for one question in one language.
+CREATE TABLE storedQuestion (
+  lesson_id TEXT NOT NULL,
+  question_id INTEGER NOT NULL,
+  language TEXT NOT NULL,
+  subject TEXT NOT NULL DEFAULT '',
+  type TEXT NOT NULL,
+  data_json TEXT NOT NULL,
+  PRIMARY KEY (lesson_id, question_id, language)
+);
+
+-- Get questions for a lesson and language, ordered for stable quiz presentation
+getQuestionsForLesson:
+SELECT * FROM storedQuestion
+WHERE lesson_id = ? AND language = ?
+ORDER BY question_id ASC;
+
+-- Insert or replace a question (upsert semantics - safe to re-seed)
+upsertQuestion:
+INSERT OR REPLACE INTO storedQuestion (lesson_id, question_id, language, subject, type, data_json)
+VALUES (?, ?, ?, ?, ?, ?);
+
+-- Count questions for a lesson and language (used by seeding version checks)
+countQuestionsForLesson:
+SELECT COUNT(*) FROM storedQuestion
+WHERE lesson_id = ? AND language = ?;
+
+-- Returns total row count; used to detect an empty (unseeded) database on first launch
+hasAnyQuestions:
+SELECT COUNT(*) FROM storedQuestion;
+
+-- Wipe all stored questions so the database can be fully re-seeded on next launch
+clearStoredQuestions:
+DELETE FROM storedQuestion;

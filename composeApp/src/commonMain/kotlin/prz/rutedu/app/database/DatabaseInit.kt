@@ -11,8 +11,8 @@ import app.cash.sqldelight.db.SqlDriver
  * function creates all tables with `CREATE TABLE IF NOT EXISTS` so it is safe to
  * call on every app launch without risk of data loss or duplicate errors.
  *
- * **Call site:** `MainActivity.onCreate` (Android) / `MainViewController` (iOS), before
- * passing the driver to `App()`.
+ * **Call site:** inside `App()` after the driver is successfully opened, or from
+ * `DriverFactory.createDriver()` before returning the driver to the caller.
  *
  * @param driver The platform-specific SQLite driver obtained from [DriverFactory].
  */
@@ -50,6 +50,24 @@ fun ensureTablesExist(driver: SqlDriver) {
                 high_score INTEGER NOT NULL DEFAULT 0,
                 games_played INTEGER NOT NULL DEFAULT 0,
                 created_at INTEGER NOT NULL DEFAULT (strftime('%s', 'now'))
+            )
+        """.trimIndent(),
+        parameters = 0
+    )
+
+    // Per-subject quiz question store seeded from bundled JSON assets (math / geo / chem).
+    // The subject column allows efficient re-seeding of a single subject without touching others.
+    driver.execute(
+        identifier = null,
+        sql = """
+            CREATE TABLE IF NOT EXISTS storedQuestion (
+                lesson_id TEXT NOT NULL,
+                question_id INTEGER NOT NULL,
+                language TEXT NOT NULL,
+                subject TEXT NOT NULL DEFAULT '',
+                type TEXT NOT NULL,
+                data_json TEXT NOT NULL,
+                PRIMARY KEY (lesson_id, question_id, language)
             )
         """.trimIndent(),
         parameters = 0

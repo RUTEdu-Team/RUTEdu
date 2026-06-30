@@ -6,6 +6,21 @@ import androidx.compose.runtime.ProvidedValue
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import prz.rutedu.app.getSystemLanguage
+
+
+/**
+ * Returns the currently active language code, checking [customAppLocale]
+ * first and falling back to the detected system language.
+ *
+ * Checks if the language is supported by [prz.rutedu.app.data.QuestionBank], falling back to `"en"`.
+ */
+fun getCurrentLanguage(): String {
+    val raw = customAppLocale ?: getSystemLanguage()
+    val lang = raw.lowercase().substringBefore("-").substringBefore("_")
+    return if (lang in prz.rutedu.app.data.QuestionBank.SUPPORTED_QUESTION_LANGS) lang else "en"
+}
+
 
 /**
  * Global mutable state that holds the user's selected language code
